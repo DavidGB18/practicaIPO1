@@ -280,6 +280,12 @@ public class UI_Gestor {
 			{
 				panelMigas = new JPanel();
 				panelMenuPrincipal.add(panelMigas, BorderLayout.WEST);
+				GridBagLayout gbl_panelMigas = new GridBagLayout();
+				gbl_panelMigas.columnWidths = new int[]{133, 0};
+				gbl_panelMigas.rowHeights = new int[]{112, 0};
+				gbl_panelMigas.columnWeights = new double[]{0.0, Double.MIN_VALUE};
+				gbl_panelMigas.rowWeights = new double[]{1.0, Double.MIN_VALUE};
+				panelMigas.setLayout(gbl_panelMigas);
 				{
 					treePrograma = new JTree();
 					treePrograma.setModel(new DefaultTreeModel(
@@ -302,7 +308,11 @@ public class UI_Gestor {
 							}
 						}
 					));
-					panelMigas.add(treePrograma);
+					GridBagConstraints gbc_treePrograma = new GridBagConstraints();
+					gbc_treePrograma.fill = GridBagConstraints.BOTH;
+					gbc_treePrograma.gridx = 0;
+					gbc_treePrograma.gridy = 0;
+					panelMigas.add(treePrograma, gbc_treePrograma);
 				}
 			}
 			{
