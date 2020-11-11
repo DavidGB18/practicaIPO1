@@ -224,7 +224,8 @@ public class UI_Gestor {
 				}
 				{
 					btnReservas = new JButton("");
-					btnReservas.setIcon(new ImageIcon(UI_Gestor.class.getResource("/presentacion/suitcase-1@3x.png")));
+					btnReservas.setBackground(new Color(152, 251, 152));
+					btnReservas.setIcon(new ImageIcon(UI_Gestor.class.getResource("/presentacion/calendar.png")));
 					btnReservas.setToolTipText("Reservas");
 					GridBagConstraints gbc_btnReservas = new GridBagConstraints();
 					gbc_btnReservas.fill = GridBagConstraints.BOTH;
