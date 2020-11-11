@@ -28,6 +28,10 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JTree;
 import javax.swing.JSeparator;
+import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.DefaultMutableTreeNode;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class UI_Gestor {
 
@@ -52,7 +56,6 @@ public class UI_Gestor {
 	private JPanel panel_3;
 	private JLabel lblFoto;
 	private JPanel panelMigas;
-	private JLabel lblprueba;
 	private JMenuBar menuBar;
 	private JMenu mnInicio;
 	private JMenu mnVer;
@@ -63,6 +66,8 @@ public class UI_Gestor {
 	private JButton btnCerrarSesion;
 	private JButton btnNewButton;
 	private JLabel lblInfo;
+	private JTree treePrograma;
+	private JLabel lblBanner;
 
 	/**
 	 * Launch the application.
@@ -92,7 +97,7 @@ public class UI_Gestor {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 851, 602);
+		frame.setBounds(100, 100, 849, 596);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new CardLayout(0, 0));
 		{
@@ -276,13 +281,48 @@ public class UI_Gestor {
 				panelMigas = new JPanel();
 				panelMenuPrincipal.add(panelMigas, BorderLayout.WEST);
 				{
-					lblprueba = new JLabel("aqui iran las migas de pan");
-					panelMigas.add(lblprueba);
+					treePrograma = new JTree();
+					treePrograma.setModel(new DefaultTreeModel(
+						new DefaultMutableTreeNode("Gestor") {
+							{
+								DefaultMutableTreeNode node_1;
+								node_1 = new DefaultMutableTreeNode("Parcelas-Bungalows");
+									node_1.add(new DefaultMutableTreeNode("parcelas"));
+									node_1.add(new DefaultMutableTreeNode("Bungalows"));
+								add(node_1);
+								node_1 = new DefaultMutableTreeNode("Reservas");
+									node_1.add(new DefaultMutableTreeNode("Hacer Reserva"));
+									node_1.add(new DefaultMutableTreeNode("Modificar Reserva"));
+									node_1.add(new DefaultMutableTreeNode("Borrar Reserva"));
+								add(node_1);
+								add(new DefaultMutableTreeNode("Actividades"));
+								add(new DefaultMutableTreeNode("Rutas"));
+								add(new DefaultMutableTreeNode("Monitores"));
+								add(new DefaultMutableTreeNode("Configuracion"));
+							}
+						}
+					));
+					panelMigas.add(treePrograma);
 				}
 			}
 			{
 				panelBanner = new JPanel();
 				panelMenuPrincipal.add(panelBanner, BorderLayout.NORTH);
+				GridBagLayout gbl_panelBanner = new GridBagLayout();
+				gbl_panelBanner.columnWidths = new int[]{844, 0};
+				gbl_panelBanner.rowHeights = new int[]{50, 0};
+				gbl_panelBanner.columnWeights = new double[]{0.0, Double.MIN_VALUE};
+				gbl_panelBanner.rowWeights = new double[]{0.0, Double.MIN_VALUE};
+				panelBanner.setLayout(gbl_panelBanner);
+				{
+					lblBanner = new JLabel("");
+					lblBanner.setIcon(new ImageIcon(UI_Gestor.class.getResource("/presentacion/banner.jpg")));
+					GridBagConstraints gbc_lblBanner = new GridBagConstraints();
+					gbc_lblBanner.fill = GridBagConstraints.VERTICAL;
+					gbc_lblBanner.gridx = 0;
+					gbc_lblBanner.gridy = 0;
+					panelBanner.add(lblBanner, gbc_lblBanner);
+				}
 			}
 		}
 		{
@@ -316,4 +356,5 @@ public class UI_Gestor {
 			panel.show(frame.getContentPane(), e.getActionCommand());
 		}
 	}
+
 }
