@@ -18,16 +18,12 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.border.SoftBevelBorder;
-import javax.swing.border.BevelBorder;
 import java.awt.Color;
-import javax.swing.border.MatteBorder;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JTree;
-import javax.swing.JSeparator;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.DefaultMutableTreeNode;
 import java.awt.event.MouseAdapter;
@@ -156,6 +152,7 @@ public class UI_Gestor {
 					panelUsuarioPass.add(panel_3);
 					panel_3.setLayout(null);
 					{
+						
 						lblFoto = new JLabel("");
 						lblFoto.setIcon(new ImageIcon(UI_Gestor.class.getResource("/presentacion/user.png")));
 						lblFoto.setBounds(26, 10, 106, 131);
