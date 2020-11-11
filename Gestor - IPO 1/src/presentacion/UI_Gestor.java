@@ -32,6 +32,7 @@ import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.DefaultMutableTreeNode;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.SystemColor;
 
 public class UI_Gestor {
 
@@ -173,15 +174,15 @@ public class UI_Gestor {
 				GridBagLayout gbl_panelPrincipal = new GridBagLayout();
 				gbl_panelPrincipal.columnWidths = new int[]{0, -27, 160, 199, 217, 38, 0};
 				gbl_panelPrincipal.rowHeights = new int[]{21, 11, 0, 160, 160, 0, 0};
-				gbl_panelPrincipal.columnWeights = new double[]{0.0, 0.0, 1.0, 1.0, 1.0, 1.0, Double.MIN_VALUE};
+				gbl_panelPrincipal.columnWeights = new double[]{1.0, 0.0, 1.0, 1.0, 1.0, 1.0, Double.MIN_VALUE};
 				gbl_panelPrincipal.rowWeights = new double[]{0.0, 1.0, 0.0, 1.0, 1.0, 1.0, Double.MIN_VALUE};
 				panelPrincipal.setLayout(gbl_panelPrincipal);
 				{
-					lblInfo = new JLabel("Elija una opcion");
+					lblInfo = new JLabel("Seleccione una:");
 					lblInfo.setFont(new Font("Tahoma", Font.BOLD, 17));
 					GridBagConstraints gbc_lblInfo = new GridBagConstraints();
+					gbc_lblInfo.fill = GridBagConstraints.HORIZONTAL;
 					gbc_lblInfo.gridwidth = 2;
-					gbc_lblInfo.anchor = GridBagConstraints.WEST;
 					gbc_lblInfo.insets = new Insets(0, 0, 5, 5);
 					gbc_lblInfo.gridx = 2;
 					gbc_lblInfo.gridy = 1;
@@ -288,22 +289,45 @@ public class UI_Gestor {
 				panelMigas.setLayout(gbl_panelMigas);
 				{
 					treePrograma = new JTree();
+					treePrograma.setAutoscrolls(true);
+					treePrograma.setBackground(Color.WHITE);
+					treePrograma.setForeground(Color.WHITE);
 					treePrograma.setModel(new DefaultTreeModel(
 						new DefaultMutableTreeNode("Gestor") {
 							{
 								DefaultMutableTreeNode node_1;
+								DefaultMutableTreeNode node_2;
 								node_1 = new DefaultMutableTreeNode("Parcelas-Bungalows");
-									node_1.add(new DefaultMutableTreeNode("parcelas"));
-									node_1.add(new DefaultMutableTreeNode("Bungalows"));
+									node_2 = new DefaultMutableTreeNode("parcelas");
+										node_2.add(new DefaultMutableTreeNode("A\u00F1adir"));
+										node_2.add(new DefaultMutableTreeNode("Modificar"));
+										node_2.add(new DefaultMutableTreeNode("Borrar"));
+									node_1.add(node_2);
+									node_2 = new DefaultMutableTreeNode("Bungalows");
+										node_2.add(new DefaultMutableTreeNode("A\u00F1adir"));
+										node_2.add(new DefaultMutableTreeNode("Modificar"));
+										node_2.add(new DefaultMutableTreeNode("Borrar"));
+									node_1.add(node_2);
 								add(node_1);
 								node_1 = new DefaultMutableTreeNode("Reservas");
-									node_1.add(new DefaultMutableTreeNode("Hacer Reserva"));
-									node_1.add(new DefaultMutableTreeNode("Modificar Reserva"));
-									node_1.add(new DefaultMutableTreeNode("Borrar Reserva"));
+									node_1.add(new DefaultMutableTreeNode("A\u00F1adir"));
+									node_1.add(new DefaultMutableTreeNode("Modificar "));
+									node_1.add(new DefaultMutableTreeNode("Borrar "));
 								add(node_1);
-								add(new DefaultMutableTreeNode("Actividades"));
-								add(new DefaultMutableTreeNode("Rutas"));
-								add(new DefaultMutableTreeNode("Monitores"));
+								node_1 = new DefaultMutableTreeNode("Actividades");
+									node_1.add(new DefaultMutableTreeNode("A\u00F1adir"));
+									node_1.add(new DefaultMutableTreeNode("Modificar"));
+									node_1.add(new DefaultMutableTreeNode("Borrar"));
+								add(node_1);
+								node_1 = new DefaultMutableTreeNode("Rutas");
+									node_1.add(new DefaultMutableTreeNode("Consultar"));
+									node_1.add(new DefaultMutableTreeNode("Dise\u00F1ar"));
+								add(node_1);
+								node_1 = new DefaultMutableTreeNode("Monitores");
+									node_1.add(new DefaultMutableTreeNode("A\u00F1adir"));
+									node_1.add(new DefaultMutableTreeNode("Modificar"));
+									node_1.add(new DefaultMutableTreeNode("Borrar"));
+								add(node_1);
 								add(new DefaultMutableTreeNode("Configuracion"));
 							}
 						}
