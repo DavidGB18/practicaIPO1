@@ -13,6 +13,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JPasswordField;
 import javax.swing.SwingConstants;
 import java.awt.Font;
+import java.awt.Frame;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
@@ -24,6 +25,7 @@ import javax.swing.border.TitledBorder;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JTree;
+import javax.swing.MenuElement;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.DefaultMutableTreeNode;
 import java.awt.event.MouseAdapter;
@@ -32,6 +34,10 @@ import java.awt.SystemColor;
 import java.awt.FlowLayout;
 import javax.swing.JComboBox;
 import java.awt.Cursor;
+import javax.swing.event.ChangeListener;
+import javax.swing.event.ChangeEvent;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 
 public class UI_Gestor {
 
@@ -94,6 +100,7 @@ public class UI_Gestor {
 	private JButton btnGuardarCambios;
 	private JButton btnCancelarCambios;
 	private JLabel lblBarraDeEstado;
+	private int index = 0;
 
 	/**
 	 * Launch the application.
@@ -166,6 +173,7 @@ public class UI_Gestor {
 				}
 				{
 					btnIniciar = new JButton("Iniciar Sesión");
+					btnIniciar.addChangeListener(new BtnIniciarChangeListener());
 					btnIniciar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 					btnIniciar.addActionListener(new BtnPanelActionListener());
 					btnIniciar.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -334,6 +342,7 @@ public class UI_Gestor {
 					}
 					{
 						btnParcelasBungalows = new JButton("");
+						btnParcelasBungalows.addChangeListener(new BtnIniciarChangeListener());
 						btnParcelasBungalows.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 						btnParcelasBungalows.addActionListener(new BtnParcelasBungalowsActionListener());
 						btnParcelasBungalows.setIcon(new ImageIcon(UI_Gestor.class.getResource("/presentacion/home@3x.png")));
@@ -361,6 +370,7 @@ public class UI_Gestor {
 					}
 					{
 						btnActividades = new JButton("");
+						btnActividades.addChangeListener(new BtnIniciarChangeListener());
 						btnActividades.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 						btnActividades.addActionListener(new BtnActividadesActionListener());
 						btnActividades.setIcon(new ImageIcon(UI_Gestor.class.getResource("/presentacion/ping-pong@3x.png")));
@@ -374,6 +384,7 @@ public class UI_Gestor {
 					}
 					{
 						btnRutas = new JButton("");
+						btnRutas.addChangeListener(new BtnIniciarChangeListener());
 						btnRutas.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 						btnRutas.addActionListener(new BtnRutasActionListener());
 						btnRutas.setIcon(new ImageIcon(UI_Gestor.class.getResource("/presentacion/map@3x.png")));
@@ -387,6 +398,7 @@ public class UI_Gestor {
 					}
 					{
 						btnMonitores = new JButton("");
+						btnMonitores.addChangeListener(new BtnIniciarChangeListener());
 						btnMonitores.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 						btnMonitores.addActionListener(new BtnMonitoresActionListener());
 						btnMonitores.setIcon(new ImageIcon(UI_Gestor.class.getResource("/presentacion/users-1@3x.png")));
@@ -400,6 +412,7 @@ public class UI_Gestor {
 					}
 					{
 						btnConfiguracion = new JButton("");
+						btnConfiguracion.addChangeListener(new BtnIniciarChangeListener());
 						btnConfiguracion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 						btnConfiguracion.addActionListener(new BtnConfiguracionActionListener());
 						btnConfiguracion.setIcon(new ImageIcon(UI_Gestor.class.getResource("/presentacion/gears@3x.png")));
@@ -653,6 +666,21 @@ public class UI_Gestor {
 		public void actionPerformed(ActionEvent e) {
 			CardLayout panel = (CardLayout) (panelPrincipal.getLayout());
 			panel.show(panelPrincipal, "panelActividades");
+		}
+	}
+	private class BtnIniciarChangeListener implements ChangeListener {
+		public void stateChanged(ChangeEvent e) {
+			switch(index) {
+			case 0:
+				((JButton) e.getSource()).setBackground(new Color(254, 254, 190));
+				index++;
+			break;
+			case 1:
+				((JButton) e.getSource()).setBackground(null);
+				index--;
+			break;
+			}
+			
 		}
 	}
 }
