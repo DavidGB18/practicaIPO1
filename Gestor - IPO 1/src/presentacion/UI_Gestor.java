@@ -35,7 +35,7 @@ import java.awt.Cursor;
 
 public class UI_Gestor {
 
-	private JFrame frame;
+	private JFrame frmGestorLosOlivos;
 	private JPanel panelAutenticacion;
 	private JPanel panelMenuPrincipal;
 	private JLabel lblBarraEstado;
@@ -103,7 +103,7 @@ public class UI_Gestor {
 			public void run() {
 				try {
 					UI_Gestor window = new UI_Gestor();
-					window.frame.setVisible(true);
+					window.frmGestorLosOlivos.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -122,13 +122,14 @@ public class UI_Gestor {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 849, 596);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(new CardLayout(0, 0));
+		frmGestorLosOlivos = new JFrame();
+		frmGestorLosOlivos.setTitle("Gestor Los olivos");
+		frmGestorLosOlivos.setBounds(100, 100, 849, 596);
+		frmGestorLosOlivos.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmGestorLosOlivos.getContentPane().setLayout(new CardLayout(0, 0));
 		{
 			panelAutenticacion = new JPanel();
-			frame.getContentPane().add(panelAutenticacion, "PanelSesion");
+			frmGestorLosOlivos.getContentPane().add(panelAutenticacion, "PanelSesion");
 			panelAutenticacion.setLayout(new BorderLayout(0, 0));
 			{
 				lblBarraEstado = new JLabel("Barra de Estado");
@@ -195,7 +196,7 @@ public class UI_Gestor {
 		}
 		{
 			panelMenuPrincipal = new JPanel();
-			frame.getContentPane().add(panelMenuPrincipal, "Iniciar Sesión");
+			frmGestorLosOlivos.getContentPane().add(panelMenuPrincipal, "Iniciar Sesión");
 			panelMenuPrincipal.setLayout(new BorderLayout(0, 0));
 			{
 				panelMigas = new JPanel();
@@ -579,7 +580,7 @@ public class UI_Gestor {
 		}
 		{
 			menuBar = new JMenuBar();
-			frame.setJMenuBar(menuBar);
+			frmGestorLosOlivos.setJMenuBar(menuBar);
 			{
 				mnInicio = new JMenu("Inicio");
 				mnInicio.setMnemonic('I');
@@ -600,8 +601,8 @@ public class UI_Gestor {
 
 	private class BtnPanelActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			CardLayout panel = (CardLayout) (frame.getContentPane().getLayout());
-			panel.show(frame.getContentPane(), e.getActionCommand());
+			CardLayout panel = (CardLayout) (frmGestorLosOlivos.getContentPane().getLayout());
+			panel.show(frmGestorLosOlivos.getContentPane(), e.getActionCommand());
 		}
 	}
 	private class BtnReservasActionListener implements ActionListener {
@@ -632,8 +633,8 @@ public class UI_Gestor {
 	}
 	private class BtnCerrarSesionActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			CardLayout panel = (CardLayout) (frame.getContentPane().getLayout());
-			panel.show(frame.getContentPane(), "PanelSesion");
+			CardLayout panel = (CardLayout) (frmGestorLosOlivos.getContentPane().getLayout());
+			panel.show(frmGestorLosOlivos.getContentPane(), "PanelSesion");
 		}
 	}
 	private class BtnConfiguracionActionListener implements ActionListener {
