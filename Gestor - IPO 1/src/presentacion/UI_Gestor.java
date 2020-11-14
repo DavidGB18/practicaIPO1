@@ -29,6 +29,9 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.SystemColor;
+import java.awt.FlowLayout;
+import javax.swing.JComboBox;
+import java.awt.Cursor;
 
 public class UI_Gestor {
 
@@ -42,14 +45,6 @@ public class UI_Gestor {
 	private JTextField textUsuario;
 	private JButton btnIniciar;
 	private JPasswordField passwordField;
-	private JPanel panelPrincipal;
-	private JButton btnParcelasBungalows;
-	private JButton btnReservas;
-	private JButton btnActividades;
-	private JButton btnRutas;
-	private JButton btnMonitores;
-	private JButton btnConfiguracion;
-	private JPanel panelReservas;
 	private JPanel panel_3;
 	private JLabel lblFoto;
 	private JPanel panelMigas;
@@ -58,13 +53,47 @@ public class UI_Gestor {
 	private JMenu mnVer;
 	private JMenu mnAyuda;
 	private JPanel panelBanner;
-	private JPanel panelOpciones;
-	private JButton btnAyuda;
-	private JButton btnCerrarSesion;
-	private JButton btnNewButton;
-	private JLabel lblInfo;
 	private JTree treePrograma;
 	private JLabel lblBanner;
+	private JPanel panelPrincipal;
+	private JPanel panelBotones;
+	private JLabel lblInfo;
+	private JPanel panelOpciones;
+	private JButton btnCerrarSesion;
+	private JButton btnNewButton;
+	private JButton btnAyuda;
+	private JButton btnParcelasBungalows;
+	private JButton btnReservas;
+	private JButton btnActividades;
+	private JButton btnRutas;
+	private JButton btnMonitores;
+	private JButton btnConfiguracion;
+	private JPanel panelReservas;
+	private JButton btnNuevaReserva;
+	private JButton btnConsultarReserva;
+	private JButton btnBorrarReserva;
+	private JButton btnAyudaReservas;
+	private JPanel panelParcelasBungalos;
+	private JButton btnParcelas;
+	private JButton btnBungalows;
+	private JPanel panelRutas;
+	private JButton btnInfoRutas;
+	private JButton btnDiseñoRuta;
+	private JPanel panelConfiguracion;
+	private JPanel panelMonitores;
+	private JPanel panelActividades;
+	private JButton btnAyudaConfiguracion;
+	private JLabel lblIdioma;
+	private JLabel lblApariencia;
+	private JLabel lblTipoLetra;
+	private JLabel lblTamLetra;
+	private JComboBox comboBox;
+	private JComboBox comboBox_1;
+	private JComboBox comboBox_2;
+	private JComboBox comboBox_3;
+	private JButton btnGuardarCambios;
+	private JButton btnCancelarCambios;
+	private JLabel lblBarraDeEstado;
 
 	/**
 	 * Launch the application.
@@ -114,6 +143,7 @@ public class UI_Gestor {
 				panelUsuarioPass.setLayout(null);
 				{
 					lblUsuario = new JLabel("Usuario:");
+					lblUsuario.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 					lblUsuario.setFont(new Font("Tahoma", Font.PLAIN, 14));
 					lblUsuario.setHorizontalAlignment(SwingConstants.RIGHT);
 					lblUsuario.setBounds(376, 182, 75, 16);
@@ -121,6 +151,7 @@ public class UI_Gestor {
 				}
 				{
 					lblPass = new JLabel("Contrase\u00F1a:");
+					lblPass.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 					lblPass.setHorizontalAlignment(SwingConstants.RIGHT);
 					lblPass.setFont(new Font("Tahoma", Font.PLAIN, 14));
 					lblPass.setBounds(366, 235, 85, 13);
@@ -134,6 +165,7 @@ public class UI_Gestor {
 				}
 				{
 					btnIniciar = new JButton("Iniciar Sesión");
+					btnIniciar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 					btnIniciar.addActionListener(new BtnPanelActionListener());
 					btnIniciar.setFont(new Font("Tahoma", Font.PLAIN, 16));
 					btnIniciar.setBounds(444, 292, 161, 46);
@@ -165,117 +197,6 @@ public class UI_Gestor {
 			panelMenuPrincipal = new JPanel();
 			frame.getContentPane().add(panelMenuPrincipal, "Iniciar Sesión");
 			panelMenuPrincipal.setLayout(new BorderLayout(0, 0));
-			{
-				panelPrincipal = new JPanel();
-				panelMenuPrincipal.add(panelPrincipal, BorderLayout.CENTER);
-				GridBagLayout gbl_panelPrincipal = new GridBagLayout();
-				gbl_panelPrincipal.columnWidths = new int[]{0, -27, 160, 199, 217, 38, 0};
-				gbl_panelPrincipal.rowHeights = new int[]{21, 11, 0, 160, 160, 0, 0};
-				gbl_panelPrincipal.columnWeights = new double[]{1.0, 0.0, 1.0, 1.0, 1.0, 1.0, Double.MIN_VALUE};
-				gbl_panelPrincipal.rowWeights = new double[]{0.0, 1.0, 0.0, 1.0, 1.0, 1.0, Double.MIN_VALUE};
-				panelPrincipal.setLayout(gbl_panelPrincipal);
-				{
-					lblInfo = new JLabel("Seleccione una:");
-					lblInfo.setFont(new Font("Tahoma", Font.BOLD, 17));
-					GridBagConstraints gbc_lblInfo = new GridBagConstraints();
-					gbc_lblInfo.fill = GridBagConstraints.HORIZONTAL;
-					gbc_lblInfo.gridwidth = 2;
-					gbc_lblInfo.insets = new Insets(0, 0, 5, 5);
-					gbc_lblInfo.gridx = 2;
-					gbc_lblInfo.gridy = 1;
-					panelPrincipal.add(lblInfo, gbc_lblInfo);
-				}
-				{
-					panelOpciones = new JPanel();
-					GridBagConstraints gbc_panelOpciones = new GridBagConstraints();
-					gbc_panelOpciones.fill = GridBagConstraints.HORIZONTAL;
-					gbc_panelOpciones.insets = new Insets(0, 0, 5, 5);
-					gbc_panelOpciones.gridx = 4;
-					gbc_panelOpciones.gridy = 1;
-					panelPrincipal.add(panelOpciones, gbc_panelOpciones);
-					{
-						btnCerrarSesion = new JButton("Cerrar Sesion");
-						panelOpciones.add(btnCerrarSesion);
-					}
-					{
-						btnNewButton = new JButton("");
-						panelOpciones.add(btnNewButton);
-					}
-					{
-						btnAyuda = new JButton("");
-						btnAyuda.setBorder(null);
-						btnAyuda.setIcon(new ImageIcon(UI_Gestor.class.getResource("/presentacion/help.png")));
-						panelOpciones.add(btnAyuda);
-					}
-				}
-				{
-					btnParcelasBungalows = new JButton("");
-					btnParcelasBungalows.setIcon(new ImageIcon(UI_Gestor.class.getResource("/presentacion/home@3x.png")));
-					btnParcelasBungalows.setToolTipText("Parcelas / Bungalows");
-					GridBagConstraints gbc_btnParcelasBungalows = new GridBagConstraints();
-					gbc_btnParcelasBungalows.fill = GridBagConstraints.BOTH;
-					gbc_btnParcelasBungalows.insets = new Insets(0, 0, 5, 5);
-					gbc_btnParcelasBungalows.gridx = 2;
-					gbc_btnParcelasBungalows.gridy = 3;
-					panelPrincipal.add(btnParcelasBungalows, gbc_btnParcelasBungalows);
-				}
-				{
-					btnReservas = new JButton("");
-					btnReservas.setBackground(new Color(152, 251, 152));
-					btnReservas.setIcon(new ImageIcon(UI_Gestor.class.getResource("/presentacion/calendar.png")));
-					btnReservas.setToolTipText("Reservas");
-					GridBagConstraints gbc_btnReservas = new GridBagConstraints();
-					gbc_btnReservas.fill = GridBagConstraints.BOTH;
-					gbc_btnReservas.insets = new Insets(0, 0, 5, 5);
-					gbc_btnReservas.gridx = 3;
-					gbc_btnReservas.gridy = 3;
-					panelPrincipal.add(btnReservas, gbc_btnReservas);
-				}
-				{
-					btnActividades = new JButton("");
-					btnActividades.setIcon(new ImageIcon(UI_Gestor.class.getResource("/presentacion/ping-pong@3x.png")));
-					btnActividades.setToolTipText("Actividades");
-					GridBagConstraints gbc_btnActividades = new GridBagConstraints();
-					gbc_btnActividades.fill = GridBagConstraints.BOTH;
-					gbc_btnActividades.insets = new Insets(0, 0, 5, 5);
-					gbc_btnActividades.gridx = 4;
-					gbc_btnActividades.gridy = 3;
-					panelPrincipal.add(btnActividades, gbc_btnActividades);
-				}
-				{
-					btnRutas = new JButton("");
-					btnRutas.setIcon(new ImageIcon(UI_Gestor.class.getResource("/presentacion/map@3x.png")));
-					btnRutas.setToolTipText("Rutas");
-					GridBagConstraints gbc_btnRutas = new GridBagConstraints();
-					gbc_btnRutas.fill = GridBagConstraints.BOTH;
-					gbc_btnRutas.insets = new Insets(0, 0, 5, 5);
-					gbc_btnRutas.gridx = 2;
-					gbc_btnRutas.gridy = 4;
-					panelPrincipal.add(btnRutas, gbc_btnRutas);
-				}
-				{
-					btnMonitores = new JButton("");
-					btnMonitores.setIcon(new ImageIcon(UI_Gestor.class.getResource("/presentacion/users-1@3x.png")));
-					btnMonitores.setToolTipText("Monitores");
-					GridBagConstraints gbc_btnMonitores = new GridBagConstraints();
-					gbc_btnMonitores.fill = GridBagConstraints.BOTH;
-					gbc_btnMonitores.insets = new Insets(0, 0, 5, 5);
-					gbc_btnMonitores.gridx = 3;
-					gbc_btnMonitores.gridy = 4;
-					panelPrincipal.add(btnMonitores, gbc_btnMonitores);
-				}
-				{
-					btnConfiguracion = new JButton("");
-					btnConfiguracion.setIcon(new ImageIcon(UI_Gestor.class.getResource("/presentacion/gears@3x.png")));
-					btnConfiguracion.setToolTipText("Configuraci\u00F3n");
-					GridBagConstraints gbc_btnConfiguracion = new GridBagConstraints();
-					gbc_btnConfiguracion.fill = GridBagConstraints.BOTH;
-					gbc_btnConfiguracion.insets = new Insets(0, 0, 5, 5);
-					gbc_btnConfiguracion.gridx = 4;
-					gbc_btnConfiguracion.gridy = 4;
-					panelPrincipal.add(btnConfiguracion, gbc_btnConfiguracion);
-				}
-			}
 			{
 				panelMigas = new JPanel();
 				panelMenuPrincipal.add(panelMigas, BorderLayout.WEST);
@@ -348,6 +269,8 @@ public class UI_Gestor {
 				panelBanner.setLayout(gbl_panelBanner);
 				{
 					lblBanner = new JLabel("");
+					lblBanner.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+					lblBanner.addMouseListener(new LblBannerMouseListener());
 					lblBanner.setIcon(new ImageIcon(UI_Gestor.class.getResource("/presentacion/banner.jpg")));
 					GridBagConstraints gbc_lblBanner = new GridBagConstraints();
 					gbc_lblBanner.fill = GridBagConstraints.VERTICAL;
@@ -356,10 +279,303 @@ public class UI_Gestor {
 					panelBanner.add(lblBanner, gbc_lblBanner);
 				}
 			}
-		}
-		{
-			panelReservas = new JPanel();
-			frame.getContentPane().add(panelReservas, "name_789651186991000");
+			{
+				panelPrincipal = new JPanel();
+				panelMenuPrincipal.add(panelPrincipal, BorderLayout.CENTER);
+				panelPrincipal.setLayout(new CardLayout(0, 0));
+				{
+					panelBotones = new JPanel();
+					panelBotones.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+					panelPrincipal.add(panelBotones, "panelPrincipal");
+					GridBagLayout gbl_panelBotones = new GridBagLayout();
+					gbl_panelBotones.columnWidths = new int[]{-3, 204, 209, 195, 8, 0};
+					gbl_panelBotones.rowHeights = new int[]{0, 11, 0, 160, 160, 0, 0};
+					gbl_panelBotones.columnWeights = new double[]{1.0, 1.0, 1.0, 1.0, 0.0, Double.MIN_VALUE};
+					gbl_panelBotones.rowWeights = new double[]{1.0, 1.0, 0.0, 1.0, 1.0, 1.0, Double.MIN_VALUE};
+					panelBotones.setLayout(gbl_panelBotones);
+					{
+						lblInfo = new JLabel("Seleccione una:");
+						lblInfo.setFont(new Font("Tahoma", Font.BOLD, 17));
+						GridBagConstraints gbc_lblInfo = new GridBagConstraints();
+						gbc_lblInfo.fill = GridBagConstraints.HORIZONTAL;
+						gbc_lblInfo.gridwidth = 2;
+						gbc_lblInfo.insets = new Insets(0, 0, 5, 5);
+						gbc_lblInfo.gridx = 1;
+						gbc_lblInfo.gridy = 1;
+						panelBotones.add(lblInfo, gbc_lblInfo);
+					}
+					{
+						panelOpciones = new JPanel();
+						GridBagConstraints gbc_panelOpciones = new GridBagConstraints();
+						gbc_panelOpciones.fill = GridBagConstraints.HORIZONTAL;
+						gbc_panelOpciones.insets = new Insets(0, 0, 5, 5);
+						gbc_panelOpciones.gridx = 3;
+						gbc_panelOpciones.gridy = 1;
+						panelBotones.add(panelOpciones, gbc_panelOpciones);
+						{
+							btnCerrarSesion = new JButton("Cerrar Sesion");
+							btnCerrarSesion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+							btnCerrarSesion.addActionListener(new BtnCerrarSesionActionListener());
+							panelOpciones.add(btnCerrarSesion);
+						}
+						{
+							btnNewButton = new JButton("");
+							btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+							panelOpciones.add(btnNewButton);
+						}
+						{
+							btnAyuda = new JButton("");
+							btnAyuda.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+							btnAyuda.setIcon(new ImageIcon(UI_Gestor.class.getResource("/presentacion/help.png")));
+							btnAyuda.setBorder(null);
+							panelOpciones.add(btnAyuda);
+						}
+					}
+					{
+						btnParcelasBungalows = new JButton("");
+						btnParcelasBungalows.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+						btnParcelasBungalows.addActionListener(new BtnParcelasBungalowsActionListener());
+						btnParcelasBungalows.setIcon(new ImageIcon(UI_Gestor.class.getResource("/presentacion/home@3x.png")));
+						btnParcelasBungalows.setToolTipText("Parcelas / Bungalows");
+						GridBagConstraints gbc_btnParcelasBungalows = new GridBagConstraints();
+						gbc_btnParcelasBungalows.fill = GridBagConstraints.BOTH;
+						gbc_btnParcelasBungalows.insets = new Insets(0, 0, 5, 5);
+						gbc_btnParcelasBungalows.gridx = 1;
+						gbc_btnParcelasBungalows.gridy = 3;
+						panelBotones.add(btnParcelasBungalows, gbc_btnParcelasBungalows);
+					}
+					{
+						btnReservas = new JButton("");
+						btnReservas.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+						btnReservas.addActionListener(new BtnReservasActionListener());
+						btnReservas.setIcon(new ImageIcon(UI_Gestor.class.getResource("/presentacion/calendar.png")));
+						btnReservas.setToolTipText("Reservas");
+						btnReservas.setBackground(new Color(152, 251, 152));
+						GridBagConstraints gbc_btnReservas = new GridBagConstraints();
+						gbc_btnReservas.fill = GridBagConstraints.BOTH;
+						gbc_btnReservas.insets = new Insets(0, 0, 5, 5);
+						gbc_btnReservas.gridx = 2;
+						gbc_btnReservas.gridy = 3;
+						panelBotones.add(btnReservas, gbc_btnReservas);
+					}
+					{
+						btnActividades = new JButton("");
+						btnActividades.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+						btnActividades.addActionListener(new BtnActividadesActionListener());
+						btnActividades.setIcon(new ImageIcon(UI_Gestor.class.getResource("/presentacion/ping-pong@3x.png")));
+						btnActividades.setToolTipText("Actividades");
+						GridBagConstraints gbc_btnActividades = new GridBagConstraints();
+						gbc_btnActividades.fill = GridBagConstraints.BOTH;
+						gbc_btnActividades.insets = new Insets(0, 0, 5, 5);
+						gbc_btnActividades.gridx = 3;
+						gbc_btnActividades.gridy = 3;
+						panelBotones.add(btnActividades, gbc_btnActividades);
+					}
+					{
+						btnRutas = new JButton("");
+						btnRutas.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+						btnRutas.addActionListener(new BtnRutasActionListener());
+						btnRutas.setIcon(new ImageIcon(UI_Gestor.class.getResource("/presentacion/map@3x.png")));
+						btnRutas.setToolTipText("Rutas");
+						GridBagConstraints gbc_btnRutas = new GridBagConstraints();
+						gbc_btnRutas.fill = GridBagConstraints.BOTH;
+						gbc_btnRutas.insets = new Insets(0, 0, 5, 5);
+						gbc_btnRutas.gridx = 1;
+						gbc_btnRutas.gridy = 4;
+						panelBotones.add(btnRutas, gbc_btnRutas);
+					}
+					{
+						btnMonitores = new JButton("");
+						btnMonitores.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+						btnMonitores.addActionListener(new BtnMonitoresActionListener());
+						btnMonitores.setIcon(new ImageIcon(UI_Gestor.class.getResource("/presentacion/users-1@3x.png")));
+						btnMonitores.setToolTipText("Monitores");
+						GridBagConstraints gbc_btnMonitores = new GridBagConstraints();
+						gbc_btnMonitores.fill = GridBagConstraints.BOTH;
+						gbc_btnMonitores.insets = new Insets(0, 0, 5, 5);
+						gbc_btnMonitores.gridx = 2;
+						gbc_btnMonitores.gridy = 4;
+						panelBotones.add(btnMonitores, gbc_btnMonitores);
+					}
+					{
+						btnConfiguracion = new JButton("");
+						btnConfiguracion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+						btnConfiguracion.addActionListener(new BtnConfiguracionActionListener());
+						btnConfiguracion.setIcon(new ImageIcon(UI_Gestor.class.getResource("/presentacion/gears@3x.png")));
+						btnConfiguracion.setToolTipText("Configuraci\u00F3n");
+						GridBagConstraints gbc_btnConfiguracion = new GridBagConstraints();
+						gbc_btnConfiguracion.fill = GridBagConstraints.BOTH;
+						gbc_btnConfiguracion.insets = new Insets(0, 0, 5, 5);
+						gbc_btnConfiguracion.gridx = 3;
+						gbc_btnConfiguracion.gridy = 4;
+						panelBotones.add(btnConfiguracion, gbc_btnConfiguracion);
+					}
+				}
+				{
+					panelReservas = new JPanel();
+					panelReservas.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+					panelPrincipal.add(panelReservas, "panelReserva");
+					GridBagLayout gbl_panelReservas = new GridBagLayout();
+					gbl_panelReservas.columnWidths = new int[]{0, 0, 0, 0, 0, 0};
+					gbl_panelReservas.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+					gbl_panelReservas.columnWeights = new double[]{0.0, 1.0, 1.0, 1.0, 0.0, Double.MIN_VALUE};
+					gbl_panelReservas.rowWeights = new double[]{0.0, 1.0, 1.0, 0.0, 1.0, 0.0, 1.0, 1.0, 0.0, Double.MIN_VALUE};
+					panelReservas.setLayout(gbl_panelReservas);
+					{
+						btnAyudaReservas = new JButton("");
+						btnAyudaReservas.setBorder(null);
+						btnAyudaReservas.setIcon(new ImageIcon(UI_Gestor.class.getResource("/presentacion/help.png")));
+						GridBagConstraints gbc_btnAyudaReservas = new GridBagConstraints();
+						gbc_btnAyudaReservas.insets = new Insets(0, 0, 5, 5);
+						gbc_btnAyudaReservas.gridx = 3;
+						gbc_btnAyudaReservas.gridy = 1;
+						panelReservas.add(btnAyudaReservas, gbc_btnAyudaReservas);
+					}
+					{
+						btnNuevaReserva = new JButton("Nueva Reserva");
+						btnNuevaReserva.setFont(new Font("Tahoma", Font.BOLD, 20));
+						GridBagConstraints gbc_btnNuevaReserva = new GridBagConstraints();
+						gbc_btnNuevaReserva.fill = GridBagConstraints.BOTH;
+						gbc_btnNuevaReserva.insets = new Insets(0, 0, 5, 5);
+						gbc_btnNuevaReserva.gridx = 2;
+						gbc_btnNuevaReserva.gridy = 2;
+						panelReservas.add(btnNuevaReserva, gbc_btnNuevaReserva);
+					}
+					{
+						btnConsultarReserva = new JButton("ConsultarReserva");
+						btnConsultarReserva.setFont(new Font("Tahoma", Font.BOLD, 20));
+						GridBagConstraints gbc_btnConsultarReserva = new GridBagConstraints();
+						gbc_btnConsultarReserva.fill = GridBagConstraints.BOTH;
+						gbc_btnConsultarReserva.insets = new Insets(0, 0, 5, 5);
+						gbc_btnConsultarReserva.gridx = 2;
+						gbc_btnConsultarReserva.gridy = 4;
+						panelReservas.add(btnConsultarReserva, gbc_btnConsultarReserva);
+					}
+					{
+						btnBorrarReserva = new JButton("Borrar Reserva");
+						btnBorrarReserva.setFont(new Font("Tahoma", Font.BOLD, 20));
+						GridBagConstraints gbc_btnBorrarReserva = new GridBagConstraints();
+						gbc_btnBorrarReserva.fill = GridBagConstraints.BOTH;
+						gbc_btnBorrarReserva.insets = new Insets(0, 0, 5, 5);
+						gbc_btnBorrarReserva.gridx = 2;
+						gbc_btnBorrarReserva.gridy = 6;
+						panelReservas.add(btnBorrarReserva, gbc_btnBorrarReserva);
+					}
+				}
+				{
+					panelParcelasBungalos = new JPanel();
+					panelParcelasBungalos.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+					panelPrincipal.add(panelParcelasBungalos, "panelParcelaBungalow");
+					panelParcelasBungalos.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+					{
+						btnParcelas = new JButton("Parcelas");
+						panelParcelasBungalos.add(btnParcelas);
+					}
+					{
+						btnBungalows = new JButton("Bungalows");
+						panelParcelasBungalos.add(btnBungalows);
+					}
+				}
+				{
+					panelRutas = new JPanel();
+					panelRutas.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+					panelPrincipal.add(panelRutas, "panelRuta");
+					{
+						btnInfoRutas = new JButton("Info Rutas");
+						panelRutas.add(btnInfoRutas);
+					}
+					{
+						btnDiseñoRuta = new JButton("Dise\u00F1o Rutas");
+						panelRutas.add(btnDiseñoRuta);
+					}
+				}
+				{
+					panelConfiguracion = new JPanel();
+					panelConfiguracion.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+					panelPrincipal.add(panelConfiguracion, "panelConfiguracion");
+					panelConfiguracion.setLayout(null);
+					{
+						btnAyudaConfiguracion = new JButton("");
+						btnAyudaConfiguracion.setBorder(null);
+						btnAyudaConfiguracion.setIcon(new ImageIcon(UI_Gestor.class.getResource("/presentacion/help.png")));
+						btnAyudaConfiguracion.setBounds(607, 24, 85, 42);
+						panelConfiguracion.add(btnAyudaConfiguracion);
+					}
+					{
+						lblIdioma = new JLabel("Idioma:");
+						lblIdioma.setHorizontalAlignment(SwingConstants.RIGHT);
+						lblIdioma.setFont(new Font("Tahoma", Font.PLAIN, 18));
+						lblIdioma.setBounds(273, 121, 68, 32);
+						panelConfiguracion.add(lblIdioma);
+					}
+					{
+						lblApariencia = new JLabel("Apariencia:");
+						lblApariencia.setHorizontalAlignment(SwingConstants.RIGHT);
+						lblApariencia.setFont(new Font("Tahoma", Font.PLAIN, 18));
+						lblApariencia.setBounds(247, 163, 94, 31);
+						panelConfiguracion.add(lblApariencia);
+					}
+					{
+						lblTipoLetra = new JLabel("Tipo de Letra:");
+						lblTipoLetra.setHorizontalAlignment(SwingConstants.RIGHT);
+						lblTipoLetra.setFont(new Font("Tahoma", Font.PLAIN, 18));
+						lblTipoLetra.setBounds(209, 204, 132, 32);
+						panelConfiguracion.add(lblTipoLetra);
+					}
+					{
+						lblTamLetra = new JLabel("Tama\u00F1o de Letra:");
+						lblTamLetra.setHorizontalAlignment(SwingConstants.RIGHT);
+						lblTamLetra.setFont(new Font("Tahoma", Font.PLAIN, 18));
+						lblTamLetra.setBounds(186, 246, 155, 29);
+						panelConfiguracion.add(lblTamLetra);
+					}
+					{
+						comboBox = new JComboBox();
+						comboBox.setBounds(367, 130, 132, 21);
+						panelConfiguracion.add(comboBox);
+					}
+					{
+						comboBox_1 = new JComboBox();
+						comboBox_1.setBounds(367, 171, 132, 21);
+						panelConfiguracion.add(comboBox_1);
+					}
+					{
+						comboBox_2 = new JComboBox();
+						comboBox_2.setBounds(367, 213, 132, 21);
+						panelConfiguracion.add(comboBox_2);
+					}
+					{
+						comboBox_3 = new JComboBox();
+						comboBox_3.setBounds(367, 253, 132, 21);
+						panelConfiguracion.add(comboBox_3);
+					}
+					{
+						btnGuardarCambios = new JButton("Guardar Cambios");
+						btnGuardarCambios.setFont(new Font("Tahoma", Font.PLAIN, 18));
+						btnGuardarCambios.setBounds(396, 340, 206, 32);
+						panelConfiguracion.add(btnGuardarCambios);
+					}
+					{
+						btnCancelarCambios = new JButton("Cancelar Cambios");
+						btnCancelarCambios.setFont(new Font("Tahoma", Font.PLAIN, 18));
+						btnCancelarCambios.setBounds(147, 340, 206, 32);
+						panelConfiguracion.add(btnCancelarCambios);
+					}
+				}
+				{
+					panelMonitores = new JPanel();
+					panelPrincipal.add(panelMonitores, "panelMonitores");
+				}
+				{
+					panelActividades = new JPanel();
+					panelPrincipal.add(panelActividades, "panelActividades");
+				}
+			}
+			{
+				lblBarraDeEstado = new JLabel("Barra de estado");
+				lblBarraDeEstado.setFont(new Font("Tahoma", Font.PLAIN, 12));
+				panelMenuPrincipal.add(lblBarraDeEstado, BorderLayout.SOUTH);
+			}
 		}
 		{
 			menuBar = new JMenuBar();
@@ -388,5 +604,54 @@ public class UI_Gestor {
 			panel.show(frame.getContentPane(), e.getActionCommand());
 		}
 	}
-
+	private class BtnReservasActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			CardLayout panel = (CardLayout) (panelPrincipal.getLayout());
+			panel.show(panelPrincipal, "panelReserva");
+		}
+	}
+	private class BtnParcelasBungalowsActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			CardLayout panel = (CardLayout) (panelPrincipal.getLayout());
+			panel.show(panelPrincipal, "panelParcelaBungalow");
+		}
+		
+	}
+	private class LblBannerMouseListener extends MouseAdapter {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			CardLayout panel = (CardLayout) (panelPrincipal.getLayout());
+			panel.show(panelPrincipal, "panelPrincipal");
+		}
+	}
+	private class BtnRutasActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			CardLayout panel = (CardLayout) (panelPrincipal.getLayout());
+			panel.show(panelPrincipal, "panelRuta");
+		}
+	}
+	private class BtnCerrarSesionActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			CardLayout panel = (CardLayout) (frame.getContentPane().getLayout());
+			panel.show(frame.getContentPane(), "PanelSesion");
+		}
+	}
+	private class BtnConfiguracionActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			CardLayout panel = (CardLayout) (panelPrincipal.getLayout());
+			panel.show(panelPrincipal, "panelConfiguracion");
+		}
+	}
+	private class BtnMonitoresActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			CardLayout panel = (CardLayout) (panelPrincipal.getLayout());
+			panel.show(panelPrincipal, "panelMonitores");
+		}
+	}
+	private class BtnActividadesActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			CardLayout panel = (CardLayout) (panelPrincipal.getLayout());
+			panel.show(panelPrincipal, "panelActividades");
+		}
+	}
 }
