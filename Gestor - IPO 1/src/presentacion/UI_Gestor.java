@@ -130,6 +130,7 @@ public class UI_Gestor {
 	 */
 	private void initialize() {
 		frmGestorLosOlivos = new JFrame();
+		frmGestorLosOlivos.setResizable(false);
 		frmGestorLosOlivos.setTitle("Gestor Los olivos");
 		frmGestorLosOlivos.setBounds(100, 100, 849, 596);
 		frmGestorLosOlivos.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
