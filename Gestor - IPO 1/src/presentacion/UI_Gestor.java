@@ -111,6 +111,7 @@ public class UI_Gestor {
 				try {
 					UI_Gestor window = new UI_Gestor();
 					window.frmGestorLosOlivos.setVisible(true);
+					window.frmGestorLosOlivos.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
