@@ -111,6 +111,7 @@ public class UI_Gestor {
 	private JButton btnUser;
 	private JButton btnHelp;
 	private JScrollPane scrollMigas;
+	private JButton btnLogout;
 
 	/**
 	 * Launch the application.
@@ -643,9 +644,9 @@ public class UI_Gestor {
 				panelMenuPrincipal.add(panel_1, BorderLayout.EAST);
 				GridBagLayout gbl_panel_1 = new GridBagLayout();
 				gbl_panel_1.columnWidths = new int[] { 33, 0 };
-				gbl_panel_1.rowHeights = new int[] { 33, 40, 36, 0 };
+				gbl_panel_1.rowHeights = new int[] { 33, 40, 36, 32, 0 };
 				gbl_panel_1.columnWeights = new double[] { 0.0, Double.MIN_VALUE };
-				gbl_panel_1.rowWeights = new double[] { 0.0, 0.0, 0.0, Double.MIN_VALUE };
+				gbl_panel_1.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
 				panel_1.setLayout(gbl_panel_1);
 				{
 					{
@@ -654,7 +655,6 @@ public class UI_Gestor {
 						btnHome.setBorder(null);
 						btnHome.setIcon(new ImageIcon(UI_Gestor.class.getResource("/presentacion/pestana1.png")));
 						GridBagConstraints gbc_btnHome = new GridBagConstraints();
-						gbc_btnHome.anchor = GridBagConstraints.NORTHWEST;
 						gbc_btnHome.insets = new Insets(0, 0, 5, 0);
 						gbc_btnHome.gridx = 0;
 						gbc_btnHome.gridy = 0;
@@ -678,9 +678,19 @@ public class UI_Gestor {
 					btnUser.setBorder(null);
 					btnUser.setIcon(new ImageIcon(UI_Gestor.class.getResource("/presentacion/user-male.png")));
 					GridBagConstraints gbc_btnUser = new GridBagConstraints();
+					gbc_btnUser.insets = new Insets(0, 0, 5, 0);
 					gbc_btnUser.gridx = 0;
 					gbc_btnUser.gridy = 2;
 					panel_1.add(btnUser, gbc_btnUser);
+				}
+				{
+					btnLogout = new JButton("");
+					btnLogout.setBorder(null);
+					btnLogout.setIcon(new ImageIcon(UI_Gestor.class.getResource("/presentacion/exit.png")));
+					GridBagConstraints gbc_btnLogout = new GridBagConstraints();
+					gbc_btnLogout.gridx = 0;
+					gbc_btnLogout.gridy = 3;
+					panel_1.add(btnLogout, gbc_btnLogout);
 				}
 			}
 		}
