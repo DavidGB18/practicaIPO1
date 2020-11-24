@@ -36,6 +36,12 @@ import javax.swing.event.ChangeListener;
 import javax.swing.event.ChangeEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.awt.SystemColor;
+import javax.swing.JScrollPane;
+import javax.swing.JList;
+import java.awt.Component;
+import javax.swing.event.TreeSelectionListener;
+import javax.swing.event.TreeSelectionEvent;
 
 public class UI_Gestor {
 
@@ -62,10 +68,6 @@ public class UI_Gestor {
 	private JPanel panelPrincipal;
 	private JPanel panelBotones;
 	private JLabel lblInfo;
-	private JPanel panelOpciones;
-	private JButton btnCerrarSesion;
-	private JButton btnNewButton;
-	private JButton btnAyuda;
 	private JButton btnParcelasBungalows;
 	private JButton btnReservas;
 	private JButton btnActividades;
@@ -76,7 +78,6 @@ public class UI_Gestor {
 	private JButton btnNuevaReserva;
 	private JButton btnConsultarReserva;
 	private JButton btnBorrarReserva;
-	private JButton btnAyudaReservas;
 	private JPanel panelParcelasBungalos;
 	private JButton btnParcelas;
 	private JButton btnBungalows;
@@ -86,7 +87,6 @@ public class UI_Gestor {
 	private JPanel panelConfiguracion;
 	private JPanel panelMonitores;
 	private JPanel panelActividades;
-	private JButton btnAyudaConfiguracion;
 	private JLabel lblIdioma;
 	private JLabel lblApariencia;
 	private JLabel lblTipoLetra;
@@ -100,6 +100,17 @@ public class UI_Gestor {
 	private JLabel lblBarraDeEstado;
 	private int index = 0;
 	private String text = null;
+	private JButton btnAnadirMonitor;
+	private JButton btnModificarMonitor;
+	private JButton btnEliminarMonitor;
+	private JScrollPane scrollPane;
+	private JList list;
+	private JLabel lblMonitores;
+	private JPanel panel_1;
+	private JButton btnHome;
+	private JButton btnUser;
+	private JButton btnHelp;
+	private JScrollPane scrollMigas;
 
 	/**
 	 * Launch the application.
@@ -148,6 +159,7 @@ public class UI_Gestor {
 			}
 			{
 				panelUsuarioPass = new JPanel();
+				panelUsuarioPass.setBackground(SystemColor.info);
 				panelUsuarioPass.setBorder(new EmptyBorder(0, 0, 0, 0));
 				panelAutenticacion.add(panelUsuarioPass, BorderLayout.CENTER);
 				panelUsuarioPass.setLayout(null);
@@ -190,6 +202,7 @@ public class UI_Gestor {
 				}
 				{
 					panel_3 = new JPanel();
+					panel_3.setBackground(SystemColor.info);
 					panel_3.setBorder(new TitledBorder(null, "Foto de Perfil", TitledBorder.LEADING, TitledBorder.TOP,
 							null, null));
 					panel_3.setBounds(195, 158, 161, 151);
@@ -214,58 +227,66 @@ public class UI_Gestor {
 				panelMenuPrincipal.add(panelMigas, BorderLayout.WEST);
 				GridBagLayout gbl_panelMigas = new GridBagLayout();
 				gbl_panelMigas.columnWidths = new int[] { 133, 0 };
-				gbl_panelMigas.rowHeights = new int[] { 112, 0 };
-				gbl_panelMigas.columnWeights = new double[] { 0.0, Double.MIN_VALUE };
+				gbl_panelMigas.rowHeights = new int[] { 0, 0 };
+				gbl_panelMigas.columnWeights = new double[] { 1.0, Double.MIN_VALUE };
 				gbl_panelMigas.rowWeights = new double[] { 1.0, Double.MIN_VALUE };
 				panelMigas.setLayout(gbl_panelMigas);
 				{
-					treePrograma = new JTree();
-					treePrograma.setAutoscrolls(true);
-					treePrograma.setBackground(Color.WHITE);
-					treePrograma.setForeground(Color.WHITE);
-					treePrograma.setModel(new DefaultTreeModel(new DefaultMutableTreeNode("Gestor") {
-						{
-							DefaultMutableTreeNode node_1;
-							DefaultMutableTreeNode node_2;
-							node_1 = new DefaultMutableTreeNode("Parcelas-Bungalows");
-							node_2 = new DefaultMutableTreeNode("parcelas");
-							node_2.add(new DefaultMutableTreeNode("A\u00F1adir"));
-							node_2.add(new DefaultMutableTreeNode("Modificar"));
-							node_2.add(new DefaultMutableTreeNode("Borrar"));
-							node_1.add(node_2);
-							node_2 = new DefaultMutableTreeNode("Bungalows");
-							node_2.add(new DefaultMutableTreeNode("A\u00F1adir"));
-							node_2.add(new DefaultMutableTreeNode("Modificar"));
-							node_2.add(new DefaultMutableTreeNode("Borrar"));
-							node_1.add(node_2);
-							add(node_1);
-							node_1 = new DefaultMutableTreeNode("Reservas");
-							node_1.add(new DefaultMutableTreeNode("A\u00F1adir"));
-							node_1.add(new DefaultMutableTreeNode("Modificar "));
-							node_1.add(new DefaultMutableTreeNode("Borrar "));
-							add(node_1);
-							node_1 = new DefaultMutableTreeNode("Actividades");
-							node_1.add(new DefaultMutableTreeNode("A\u00F1adir"));
-							node_1.add(new DefaultMutableTreeNode("Modificar"));
-							node_1.add(new DefaultMutableTreeNode("Borrar"));
-							add(node_1);
-							node_1 = new DefaultMutableTreeNode("Rutas");
-							node_1.add(new DefaultMutableTreeNode("Consultar"));
-							node_1.add(new DefaultMutableTreeNode("Dise\u00F1ar"));
-							add(node_1);
-							node_1 = new DefaultMutableTreeNode("Monitores");
-							node_1.add(new DefaultMutableTreeNode("A\u00F1adir"));
-							node_1.add(new DefaultMutableTreeNode("Modificar"));
-							node_1.add(new DefaultMutableTreeNode("Borrar"));
-							add(node_1);
-							add(new DefaultMutableTreeNode("Configuracion"));
-						}
-					}));
-					GridBagConstraints gbc_treePrograma = new GridBagConstraints();
-					gbc_treePrograma.fill = GridBagConstraints.BOTH;
-					gbc_treePrograma.gridx = 0;
-					gbc_treePrograma.gridy = 0;
-					panelMigas.add(treePrograma, gbc_treePrograma);
+					scrollMigas = new JScrollPane();
+					GridBagConstraints gbc_scrollMigas = new GridBagConstraints();
+					gbc_scrollMigas.fill = GridBagConstraints.BOTH;
+					gbc_scrollMigas.gridx = 0;
+					gbc_scrollMigas.gridy = 0;
+					panelMigas.add(scrollMigas, gbc_scrollMigas);
+					{
+						treePrograma = new JTree();
+						treePrograma.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+						scrollMigas.setViewportView(treePrograma);
+						treePrograma.addTreeSelectionListener(new TreeProgramaTreeSelectionListener());
+						treePrograma.setAutoscrolls(true);
+						treePrograma.setBackground(Color.WHITE);
+						treePrograma.setForeground(Color.WHITE);
+						treePrograma.setModel(new DefaultTreeModel(
+							new DefaultMutableTreeNode("Gestor") {
+								{
+									DefaultMutableTreeNode node_1;
+									DefaultMutableTreeNode node_2;
+									node_1 = new DefaultMutableTreeNode("Parcelas-Bungalows");
+										node_2 = new DefaultMutableTreeNode("parcelas");
+											node_2.add(new DefaultMutableTreeNode("A\u00F1adir"));
+											node_2.add(new DefaultMutableTreeNode("Modificar"));
+											node_2.add(new DefaultMutableTreeNode("Borrar"));
+										node_1.add(node_2);
+										node_2 = new DefaultMutableTreeNode("Bungalows");
+											node_2.add(new DefaultMutableTreeNode("A\u00F1adir"));
+											node_2.add(new DefaultMutableTreeNode("Modificar"));
+											node_2.add(new DefaultMutableTreeNode("Borrar"));
+										node_1.add(node_2);
+									add(node_1);
+									node_1 = new DefaultMutableTreeNode("Reservas");
+										node_1.add(new DefaultMutableTreeNode("A\u00F1adir"));
+										node_1.add(new DefaultMutableTreeNode("Modificar "));
+										node_1.add(new DefaultMutableTreeNode("Borrar "));
+									add(node_1);
+									node_1 = new DefaultMutableTreeNode("Actividades");
+										node_1.add(new DefaultMutableTreeNode("A\u00F1adir"));
+										node_1.add(new DefaultMutableTreeNode("Modificar"));
+										node_1.add(new DefaultMutableTreeNode("Borrar"));
+									add(node_1);
+									node_1 = new DefaultMutableTreeNode("Rutas");
+										node_1.add(new DefaultMutableTreeNode("Consultar"));
+										node_1.add(new DefaultMutableTreeNode("Dise\u00F1ar"));
+									add(node_1);
+									node_1 = new DefaultMutableTreeNode("Monitores");
+										node_1.add(new DefaultMutableTreeNode("A\u00F1adir"));
+										node_1.add(new DefaultMutableTreeNode("Modificar"));
+										node_1.add(new DefaultMutableTreeNode("Borrar"));
+									add(node_1);
+									add(new DefaultMutableTreeNode("Configuracion"));
+								}
+							}
+						));
+					}
 				}
 			}
 			{
@@ -315,38 +336,10 @@ public class UI_Gestor {
 						panelBotones.add(lblInfo, gbc_lblInfo);
 					}
 					{
-						panelOpciones = new JPanel();
-						GridBagConstraints gbc_panelOpciones = new GridBagConstraints();
-						gbc_panelOpciones.fill = GridBagConstraints.HORIZONTAL;
-						gbc_panelOpciones.insets = new Insets(0, 0, 5, 5);
-						gbc_panelOpciones.gridx = 3;
-						gbc_panelOpciones.gridy = 1;
-						panelBotones.add(panelOpciones, gbc_panelOpciones);
-						{
-							btnCerrarSesion = new JButton("Cerrar Sesion");
-							btnCerrarSesion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-							btnCerrarSesion.addActionListener(new BtnPanel2ActionListener("PanelSesion"));
-							panelOpciones.add(btnCerrarSesion);
-						}
-						{
-							btnNewButton = new JButton("");
-							btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-							panelOpciones.add(btnNewButton);
-						}
-						{
-							btnAyuda = new JButton("");
-							btnAyuda.addActionListener(new BtnAyudaActionListener("Prueba"));
-							btnAyuda.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-							btnAyuda.setIcon(new ImageIcon(UI_Gestor.class.getResource("/presentacion/help.png")));
-							btnAyuda.setBorder(null);
-							panelOpciones.add(btnAyuda);
-						}
-					}
-					{
 						btnParcelasBungalows = new JButton("");
 						btnParcelasBungalows.addChangeListener(new BtnIniciarChangeListener());
 						btnParcelasBungalows.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-						btnParcelasBungalows.addActionListener(new BtnPanel2ActionListener("panelParcelaBungalow"));
+						btnParcelasBungalows.addActionListener(new BtnPanel2ActionListener("panelParcelas-Bungalows"));
 						btnParcelasBungalows
 								.setIcon(new ImageIcon(UI_Gestor.class.getResource("/presentacion/home@3x.png")));
 						btnParcelasBungalows.setToolTipText("Parcelas / Bungalows");
@@ -360,7 +353,7 @@ public class UI_Gestor {
 					{
 						btnReservas = new JButton("");
 						btnReservas.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-						btnReservas.addActionListener(new BtnPanel2ActionListener("panelReserva"));
+						btnReservas.addActionListener(new BtnPanel2ActionListener("panelReservas"));
 						btnReservas.setIcon(new ImageIcon(UI_Gestor.class.getResource("/presentacion/calendar.png")));
 						btnReservas.setToolTipText("Reservas");
 						btnReservas.setBackground(new Color(152, 251, 152));
@@ -390,7 +383,7 @@ public class UI_Gestor {
 						btnRutas = new JButton("");
 						btnRutas.addChangeListener(new BtnIniciarChangeListener());
 						btnRutas.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-						btnRutas.addActionListener(new BtnPanel2ActionListener("panelRuta"));
+						btnRutas.addActionListener(new BtnPanel2ActionListener("panelRutas"));
 						btnRutas.setIcon(new ImageIcon(UI_Gestor.class.getResource("/presentacion/map@3x.png")));
 						btnRutas.setToolTipText("Rutas");
 						GridBagConstraints gbc_btnRutas = new GridBagConstraints();
@@ -434,7 +427,7 @@ public class UI_Gestor {
 				{
 					panelReservas = new JPanel();
 					panelReservas.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-					panelPrincipal.add(panelReservas, "panelReserva");
+					panelPrincipal.add(panelReservas, "panelReservas");
 					GridBagLayout gbl_panelReservas = new GridBagLayout();
 					gbl_panelReservas.columnWidths = new int[] { 0, 0, 0, 0, 0, 0 };
 					gbl_panelReservas.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
@@ -442,16 +435,6 @@ public class UI_Gestor {
 					gbl_panelReservas.rowWeights = new double[] { 0.0, 1.0, 1.0, 0.0, 1.0, 0.0, 1.0, 1.0, 0.0,
 							Double.MIN_VALUE };
 					panelReservas.setLayout(gbl_panelReservas);
-					{
-						btnAyudaReservas = new JButton("");
-						btnAyudaReservas.setBorder(null);
-						btnAyudaReservas.setIcon(new ImageIcon(UI_Gestor.class.getResource("/presentacion/help.png")));
-						GridBagConstraints gbc_btnAyudaReservas = new GridBagConstraints();
-						gbc_btnAyudaReservas.insets = new Insets(0, 0, 5, 5);
-						gbc_btnAyudaReservas.gridx = 3;
-						gbc_btnAyudaReservas.gridy = 1;
-						panelReservas.add(btnAyudaReservas, gbc_btnAyudaReservas);
-					}
 					{
 						btnNuevaReserva = new JButton("Nueva Reserva");
 						btnNuevaReserva.setFont(new Font("Tahoma", Font.BOLD, 20));
@@ -486,7 +469,7 @@ public class UI_Gestor {
 				{
 					panelParcelasBungalos = new JPanel();
 					panelParcelasBungalos.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-					panelPrincipal.add(panelParcelasBungalos, "panelParcelaBungalow");
+					panelPrincipal.add(panelParcelasBungalos, "panelParcelas-Bungalows");
 					panelParcelasBungalos.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 					{
 						btnParcelas = new JButton("Parcelas");
@@ -500,7 +483,7 @@ public class UI_Gestor {
 				{
 					panelRutas = new JPanel();
 					panelRutas.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-					panelPrincipal.add(panelRutas, "panelRuta");
+					panelPrincipal.add(panelRutas, "panelRutas");
 					{
 						btnInfoRutas = new JButton("Info Rutas");
 						panelRutas.add(btnInfoRutas);
@@ -515,14 +498,6 @@ public class UI_Gestor {
 					panelConfiguracion.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 					panelPrincipal.add(panelConfiguracion, "panelConfiguracion");
 					panelConfiguracion.setLayout(null);
-					{
-						btnAyudaConfiguracion = new JButton("");
-						btnAyudaConfiguracion.setBorder(null);
-						btnAyudaConfiguracion
-								.setIcon(new ImageIcon(UI_Gestor.class.getResource("/presentacion/help.png")));
-						btnAyudaConfiguracion.setBounds(607, 24, 85, 42);
-						panelConfiguracion.add(btnAyudaConfiguracion);
-					}
 					{
 						lblIdioma = new JLabel("Idioma:");
 						lblIdioma.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -587,6 +562,70 @@ public class UI_Gestor {
 				{
 					panelMonitores = new JPanel();
 					panelPrincipal.add(panelMonitores, "panelMonitores");
+					GridBagLayout gbl_panelMonitores = new GridBagLayout();
+					gbl_panelMonitores.columnWidths = new int[] { 0, 0, 0, 0, 0, 0, 0, 0 };
+					gbl_panelMonitores.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+					gbl_panelMonitores.columnWeights = new double[] { 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0,
+							Double.MIN_VALUE };
+					gbl_panelMonitores.rowWeights = new double[] { 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0,
+							Double.MIN_VALUE };
+					panelMonitores.setLayout(gbl_panelMonitores);
+					{
+						lblMonitores = new JLabel("Monitores:");
+						lblMonitores.setFont(new Font("Tahoma", Font.PLAIN, 25));
+						lblMonitores.setAlignmentY(Component.TOP_ALIGNMENT);
+						GridBagConstraints gbc_lblMonitores = new GridBagConstraints();
+						gbc_lblMonitores.anchor = GridBagConstraints.WEST;
+						gbc_lblMonitores.insets = new Insets(0, 0, 5, 5);
+						gbc_lblMonitores.gridx = 1;
+						gbc_lblMonitores.gridy = 0;
+						panelMonitores.add(lblMonitores, gbc_lblMonitores);
+					}
+					{
+						scrollPane = new JScrollPane();
+						GridBagConstraints gbc_scrollPane = new GridBagConstraints();
+						gbc_scrollPane.gridwidth = 3;
+						gbc_scrollPane.gridheight = 7;
+						gbc_scrollPane.insets = new Insets(0, 0, 5, 5);
+						gbc_scrollPane.fill = GridBagConstraints.BOTH;
+						gbc_scrollPane.gridx = 1;
+						gbc_scrollPane.gridy = 1;
+						panelMonitores.add(scrollPane, gbc_scrollPane);
+						{
+							list = new JList();
+							scrollPane.setViewportView(list);
+						}
+					}
+					{
+						btnAnadirMonitor = new JButton("A\u00F1adir");
+						btnAnadirMonitor.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+						GridBagConstraints gbc_btnAnadirMonitor = new GridBagConstraints();
+						gbc_btnAnadirMonitor.fill = GridBagConstraints.BOTH;
+						gbc_btnAnadirMonitor.insets = new Insets(0, 0, 5, 5);
+						gbc_btnAnadirMonitor.gridx = 5;
+						gbc_btnAnadirMonitor.gridy = 2;
+						panelMonitores.add(btnAnadirMonitor, gbc_btnAnadirMonitor);
+					}
+					{
+						btnModificarMonitor = new JButton("Modificar");
+						btnModificarMonitor.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+						GridBagConstraints gbc_btnModificarMonitor = new GridBagConstraints();
+						gbc_btnModificarMonitor.fill = GridBagConstraints.BOTH;
+						gbc_btnModificarMonitor.insets = new Insets(0, 0, 5, 5);
+						gbc_btnModificarMonitor.gridx = 5;
+						gbc_btnModificarMonitor.gridy = 4;
+						panelMonitores.add(btnModificarMonitor, gbc_btnModificarMonitor);
+					}
+					{
+						btnEliminarMonitor = new JButton("Eliminar");
+						btnEliminarMonitor.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+						GridBagConstraints gbc_btnEliminarMonitor = new GridBagConstraints();
+						gbc_btnEliminarMonitor.fill = GridBagConstraints.BOTH;
+						gbc_btnEliminarMonitor.insets = new Insets(0, 0, 5, 5);
+						gbc_btnEliminarMonitor.gridx = 5;
+						gbc_btnEliminarMonitor.gridy = 6;
+						panelMonitores.add(btnEliminarMonitor, gbc_btnEliminarMonitor);
+					}
 				}
 				{
 					panelActividades = new JPanel();
@@ -597,6 +636,52 @@ public class UI_Gestor {
 				lblBarraDeEstado = new JLabel("Barra de estado");
 				lblBarraDeEstado.setFont(new Font("Tahoma", Font.PLAIN, 12));
 				panelMenuPrincipal.add(lblBarraDeEstado, BorderLayout.SOUTH);
+			}
+			{
+				panel_1 = new JPanel();
+				panel_1.setBackground(SystemColor.controlHighlight);
+				panelMenuPrincipal.add(panel_1, BorderLayout.EAST);
+				GridBagLayout gbl_panel_1 = new GridBagLayout();
+				gbl_panel_1.columnWidths = new int[] { 33, 0 };
+				gbl_panel_1.rowHeights = new int[] { 33, 40, 36, 0 };
+				gbl_panel_1.columnWeights = new double[] { 0.0, Double.MIN_VALUE };
+				gbl_panel_1.rowWeights = new double[] { 0.0, 0.0, 0.0, Double.MIN_VALUE };
+				panel_1.setLayout(gbl_panel_1);
+				{
+					{
+						btnHome = new JButton("");
+						btnHome.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+						btnHome.setBorder(null);
+						btnHome.setIcon(new ImageIcon(UI_Gestor.class.getResource("/presentacion/pestana1.png")));
+						GridBagConstraints gbc_btnHome = new GridBagConstraints();
+						gbc_btnHome.anchor = GridBagConstraints.NORTHWEST;
+						gbc_btnHome.insets = new Insets(0, 0, 5, 0);
+						gbc_btnHome.gridx = 0;
+						gbc_btnHome.gridy = 0;
+						panel_1.add(btnHome, gbc_btnHome);
+					}
+				}
+				{
+					btnHelp = new JButton("");
+					btnHelp.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+					btnHelp.setBorder(null);
+					btnHelp.setIcon(new ImageIcon(UI_Gestor.class.getResource("/presentacion/help.png")));
+					GridBagConstraints gbc_btnHelp = new GridBagConstraints();
+					gbc_btnHelp.insets = new Insets(0, 0, 5, 0);
+					gbc_btnHelp.gridx = 0;
+					gbc_btnHelp.gridy = 1;
+					panel_1.add(btnHelp, gbc_btnHelp);
+				}
+				{
+					btnUser = new JButton("");
+					btnUser.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+					btnUser.setBorder(null);
+					btnUser.setIcon(new ImageIcon(UI_Gestor.class.getResource("/presentacion/user-male.png")));
+					GridBagConstraints gbc_btnUser = new GridBagConstraints();
+					gbc_btnUser.gridx = 0;
+					gbc_btnUser.gridy = 2;
+					panel_1.add(btnUser, gbc_btnUser);
+				}
 			}
 		}
 		{
@@ -663,19 +748,6 @@ public class UI_Gestor {
 		}
 	}
 
-	private class BtnAyudaActionListener implements ActionListener {
-		String text = null;
-
-		public BtnAyudaActionListener(String text) {
-			this.text = text;
-		}
-
-		public void actionPerformed(ActionEvent e) {
-			JOptionPane.showMessageDialog(frmGestorLosOlivos, text, "Ayuda", JOptionPane.INFORMATION_MESSAGE);
-		}
-
-	}
-
 	private class FrmGestorLosOlivosWindowListener extends WindowAdapter {
 		public void windowClosing(WindowEvent e) {
 			int sel = JOptionPane.showOptionDialog(frmGestorLosOlivos, "¿Seguro que quieres salir?",
@@ -685,6 +757,36 @@ public class UI_Gestor {
 			} else {
 				frmGestorLosOlivos.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE); // No
 			}
+		}
+	}
+
+	private class TreeProgramaTreeSelectionListener implements TreeSelectionListener {
+		public void valueChanged(TreeSelectionEvent e) {
+			CardLayout panel = null;
+			if(e.getNewLeadSelectionPath() != null) {
+				int tam = e.getNewLeadSelectionPath().getPath().length;
+				switch(tam) {
+				case 1:
+					panel = (CardLayout) (panelPrincipal.getLayout());
+					panel.show(panelPrincipal, "panelPrincipal");	
+					break;
+				case 2:
+					panel = (CardLayout) (panelPrincipal.getLayout());
+					panel.show(panelPrincipal, "panel" + e.getNewLeadSelectionPath().getPath()[1]);	
+					break;
+				case 3:
+					//rellenar cuando esten disponibles las ventanas
+					break;
+				default:
+			
+				}
+				treePrograma.setSelectionPath(null);
+			} 
+
+			
+			
+
+			
 		}
 	}
 }
