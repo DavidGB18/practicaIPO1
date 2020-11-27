@@ -540,8 +540,11 @@ public class UI_Gestor {
 						panelParcelasBungalos.add(btnParcelas, gbc_btnParcelas);
 					}
 					{
-						btnBungalows = new JButton("Bungalows");
-						btnBungalows.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/home@2x.png")));
+						btnBungalows = new JButton("");
+						btnBungalows.setOpaque(false);
+						btnBungalows.setBorder(null);
+						btnBungalows.setBackground(new Color(240, 240, 240));
+						btnBungalows.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/home@3x.png")));
 						GridBagConstraints gbc_btnBungalows = new GridBagConstraints();
 						gbc_btnBungalows.fill = GridBagConstraints.BOTH;
 						gbc_btnBungalows.insets = new Insets(0, 0, 5, 5);
@@ -803,6 +806,8 @@ public class UI_Gestor {
 				{
 					{
 						btnHome = new JButton("");
+						btnHome.setBackground(new Color(240, 240, 240));
+						btnHome.setOpaque(false);
 						btnHome.setToolTipText("Menu Principal");
 						btnHome.addActionListener(new BtnHomeActionListener());
 						btnHome.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -817,6 +822,8 @@ public class UI_Gestor {
 				}
 				{
 					btnHelp = new JButton("");
+					btnHelp.setBackground(new Color(240, 240, 240));
+					btnHelp.setOpaque(false);
 					btnHelp.setToolTipText("Ayuda");
 					btnHelp.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 					btnHelp.setBorder(null);
@@ -829,6 +836,8 @@ public class UI_Gestor {
 				}
 				{
 					btnUser = new JButton("");
+					btnUser.setBackground(new Color(240, 240, 240));
+					btnUser.setOpaque(false);
 					btnUser.setToolTipText("Inf. Usuario");
 					btnUser.addActionListener(new BtnUserActionListener());
 					btnUser.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -842,11 +851,15 @@ public class UI_Gestor {
 				}
 				{
 					btnLogout = new JButton("");
+					btnLogout.setBackground(new Color(240, 240, 240));
+					btnLogout.setOpaque(false);
 					btnLogout.setToolTipText("Cerrar Sesi\u00F3n");
 					btnLogout.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 					btnLogout.addActionListener(new BtnLogoutActionListener());
 					{
 						btnCalendario = new JButton("");
+						btnCalendario.setBackground(new Color(240, 240, 240));
+						btnCalendario.setOpaque(false);
 						btnCalendario.setToolTipText("Calendario");
 						btnCalendario.setBorder(null);
 						btnCalendario.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/calendarbtn.png")));
@@ -1008,6 +1021,4 @@ public class UI_Gestor {
 			window.setVisible(true);
 		}
 	}
-
-
 }
