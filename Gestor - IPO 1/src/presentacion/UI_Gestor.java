@@ -58,7 +58,7 @@ public class UI_Gestor {
 	private JTextField textUsuario;
 	private JButton btnIniciar;
 	private JPasswordField passwordField;
-	private JPanel panel_3;
+	private JPanel panelFoto;
 	private JLabel lblFoto;
 	private JPanel panelMigas;
 	private JMenuBar menuBar;
@@ -106,8 +106,8 @@ public class UI_Gestor {
 	private JButton btnAnadirMonitor;
 	private JButton btnModificarMonitor;
 	private JButton btnEliminarMonitor;
-	private JScrollPane scrollPane;
-	private JList list;
+	private JScrollPane scrollPaneMonitores;
+	private JList listMonitores;
 	private JLabel lblMonitores;
 	private JPanel panel_1;
 	private JButton btnHome;
@@ -115,10 +115,16 @@ public class UI_Gestor {
 	private JButton btnHelp;
 	private JScrollPane scrollMigas;
 	private JButton btnLogout;
-	private JPanel panel_2;
-	private JLabel lblNewLabel;
-	private JPanel panel_4;
+	private JPanel panelImagen;
+	private JLabel lblImagen;
+	private JPanel panelInicioSesion;
 	private static int comprobadorUsuario = 0;
+	private JLabel lblActividades;
+	private JScrollPane scrollPaneActividades;
+	private JList listActividades;
+	private JButton btnAnadirActividad;
+	private JButton btnModificarActividad;
+	private JButton btnEliminarActividad;
 
 	/**
 	 * Launch the application.
@@ -149,7 +155,7 @@ public class UI_Gestor {
 	 */
 	private void initialize() {
 		frmGestorLosOlivos = new JFrame();
-		frmGestorLosOlivos.setIconImage(Toolkit.getDefaultToolkit().getImage(UI_Gestor.class.getResource("/presentacion/logo.png")));
+		frmGestorLosOlivos.setIconImage(Toolkit.getDefaultToolkit().getImage(UI_Gestor.class.getResource("/recursos/logo.png")));
 		frmGestorLosOlivos.addWindowListener(new FrmGestorLosOlivosWindowListener());
 		frmGestorLosOlivos.setResizable(false);
 		frmGestorLosOlivos.setTitle("Gestor Los olivos");
@@ -172,55 +178,55 @@ public class UI_Gestor {
 				panelUsuarioPass.setBorder(new EmptyBorder(0, 0, 0, 0));
 				panelAutenticacion.add(panelUsuarioPass, BorderLayout.CENTER);
 				GridBagLayout gbl_panelUsuarioPass = new GridBagLayout();
-				gbl_panelUsuarioPass.columnWidths = new int[]{453, 129, 0};
-				gbl_panelUsuarioPass.rowHeights = new int[]{205, 0};
+				gbl_panelUsuarioPass.columnWidths = new int[]{415, 129, 0};
+				gbl_panelUsuarioPass.rowHeights = new int[]{531, 0};
 				gbl_panelUsuarioPass.columnWeights = new double[]{0.0, 1.0, Double.MIN_VALUE};
 				gbl_panelUsuarioPass.rowWeights = new double[]{1.0, Double.MIN_VALUE};
 				panelUsuarioPass.setLayout(gbl_panelUsuarioPass);
 				{
-					panel_2 = new JPanel();
-					GridBagConstraints gbc_panel_2 = new GridBagConstraints();
-					gbc_panel_2.fill = GridBagConstraints.BOTH;
-					gbc_panel_2.insets = new Insets(0, 0, 0, 5);
-					gbc_panel_2.gridx = 0;
-					gbc_panel_2.gridy = 0;
-					panelUsuarioPass.add(panel_2, gbc_panel_2);
-					panel_2.setLayout(null);
+					panelImagen = new JPanel();
+					GridBagConstraints gbc_panelImagen = new GridBagConstraints();
+					gbc_panelImagen.fill = GridBagConstraints.BOTH;
+					gbc_panelImagen.insets = new Insets(0, 0, 0, 5);
+					gbc_panelImagen.gridx = 0;
+					gbc_panelImagen.gridy = 0;
+					panelUsuarioPass.add(panelImagen, gbc_panelImagen);
+					panelImagen.setLayout(null);
 					{
-						lblNewLabel = new JLabel("New label");
-						lblNewLabel.setBounds(185, 247, 45, 13);
-						panel_2.add(lblNewLabel);
+						lblImagen = new JLabel("New label");
+						lblImagen.setBounds(185, 247, 45, 13);
+						panelImagen.add(lblImagen);
 					}
 				}
 				{
-					panel_4 = new JPanel();
-					panel_4.setOpaque(false);
-					panel_4.setLayout(null);
-					GridBagConstraints gbc_panel_4 = new GridBagConstraints();
-					gbc_panel_4.fill = GridBagConstraints.BOTH;
-					gbc_panel_4.gridx = 1;
-					gbc_panel_4.gridy = 0;
-					panelUsuarioPass.add(panel_4, gbc_panel_4);
+					panelInicioSesion = new JPanel();
+					panelInicioSesion.setOpaque(false);
+					panelInicioSesion.setLayout(null);
+					GridBagConstraints gbc_panelInicioSesion = new GridBagConstraints();
+					gbc_panelInicioSesion.fill = GridBagConstraints.BOTH;
+					gbc_panelInicioSesion.gridx = 1;
+					gbc_panelInicioSesion.gridy = 0;
+					panelUsuarioPass.add(panelInicioSesion, gbc_panelInicioSesion);
 					{
-						panel_3 = new JPanel();
-						panel_3.setBounds(122, 73, 158, 160);
-						panel_4.add(panel_3);
-						panel_3.setBackground(SystemColor.info);
-						panel_3.setBorder(new TitledBorder(null, "Foto de Perfil", TitledBorder.LEADING, TitledBorder.TOP,
+						panelFoto = new JPanel();
+						panelFoto.setBounds(122, 73, 158, 160);
+						panelInicioSesion.add(panelFoto);
+						panelFoto.setBackground(SystemColor.info);
+						panelFoto.setBorder(new TitledBorder(null, "Foto de Perfil", TitledBorder.LEADING, TitledBorder.TOP,
 								null, null));
-						panel_3.setLayout(null);
+						panelFoto.setLayout(null);
 						{
 
 							lblFoto = new JLabel("");
 							lblFoto.setBounds(22, 15, 115, 135);
-							panel_3.add(lblFoto);
-							lblFoto.setIcon(new ImageIcon(UI_Gestor.class.getResource("/presentacion/user.png")));
+							panelFoto.add(lblFoto);
+							lblFoto.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/user.png")));
 						}
 					}
 					{
 						lblUsuario = new JLabel("Usuario:");
 						lblUsuario.setBounds(46, 260, 106, 27);
-						panel_4.add(lblUsuario);
+						panelInicioSesion.add(lblUsuario);
 						lblUsuario.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 						lblUsuario.setFont(new Font("Tahoma", Font.PLAIN, 16));
 						lblUsuario.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -228,13 +234,13 @@ public class UI_Gestor {
 					{
 						textUsuario = new JTextField();
 						textUsuario.setBounds(162, 264, 150, 19);
-						panel_4.add(textUsuario);
+						panelInicioSesion.add(textUsuario);
 						textUsuario.setColumns(10);
 					}
 					{
 						lblPass = new JLabel("Password:");
 						lblPass.setBounds(46, 292, 106, 20);
-						panel_4.add(lblPass);
+						panelInicioSesion.add(lblPass);
 						lblPass.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 						lblPass.setHorizontalAlignment(SwingConstants.RIGHT);
 						lblPass.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -242,13 +248,13 @@ public class UI_Gestor {
 					{
 						passwordField = new JPasswordField();
 						passwordField.setBounds(162, 293, 150, 19);
-						panel_4.add(passwordField);
+						panelInicioSesion.add(passwordField);
 						passwordField.setEnabled(false);
 					}
 					{
 						btnIniciar = new JButton("Iniciar Sesión");
 						btnIniciar.setBounds(122, 376, 158, 29);
-						panel_4.add(btnIniciar);
+						panelInicioSesion.add(btnIniciar);
 						btnIniciar.addChangeListener(new BtnIniciarChangeListener());
 						btnIniciar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 						btnIniciar.addActionListener(new BtnInicioSesionActionListener());
@@ -341,7 +347,7 @@ public class UI_Gestor {
 				{
 					lblBanner = new JLabel("");
 					lblBanner.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-					lblBanner.setIcon(new ImageIcon(UI_Gestor.class.getResource("/presentacion/banner.jpg")));
+					lblBanner.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/banner.jpg")));
 					GridBagConstraints gbc_lblBanner = new GridBagConstraints();
 					gbc_lblBanner.fill = GridBagConstraints.VERTICAL;
 					gbc_lblBanner.gridx = 0;
@@ -380,7 +386,7 @@ public class UI_Gestor {
 						btnParcelasBungalows.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 						btnParcelasBungalows.addActionListener(new BtnCambioPanelActionListener("panelParcelas-Bungalows"));
 						btnParcelasBungalows
-								.setIcon(new ImageIcon(UI_Gestor.class.getResource("/presentacion/home@3x.png")));
+								.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/home@3x.png")));
 						btnParcelasBungalows.setToolTipText("Parcelas / Bungalows");
 						GridBagConstraints gbc_btnParcelasBungalows = new GridBagConstraints();
 						gbc_btnParcelasBungalows.fill = GridBagConstraints.BOTH;
@@ -393,7 +399,7 @@ public class UI_Gestor {
 						btnReservas = new JButton("");
 						btnReservas.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 						btnReservas.addActionListener(new BtnCambioPanelActionListener("panelReservas"));
-						btnReservas.setIcon(new ImageIcon(UI_Gestor.class.getResource("/presentacion/calendar.png")));
+						btnReservas.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/calendar.png")));
 						btnReservas.setToolTipText("Reservas");
 						btnReservas.setBackground(new Color(152, 251, 152));
 						GridBagConstraints gbc_btnReservas = new GridBagConstraints();
@@ -409,7 +415,7 @@ public class UI_Gestor {
 						btnActividades.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 						btnActividades.addActionListener(new BtnCambioPanelActionListener("panelActividades"));
 						btnActividades
-								.setIcon(new ImageIcon(UI_Gestor.class.getResource("/presentacion/ping-pong@3x.png")));
+								.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/ping-pong@3x.png")));
 						btnActividades.setToolTipText("Actividades");
 						GridBagConstraints gbc_btnActividades = new GridBagConstraints();
 						gbc_btnActividades.fill = GridBagConstraints.BOTH;
@@ -423,7 +429,7 @@ public class UI_Gestor {
 						btnRutas.addChangeListener(new BtnIniciarChangeListener());
 						btnRutas.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 						btnRutas.addActionListener(new BtnCambioPanelActionListener("panelRutas"));
-						btnRutas.setIcon(new ImageIcon(UI_Gestor.class.getResource("/presentacion/map@3x.png")));
+						btnRutas.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/map@3x.png")));
 						btnRutas.setToolTipText("Rutas");
 						GridBagConstraints gbc_btnRutas = new GridBagConstraints();
 						gbc_btnRutas.fill = GridBagConstraints.BOTH;
@@ -438,7 +444,7 @@ public class UI_Gestor {
 						btnMonitores.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 						btnMonitores.addActionListener(new BtnCambioPanelActionListener("panelMonitores"));
 						btnMonitores
-								.setIcon(new ImageIcon(UI_Gestor.class.getResource("/presentacion/users-1@3x.png")));
+								.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/users-1@3x.png")));
 						btnMonitores.setToolTipText("Monitores");
 						GridBagConstraints gbc_btnMonitores = new GridBagConstraints();
 						gbc_btnMonitores.fill = GridBagConstraints.BOTH;
@@ -453,7 +459,7 @@ public class UI_Gestor {
 						btnConfiguracion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 						btnConfiguracion.addActionListener(new BtnCambioPanelActionListener("panelConfiguracion"));
 						btnConfiguracion
-								.setIcon(new ImageIcon(UI_Gestor.class.getResource("/presentacion/gears@3x.png")));
+								.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/gears@3x.png")));
 						btnConfiguracion.setToolTipText("Configuraci\u00F3n");
 						GridBagConstraints gbc_btnConfiguracion = new GridBagConstraints();
 						gbc_btnConfiguracion.fill = GridBagConstraints.BOTH;
@@ -621,18 +627,18 @@ public class UI_Gestor {
 						panelMonitores.add(lblMonitores, gbc_lblMonitores);
 					}
 					{
-						scrollPane = new JScrollPane();
-						GridBagConstraints gbc_scrollPane = new GridBagConstraints();
-						gbc_scrollPane.gridwidth = 3;
-						gbc_scrollPane.gridheight = 7;
-						gbc_scrollPane.insets = new Insets(0, 0, 5, 5);
-						gbc_scrollPane.fill = GridBagConstraints.BOTH;
-						gbc_scrollPane.gridx = 1;
-						gbc_scrollPane.gridy = 1;
-						panelMonitores.add(scrollPane, gbc_scrollPane);
+						scrollPaneMonitores = new JScrollPane();
+						GridBagConstraints gbc_scrollPaneMonitores = new GridBagConstraints();
+						gbc_scrollPaneMonitores.gridwidth = 3;
+						gbc_scrollPaneMonitores.gridheight = 7;
+						gbc_scrollPaneMonitores.insets = new Insets(0, 0, 5, 5);
+						gbc_scrollPaneMonitores.fill = GridBagConstraints.BOTH;
+						gbc_scrollPaneMonitores.gridx = 1;
+						gbc_scrollPaneMonitores.gridy = 1;
+						panelMonitores.add(scrollPaneMonitores, gbc_scrollPaneMonitores);
 						{
-							list = new JList();
-							scrollPane.setViewportView(list);
+							listMonitores = new JList();
+							scrollPaneMonitores.setViewportView(listMonitores);
 						}
 					}
 					{
@@ -669,6 +675,63 @@ public class UI_Gestor {
 				{
 					panelActividades = new JPanel();
 					panelPrincipal.add(panelActividades, "panelActividades");
+					GridBagLayout gbl_panelActividades = new GridBagLayout();
+					gbl_panelActividades.columnWidths = new int[] { 0, 0, 0, 0, 0, 0, 0, 0 };
+					gbl_panelActividades.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+					gbl_panelActividades.columnWeights = new double[] { 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0,
+							Double.MIN_VALUE };
+					gbl_panelActividades.rowWeights = new double[] { 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0,
+							Double.MIN_VALUE };
+					panelActividades.setLayout(gbl_panelActividades);
+					{
+						lblActividades = new JLabel("Actividades:");
+						lblActividades.setFont(new Font("Tahoma", Font.PLAIN, 25));
+						GridBagConstraints gbc_lblActividades = new GridBagConstraints();
+						gbc_lblActividades.anchor = GridBagConstraints.WEST;
+						gbc_lblActividades.insets = new Insets(0, 0, 5, 5);
+						gbc_lblActividades.gridx = 1;
+						gbc_lblActividades.gridy = 0;
+						panelActividades.add(lblActividades, gbc_lblActividades);
+					}
+					{
+						scrollPaneActividades = new JScrollPane();
+						GridBagConstraints gbc_scrollPaneActividades = new GridBagConstraints();
+						gbc_scrollPaneActividades.gridheight = 7;
+						gbc_scrollPaneActividades.gridwidth = 3;
+						gbc_scrollPaneActividades.insets = new Insets(0, 0, 5, 5);
+						gbc_scrollPaneActividades.fill = GridBagConstraints.BOTH;
+						gbc_scrollPaneActividades.gridx = 1;
+						gbc_scrollPaneActividades.gridy = 1;
+						panelActividades.add(scrollPaneActividades, gbc_scrollPaneActividades);
+						{
+							listActividades = new JList();
+							scrollPaneActividades.setViewportView(listActividades);
+						}
+					}
+					{
+						btnAnadirActividad = new JButton("A\u00F1adir");
+						GridBagConstraints gbc_btnAnadirActividad = new GridBagConstraints();
+						gbc_btnAnadirActividad.insets = new Insets(0, 0, 5, 5);
+						gbc_btnAnadirActividad.gridx = 5;
+						gbc_btnAnadirActividad.gridy = 2;
+						panelActividades.add(btnAnadirActividad, gbc_btnAnadirActividad);
+					}
+					{
+						btnModificarActividad = new JButton("Modificar");
+						GridBagConstraints gbc_btnModificarActividad = new GridBagConstraints();
+						gbc_btnModificarActividad.insets = new Insets(0, 0, 5, 5);
+						gbc_btnModificarActividad.gridx = 5;
+						gbc_btnModificarActividad.gridy = 4;
+						panelActividades.add(btnModificarActividad, gbc_btnModificarActividad);
+					}
+					{
+						btnEliminarActividad = new JButton("Eliminar");
+						GridBagConstraints gbc_btnEliminarActividad = new GridBagConstraints();
+						gbc_btnEliminarActividad.insets = new Insets(0, 0, 5, 5);
+						gbc_btnEliminarActividad.gridx = 5;
+						gbc_btnEliminarActividad.gridy = 6;
+						panelActividades.add(btnEliminarActividad, gbc_btnEliminarActividad);
+					}
 				}
 			}
 			{
@@ -692,7 +755,7 @@ public class UI_Gestor {
 						btnHome.addActionListener(new BtnHomeActionListener());
 						btnHome.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 						btnHome.setBorder(null);
-						btnHome.setIcon(new ImageIcon(UI_Gestor.class.getResource("/presentacion/pestana1.png")));
+						btnHome.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/pestana1.png")));
 						GridBagConstraints gbc_btnHome = new GridBagConstraints();
 						gbc_btnHome.insets = new Insets(0, 0, 5, 0);
 						gbc_btnHome.gridx = 0;
@@ -704,7 +767,7 @@ public class UI_Gestor {
 					btnHelp = new JButton("");
 					btnHelp.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 					btnHelp.setBorder(null);
-					btnHelp.setIcon(new ImageIcon(UI_Gestor.class.getResource("/presentacion/help.png")));
+					btnHelp.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/help.png")));
 					GridBagConstraints gbc_btnHelp = new GridBagConstraints();
 					gbc_btnHelp.insets = new Insets(0, 0, 5, 0);
 					gbc_btnHelp.gridx = 0;
@@ -716,7 +779,7 @@ public class UI_Gestor {
 					btnUser.addActionListener(new BtnUserActionListener());
 					btnUser.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 					btnUser.setBorder(null);
-					btnUser.setIcon(new ImageIcon(UI_Gestor.class.getResource("/presentacion/user-male.png")));
+					btnUser.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/user-male.png")));
 					GridBagConstraints gbc_btnUser = new GridBagConstraints();
 					gbc_btnUser.insets = new Insets(0, 0, 5, 0);
 					gbc_btnUser.gridx = 0;
@@ -728,7 +791,7 @@ public class UI_Gestor {
 					btnLogout.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 					btnLogout.addActionListener(new BtnLogoutActionListener());
 					btnLogout.setBorder(null);
-					btnLogout.setIcon(new ImageIcon(UI_Gestor.class.getResource("/presentacion/exit.png")));
+					btnLogout.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/exit.png")));
 					GridBagConstraints gbc_btnLogout = new GridBagConstraints();
 					gbc_btnLogout.gridx = 0;
 					gbc_btnLogout.gridy = 3;
