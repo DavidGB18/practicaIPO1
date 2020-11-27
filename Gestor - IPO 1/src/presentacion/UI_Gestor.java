@@ -128,6 +128,8 @@ public class UI_Gestor {
 	private JButton btnModificarActividad;
 	private JButton btnEliminarActividad;
 	private JButton btnCalendario;
+	private JButton btnVerActividad;
+	private JButton btnVerMonitor;
 
 	/**
 	 * Launch the application.
@@ -662,10 +664,10 @@ public class UI_Gestor {
 					panelPrincipal.add(panelMonitores, "panelMonitores");
 					GridBagLayout gbl_panelMonitores = new GridBagLayout();
 					gbl_panelMonitores.columnWidths = new int[] { 0, 0, 0, 0, 0, 0, 0, 0 };
-					gbl_panelMonitores.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+					gbl_panelMonitores.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 					gbl_panelMonitores.columnWeights = new double[] { 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0,
 							Double.MIN_VALUE };
-					gbl_panelMonitores.rowWeights = new double[] { 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0,
+					gbl_panelMonitores.rowWeights = new double[] { 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0,
 							Double.MIN_VALUE };
 					panelMonitores.setLayout(gbl_panelMonitores);
 					{
@@ -683,7 +685,7 @@ public class UI_Gestor {
 						scrollPaneMonitores = new JScrollPane();
 						GridBagConstraints gbc_scrollPaneMonitores = new GridBagConstraints();
 						gbc_scrollPaneMonitores.gridwidth = 3;
-						gbc_scrollPaneMonitores.gridheight = 7;
+						gbc_scrollPaneMonitores.gridheight = 9;
 						gbc_scrollPaneMonitores.insets = new Insets(0, 0, 5, 5);
 						gbc_scrollPaneMonitores.fill = GridBagConstraints.BOTH;
 						gbc_scrollPaneMonitores.gridx = 1;
@@ -696,7 +698,7 @@ public class UI_Gestor {
 					}
 					{
 						btnAnadirMonitor = new JButton("A\u00F1adir");
-						btnAnadirMonitor.addActionListener(new BtnAnadirMonitorActionListener());
+						btnAnadirMonitor.addActionListener(new BtnMonitorActionListener(1));
 						btnAnadirMonitor.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 						GridBagConstraints gbc_btnAnadirMonitor = new GridBagConstraints();
 						gbc_btnAnadirMonitor.fill = GridBagConstraints.BOTH;
@@ -707,6 +709,7 @@ public class UI_Gestor {
 					}
 					{
 						btnModificarMonitor = new JButton("Modificar");
+						btnModificarMonitor.addActionListener(new BtnMonitorActionListener(2));
 						btnModificarMonitor.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 						GridBagConstraints gbc_btnModificarMonitor = new GridBagConstraints();
 						gbc_btnModificarMonitor.fill = GridBagConstraints.BOTH;
@@ -716,13 +719,24 @@ public class UI_Gestor {
 						panelMonitores.add(btnModificarMonitor, gbc_btnModificarMonitor);
 					}
 					{
+						btnVerMonitor = new JButton("Ver");
+						btnVerMonitor.addActionListener(new BtnMonitorActionListener(0));
+						GridBagConstraints gbc_btnVerMonitor = new GridBagConstraints();
+						gbc_btnVerMonitor.fill = GridBagConstraints.BOTH;
+						gbc_btnVerMonitor.insets = new Insets(0, 0, 5, 5);
+						gbc_btnVerMonitor.gridx = 5;
+						gbc_btnVerMonitor.gridy = 6;
+						panelMonitores.add(btnVerMonitor, gbc_btnVerMonitor);
+					}
+					{
 						btnEliminarMonitor = new JButton("Eliminar");
+						btnEliminarMonitor.addActionListener(new BtnMonitorActionListener(3));
 						btnEliminarMonitor.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 						GridBagConstraints gbc_btnEliminarMonitor = new GridBagConstraints();
 						gbc_btnEliminarMonitor.fill = GridBagConstraints.BOTH;
 						gbc_btnEliminarMonitor.insets = new Insets(0, 0, 5, 5);
 						gbc_btnEliminarMonitor.gridx = 5;
-						gbc_btnEliminarMonitor.gridy = 6;
+						gbc_btnEliminarMonitor.gridy = 8;
 						panelMonitores.add(btnEliminarMonitor, gbc_btnEliminarMonitor);
 					}
 				}
@@ -731,10 +745,10 @@ public class UI_Gestor {
 					panelPrincipal.add(panelActividades, "panelActividades");
 					GridBagLayout gbl_panelActividades = new GridBagLayout();
 					gbl_panelActividades.columnWidths = new int[] { 0, 0, 0, 0, 0, 0, 0, 0 };
-					gbl_panelActividades.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+					gbl_panelActividades.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 					gbl_panelActividades.columnWeights = new double[] { 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0,
 							Double.MIN_VALUE };
-					gbl_panelActividades.rowWeights = new double[] { 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0,
+					gbl_panelActividades.rowWeights = new double[] { 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0,
 							Double.MIN_VALUE };
 					panelActividades.setLayout(gbl_panelActividades);
 					{
@@ -750,7 +764,7 @@ public class UI_Gestor {
 					{
 						scrollPaneActividades = new JScrollPane();
 						GridBagConstraints gbc_scrollPaneActividades = new GridBagConstraints();
-						gbc_scrollPaneActividades.gridheight = 7;
+						gbc_scrollPaneActividades.gridheight = 9;
 						gbc_scrollPaneActividades.gridwidth = 3;
 						gbc_scrollPaneActividades.insets = new Insets(0, 0, 5, 5);
 						gbc_scrollPaneActividades.fill = GridBagConstraints.BOTH;
@@ -765,6 +779,7 @@ public class UI_Gestor {
 					{
 						btnAnadirActividad = new JButton("A\u00F1adir");
 						GridBagConstraints gbc_btnAnadirActividad = new GridBagConstraints();
+						gbc_btnAnadirActividad.fill = GridBagConstraints.BOTH;
 						gbc_btnAnadirActividad.insets = new Insets(0, 0, 5, 5);
 						gbc_btnAnadirActividad.gridx = 5;
 						gbc_btnAnadirActividad.gridy = 2;
@@ -773,17 +788,28 @@ public class UI_Gestor {
 					{
 						btnModificarActividad = new JButton("Modificar");
 						GridBagConstraints gbc_btnModificarActividad = new GridBagConstraints();
+						gbc_btnModificarActividad.fill = GridBagConstraints.BOTH;
 						gbc_btnModificarActividad.insets = new Insets(0, 0, 5, 5);
 						gbc_btnModificarActividad.gridx = 5;
 						gbc_btnModificarActividad.gridy = 4;
 						panelActividades.add(btnModificarActividad, gbc_btnModificarActividad);
 					}
 					{
+						btnVerActividad = new JButton("Ver");
+						GridBagConstraints gbc_btnVerActividad = new GridBagConstraints();
+						gbc_btnVerActividad.fill = GridBagConstraints.BOTH;
+						gbc_btnVerActividad.insets = new Insets(0, 0, 5, 5);
+						gbc_btnVerActividad.gridx = 5;
+						gbc_btnVerActividad.gridy = 6;
+						panelActividades.add(btnVerActividad, gbc_btnVerActividad);
+					}
+					{
 						btnEliminarActividad = new JButton("Eliminar");
 						GridBagConstraints gbc_btnEliminarActividad = new GridBagConstraints();
+						gbc_btnEliminarActividad.fill = GridBagConstraints.BOTH;
 						gbc_btnEliminarActividad.insets = new Insets(0, 0, 5, 5);
 						gbc_btnEliminarActividad.gridx = 5;
-						gbc_btnEliminarActividad.gridy = 6;
+						gbc_btnEliminarActividad.gridy = 8;
 						panelActividades.add(btnEliminarActividad, gbc_btnEliminarActividad);
 					}
 				}
@@ -1015,10 +1041,15 @@ public class UI_Gestor {
 			
 		}
 	}
-	private class BtnAnadirMonitorActionListener implements ActionListener {
+	private class BtnMonitorActionListener implements ActionListener {
+		int valor = 0;
+		public BtnMonitorActionListener(int valor) {
+			this.valor = valor;
+		}
 		public void actionPerformed(ActionEvent e) {
-			JFrame window= new UI_Monitor();
+			JFrame window= new UI_Auxiliar();
 			window.setVisible(true);
+			UI_Auxiliar.setElegirPanel(valor);
 		}
 	}
 }

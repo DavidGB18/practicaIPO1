@@ -5,23 +5,25 @@ public class Monitor {
 	private String nombre;
 	private String apellido1;
 	private String apellido2;
+	private String dni;
 	private long telefono;
 	private String correoElectronico;
 	private String[] idiomas;
 	private String formacion;
-	private String[] arrayRestricciones;
+	public String rutaFotoMonitor;
 	
-	public Monitor(String nombre, String apellido1, String apellido2, long telefono, String correoElectronico,
-			String[] idiomas, String formacion, String[] arrayRestricciones) {
+	public Monitor(String nombre, String apellido1, String apellido2, String dni, long telefono, String correoElectronico,
+			String[] idiomas, String formacion, String rutaFotoMonitor) {
 		super();
 		this.nombre = nombre;
 		this.apellido1 = apellido1;
 		this.apellido2 = apellido2;
+		this.dni = dni;
 		this.telefono = telefono;
 		this.correoElectronico = correoElectronico;
 		this.idiomas = idiomas;
 		this.formacion = formacion;
-		this.arrayRestricciones = arrayRestricciones;
+		this.rutaFotoMonitor = rutaFotoMonitor;
 	}
 
 	public String getNombre() {
@@ -48,6 +50,14 @@ public class Monitor {
 		this.apellido2 = apellido2;
 	}
 
+	public String getDni() {
+		return dni;
+	}
+	
+	public void setDni(String dni) {
+		this.dni = dni;
+	}
+	
 	public long getTelefono() {
 		return telefono;
 	}
@@ -80,11 +90,11 @@ public class Monitor {
 		this.formacion = formacion;
 	}
 
-	public String[] getArrayRestricciones() {
-		return arrayRestricciones;
+	public String getRutaFotoMonitor() {
+		return rutaFotoMonitor;
 	}
 
-	public void setArrayRestricciones(String[] arrayRestricciones) {
-		this.arrayRestricciones = arrayRestricciones;
+	public void setRutaFotoMonitor(String rutaFotoMonitor) {
+		this.rutaFotoMonitor = rutaFotoMonitor;
 	}
 }
