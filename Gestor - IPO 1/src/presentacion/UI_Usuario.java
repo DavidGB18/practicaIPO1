@@ -51,9 +51,9 @@ public class UI_Usuario extends JFrame {
 	 * Create the frame.
 	 */
 	public UI_Usuario() {
+		addWindowListener(new ThisWindowListener());
 		setResizable(false);
 		setTitle("Informacion de Usuario");
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 531, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -145,6 +145,13 @@ public class UI_Usuario extends JFrame {
 	}
 	private class BtnAceptarActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
+			UI_Gestor.setComprobadorUsuario(0);
+			dispose();
+		}
+	}
+	private class ThisWindowListener extends WindowAdapter {
+		public void windowClosing(WindowEvent e) {
+			UI_Gestor.setComprobadorUsuario(0);
 			dispose();
 		}
 	}

@@ -45,6 +45,8 @@ import javax.swing.event.TreeSelectionListener;
 import javax.swing.event.TreeSelectionEvent;
 import java.awt.Toolkit;
 import javax.swing.border.EtchedBorder;
+import javax.swing.border.SoftBevelBorder;
+import javax.swing.border.BevelBorder;
 
 public class UI_Gestor {
 
@@ -109,7 +111,7 @@ public class UI_Gestor {
 	private JScrollPane scrollPaneMonitores;
 	private JList listMonitores;
 	private JLabel lblMonitores;
-	private JPanel panel_1;
+	private JPanel panelOpcionesPrincipales;
 	private JButton btnHome;
 	private JButton btnUser;
 	private JButton btnHelp;
@@ -125,6 +127,7 @@ public class UI_Gestor {
 	private JButton btnAnadirActividad;
 	private JButton btnModificarActividad;
 	private JButton btnEliminarActividad;
+	private JButton btnCalendario;
 
 	/**
 	 * Launch the application.
@@ -382,11 +385,12 @@ public class UI_Gestor {
 					}
 					{
 						btnParcelasBungalows = new JButton("");
+						btnParcelasBungalows.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
 						btnParcelasBungalows.addChangeListener(new BtnIniciarChangeListener());
 						btnParcelasBungalows.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 						btnParcelasBungalows.addActionListener(new BtnCambioPanelActionListener("panelParcelas-Bungalows"));
 						btnParcelasBungalows
-								.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/home@3x.png")));
+								.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/home@2x.png")));
 						btnParcelasBungalows.setToolTipText("Parcelas / Bungalows");
 						GridBagConstraints gbc_btnParcelasBungalows = new GridBagConstraints();
 						gbc_btnParcelasBungalows.fill = GridBagConstraints.BOTH;
@@ -397,9 +401,10 @@ public class UI_Gestor {
 					}
 					{
 						btnReservas = new JButton("");
+						btnReservas.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
 						btnReservas.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 						btnReservas.addActionListener(new BtnCambioPanelActionListener("panelReservas"));
-						btnReservas.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/calendar.png")));
+						btnReservas.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/calendar@2x.png")));
 						btnReservas.setToolTipText("Reservas");
 						btnReservas.setBackground(new Color(152, 251, 152));
 						GridBagConstraints gbc_btnReservas = new GridBagConstraints();
@@ -410,56 +415,60 @@ public class UI_Gestor {
 						panelBotones.add(btnReservas, gbc_btnReservas);
 					}
 					{
-						btnActividades = new JButton("");
-						btnActividades.addChangeListener(new BtnIniciarChangeListener());
-						btnActividades.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-						btnActividades.addActionListener(new BtnCambioPanelActionListener("panelActividades"));
-						btnActividades
-								.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/ping-pong@3x.png")));
-						btnActividades.setToolTipText("Actividades");
-						GridBagConstraints gbc_btnActividades = new GridBagConstraints();
-						gbc_btnActividades.fill = GridBagConstraints.BOTH;
-						gbc_btnActividades.insets = new Insets(0, 0, 5, 5);
-						gbc_btnActividades.gridx = 3;
-						gbc_btnActividades.gridy = 3;
-						panelBotones.add(btnActividades, gbc_btnActividades);
-					}
-					{
-						btnRutas = new JButton("");
-						btnRutas.addChangeListener(new BtnIniciarChangeListener());
-						btnRutas.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-						btnRutas.addActionListener(new BtnCambioPanelActionListener("panelRutas"));
-						btnRutas.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/map@3x.png")));
-						btnRutas.setToolTipText("Rutas");
-						GridBagConstraints gbc_btnRutas = new GridBagConstraints();
-						gbc_btnRutas.fill = GridBagConstraints.BOTH;
-						gbc_btnRutas.insets = new Insets(0, 0, 5, 5);
-						gbc_btnRutas.gridx = 1;
-						gbc_btnRutas.gridy = 4;
-						panelBotones.add(btnRutas, gbc_btnRutas);
-					}
-					{
-						btnMonitores = new JButton("");
-						btnMonitores.addChangeListener(new BtnIniciarChangeListener());
-						btnMonitores.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-						btnMonitores.addActionListener(new BtnCambioPanelActionListener("panelMonitores"));
-						btnMonitores
-								.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/users-1@3x.png")));
-						btnMonitores.setToolTipText("Monitores");
-						GridBagConstraints gbc_btnMonitores = new GridBagConstraints();
-						gbc_btnMonitores.fill = GridBagConstraints.BOTH;
-						gbc_btnMonitores.insets = new Insets(0, 0, 5, 5);
-						gbc_btnMonitores.gridx = 2;
-						gbc_btnMonitores.gridy = 4;
-						panelBotones.add(btnMonitores, gbc_btnMonitores);
-					}
-					{
 						btnConfiguracion = new JButton("");
+						btnConfiguracion.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
 						btnConfiguracion.addChangeListener(new BtnIniciarChangeListener());
 						btnConfiguracion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 						btnConfiguracion.addActionListener(new BtnCambioPanelActionListener("panelConfiguracion"));
+						{
+							btnActividades = new JButton("");
+							btnActividades.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
+							btnActividades.addChangeListener(new BtnIniciarChangeListener());
+							btnActividades.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+							btnActividades.addActionListener(new BtnCambioPanelActionListener("panelActividades"));
+							{
+								btnRutas = new JButton("");
+								btnRutas.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
+								btnRutas.addChangeListener(new BtnIniciarChangeListener());
+								btnRutas.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+								btnRutas.addActionListener(new BtnCambioPanelActionListener("panelRutas"));
+								btnRutas.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/location-pin@2x.png")));
+								btnRutas.setToolTipText("Rutas");
+								GridBagConstraints gbc_btnRutas = new GridBagConstraints();
+								gbc_btnRutas.fill = GridBagConstraints.BOTH;
+								gbc_btnRutas.insets = new Insets(0, 0, 5, 5);
+								gbc_btnRutas.gridx = 3;
+								gbc_btnRutas.gridy = 3;
+								panelBotones.add(btnRutas, gbc_btnRutas);
+							}
+							{
+								btnMonitores = new JButton("");
+								btnMonitores.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
+								btnMonitores.addChangeListener(new BtnIniciarChangeListener());
+								btnMonitores.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+								btnMonitores.addActionListener(new BtnCambioPanelActionListener("panelMonitores"));
+								btnMonitores
+										.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/user@2x.png")));
+								btnMonitores.setToolTipText("Monitores");
+								GridBagConstraints gbc_btnMonitores = new GridBagConstraints();
+								gbc_btnMonitores.fill = GridBagConstraints.BOTH;
+								gbc_btnMonitores.insets = new Insets(0, 0, 5, 5);
+								gbc_btnMonitores.gridx = 1;
+								gbc_btnMonitores.gridy = 4;
+								panelBotones.add(btnMonitores, gbc_btnMonitores);
+							}
+							btnActividades
+									.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/puzzle-piece@2x.png")));
+							btnActividades.setToolTipText("Actividades");
+							GridBagConstraints gbc_btnActividades = new GridBagConstraints();
+							gbc_btnActividades.fill = GridBagConstraints.BOTH;
+							gbc_btnActividades.insets = new Insets(0, 0, 5, 5);
+							gbc_btnActividades.gridx = 2;
+							gbc_btnActividades.gridy = 4;
+							panelBotones.add(btnActividades, gbc_btnActividades);
+						}
 						btnConfiguracion
-								.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/gears@3x.png")));
+								.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/gear@2x.png")));
 						btnConfiguracion.setToolTipText("Configuraci\u00F3n");
 						GridBagConstraints gbc_btnConfiguracion = new GridBagConstraints();
 						gbc_btnConfiguracion.fill = GridBagConstraints.BOTH;
@@ -515,27 +524,68 @@ public class UI_Gestor {
 					panelParcelasBungalos = new JPanel();
 					panelParcelasBungalos.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 					panelPrincipal.add(panelParcelasBungalos, "panelParcelas-Bungalows");
-					panelParcelasBungalos.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+					GridBagLayout gbl_panelParcelasBungalos = new GridBagLayout();
+					gbl_panelParcelasBungalos.columnWidths = new int[]{33, 71, 81, 0, 0};
+					gbl_panelParcelasBungalos.rowHeights = new int[]{21, 0, 0, 0};
+					gbl_panelParcelasBungalos.columnWeights = new double[]{0.0, 1.0, 1.0, 0.0, Double.MIN_VALUE};
+					gbl_panelParcelasBungalos.rowWeights = new double[]{0.0, 1.0, 0.0, Double.MIN_VALUE};
+					panelParcelasBungalos.setLayout(gbl_panelParcelasBungalos);
 					{
 						btnParcelas = new JButton("Parcelas");
-						panelParcelasBungalos.add(btnParcelas);
+						GridBagConstraints gbc_btnParcelas = new GridBagConstraints();
+						gbc_btnParcelas.fill = GridBagConstraints.BOTH;
+						gbc_btnParcelas.insets = new Insets(0, 0, 5, 5);
+						gbc_btnParcelas.gridx = 1;
+						gbc_btnParcelas.gridy = 1;
+						panelParcelasBungalos.add(btnParcelas, gbc_btnParcelas);
 					}
 					{
 						btnBungalows = new JButton("Bungalows");
-						panelParcelasBungalos.add(btnBungalows);
+						btnBungalows.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/home@2x.png")));
+						GridBagConstraints gbc_btnBungalows = new GridBagConstraints();
+						gbc_btnBungalows.fill = GridBagConstraints.BOTH;
+						gbc_btnBungalows.insets = new Insets(0, 0, 5, 5);
+						gbc_btnBungalows.gridx = 2;
+						gbc_btnBungalows.gridy = 1;
+						panelParcelasBungalos.add(btnBungalows, gbc_btnBungalows);
 					}
 				}
 				{
 					panelRutas = new JPanel();
 					panelRutas.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 					panelPrincipal.add(panelRutas, "panelRutas");
+					GridBagLayout gbl_panelRutas = new GridBagLayout();
+					gbl_panelRutas.columnWidths = new int[]{16, 79, 91, 0, 0};
+					gbl_panelRutas.rowHeights = new int[]{21, 0, 0, 0};
+					gbl_panelRutas.columnWeights = new double[]{0.0, 1.0, 1.0, 0.0, Double.MIN_VALUE};
+					gbl_panelRutas.rowWeights = new double[]{0.0, 1.0, 0.0, Double.MIN_VALUE};
+					panelRutas.setLayout(gbl_panelRutas);
 					{
-						btnInfoRutas = new JButton("Info Rutas");
-						panelRutas.add(btnInfoRutas);
+						btnInfoRutas = new JButton("");
+						btnInfoRutas.setOpaque(false);
+						btnInfoRutas.setBorder(null);
+						btnInfoRutas.setBackground(new Color(240, 240, 240));
+						btnInfoRutas.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+						btnInfoRutas.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/document@3x.png")));
+						GridBagConstraints gbc_btnInfoRutas = new GridBagConstraints();
+						gbc_btnInfoRutas.fill = GridBagConstraints.BOTH;
+						gbc_btnInfoRutas.insets = new Insets(0, 0, 5, 5);
+						gbc_btnInfoRutas.gridx = 1;
+						gbc_btnInfoRutas.gridy = 1;
+						panelRutas.add(btnInfoRutas, gbc_btnInfoRutas);
 					}
 					{
-						btnDiseñoRuta = new JButton("Dise\u00F1o Rutas");
-						panelRutas.add(btnDiseñoRuta);
+						btnDiseñoRuta = new JButton("");
+						btnDiseñoRuta.setOpaque(false);
+						btnDiseñoRuta.setBorder(null);
+						btnDiseñoRuta.setBackground(new Color(240, 240, 240));
+						btnDiseñoRuta.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/pencil@3x.png")));
+						GridBagConstraints gbc_btnDiseñoRuta = new GridBagConstraints();
+						gbc_btnDiseñoRuta.fill = GridBagConstraints.BOTH;
+						gbc_btnDiseñoRuta.insets = new Insets(0, 0, 5, 5);
+						gbc_btnDiseñoRuta.gridx = 2;
+						gbc_btnDiseñoRuta.gridy = 1;
+						panelRutas.add(btnDiseñoRuta, gbc_btnDiseñoRuta);
 					}
 				}
 				{
@@ -643,6 +693,7 @@ public class UI_Gestor {
 					}
 					{
 						btnAnadirMonitor = new JButton("A\u00F1adir");
+						btnAnadirMonitor.addActionListener(new BtnAnadirMonitorActionListener());
 						btnAnadirMonitor.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 						GridBagConstraints gbc_btnAnadirMonitor = new GridBagConstraints();
 						gbc_btnAnadirMonitor.fill = GridBagConstraints.BOTH;
@@ -740,18 +791,19 @@ public class UI_Gestor {
 				panelMenuPrincipal.add(lblBarraDeEstado, BorderLayout.SOUTH);
 			}
 			{
-				panel_1 = new JPanel();
-				panel_1.setBackground(SystemColor.controlHighlight);
-				panelMenuPrincipal.add(panel_1, BorderLayout.EAST);
-				GridBagLayout gbl_panel_1 = new GridBagLayout();
-				gbl_panel_1.columnWidths = new int[] { 33, 0 };
-				gbl_panel_1.rowHeights = new int[] { 33, 40, 36, 32, 0 };
-				gbl_panel_1.columnWeights = new double[] { 0.0, Double.MIN_VALUE };
-				gbl_panel_1.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
-				panel_1.setLayout(gbl_panel_1);
+				panelOpcionesPrincipales = new JPanel();
+				panelOpcionesPrincipales.setBackground(SystemColor.controlHighlight);
+				panelMenuPrincipal.add(panelOpcionesPrincipales, BorderLayout.EAST);
+				GridBagLayout gbl_panelOpcionesPrincipales = new GridBagLayout();
+				gbl_panelOpcionesPrincipales.columnWidths = new int[] { 33, 0 };
+				gbl_panelOpcionesPrincipales.rowHeights = new int[] { 33, 40, 36, 0, 32, 0 };
+				gbl_panelOpcionesPrincipales.columnWeights = new double[] { 0.0, Double.MIN_VALUE };
+				gbl_panelOpcionesPrincipales.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
+				panelOpcionesPrincipales.setLayout(gbl_panelOpcionesPrincipales);
 				{
 					{
 						btnHome = new JButton("");
+						btnHome.setToolTipText("Menu Principal");
 						btnHome.addActionListener(new BtnHomeActionListener());
 						btnHome.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 						btnHome.setBorder(null);
@@ -760,11 +812,12 @@ public class UI_Gestor {
 						gbc_btnHome.insets = new Insets(0, 0, 5, 0);
 						gbc_btnHome.gridx = 0;
 						gbc_btnHome.gridy = 0;
-						panel_1.add(btnHome, gbc_btnHome);
+						panelOpcionesPrincipales.add(btnHome, gbc_btnHome);
 					}
 				}
 				{
 					btnHelp = new JButton("");
+					btnHelp.setToolTipText("Ayuda");
 					btnHelp.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 					btnHelp.setBorder(null);
 					btnHelp.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/help.png")));
@@ -772,10 +825,11 @@ public class UI_Gestor {
 					gbc_btnHelp.insets = new Insets(0, 0, 5, 0);
 					gbc_btnHelp.gridx = 0;
 					gbc_btnHelp.gridy = 1;
-					panel_1.add(btnHelp, gbc_btnHelp);
+					panelOpcionesPrincipales.add(btnHelp, gbc_btnHelp);
 				}
 				{
 					btnUser = new JButton("");
+					btnUser.setToolTipText("Inf. Usuario");
 					btnUser.addActionListener(new BtnUserActionListener());
 					btnUser.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 					btnUser.setBorder(null);
@@ -784,18 +838,30 @@ public class UI_Gestor {
 					gbc_btnUser.insets = new Insets(0, 0, 5, 0);
 					gbc_btnUser.gridx = 0;
 					gbc_btnUser.gridy = 2;
-					panel_1.add(btnUser, gbc_btnUser);
+					panelOpcionesPrincipales.add(btnUser, gbc_btnUser);
 				}
 				{
 					btnLogout = new JButton("");
+					btnLogout.setToolTipText("Cerrar Sesi\u00F3n");
 					btnLogout.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 					btnLogout.addActionListener(new BtnLogoutActionListener());
+					{
+						btnCalendario = new JButton("");
+						btnCalendario.setToolTipText("Calendario");
+						btnCalendario.setBorder(null);
+						btnCalendario.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/calendarbtn.png")));
+						GridBagConstraints gbc_btnCalendario = new GridBagConstraints();
+						gbc_btnCalendario.insets = new Insets(0, 0, 5, 0);
+						gbc_btnCalendario.gridx = 0;
+						gbc_btnCalendario.gridy = 3;
+						panelOpcionesPrincipales.add(btnCalendario, gbc_btnCalendario);
+					}
 					btnLogout.setBorder(null);
 					btnLogout.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/exit.png")));
 					GridBagConstraints gbc_btnLogout = new GridBagConstraints();
 					gbc_btnLogout.gridx = 0;
-					gbc_btnLogout.gridy = 3;
-					panel_1.add(btnLogout, gbc_btnLogout);
+					gbc_btnLogout.gridy = 4;
+					panelOpcionesPrincipales.add(btnLogout, gbc_btnLogout);
 				}
 			}
 		}
@@ -840,7 +906,6 @@ public class UI_Gestor {
 			CardLayout panel = (CardLayout) (frmGestorLosOlivos.getContentPane().getLayout());
 			panel.show(frmGestorLosOlivos.getContentPane(), e.getActionCommand());
 			Date date=java.util.Calendar.getInstance().getTime();
-			lblBarraEstado.setText("Sesión iniciada a las: "+ date);
 			lblBarraDeEstado.setText("Sesión iniciada a las: "+ date);
 		}
 	}
@@ -855,7 +920,7 @@ public class UI_Gestor {
 				panel.show(frmGestorLosOlivos.getContentPane(), "PanelSesion"); // Yes
 				Date date=java.util.Calendar.getInstance().getTime();
 				lblBarraEstado.setText("Sesión cerrada a las: "+ date);
-				lblBarraDeEstado.setText("Sesión cerrada a las: "+ date);
+
 			} 
 		}
 	}
@@ -869,11 +934,17 @@ public class UI_Gestor {
 
 	private class BtnUserActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			JFrame window= new UI_Usuario();
-			window.setVisible(true);
+			if(comprobadorUsuario == 0) {
+				JFrame window= new UI_Usuario();
+				window.setVisible(true);
+				comprobadorUsuario++;
+			}
 		}
 	}
 	
+	public static void setComprobadorUsuario(int valor) {
+		comprobadorUsuario=valor;
+	}
 	
 	
 	
@@ -929,6 +1000,12 @@ public class UI_Gestor {
 				treePrograma.setSelectionPath(null);
 			} 
 			
+		}
+	}
+	private class BtnAnadirMonitorActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			JFrame window= new UI_Monitor();
+			window.setVisible(true);
 		}
 	}
 
