@@ -493,6 +493,8 @@ public class UI_Gestor {
 					panelReservas.setLayout(gbl_panelReservas);
 					{
 						btnNuevaReserva = new JButton("Nueva Reserva");
+						btnNuevaReserva.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+						btnNuevaReserva.addActionListener(new BtnReservasActionListener(0));
 						btnNuevaReserva.setFont(new Font("Tahoma", Font.BOLD, 20));
 						GridBagConstraints gbc_btnNuevaReserva = new GridBagConstraints();
 						gbc_btnNuevaReserva.fill = GridBagConstraints.BOTH;
@@ -503,6 +505,8 @@ public class UI_Gestor {
 					}
 					{
 						btnBorrarReserva = new JButton("Borrar Reserva");
+						btnBorrarReserva.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+						btnBorrarReserva.addActionListener(new BtnReservasActionListener(1));
 						btnBorrarReserva.setFont(new Font("Tahoma", Font.BOLD, 20));
 						GridBagConstraints gbc_btnBorrarReserva = new GridBagConstraints();
 						gbc_btnBorrarReserva.fill = GridBagConstraints.BOTH;
@@ -513,6 +517,8 @@ public class UI_Gestor {
 					}
 					{
 						btnConsultarReservas = new JButton("Consultar Reservas");
+						btnConsultarReservas.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+						btnConsultarReservas.addActionListener(new BtnReservasActionListener(2));
 						btnConsultarReservas.setFont(new Font("Tahoma", Font.BOLD, 20));
 						GridBagConstraints gbc_btnConsultarReservas = new GridBagConstraints();
 						gbc_btnConsultarReservas.fill = GridBagConstraints.BOTH;
@@ -1077,6 +1083,18 @@ public class UI_Gestor {
 			window.setVisible(true);
 			UI_Auxiliar.setElegirPanel(valor);
 			UI_Auxiliar.setElegirFormulario(1);
+		}
+	}
+	private class BtnReservasActionListener implements ActionListener {
+		int valor = 0;
+		
+		public BtnReservasActionListener(int valor) {
+			this.valor = valor;
+		}
+		public void actionPerformed(ActionEvent e) {
+			JFrame window= new UI_Reservas();
+			window.setVisible(true);
+			UI_Reservas.setElegirPanel(valor);
 		}
 	}
 }

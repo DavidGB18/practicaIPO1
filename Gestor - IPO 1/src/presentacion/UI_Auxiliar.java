@@ -577,9 +577,11 @@ public class UI_Auxiliar extends JFrame {
 			switch(elegirFormulario) {
 			case 0:
 				panel2.show(panelFormularios, "Monitor");
+				setTitle("Vista de Monitor");
 				break;
 			case 1:
 				panel2.show(panelFormularios, "Actividad");
+				setTitle("Vista de Actividad");
 				break;
 			}
 		}

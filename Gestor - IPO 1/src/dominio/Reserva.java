@@ -2,6 +2,7 @@ package dominio;
 
 public class Reserva {
 
+	private int idReserva;
 	private Fecha fechaEntrada;
 	private Fecha fechaSalida;
 	private String nombre;
@@ -12,7 +13,7 @@ public class Reserva {
 	private int horaEntrada;
 	private int horaSalida;
 	
-	public Reserva(Fecha fechaEntrada, Fecha fechaSalida, String nombre, String correoElectronico, long telefono,
+	public Reserva(int idReserva, Fecha fechaEntrada, Fecha fechaSalida, String nombre, String correoElectronico, long telefono,
 			int ocupantes, String[] solicitudesEspeciales, int horaEntrada, int horaSalida) {
 		super();
 		this.fechaEntrada = fechaEntrada;
@@ -24,6 +25,14 @@ public class Reserva {
 		this.solicitudesEspeciales = solicitudesEspeciales;
 		this.horaEntrada = horaEntrada;
 		this.horaSalida = horaSalida;
+	}
+	
+	public int getIdReserva() {
+		return idReserva;
+	}
+
+	public void setIdReserva(int idReserva) {
+		this.idReserva = idReserva;
 	}
 
 	public Fecha getFechaEntrada() {
