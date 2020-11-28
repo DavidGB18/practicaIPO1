@@ -436,7 +436,7 @@ public class UI_Gestor {
 								btnRutas.addChangeListener(new BtnIniciarChangeListener());
 								btnRutas.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 								btnRutas.addActionListener(new BtnCambioPanelActionListener("panelRutas"));
-								btnRutas.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/location-pin@2x.png")));
+								btnRutas.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/compass@2x.png")));
 								btnRutas.setToolTipText("Rutas");
 								GridBagConstraints gbc_btnRutas = new GridBagConstraints();
 								gbc_btnRutas.fill = GridBagConstraints.BOTH;
@@ -541,7 +541,11 @@ public class UI_Gestor {
 					gbl_panelParcelasBungalos.rowWeights = new double[]{0.0, 1.0, 0.0, Double.MIN_VALUE};
 					panelParcelasBungalos.setLayout(gbl_panelParcelasBungalos);
 					{
-						btnParcelas = new JButton("Parcelas");
+						btnParcelas = new JButton("");
+						btnParcelas.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+						btnParcelas.setBackground(new Color(240, 240, 240));
+						btnParcelas.setBorderPainted(false);
+						btnParcelas.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/location-pin@3x.png")));
 						GridBagConstraints gbc_btnParcelas = new GridBagConstraints();
 						gbc_btnParcelas.fill = GridBagConstraints.BOTH;
 						gbc_btnParcelas.insets = new Insets(0, 0, 5, 5);
@@ -551,6 +555,7 @@ public class UI_Gestor {
 					}
 					{
 						btnBungalows = new JButton("");
+						btnBungalows.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 						btnBungalows.setOpaque(false);
 						btnBungalows.setBorder(null);
 						btnBungalows.setBackground(new Color(240, 240, 240));
@@ -589,6 +594,7 @@ public class UI_Gestor {
 					}
 					{
 						btnDiseñoRuta = new JButton("");
+						btnDiseñoRuta.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 						btnDiseñoRuta.setOpaque(false);
 						btnDiseñoRuta.setBorder(null);
 						btnDiseñoRuta.setBackground(new Color(240, 240, 240));
@@ -901,6 +907,7 @@ public class UI_Gestor {
 					btnLogout.addActionListener(new BtnLogoutActionListener());
 					{
 						btnCalendario = new JButton("");
+						btnCalendario.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 						btnCalendario.setBackground(new Color(240, 240, 240));
 						btnCalendario.setOpaque(false);
 						btnCalendario.setToolTipText("Calendario");
