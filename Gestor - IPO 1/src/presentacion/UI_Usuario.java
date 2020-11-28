@@ -17,6 +17,7 @@ import javax.swing.JTextPane;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Cursor;
 
 public class UI_Usuario extends JFrame {
 
@@ -116,6 +117,7 @@ public class UI_Usuario extends JFrame {
 			}
 			{
 				btnCambiarFoto = new JButton("Cambiar Foto");
+				btnCambiarFoto.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 				GridBagConstraints gbc_btnCambiarFoto = new GridBagConstraints();
 				gbc_btnCambiarFoto.insets = new Insets(0, 0, 5, 5);
 				gbc_btnCambiarFoto.gridx = 1;
@@ -124,6 +126,7 @@ public class UI_Usuario extends JFrame {
 			}
 			{
 				btnCambiarPass = new JButton("Cambiar Contrase\u00F1a");
+				btnCambiarPass.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 				GridBagConstraints gbc_btnCambiarPass = new GridBagConstraints();
 				gbc_btnCambiarPass.insets = new Insets(0, 0, 5, 5);
 				gbc_btnCambiarPass.gridx = 4;
@@ -132,6 +135,7 @@ public class UI_Usuario extends JFrame {
 			}
 			{
 				btnAceptar = new JButton("Aceptar");
+				btnAceptar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 				btnAceptar.addActionListener(new BtnAceptarActionListener());
 				GridBagConstraints gbc_btnAceptar = new GridBagConstraints();
 				gbc_btnAceptar.fill = GridBagConstraints.BOTH;

@@ -28,6 +28,7 @@ import javax.swing.JRadioButton;
 import javax.swing.SpinnerNumberModel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Cursor;
 
 public class UI_Auxiliar extends JFrame {
 
@@ -488,6 +489,7 @@ public class UI_Auxiliar extends JFrame {
 				panelBotones.add(panelVer, "Ver");
 				{
 					btnCerrar = new JButton("Cerrar");
+					btnCerrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 					btnCerrar.addActionListener(new BtnCerrarActionListener());
 					panelVer.add(btnCerrar);
 				}
@@ -497,11 +499,13 @@ public class UI_Auxiliar extends JFrame {
 				panelBotones.add(panelAnadir, "Anadir");
 				{
 					btnCancelar = new JButton("Cancelar");
+					btnCancelar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 					btnCancelar.addActionListener(new BtnCancelarActionListener());
 					panelAnadir.add(btnCancelar);
 				}
 				{
 					btnAnadir = new JButton("A\u00F1adir");
+					btnAnadir.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 					btnAnadir.addActionListener(new BtnConfirmacionAccionActionListener("añadir"));
 					panelAnadir.add(btnAnadir);
 				}
@@ -511,11 +515,13 @@ public class UI_Auxiliar extends JFrame {
 				panelBotones.add(panelBorrar, "Borrar");
 				{
 					btnCancelar1 = new JButton("Cancelar");
+					btnCancelar1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 					btnCancelar1.addActionListener(new BtnCancelarActionListener());
 					panelBorrar.add(btnCancelar1);
 				}
 				{
 					btnBorrar = new JButton("Borrar");
+					btnBorrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 					btnBorrar.addActionListener(new BtnConfirmacionAccionActionListener("borrar"));
 					panelBorrar.add(btnBorrar);
 				}
@@ -525,11 +531,13 @@ public class UI_Auxiliar extends JFrame {
 				panelBotones.add(panelModificar, "Modificar");
 				{
 					btnCancelar2 = new JButton("Cancelar");
+					btnCancelar2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 					btnCancelar2.addActionListener(new BtnCancelarActionListener());
 					panelModificar.add(btnCancelar2);
 				}
 				{
 					btnModificar = new JButton("Modificar");
+					btnModificar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 					btnModificar.addActionListener(new BtnConfirmacionAccionActionListener("Modificar"));
 					panelModificar.add(btnModificar);
 				}

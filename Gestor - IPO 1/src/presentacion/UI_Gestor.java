@@ -81,7 +81,7 @@ public class UI_Gestor {
 	private JButton btnConfiguracion;
 	private JPanel panelReservas;
 	private JButton btnNuevaReserva;
-	private JButton btnConsultarReserva;
+	private JButton btnConsultarReservas;
 	private JButton btnBorrarReserva;
 	private JPanel panelParcelasBungalos;
 	private JButton btnParcelas;
@@ -502,24 +502,24 @@ public class UI_Gestor {
 						panelReservas.add(btnNuevaReserva, gbc_btnNuevaReserva);
 					}
 					{
-						btnConsultarReserva = new JButton("Consultar Reserva");
-						btnConsultarReserva.setFont(new Font("Tahoma", Font.BOLD, 20));
-						GridBagConstraints gbc_btnConsultarReserva = new GridBagConstraints();
-						gbc_btnConsultarReserva.fill = GridBagConstraints.BOTH;
-						gbc_btnConsultarReserva.insets = new Insets(0, 0, 5, 5);
-						gbc_btnConsultarReserva.gridx = 2;
-						gbc_btnConsultarReserva.gridy = 4;
-						panelReservas.add(btnConsultarReserva, gbc_btnConsultarReserva);
-					}
-					{
 						btnBorrarReserva = new JButton("Borrar Reserva");
 						btnBorrarReserva.setFont(new Font("Tahoma", Font.BOLD, 20));
 						GridBagConstraints gbc_btnBorrarReserva = new GridBagConstraints();
 						gbc_btnBorrarReserva.fill = GridBagConstraints.BOTH;
 						gbc_btnBorrarReserva.insets = new Insets(0, 0, 5, 5);
 						gbc_btnBorrarReserva.gridx = 2;
-						gbc_btnBorrarReserva.gridy = 6;
+						gbc_btnBorrarReserva.gridy = 4;
 						panelReservas.add(btnBorrarReserva, gbc_btnBorrarReserva);
+					}
+					{
+						btnConsultarReservas = new JButton("Consultar Reservas");
+						btnConsultarReservas.setFont(new Font("Tahoma", Font.BOLD, 20));
+						GridBagConstraints gbc_btnConsultarReservas = new GridBagConstraints();
+						gbc_btnConsultarReservas.fill = GridBagConstraints.BOTH;
+						gbc_btnConsultarReservas.insets = new Insets(0, 0, 5, 5);
+						gbc_btnConsultarReservas.gridx = 2;
+						gbc_btnConsultarReservas.gridy = 6;
+						panelReservas.add(btnConsultarReservas, gbc_btnConsultarReservas);
 					}
 				}
 				{
@@ -720,6 +720,7 @@ public class UI_Gestor {
 					}
 					{
 						btnVerMonitor = new JButton("Ver");
+						btnVerMonitor.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 						btnVerMonitor.addActionListener(new BtnMonitorActionListener(0));
 						GridBagConstraints gbc_btnVerMonitor = new GridBagConstraints();
 						gbc_btnVerMonitor.fill = GridBagConstraints.BOTH;
@@ -778,6 +779,7 @@ public class UI_Gestor {
 					}
 					{
 						btnAnadirActividad = new JButton("A\u00F1adir");
+						btnAnadirActividad.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 						btnAnadirActividad.addActionListener(new BtnActividadActionListener(1));
 						GridBagConstraints gbc_btnAnadirActividad = new GridBagConstraints();
 						gbc_btnAnadirActividad.fill = GridBagConstraints.BOTH;
@@ -788,6 +790,7 @@ public class UI_Gestor {
 					}
 					{
 						btnModificarActividad = new JButton("Modificar");
+						btnModificarActividad.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 						btnModificarActividad.addActionListener(new BtnActividadActionListener(2));
 						GridBagConstraints gbc_btnModificarActividad = new GridBagConstraints();
 						gbc_btnModificarActividad.fill = GridBagConstraints.BOTH;
@@ -798,6 +801,7 @@ public class UI_Gestor {
 					}
 					{
 						btnVerActividad = new JButton("Ver");
+						btnVerActividad.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 						btnVerActividad.addActionListener(new BtnActividadActionListener(0));
 						GridBagConstraints gbc_btnVerActividad = new GridBagConstraints();
 						gbc_btnVerActividad.fill = GridBagConstraints.BOTH;
@@ -808,6 +812,7 @@ public class UI_Gestor {
 					}
 					{
 						btnEliminarActividad = new JButton("Eliminar");
+						btnEliminarActividad.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 						btnEliminarActividad.addActionListener(new BtnActividadActionListener(3));
 						GridBagConstraints gbc_btnEliminarActividad = new GridBagConstraints();
 						gbc_btnEliminarActividad.fill = GridBagConstraints.BOTH;
