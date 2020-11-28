@@ -778,6 +778,7 @@ public class UI_Gestor {
 					}
 					{
 						btnAnadirActividad = new JButton("A\u00F1adir");
+						btnAnadirActividad.addActionListener(new BtnActividadActionListener(1));
 						GridBagConstraints gbc_btnAnadirActividad = new GridBagConstraints();
 						gbc_btnAnadirActividad.fill = GridBagConstraints.BOTH;
 						gbc_btnAnadirActividad.insets = new Insets(0, 0, 5, 5);
@@ -787,6 +788,7 @@ public class UI_Gestor {
 					}
 					{
 						btnModificarActividad = new JButton("Modificar");
+						btnModificarActividad.addActionListener(new BtnActividadActionListener(2));
 						GridBagConstraints gbc_btnModificarActividad = new GridBagConstraints();
 						gbc_btnModificarActividad.fill = GridBagConstraints.BOTH;
 						gbc_btnModificarActividad.insets = new Insets(0, 0, 5, 5);
@@ -796,6 +798,7 @@ public class UI_Gestor {
 					}
 					{
 						btnVerActividad = new JButton("Ver");
+						btnVerActividad.addActionListener(new BtnActividadActionListener(0));
 						GridBagConstraints gbc_btnVerActividad = new GridBagConstraints();
 						gbc_btnVerActividad.fill = GridBagConstraints.BOTH;
 						gbc_btnVerActividad.insets = new Insets(0, 0, 5, 5);
@@ -805,6 +808,7 @@ public class UI_Gestor {
 					}
 					{
 						btnEliminarActividad = new JButton("Eliminar");
+						btnEliminarActividad.addActionListener(new BtnActividadActionListener(3));
 						GridBagConstraints gbc_btnEliminarActividad = new GridBagConstraints();
 						gbc_btnEliminarActividad.fill = GridBagConstraints.BOTH;
 						gbc_btnEliminarActividad.insets = new Insets(0, 0, 5, 5);
@@ -1043,13 +1047,31 @@ public class UI_Gestor {
 	}
 	private class BtnMonitorActionListener implements ActionListener {
 		int valor = 0;
+		
 		public BtnMonitorActionListener(int valor) {
 			this.valor = valor;
 		}
+		
 		public void actionPerformed(ActionEvent e) {
 			JFrame window= new UI_Auxiliar();
 			window.setVisible(true);
 			UI_Auxiliar.setElegirPanel(valor);
+			UI_Auxiliar.setElegirFormulario(0);
+		}
+	}
+	
+	private class BtnActividadActionListener implements ActionListener {
+		int valor = 0;
+		
+		public BtnActividadActionListener(int valor) {
+			this.valor = valor;
+		}
+		
+		public void actionPerformed(ActionEvent e) {
+			JFrame window= new UI_Auxiliar();
+			window.setVisible(true);
+			UI_Auxiliar.setElegirPanel(valor);
+			UI_Auxiliar.setElegirFormulario(1);
 		}
 	}
 }

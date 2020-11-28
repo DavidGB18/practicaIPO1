@@ -21,6 +21,13 @@ import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import java.awt.Font;
 import javax.swing.ImageIcon;
+import javax.swing.JScrollPane;
+import javax.swing.JList;
+import javax.swing.JSpinner;
+import javax.swing.JRadioButton;
+import javax.swing.SpinnerNumberModel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class UI_Auxiliar extends JFrame {
 
@@ -61,6 +68,27 @@ public class UI_Auxiliar extends JFrame {
 	private JLabel lblCorreoMonitor;
 	
 	public static int elegirPanel;
+	public static int elegirFormulario;
+	private JLabel lblConfiguracionActividad;
+	private JLabel lblMonitoresActividades;
+	private JScrollPane scrollPaneMonitoresActividad;
+	private JList listMonitoresActividad;
+	private JLabel lblPrecio;
+	private JTextField textFieldPrecioActividad;
+	private JLabel lblHoraInicioActividad;
+	private JSpinner spinnerInicioActividad;
+	private JLabel lblHoraFinalActividad;
+	private JSpinner spinnerFinalActividad;
+	private JLabel lblDestinatariosActividad;
+	private JPanel panelDestinatariosActividad;
+	private JRadioButton rdbtnNinos;
+	private JRadioButton rdbtnAdultos;
+	private JRadioButton rdbtnAncianos;
+	private JLabel lblCupoMaxActividad;
+	private JLabel lblDescripcionActividad;
+	private JScrollPane scrollPaneDescripcionActividad;
+	private JTextPane txtDescripcionActividad;
+	private JTextField textFieldCupoMaximoActividad;
 
 	/**
 	 * Launch the application.
@@ -84,7 +112,7 @@ public class UI_Auxiliar extends JFrame {
 	public UI_Auxiliar() {
 		addWindowListener(new ThisWindowListener());
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		setBounds(100, 100, 548, 415);
+		setBounds(100, 100, 563, 428);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -287,11 +315,168 @@ public class UI_Auxiliar extends JFrame {
 				panelActividad = new JPanel();
 				panelFormularios.add(panelActividad, "Actividad");
 				GridBagLayout gbl_panelActividad = new GridBagLayout();
-				gbl_panelActividad.columnWidths = new int[]{0};
-				gbl_panelActividad.rowHeights = new int[]{0};
-				gbl_panelActividad.columnWeights = new double[]{Double.MIN_VALUE};
-				gbl_panelActividad.rowWeights = new double[]{Double.MIN_VALUE};
+				gbl_panelActividad.columnWidths = new int[]{0, 0, 213, 0, 0, 0, 0, 0};
+				gbl_panelActividad.rowHeights = new int[]{0, 0, 0, 64, 0, 0, 0, 0, 0, 0, 0};
+				gbl_panelActividad.columnWeights = new double[]{1.0, 0.0, 1.0, 1.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
+				gbl_panelActividad.rowWeights = new double[]{1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 0.0, Double.MIN_VALUE};
 				panelActividad.setLayout(gbl_panelActividad);
+				{
+					lblConfiguracionActividad = new JLabel("Configuraci\u00F3n Actividad:");
+					lblConfiguracionActividad.setFont(new Font("Tahoma", Font.PLAIN, 16));
+					GridBagConstraints gbc_lblConfiguracionActividad = new GridBagConstraints();
+					gbc_lblConfiguracionActividad.anchor = GridBagConstraints.WEST;
+					gbc_lblConfiguracionActividad.gridwidth = 2;
+					gbc_lblConfiguracionActividad.insets = new Insets(0, 0, 5, 5);
+					gbc_lblConfiguracionActividad.gridx = 1;
+					gbc_lblConfiguracionActividad.gridy = 1;
+					panelActividad.add(lblConfiguracionActividad, gbc_lblConfiguracionActividad);
+				}
+				{
+					lblMonitoresActividades = new JLabel("Monitores:");
+					GridBagConstraints gbc_lblMonitoresActividades = new GridBagConstraints();
+					gbc_lblMonitoresActividades.anchor = GridBagConstraints.NORTH;
+					gbc_lblMonitoresActividades.insets = new Insets(0, 0, 5, 5);
+					gbc_lblMonitoresActividades.gridx = 1;
+					gbc_lblMonitoresActividades.gridy = 3;
+					panelActividad.add(lblMonitoresActividades, gbc_lblMonitoresActividades);
+				}
+				{
+					scrollPaneMonitoresActividad = new JScrollPane();
+					GridBagConstraints gbc_scrollPaneMonitoresActividad = new GridBagConstraints();
+					gbc_scrollPaneMonitoresActividad.insets = new Insets(0, 0, 5, 5);
+					gbc_scrollPaneMonitoresActividad.fill = GridBagConstraints.BOTH;
+					gbc_scrollPaneMonitoresActividad.gridx = 2;
+					gbc_scrollPaneMonitoresActividad.gridy = 3;
+					panelActividad.add(scrollPaneMonitoresActividad, gbc_scrollPaneMonitoresActividad);
+					{
+						listMonitoresActividad = new JList();
+						scrollPaneMonitoresActividad.setViewportView(listMonitoresActividad);
+					}
+				}
+				{
+					lblPrecio = new JLabel("Precio:");
+					GridBagConstraints gbc_lblPrecio = new GridBagConstraints();
+					gbc_lblPrecio.anchor = GridBagConstraints.EAST;
+					gbc_lblPrecio.insets = new Insets(0, 0, 5, 5);
+					gbc_lblPrecio.gridx = 4;
+					gbc_lblPrecio.gridy = 3;
+					panelActividad.add(lblPrecio, gbc_lblPrecio);
+				}
+				{
+					textFieldPrecioActividad = new JTextField();
+					GridBagConstraints gbc_textFieldPrecioActividad = new GridBagConstraints();
+					gbc_textFieldPrecioActividad.fill = GridBagConstraints.HORIZONTAL;
+					gbc_textFieldPrecioActividad.insets = new Insets(0, 0, 5, 5);
+					gbc_textFieldPrecioActividad.gridx = 5;
+					gbc_textFieldPrecioActividad.gridy = 3;
+					panelActividad.add(textFieldPrecioActividad, gbc_textFieldPrecioActividad);
+					textFieldPrecioActividad.setColumns(10);
+				}
+				{
+					lblDestinatariosActividad = new JLabel("Destinatarios:");
+					GridBagConstraints gbc_lblDestinatariosActividad = new GridBagConstraints();
+					gbc_lblDestinatariosActividad.insets = new Insets(0, 0, 5, 5);
+					gbc_lblDestinatariosActividad.gridx = 1;
+					gbc_lblDestinatariosActividad.gridy = 5;
+					panelActividad.add(lblDestinatariosActividad, gbc_lblDestinatariosActividad);
+				}
+				{
+					panelDestinatariosActividad = new JPanel();
+					GridBagConstraints gbc_panelDestinatariosActividad = new GridBagConstraints();
+					gbc_panelDestinatariosActividad.insets = new Insets(0, 0, 5, 5);
+					gbc_panelDestinatariosActividad.fill = GridBagConstraints.BOTH;
+					gbc_panelDestinatariosActividad.gridx = 2;
+					gbc_panelDestinatariosActividad.gridy = 5;
+					panelActividad.add(panelDestinatariosActividad, gbc_panelDestinatariosActividad);
+					{
+						rdbtnNinos = new JRadioButton("Ni\u00F1os");
+						panelDestinatariosActividad.add(rdbtnNinos);
+					}
+					{
+						rdbtnAdultos = new JRadioButton("Adultos");
+						panelDestinatariosActividad.add(rdbtnAdultos);
+					}
+					{
+						rdbtnAncianos = new JRadioButton("Ancianos");
+						panelDestinatariosActividad.add(rdbtnAncianos);
+					}
+				}
+				{
+					lblHoraInicioActividad = new JLabel("Hora Inicio:");
+					GridBagConstraints gbc_lblHoraInicioActividad = new GridBagConstraints();
+					gbc_lblHoraInicioActividad.insets = new Insets(0, 0, 5, 5);
+					gbc_lblHoraInicioActividad.gridx = 4;
+					gbc_lblHoraInicioActividad.gridy = 5;
+					panelActividad.add(lblHoraInicioActividad, gbc_lblHoraInicioActividad);
+				}
+				{
+					spinnerInicioActividad = new JSpinner();
+					spinnerInicioActividad.setModel(new SpinnerNumberModel(0, 0, 24, 1));
+					GridBagConstraints gbc_spinnerInicioActividad = new GridBagConstraints();
+					gbc_spinnerInicioActividad.insets = new Insets(0, 0, 5, 5);
+					gbc_spinnerInicioActividad.gridx = 5;
+					gbc_spinnerInicioActividad.gridy = 5;
+					panelActividad.add(spinnerInicioActividad, gbc_spinnerInicioActividad);
+				}
+				{
+					lblCupoMaxActividad = new JLabel("Cupo m\u00E1ximo:");
+					GridBagConstraints gbc_lblCupoMaxActividad = new GridBagConstraints();
+					gbc_lblCupoMaxActividad.anchor = GridBagConstraints.EAST;
+					gbc_lblCupoMaxActividad.insets = new Insets(0, 0, 5, 5);
+					gbc_lblCupoMaxActividad.gridx = 1;
+					gbc_lblCupoMaxActividad.gridy = 6;
+					panelActividad.add(lblCupoMaxActividad, gbc_lblCupoMaxActividad);
+				}
+				{
+					textFieldCupoMaximoActividad = new JTextField();
+					GridBagConstraints gbc_textFieldCupoMaximoActividad = new GridBagConstraints();
+					gbc_textFieldCupoMaximoActividad.insets = new Insets(0, 0, 5, 5);
+					gbc_textFieldCupoMaximoActividad.fill = GridBagConstraints.HORIZONTAL;
+					gbc_textFieldCupoMaximoActividad.gridx = 2;
+					gbc_textFieldCupoMaximoActividad.gridy = 6;
+					panelActividad.add(textFieldCupoMaximoActividad, gbc_textFieldCupoMaximoActividad);
+					textFieldCupoMaximoActividad.setColumns(10);
+				}
+				{
+					lblHoraFinalActividad = new JLabel("Hora Finalizaci\u00F3n:");
+					GridBagConstraints gbc_lblHoraFinalActividad = new GridBagConstraints();
+					gbc_lblHoraFinalActividad.insets = new Insets(0, 0, 5, 5);
+					gbc_lblHoraFinalActividad.gridx = 4;
+					gbc_lblHoraFinalActividad.gridy = 6;
+					panelActividad.add(lblHoraFinalActividad, gbc_lblHoraFinalActividad);
+				}
+				{
+					spinnerFinalActividad = new JSpinner();
+					spinnerFinalActividad.setModel(new SpinnerNumberModel(0, 0, 24, 1));
+					GridBagConstraints gbc_spinnerFinalActividad = new GridBagConstraints();
+					gbc_spinnerFinalActividad.insets = new Insets(0, 0, 5, 5);
+					gbc_spinnerFinalActividad.gridx = 5;
+					gbc_spinnerFinalActividad.gridy = 6;
+					panelActividad.add(spinnerFinalActividad, gbc_spinnerFinalActividad);
+				}
+				{
+					lblDescripcionActividad = new JLabel("Descripci\u00F3n:");
+					GridBagConstraints gbc_lblDescripcionActividad = new GridBagConstraints();
+					gbc_lblDescripcionActividad.anchor = GridBagConstraints.NORTH;
+					gbc_lblDescripcionActividad.insets = new Insets(0, 0, 5, 5);
+					gbc_lblDescripcionActividad.gridx = 1;
+					gbc_lblDescripcionActividad.gridy = 8;
+					panelActividad.add(lblDescripcionActividad, gbc_lblDescripcionActividad);
+				}
+				{
+					scrollPaneDescripcionActividad = new JScrollPane();
+					GridBagConstraints gbc_scrollPaneDescripcionActividad = new GridBagConstraints();
+					gbc_scrollPaneDescripcionActividad.gridwidth = 4;
+					gbc_scrollPaneDescripcionActividad.insets = new Insets(0, 0, 5, 5);
+					gbc_scrollPaneDescripcionActividad.fill = GridBagConstraints.BOTH;
+					gbc_scrollPaneDescripcionActividad.gridx = 2;
+					gbc_scrollPaneDescripcionActividad.gridy = 8;
+					panelActividad.add(scrollPaneDescripcionActividad, gbc_scrollPaneDescripcionActividad);
+					{
+						txtDescripcionActividad = new JTextPane();
+						scrollPaneDescripcionActividad.setViewportView(txtDescripcionActividad);
+					}
+				}
 			}
 		}
 		{
@@ -303,6 +488,7 @@ public class UI_Auxiliar extends JFrame {
 				panelBotones.add(panelVer, "Ver");
 				{
 					btnCerrar = new JButton("Cerrar");
+					btnCerrar.addActionListener(new BtnCerrarActionListener());
 					panelVer.add(btnCerrar);
 				}
 			}
@@ -311,10 +497,12 @@ public class UI_Auxiliar extends JFrame {
 				panelBotones.add(panelAnadir, "Anadir");
 				{
 					btnCancelar = new JButton("Cancelar");
+					btnCancelar.addActionListener(new BtnCancelarActionListener());
 					panelAnadir.add(btnCancelar);
 				}
 				{
 					btnAnadir = new JButton("A\u00F1adir");
+					btnAnadir.addActionListener(new BtnConfirmacionAccionActionListener("añadir"));
 					panelAnadir.add(btnAnadir);
 				}
 			}
@@ -323,10 +511,12 @@ public class UI_Auxiliar extends JFrame {
 				panelBotones.add(panelBorrar, "Borrar");
 				{
 					btnCancelar1 = new JButton("Cancelar");
+					btnCancelar1.addActionListener(new BtnCancelarActionListener());
 					panelBorrar.add(btnCancelar1);
 				}
 				{
 					btnBorrar = new JButton("Borrar");
+					btnBorrar.addActionListener(new BtnConfirmacionAccionActionListener("borrar"));
 					panelBorrar.add(btnBorrar);
 				}
 			}
@@ -335,10 +525,12 @@ public class UI_Auxiliar extends JFrame {
 				panelBotones.add(panelModificar, "Modificar");
 				{
 					btnCancelar2 = new JButton("Cancelar");
+					btnCancelar2.addActionListener(new BtnCancelarActionListener());
 					panelModificar.add(btnCancelar2);
 				}
 				{
 					btnModificar = new JButton("Modificar");
+					btnModificar.addActionListener(new BtnConfirmacionAccionActionListener("Modificar"));
 					panelModificar.add(btnModificar);
 				}
 			}
@@ -372,9 +564,61 @@ public class UI_Auxiliar extends JFrame {
 				panel.show(panelBotones, "Borrar");
 				break;
 			}
+			
+			CardLayout panel2 = (CardLayout) (panelFormularios.getLayout());
+			switch(elegirFormulario) {
+			case 0:
+				panel2.show(panelFormularios, "Monitor");
+				break;
+			case 1:
+				panel2.show(panelFormularios, "Actividad");
+				break;
+			}
 		}
 	}
+	private class BtnCerrarActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			dispose();
+		}
+	}
+	private class BtnCancelarActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			int sel = JOptionPane.showOptionDialog(null, "¿Seguro que quieres cancelar la operación?",
+					"Cerrar ventana", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
+			if (sel == JOptionPane.YES_OPTION) {
+				dispose(); // Yes
+			} else {
+				setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE); // No
+			}
+		}
+	}
+	private class BtnConfirmacionAccionActionListener implements ActionListener {
+		String palabra = null;
+		public BtnConfirmacionAccionActionListener(String palabra) {
+			this.palabra = palabra;
+		}
+		
+		public void actionPerformed(ActionEvent e) {
+			int sel = JOptionPane.showOptionDialog(null, "¿Seguro que quieres "+palabra+" este elemento?",
+					"Confirmar operación", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
+			if (sel == JOptionPane.YES_OPTION) {
+				
+				//HACER LA FUNCION QUE HAGA FALTA
+				
+				JOptionPane.showMessageDialog(null, "Se han guardado los cambios",
+						"Confirmación de cambios", JOptionPane.PLAIN_MESSAGE);
+				dispose(); // Yes
+			} else {
+				setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE); // No
+			}
+		}
+	}
+
 	public static void setElegirPanel(int valor) {
 		elegirPanel=valor;
+	}
+	
+	public static void setElegirFormulario(int valor) {
+		elegirFormulario=valor;
 	}
 }
