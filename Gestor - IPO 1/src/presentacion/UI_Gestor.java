@@ -179,7 +179,7 @@ public class UI_Gestor {
 			}
 			{
 				panelUsuarioPass = new JPanel();
-				panelUsuarioPass.setBackground(SystemColor.info);
+				panelUsuarioPass.setBackground(new Color(240, 240, 240));
 				panelUsuarioPass.setBorder(new EmptyBorder(0, 0, 0, 0));
 				panelAutenticacion.add(panelUsuarioPass, BorderLayout.CENTER);
 				GridBagLayout gbl_panelUsuarioPass = new GridBagLayout();
@@ -190,21 +190,23 @@ public class UI_Gestor {
 				panelUsuarioPass.setLayout(gbl_panelUsuarioPass);
 				{
 					panelImagen = new JPanel();
+					panelImagen.setBorder(null);
 					GridBagConstraints gbc_panelImagen = new GridBagConstraints();
 					gbc_panelImagen.fill = GridBagConstraints.BOTH;
 					gbc_panelImagen.insets = new Insets(0, 0, 0, 5);
 					gbc_panelImagen.gridx = 0;
 					gbc_panelImagen.gridy = 0;
 					panelUsuarioPass.add(panelImagen, gbc_panelImagen);
-					panelImagen.setLayout(null);
+					panelImagen.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 					{
-						lblImagen = new JLabel("New label");
-						lblImagen.setBounds(185, 247, 45, 13);
+						lblImagen = new JLabel("");
+						lblImagen.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/iniciosesion.jpg")));
 						panelImagen.add(lblImagen);
 					}
 				}
 				{
 					panelInicioSesion = new JPanel();
+					panelInicioSesion.setBackground(new Color(240, 240, 240));
 					panelInicioSesion.setOpaque(false);
 					panelInicioSesion.setLayout(null);
 					GridBagConstraints gbc_panelInicioSesion = new GridBagConstraints();
@@ -216,7 +218,7 @@ public class UI_Gestor {
 						panelFoto = new JPanel();
 						panelFoto.setBounds(122, 73, 158, 160);
 						panelInicioSesion.add(panelFoto);
-						panelFoto.setBackground(SystemColor.info);
+						panelFoto.setBackground(new Color(240, 240, 240));
 						panelFoto.setBorder(new TitledBorder(null, "Foto de Perfil", TitledBorder.LEADING, TitledBorder.TOP,
 								null, null));
 						panelFoto.setLayout(null);
@@ -352,7 +354,7 @@ public class UI_Gestor {
 				{
 					lblBanner = new JLabel("");
 					lblBanner.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-					lblBanner.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/banner.jpg")));
+					lblBanner.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/banner2.jpg")));
 					GridBagConstraints gbc_lblBanner = new GridBagConstraints();
 					gbc_lblBanner.fill = GridBagConstraints.VERTICAL;
 					gbc_lblBanner.gridx = 0;
@@ -1046,7 +1048,10 @@ public class UI_Gestor {
 					panel.show(panelPrincipal, "panel" + e.getNewLeadSelectionPath().getPath()[1]);	
 					break;
 				case 3:
+					
+					
 					//rellenar cuando esten disponibles las ventanas
+					
 					break;
 				default:
 			

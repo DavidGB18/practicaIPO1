@@ -21,6 +21,12 @@ import javax.swing.JTextPane;
 import javax.swing.JFormattedTextField;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import javax.swing.JProgressBar;
+import javax.swing.JSpinner;
+import javax.swing.JTextArea;
+import javax.swing.border.TitledBorder;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class UI_Reservas extends JFrame {
 
@@ -39,11 +45,10 @@ public class UI_Reservas extends JFrame {
 	private JLabel lblFechaEntrada;
 	private JLabel lblHoraEntrada;
 	private JTextField txtHoraEntrada;
-	private JLabel lblNombreReserva;
+	private JLabel lblDniReserva;
 	private JLabel lblTelefono;
 	private JLabel lblCorreo;
 	private JLabel lblConsideraciones;
-	private JTextField txtNombre;
 	private JTextField txtCorreo;
 	private JLabel lblFechaSalida;
 	private JLabel lblHoraSalida;
@@ -56,6 +61,53 @@ public class UI_Reservas extends JFrame {
 	private JFormattedTextField formattedTextFieldFechaSalida;
 	
 	public static int elegirPanel;
+	private JFormattedTextField formattedTextFieldDniReserva;
+	private JPanel panelPasos;
+	private JPanel panelPaso1;
+	private JPanel panelPaso2;
+	private JPanel panelPaso3;
+	private JPanel panelPaso4;
+	private JPanel panelPaso5;
+	private JPanel panelBarraProgreso;
+	private JProgressBar progressBar;
+	private JLabel lblIdNuevaReserva;
+	private JTextField txtIdGenerado;
+	private JLabel lblMensajeNuevaReserva;
+	private JButton btnSiguienteP1;
+	private JButton btnCancelarNuevaReserva;
+	private JLabel lblFechaNuevaReserva;
+	private JLabel lblFechaEntradaNuevaReserva;
+	private JLabel lblFechaSalidaNuevaReserva;
+	private JFormattedTextField formattedTextFieldFechaEntradaNuevaReserva;
+	private JFormattedTextField formattedTextFieldFechaSalidaNuevaReserva;
+	private JLabel lblHoraEntradaNuevaReserva;
+	private JSpinner spinner;
+	private JLabel lblHoraSalidaNuevaReserva;
+	private JSpinner spinner_1;
+	private JButton btnSiguienteP2;
+	private JButton btnAtrasP2;
+	private JPanel panelBotones;
+	private JPanel panelPasoInicial;
+	private JPanel panelPasosIntermedios;
+	private JPanel panelFinal;
+	private JButton btnAnterior;
+	private JButton btnFinalizar;
+	private JPanel panelPasoExito;
+	private JButton btnAceptar;
+	private JLabel lblContacto;
+	private JLabel lblDNI;
+	private JFormattedTextField formattedTextFieldDNI;
+	private JLabel lblTlf;
+	private JFormattedTextField formattedTextFieldTelefonoNuevaReserva;
+	private JLabel lblCorreoElectronico;
+	private JTextField txtCorreoElectronico;
+	private JLabel lblDatosReserva;
+	private JLabel lblOcupantes;
+	private JLabel lblSolicitudes;
+	private JSpinner spinnerOcupantes;
+	private JTextField txtSolicitudesNuevaReserva;
+	private JLabel lblMensajeExito;
+	private int numPanel = 0;
 
 	/**
 	 * Launch the application.
@@ -80,7 +132,7 @@ public class UI_Reservas extends JFrame {
 		addWindowListener(new ThisWindowListener());
 		setTitle("Vista de Reserva");
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		setBounds(100, 100, 654, 457);
+		setBounds(100, 100, 534, 412);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -92,15 +144,382 @@ public class UI_Reservas extends JFrame {
 			{
 				panelAnadirReserva = new JPanel();
 				panelReservas.add(panelAnadirReserva, "Añadir");
-				panelAnadirReserva.setLayout(new CardLayout(0, 0));
+				panelAnadirReserva.setLayout(new BorderLayout(0, 0));
+				{
+					panelPasos = new JPanel();
+					panelAnadirReserva.add(panelPasos, BorderLayout.CENTER);
+					panelPasos.setLayout(new CardLayout(0, 0));
+					{
+						panelPaso1 = new JPanel();
+						panelPasos.add(panelPaso1, "Paso1");
+						GridBagLayout gbl_panelPaso1 = new GridBagLayout();
+						gbl_panelPaso1.columnWidths = new int[]{145, 85, 26, 96, 85, 0};
+						gbl_panelPaso1.rowHeights = new int[]{71, 19, 43, 47, 0, 76, 21, 0};
+						gbl_panelPaso1.columnWeights = new double[]{1.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
+						gbl_panelPaso1.rowWeights = new double[]{1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, Double.MIN_VALUE};
+						panelPaso1.setLayout(gbl_panelPaso1);
+						{
+							lblIdNuevaReserva = new JLabel("ID Reserva:");
+							GridBagConstraints gbc_lblIdNuevaReserva = new GridBagConstraints();
+							gbc_lblIdNuevaReserva.anchor = GridBagConstraints.EAST;
+							gbc_lblIdNuevaReserva.insets = new Insets(0, 0, 5, 5);
+							gbc_lblIdNuevaReserva.gridx = 0;
+							gbc_lblIdNuevaReserva.gridy = 1;
+							panelPaso1.add(lblIdNuevaReserva, gbc_lblIdNuevaReserva);
+						}
+						{
+							txtIdGenerado = new JTextField();
+							txtIdGenerado.setEditable(false);
+							GridBagConstraints gbc_txtIdGenerado = new GridBagConstraints();
+							gbc_txtIdGenerado.fill = GridBagConstraints.BOTH;
+							gbc_txtIdGenerado.gridwidth = 3;
+							gbc_txtIdGenerado.insets = new Insets(0, 0, 5, 5);
+							gbc_txtIdGenerado.gridx = 1;
+							gbc_txtIdGenerado.gridy = 1;
+							panelPaso1.add(txtIdGenerado, gbc_txtIdGenerado);
+							txtIdGenerado.setColumns(10);
+						}
+						{
+							lblMensajeNuevaReserva = new JLabel("Este ID se genera automaticamente");
+							GridBagConstraints gbc_lblMensajeNuevaReserva = new GridBagConstraints();
+							gbc_lblMensajeNuevaReserva.anchor = GridBagConstraints.NORTHWEST;
+							gbc_lblMensajeNuevaReserva.insets = new Insets(0, 0, 5, 5);
+							gbc_lblMensajeNuevaReserva.gridwidth = 3;
+							gbc_lblMensajeNuevaReserva.gridx = 1;
+							gbc_lblMensajeNuevaReserva.gridy = 3;
+							panelPaso1.add(lblMensajeNuevaReserva, gbc_lblMensajeNuevaReserva);
+						}
+					}
+					{
+						panelPaso2 = new JPanel();
+						panelPasos.add(panelPaso2, "Paso2");
+						GridBagLayout gbl_panelPaso2 = new GridBagLayout();
+						gbl_panelPaso2.columnWidths = new int[]{36, 91, 41, 14, 30, 10, 54, 5, 78, 91, 0};
+						gbl_panelPaso2.rowHeights = new int[]{81, 31, 31, 19, 34, 20, 0};
+						gbl_panelPaso2.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+						gbl_panelPaso2.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+						panelPaso2.setLayout(gbl_panelPaso2);
+						{
+							lblFechaNuevaReserva = new JLabel("Fecha y hora");
+							lblFechaNuevaReserva.setFont(new Font("Tahoma", Font.PLAIN, 16));
+							GridBagConstraints gbc_lblFechaNuevaReserva = new GridBagConstraints();
+							gbc_lblFechaNuevaReserva.insets = new Insets(0, 0, 5, 5);
+							gbc_lblFechaNuevaReserva.gridx = 1;
+							gbc_lblFechaNuevaReserva.gridy = 1;
+							panelPaso2.add(lblFechaNuevaReserva, gbc_lblFechaNuevaReserva);
+						}
+						{
+							lblFechaEntradaNuevaReserva = new JLabel("Fecha Entrada:");
+							GridBagConstraints gbc_lblFechaEntradaNuevaReserva = new GridBagConstraints();
+							gbc_lblFechaEntradaNuevaReserva.anchor = GridBagConstraints.EAST;
+							gbc_lblFechaEntradaNuevaReserva.insets = new Insets(0, 0, 5, 5);
+							gbc_lblFechaEntradaNuevaReserva.gridx = 1;
+							gbc_lblFechaEntradaNuevaReserva.gridy = 3;
+							panelPaso2.add(lblFechaEntradaNuevaReserva, gbc_lblFechaEntradaNuevaReserva);
+						}
+						{
+							formattedTextFieldFechaEntradaNuevaReserva = new JFormattedTextField();
+							GridBagConstraints gbc_formattedTextFieldFechaEntradaNuevaReserva = new GridBagConstraints();
+							gbc_formattedTextFieldFechaEntradaNuevaReserva.anchor = GridBagConstraints.NORTH;
+							gbc_formattedTextFieldFechaEntradaNuevaReserva.fill = GridBagConstraints.HORIZONTAL;
+							gbc_formattedTextFieldFechaEntradaNuevaReserva.insets = new Insets(0, 0, 5, 5);
+							gbc_formattedTextFieldFechaEntradaNuevaReserva.gridwidth = 3;
+							gbc_formattedTextFieldFechaEntradaNuevaReserva.gridx = 2;
+							gbc_formattedTextFieldFechaEntradaNuevaReserva.gridy = 3;
+							panelPaso2.add(formattedTextFieldFechaEntradaNuevaReserva, gbc_formattedTextFieldFechaEntradaNuevaReserva);
+						}
+						{
+							lblFechaSalidaNuevaReserva = new JLabel("Fecha Salida:");
+							GridBagConstraints gbc_lblFechaSalidaNuevaReserva = new GridBagConstraints();
+							gbc_lblFechaSalidaNuevaReserva.fill = GridBagConstraints.HORIZONTAL;
+							gbc_lblFechaSalidaNuevaReserva.insets = new Insets(0, 0, 5, 5);
+							gbc_lblFechaSalidaNuevaReserva.gridx = 6;
+							gbc_lblFechaSalidaNuevaReserva.gridy = 3;
+							panelPaso2.add(lblFechaSalidaNuevaReserva, gbc_lblFechaSalidaNuevaReserva);
+						}
+						{
+							formattedTextFieldFechaSalidaNuevaReserva = new JFormattedTextField();
+							GridBagConstraints gbc_formattedTextFieldFechaSalidaNuevaReserva = new GridBagConstraints();
+							gbc_formattedTextFieldFechaSalidaNuevaReserva.gridwidth = 2;
+							gbc_formattedTextFieldFechaSalidaNuevaReserva.anchor = GridBagConstraints.NORTH;
+							gbc_formattedTextFieldFechaSalidaNuevaReserva.fill = GridBagConstraints.HORIZONTAL;
+							gbc_formattedTextFieldFechaSalidaNuevaReserva.insets = new Insets(0, 0, 5, 5);
+							gbc_formattedTextFieldFechaSalidaNuevaReserva.gridx = 7;
+							gbc_formattedTextFieldFechaSalidaNuevaReserva.gridy = 3;
+							panelPaso2.add(formattedTextFieldFechaSalidaNuevaReserva, gbc_formattedTextFieldFechaSalidaNuevaReserva);
+						}
+						{
+							lblHoraEntradaNuevaReserva = new JLabel("Hora Entrada:");
+							GridBagConstraints gbc_lblHoraEntradaNuevaReserva = new GridBagConstraints();
+							gbc_lblHoraEntradaNuevaReserva.anchor = GridBagConstraints.EAST;
+							gbc_lblHoraEntradaNuevaReserva.insets = new Insets(0, 0, 0, 5);
+							gbc_lblHoraEntradaNuevaReserva.gridwidth = 3;
+							gbc_lblHoraEntradaNuevaReserva.gridx = 1;
+							gbc_lblHoraEntradaNuevaReserva.gridy = 5;
+							panelPaso2.add(lblHoraEntradaNuevaReserva, gbc_lblHoraEntradaNuevaReserva);
+						}
+						{
+							spinner = new JSpinner();
+							GridBagConstraints gbc_spinner = new GridBagConstraints();
+							gbc_spinner.anchor = GridBagConstraints.NORTHWEST;
+							gbc_spinner.insets = new Insets(0, 0, 0, 5);
+							gbc_spinner.gridx = 4;
+							gbc_spinner.gridy = 5;
+							panelPaso2.add(spinner, gbc_spinner);
+						}
+						{
+							lblHoraSalidaNuevaReserva = new JLabel("Hora Salida:");
+							GridBagConstraints gbc_lblHoraSalidaNuevaReserva = new GridBagConstraints();
+							gbc_lblHoraSalidaNuevaReserva.anchor = GridBagConstraints.EAST;
+							gbc_lblHoraSalidaNuevaReserva.insets = new Insets(0, 0, 0, 5);
+							gbc_lblHoraSalidaNuevaReserva.gridwidth = 2;
+							gbc_lblHoraSalidaNuevaReserva.gridx = 6;
+							gbc_lblHoraSalidaNuevaReserva.gridy = 5;
+							panelPaso2.add(lblHoraSalidaNuevaReserva, gbc_lblHoraSalidaNuevaReserva);
+						}
+						{
+							spinner_1 = new JSpinner();
+							GridBagConstraints gbc_spinner_1 = new GridBagConstraints();
+							gbc_spinner_1.anchor = GridBagConstraints.NORTHWEST;
+							gbc_spinner_1.insets = new Insets(0, 0, 0, 5);
+							gbc_spinner_1.gridx = 8;
+							gbc_spinner_1.gridy = 5;
+							panelPaso2.add(spinner_1, gbc_spinner_1);
+						}
+					}
+					{
+						panelPaso3 = new JPanel();
+						panelPasos.add(panelPaso3, "Paso3");
+						GridBagLayout gbl_panelPaso3 = new GridBagLayout();
+						gbl_panelPaso3.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0};
+						gbl_panelPaso3.rowHeights = new int[]{0, 0, 47, 0, 0, 0, 0};
+						gbl_panelPaso3.columnWeights = new double[]{0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, Double.MIN_VALUE};
+						gbl_panelPaso3.rowWeights = new double[]{1.0, 0.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
+						panelPaso3.setLayout(gbl_panelPaso3);
+						{
+							lblContacto = new JLabel("Contacto");
+							lblContacto.setFont(new Font("Tahoma", Font.PLAIN, 16));
+							GridBagConstraints gbc_lblContacto = new GridBagConstraints();
+							gbc_lblContacto.insets = new Insets(0, 0, 5, 5);
+							gbc_lblContacto.gridx = 1;
+							gbc_lblContacto.gridy = 1;
+							panelPaso3.add(lblContacto, gbc_lblContacto);
+						}
+						{
+							lblDNI = new JLabel("DNI:");
+							GridBagConstraints gbc_lblDNI = new GridBagConstraints();
+							gbc_lblDNI.anchor = GridBagConstraints.WEST;
+							gbc_lblDNI.insets = new Insets(0, 0, 5, 5);
+							gbc_lblDNI.gridx = 1;
+							gbc_lblDNI.gridy = 3;
+							panelPaso3.add(lblDNI, gbc_lblDNI);
+						}
+						{
+							lblTlf = new JLabel("Tel\u00E9fono:");
+							GridBagConstraints gbc_lblTlf = new GridBagConstraints();
+							gbc_lblTlf.anchor = GridBagConstraints.WEST;
+							gbc_lblTlf.insets = new Insets(0, 0, 5, 5);
+							gbc_lblTlf.gridx = 3;
+							gbc_lblTlf.gridy = 3;
+							panelPaso3.add(lblTlf, gbc_lblTlf);
+						}
+						{
+							lblCorreoElectronico = new JLabel("Correo:");
+							GridBagConstraints gbc_lblCorreoElectronico = new GridBagConstraints();
+							gbc_lblCorreoElectronico.anchor = GridBagConstraints.WEST;
+							gbc_lblCorreoElectronico.insets = new Insets(0, 0, 5, 5);
+							gbc_lblCorreoElectronico.gridx = 5;
+							gbc_lblCorreoElectronico.gridy = 3;
+							panelPaso3.add(lblCorreoElectronico, gbc_lblCorreoElectronico);
+						}
+						{
+							formattedTextFieldDNI = new JFormattedTextField();
+							GridBagConstraints gbc_formattedTextFieldDNI = new GridBagConstraints();
+							gbc_formattedTextFieldDNI.insets = new Insets(0, 0, 5, 5);
+							gbc_formattedTextFieldDNI.fill = GridBagConstraints.HORIZONTAL;
+							gbc_formattedTextFieldDNI.gridx = 1;
+							gbc_formattedTextFieldDNI.gridy = 4;
+							panelPaso3.add(formattedTextFieldDNI, gbc_formattedTextFieldDNI);
+						}
+						{
+							formattedTextFieldTelefonoNuevaReserva = new JFormattedTextField();
+							GridBagConstraints gbc_formattedTextFieldTelefonoNuevaReserva = new GridBagConstraints();
+							gbc_formattedTextFieldTelefonoNuevaReserva.insets = new Insets(0, 0, 5, 5);
+							gbc_formattedTextFieldTelefonoNuevaReserva.fill = GridBagConstraints.HORIZONTAL;
+							gbc_formattedTextFieldTelefonoNuevaReserva.gridx = 3;
+							gbc_formattedTextFieldTelefonoNuevaReserva.gridy = 4;
+							panelPaso3.add(formattedTextFieldTelefonoNuevaReserva, gbc_formattedTextFieldTelefonoNuevaReserva);
+						}
+						{
+							txtCorreoElectronico = new JTextField();
+							GridBagConstraints gbc_txtCorreoElectronico = new GridBagConstraints();
+							gbc_txtCorreoElectronico.insets = new Insets(0, 0, 5, 5);
+							gbc_txtCorreoElectronico.fill = GridBagConstraints.HORIZONTAL;
+							gbc_txtCorreoElectronico.gridx = 5;
+							gbc_txtCorreoElectronico.gridy = 4;
+							panelPaso3.add(txtCorreoElectronico, gbc_txtCorreoElectronico);
+							txtCorreoElectronico.setColumns(10);
+						}
+					}
+					{
+						panelPaso4 = new JPanel();
+						panelPasos.add(panelPaso4, "Paso4");
+						GridBagLayout gbl_panelPaso4 = new GridBagLayout();
+						gbl_panelPaso4.columnWidths = new int[]{0, 0, 0, 0, 0, 39, 0, 0};
+						gbl_panelPaso4.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0};
+						gbl_panelPaso4.columnWeights = new double[]{0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+						gbl_panelPaso4.rowWeights = new double[]{1.0, 0.0, 1.0, 0.0, 1.0, 1.0, 1.0, Double.MIN_VALUE};
+						panelPaso4.setLayout(gbl_panelPaso4);
+						{
+							lblDatosReserva = new JLabel("Datos de la Reserva");
+							lblDatosReserva.setFont(new Font("Tahoma", Font.PLAIN, 16));
+							GridBagConstraints gbc_lblDatosReserva = new GridBagConstraints();
+							gbc_lblDatosReserva.gridwidth = 2;
+							gbc_lblDatosReserva.insets = new Insets(0, 0, 5, 5);
+							gbc_lblDatosReserva.gridx = 1;
+							gbc_lblDatosReserva.gridy = 1;
+							panelPaso4.add(lblDatosReserva, gbc_lblDatosReserva);
+						}
+						{
+							lblOcupantes = new JLabel("N\u00BA Ocupantes:");
+							GridBagConstraints gbc_lblOcupantes = new GridBagConstraints();
+							gbc_lblOcupantes.insets = new Insets(0, 0, 5, 5);
+							gbc_lblOcupantes.gridx = 1;
+							gbc_lblOcupantes.gridy = 3;
+							panelPaso4.add(lblOcupantes, gbc_lblOcupantes);
+						}
+						{
+							spinnerOcupantes = new JSpinner();
+							GridBagConstraints gbc_spinnerOcupantes = new GridBagConstraints();
+							gbc_spinnerOcupantes.insets = new Insets(0, 0, 5, 5);
+							gbc_spinnerOcupantes.gridx = 2;
+							gbc_spinnerOcupantes.gridy = 3;
+							panelPaso4.add(spinnerOcupantes, gbc_spinnerOcupantes);
+						}
+						{
+							lblSolicitudes = new JLabel("Solicitudes:");
+							GridBagConstraints gbc_lblSolicitudes = new GridBagConstraints();
+							gbc_lblSolicitudes.anchor = GridBagConstraints.NORTHEAST;
+							gbc_lblSolicitudes.insets = new Insets(0, 0, 5, 5);
+							gbc_lblSolicitudes.gridx = 1;
+							gbc_lblSolicitudes.gridy = 5;
+							panelPaso4.add(lblSolicitudes, gbc_lblSolicitudes);
+						}
+						{
+							txtSolicitudesNuevaReserva = new JTextField();
+							GridBagConstraints gbc_txtSolicitudesNuevaReserva = new GridBagConstraints();
+							gbc_txtSolicitudesNuevaReserva.gridwidth = 4;
+							gbc_txtSolicitudesNuevaReserva.insets = new Insets(0, 0, 5, 5);
+							gbc_txtSolicitudesNuevaReserva.fill = GridBagConstraints.BOTH;
+							gbc_txtSolicitudesNuevaReserva.gridx = 2;
+							gbc_txtSolicitudesNuevaReserva.gridy = 5;
+							panelPaso4.add(txtSolicitudesNuevaReserva, gbc_txtSolicitudesNuevaReserva);
+							txtSolicitudesNuevaReserva.setColumns(10);
+						}
+					}
+					{
+						panelPaso5 = new JPanel();
+						panelPasos.add(panelPaso5, "Paso5");
+						GridBagLayout gbl_panelPaso5 = new GridBagLayout();
+						gbl_panelPaso5.columnWidths = new int[]{0, 0, 0, 0};
+						gbl_panelPaso5.rowHeights = new int[]{0, 0, 0, 0};
+						gbl_panelPaso5.columnWeights = new double[]{0.0, 1.0, 0.0, Double.MIN_VALUE};
+						gbl_panelPaso5.rowWeights = new double[]{1.0, 0.0, 1.0, Double.MIN_VALUE};
+						panelPaso5.setLayout(gbl_panelPaso5);
+						{
+							lblMensajeExito = new JLabel("RESERVA REALIZADA CON \u00C9XITO");
+							lblMensajeExito.setFont(new Font("Tahoma", Font.PLAIN, 17));
+							GridBagConstraints gbc_lblMensajeExito = new GridBagConstraints();
+							gbc_lblMensajeExito.fill = GridBagConstraints.VERTICAL;
+							gbc_lblMensajeExito.insets = new Insets(0, 0, 5, 5);
+							gbc_lblMensajeExito.gridx = 1;
+							gbc_lblMensajeExito.gridy = 1;
+							panelPaso5.add(lblMensajeExito, gbc_lblMensajeExito);
+						}
+					}
+				}
+				{
+					panelBarraProgreso = new JPanel();
+					panelAnadirReserva.add(panelBarraProgreso, BorderLayout.NORTH);
+					panelBarraProgreso.setLayout(new BorderLayout(0, 0));
+					{
+						progressBar = new JProgressBar(1, 5);
+						progressBar.setStringPainted(true);
+						panelBarraProgreso.add(progressBar);
+						
+						
+					}
+				}
+				{
+					panelBotones = new JPanel();
+					panelAnadirReserva.add(panelBotones, BorderLayout.SOUTH);
+					panelBotones.setLayout(new CardLayout(0, 0));
+					{
+						panelPasoInicial = new JPanel();
+						panelBotones.add(panelPasoInicial, "botonesinicial");
+						{
+							btnCancelarNuevaReserva = new JButton("Cancelar");
+							btnCancelarNuevaReserva.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+							btnCancelarNuevaReserva.addActionListener(new BtnAnteriorActionListener());
+							panelPasoInicial.add(btnCancelarNuevaReserva);
+						}
+						{
+							btnSiguienteP1 = new JButton("Siguiente");
+							btnSiguienteP1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+							btnSiguienteP1.addActionListener(new BtnSiguienteActionListener());
+							panelPasoInicial.add(btnSiguienteP1);
+						}
+					}
+					{
+						panelPasosIntermedios = new JPanel();
+						panelBotones.add(panelPasosIntermedios, "botonesintermedios");
+						{
+							btnAtrasP2 = new JButton("Anterior");
+							btnAtrasP2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+							btnAtrasP2.addActionListener(new BtnAnteriorActionListener());
+							panelPasosIntermedios.add(btnAtrasP2);
+						}
+						{
+							btnSiguienteP2 = new JButton("Siguiente");
+							btnSiguienteP2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+							btnSiguienteP2.addActionListener(new BtnSiguienteActionListener());
+							panelPasosIntermedios.add(btnSiguienteP2);
+						}
+					}
+					{
+						panelFinal = new JPanel();
+						panelBotones.add(panelFinal, "botonesfinal");
+						{
+							btnAnterior = new JButton("Anterior");
+							btnAnterior.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+							btnAnterior.addActionListener(new BtnAnteriorActionListener());
+							panelFinal.add(btnAnterior);
+						}
+						{
+							btnFinalizar = new JButton("Finalizar");
+							btnFinalizar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+							btnFinalizar.addActionListener(new BtnSiguienteActionListener());
+							panelFinal.add(btnFinalizar);
+						}
+					}
+					{
+						panelPasoExito = new JPanel();
+						panelBotones.add(panelPasoExito, "botonesexito");
+						{
+							btnAceptar = new JButton("Aceptar");
+							btnAceptar.addActionListener(new BtnSiguienteActionListener());
+							panelPasoExito.add(btnAceptar);
+						}
+					}
+				}
 			}
 			{
 				panelBorrarReserva = new JPanel();
 				panelReservas.add(panelBorrarReserva, "Borrar");
 				GridBagLayout gbl_panelBorrarReserva = new GridBagLayout();
-				gbl_panelBorrarReserva.columnWidths = new int[]{115, 172, 225, 0, 0};
+				gbl_panelBorrarReserva.columnWidths = new int[]{115, 172, 225, 0, 0, 0};
 				gbl_panelBorrarReserva.rowHeights = new int[]{0, 0, 0, 44, 0, 54, 0, 0};
-				gbl_panelBorrarReserva.columnWeights = new double[]{0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
+				gbl_panelBorrarReserva.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
 				gbl_panelBorrarReserva.rowWeights = new double[]{1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, Double.MIN_VALUE};
 				panelBorrarReserva.setLayout(gbl_panelBorrarReserva);
 				{
@@ -254,23 +673,22 @@ public class UI_Reservas extends JFrame {
 					txtHoraSalida.setColumns(10);
 				}
 				{
-					lblNombreReserva = new JLabel("Nombre:");
-					GridBagConstraints gbc_lblNombreReserva = new GridBagConstraints();
-					gbc_lblNombreReserva.anchor = GridBagConstraints.EAST;
-					gbc_lblNombreReserva.insets = new Insets(0, 0, 5, 5);
-					gbc_lblNombreReserva.gridx = 1;
-					gbc_lblNombreReserva.gridy = 6;
-					panelConsultarReservas.add(lblNombreReserva, gbc_lblNombreReserva);
+					lblDniReserva = new JLabel("DNI:");
+					GridBagConstraints gbc_lblDniReserva = new GridBagConstraints();
+					gbc_lblDniReserva.anchor = GridBagConstraints.EAST;
+					gbc_lblDniReserva.insets = new Insets(0, 0, 5, 5);
+					gbc_lblDniReserva.gridx = 1;
+					gbc_lblDniReserva.gridy = 6;
+					panelConsultarReservas.add(lblDniReserva, gbc_lblDniReserva);
 				}
 				{
-					txtNombre = new JTextField();
-					GridBagConstraints gbc_txtNombre = new GridBagConstraints();
-					gbc_txtNombre.insets = new Insets(0, 0, 5, 5);
-					gbc_txtNombre.fill = GridBagConstraints.HORIZONTAL;
-					gbc_txtNombre.gridx = 2;
-					gbc_txtNombre.gridy = 6;
-					panelConsultarReservas.add(txtNombre, gbc_txtNombre);
-					txtNombre.setColumns(10);
+					formattedTextFieldDniReserva = new JFormattedTextField();
+					GridBagConstraints gbc_formattedTextFieldDniReserva = new GridBagConstraints();
+					gbc_formattedTextFieldDniReserva.insets = new Insets(0, 0, 5, 5);
+					gbc_formattedTextFieldDniReserva.fill = GridBagConstraints.HORIZONTAL;
+					gbc_formattedTextFieldDniReserva.gridx = 2;
+					gbc_formattedTextFieldDniReserva.gridy = 6;
+					panelConsultarReservas.add(formattedTextFieldDniReserva, gbc_formattedTextFieldDniReserva);
 				}
 				{
 					lblTelefono = new JLabel("Tel\u00E9fono:");
@@ -343,9 +761,10 @@ public class UI_Reservas extends JFrame {
 					btnModificar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 					btnModificar.setFont(new Font("Tahoma", Font.PLAIN, 16));
 					GridBagConstraints gbc_btnModificar = new GridBagConstraints();
+					gbc_btnModificar.gridwidth = 2;
 					gbc_btnModificar.fill = GridBagConstraints.BOTH;
 					gbc_btnModificar.insets = new Insets(0, 0, 5, 5);
-					gbc_btnModificar.gridx = 5;
+					gbc_btnModificar.gridx = 4;
 					gbc_btnModificar.gridy = 11;
 					panelConsultarReservas.add(btnModificar, gbc_btnModificar);
 				}
@@ -380,6 +799,78 @@ public class UI_Reservas extends JFrame {
 			case 2:
 				panel.show(panelReservas, "Consultar");
 			}
+		}
+	}
+	private class BtnAnteriorActionListener implements ActionListener {			
+			String pane = null;
+			String panebotones = null;
+			
+			public void actionPerformed(ActionEvent e) {
+				
+				switch(numPanel) {
+				case 0:
+					dispose();	
+					break;
+				case 1:
+					pane = "Paso1";
+					panebotones = "botonesinicial";
+					break;
+				case 2:
+					pane = "Paso2";
+					panebotones = "botonesintermedios";
+				case 3:
+					pane = "Paso3";
+					panebotones = "botonesintermedios";
+					break;
+				case 4:
+					pane = "Paso4";	
+					panebotones = "botonesfinal";
+					break;
+				}
+				numPanel--;
+				progressBar.setValue(++numPanel);
+				numPanel--;
+				CardLayout panel = (CardLayout) (panelPasos.getLayout());
+				CardLayout panelbotones = (CardLayout) (panelBotones.getLayout());
+				panelbotones.show(panelBotones, panebotones);
+				panel.show(panelPasos, pane);
+		}
+	}
+	
+	private class BtnSiguienteActionListener implements ActionListener {
+		String pane = null;
+		String panebotones = null;
+		public void actionPerformed(ActionEvent e) {
+			
+			switch(numPanel) {
+			case 0:
+				pane = "Paso2";	
+				panebotones = "botonesintermedios";
+				break;
+			case 1:
+				pane = "Paso3";
+				panebotones = "botonesintermedios";
+				break;
+			case 2:
+				pane = "Paso4";
+				panebotones = "botonesfinal";
+				break;
+			case 3:
+				pane = "Paso5";
+				panebotones = "botonesexito";
+				break;
+			case 4:
+				dispose();
+				break;
+			}
+			numPanel++;
+			progressBar.setValue(++numPanel);
+			numPanel--;
+			CardLayout panel = (CardLayout) (panelPasos.getLayout());
+			CardLayout panelbotones = (CardLayout) (panelBotones.getLayout());
+			panelbotones.show(panelBotones, panebotones);
+			panel.show(panelPasos, pane);
+			
 		}
 	}
 }

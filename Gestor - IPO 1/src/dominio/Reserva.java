@@ -5,7 +5,7 @@ public class Reserva {
 	private int idReserva;
 	private Fecha fechaEntrada;
 	private Fecha fechaSalida;
-	private String nombre;
+	private String dni;
 	private String correoElectronico;
 	private long telefono;
 	private int ocupantes;
@@ -13,12 +13,12 @@ public class Reserva {
 	private int horaEntrada;
 	private int horaSalida;
 	
-	public Reserva(int idReserva, Fecha fechaEntrada, Fecha fechaSalida, String nombre, String correoElectronico, long telefono,
+	public Reserva(int idReserva, Fecha fechaEntrada, Fecha fechaSalida, String dni, String correoElectronico, long telefono,
 			int ocupantes, String[] solicitudesEspeciales, int horaEntrada, int horaSalida) {
 		super();
 		this.fechaEntrada = fechaEntrada;
 		this.fechaSalida = fechaSalida;
-		this.nombre = nombre;
+		this.dni = dni;
 		this.correoElectronico = correoElectronico;
 		this.telefono = telefono;
 		this.ocupantes = ocupantes;
@@ -51,12 +51,12 @@ public class Reserva {
 		this.fechaSalida = fechaSalida;
 	}
 
-	public String getNombre() {
-		return nombre;
+	public String getDni() {
+		return dni;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setDni(String dni) {
+		this.dni = dni;
 	}
 
 	public String getCorreoElectronico() {
