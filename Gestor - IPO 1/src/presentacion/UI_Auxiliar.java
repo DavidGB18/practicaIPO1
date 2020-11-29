@@ -111,6 +111,7 @@ public class UI_Auxiliar extends JFrame {
 	 * Create the frame.
 	 */
 	public UI_Auxiliar() {
+		setResizable(false);
 		addWindowListener(new ThisWindowListener());
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 563, 428);

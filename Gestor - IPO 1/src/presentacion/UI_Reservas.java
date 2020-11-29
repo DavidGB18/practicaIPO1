@@ -129,6 +129,7 @@ public class UI_Reservas extends JFrame {
 	 * Create the frame.
 	 */
 	public UI_Reservas() {
+		setResizable(false);
 		addWindowListener(new ThisWindowListener());
 		setTitle("Vista de Reserva");
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);

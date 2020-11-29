@@ -616,60 +616,60 @@ public class UI_Gestor {
 						lblIdioma = new JLabel("Idioma:");
 						lblIdioma.setHorizontalAlignment(SwingConstants.RIGHT);
 						lblIdioma.setFont(new Font("Tahoma", Font.PLAIN, 18));
-						lblIdioma.setBounds(273, 121, 68, 32);
+						lblIdioma.setBounds(234, 121, 68, 32);
 						panelConfiguracion.add(lblIdioma);
 					}
 					{
 						lblApariencia = new JLabel("Apariencia:");
 						lblApariencia.setHorizontalAlignment(SwingConstants.RIGHT);
 						lblApariencia.setFont(new Font("Tahoma", Font.PLAIN, 18));
-						lblApariencia.setBounds(247, 163, 94, 31);
+						lblApariencia.setBounds(208, 163, 94, 31);
 						panelConfiguracion.add(lblApariencia);
 					}
 					{
 						lblTipoLetra = new JLabel("Tipo de Letra:");
 						lblTipoLetra.setHorizontalAlignment(SwingConstants.RIGHT);
 						lblTipoLetra.setFont(new Font("Tahoma", Font.PLAIN, 18));
-						lblTipoLetra.setBounds(209, 204, 132, 32);
+						lblTipoLetra.setBounds(170, 204, 132, 32);
 						panelConfiguracion.add(lblTipoLetra);
 					}
 					{
 						lblTamLetra = new JLabel("Tama\u00F1o de Letra:");
 						lblTamLetra.setHorizontalAlignment(SwingConstants.RIGHT);
 						lblTamLetra.setFont(new Font("Tahoma", Font.PLAIN, 18));
-						lblTamLetra.setBounds(186, 246, 155, 29);
+						lblTamLetra.setBounds(147, 246, 155, 29);
 						panelConfiguracion.add(lblTamLetra);
 					}
 					{
 						comboBox = new JComboBox();
-						comboBox.setBounds(367, 130, 132, 21);
+						comboBox.setBounds(328, 130, 132, 21);
 						panelConfiguracion.add(comboBox);
 					}
 					{
 						comboBox_1 = new JComboBox();
-						comboBox_1.setBounds(367, 171, 132, 21);
+						comboBox_1.setBounds(328, 171, 132, 21);
 						panelConfiguracion.add(comboBox_1);
 					}
 					{
 						comboBox_2 = new JComboBox();
-						comboBox_2.setBounds(367, 213, 132, 21);
+						comboBox_2.setBounds(328, 213, 132, 21);
 						panelConfiguracion.add(comboBox_2);
 					}
 					{
 						comboBox_3 = new JComboBox();
-						comboBox_3.setBounds(367, 253, 132, 21);
+						comboBox_3.setBounds(328, 253, 132, 21);
 						panelConfiguracion.add(comboBox_3);
 					}
 					{
 						btnGuardarCambios = new JButton("Guardar Cambios");
 						btnGuardarCambios.setFont(new Font("Tahoma", Font.PLAIN, 18));
-						btnGuardarCambios.setBounds(396, 340, 206, 32);
+						btnGuardarCambios.setBounds(358, 340, 206, 32);
 						panelConfiguracion.add(btnGuardarCambios);
 					}
 					{
 						btnCancelarCambios = new JButton("Cancelar Cambios");
 						btnCancelarCambios.setFont(new Font("Tahoma", Font.PLAIN, 18));
-						btnCancelarCambios.setBounds(147, 340, 206, 32);
+						btnCancelarCambios.setBounds(109, 340, 206, 32);
 						panelConfiguracion.add(btnCancelarCambios);
 					}
 				}
