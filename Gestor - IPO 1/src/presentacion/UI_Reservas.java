@@ -23,13 +23,13 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JProgressBar;
 import javax.swing.JSpinner;
-import javax.swing.JTextArea;
-import javax.swing.border.TitledBorder;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class UI_Reservas extends JFrame {
 
+	private static final long serialVersionUID = 1L;
+	
 	private JPanel contentPane;
 	private JPanel panelReservas;
 	private JPanel panelAnadirReserva;
@@ -39,8 +39,8 @@ public class UI_Reservas extends JFrame {
 	private JButton btnBorrarReserva;
 	private JLabel lblBorrarReserva;
 	private JLabel lblIdReserva;
-	private JComboBox cbIdReserva;
-	private JComboBox cbReserva;
+	private JComboBox<String> cbIdReserva;
+	private JComboBox<String> cbReserva;
 	private JLabel lblIdReservaConsulta;
 	private JLabel lblFechaEntrada;
 	private JLabel lblHoraEntrada;
@@ -543,7 +543,7 @@ public class UI_Reservas extends JFrame {
 					panelBorrarReserva.add(lblIdReserva, gbc_lblIdReserva);
 				}
 				{
-					cbIdReserva = new JComboBox();
+					cbIdReserva = new JComboBox<String>();
 					GridBagConstraints gbc_cbIdReserva = new GridBagConstraints();
 					gbc_cbIdReserva.insets = new Insets(0, 0, 5, 5);
 					gbc_cbIdReserva.fill = GridBagConstraints.HORIZONTAL;
@@ -591,7 +591,7 @@ public class UI_Reservas extends JFrame {
 					panelConsultarReservas.add(lblIdReservaConsulta, gbc_lblIdReservaConsulta);
 				}
 				{
-					cbReserva = new JComboBox();
+					cbReserva = new JComboBox<String>();
 					GridBagConstraints gbc_cbReserva = new GridBagConstraints();
 					gbc_cbReserva.insets = new Insets(0, 0, 5, 5);
 					gbc_cbReserva.fill = GridBagConstraints.HORIZONTAL;
