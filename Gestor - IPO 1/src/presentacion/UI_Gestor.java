@@ -27,8 +27,6 @@ import javax.swing.JMenu;
 import javax.swing.JTree;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.DefaultMutableTreeNode;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.awt.FlowLayout;
 import javax.swing.JComboBox;
 import java.awt.Cursor;
@@ -121,6 +119,7 @@ public class UI_Gestor {
 	private JLabel lblImagen;
 	private JPanel panelInicioSesion;
 	private static int comprobadorUsuario = 0;
+	private static int comprobadorCalendario = 0;
 	private JLabel lblActividades;
 	private JScrollPane scrollPaneActividades;
 	private JList listActividades;
@@ -907,6 +906,7 @@ public class UI_Gestor {
 					btnLogout.addActionListener(new BtnLogoutActionListener());
 					{
 						btnCalendario = new JButton("");
+						btnCalendario.addActionListener(new BtnCalendarioActionListener());
 						btnCalendario.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 						btnCalendario.setBackground(new Color(240, 240, 240));
 						btnCalendario.setOpaque(false);
@@ -1108,5 +1108,17 @@ public class UI_Gestor {
 			window.setVisible(true);
 			UI_Reservas.setElegirPanel(valor);
 		}
+	}
+	private class BtnCalendarioActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			if(comprobadorCalendario == 0) {
+				JFrame window= new UI_Calendario();
+				window.setVisible(true);
+				comprobadorCalendario++;
+			}
+		}
+	}
+	public static void setComprobadorCalendario(int valor) {
+		comprobadorCalendario=valor;
 	}
 }
