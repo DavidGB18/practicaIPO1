@@ -7,6 +7,9 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import dominio.Monitor;
+
 import java.awt.CardLayout;
 import javax.swing.JButton;
 import java.awt.event.WindowAdapter;
@@ -32,6 +35,8 @@ import java.awt.Cursor;
 
 public class UI_Auxiliar extends JFrame {
 
+	private static final long serialVersionUID = 1L;
+	
 	private JPanel contentPane;
 	private JPanel panelFormularios;
 	private JPanel panelBotones;
@@ -58,7 +63,7 @@ public class UI_Auxiliar extends JFrame {
 	private JLabel lblDniMonitor;
 	private JLabel lblIdiomasMonitor;
 	private JTextField txtApellido2Monitor;
-	private JComboBox cbIdiomasMonitor;
+	private JComboBox<String> cbIdiomasMonitor;
 	private JFormattedTextField formattedTextFieldTlfMonitor;
 	private JFormattedTextField formattedTextFieldDniMonitor;
 	private JLabel lblFormacionMonitor;
@@ -73,7 +78,7 @@ public class UI_Auxiliar extends JFrame {
 	private JLabel lblConfiguracionActividad;
 	private JLabel lblMonitoresActividades;
 	private JScrollPane scrollPaneMonitoresActividad;
-	private JList listMonitoresActividad;
+	private JList<Monitor> listMonitoresActividad;
 	private JLabel lblPrecio;
 	private JTextField textFieldPrecioActividad;
 	private JLabel lblHoraInicioActividad;
@@ -304,7 +309,7 @@ public class UI_Auxiliar extends JFrame {
 					panelMonitores.add(lblIdiomasMonitor, gbc_lblIdiomasMonitor);
 				}
 				{
-					cbIdiomasMonitor = new JComboBox();
+					cbIdiomasMonitor = new JComboBox<String>();
 					GridBagConstraints gbc_cbIdiomasMonitor = new GridBagConstraints();
 					gbc_cbIdiomasMonitor.insets = new Insets(0, 0, 5, 5);
 					gbc_cbIdiomasMonitor.fill = GridBagConstraints.HORIZONTAL;
@@ -351,7 +356,7 @@ public class UI_Auxiliar extends JFrame {
 					gbc_scrollPaneMonitoresActividad.gridy = 3;
 					panelActividad.add(scrollPaneMonitoresActividad, gbc_scrollPaneMonitoresActividad);
 					{
-						listMonitoresActividad = new JList();
+						listMonitoresActividad = new JList<Monitor>();
 						scrollPaneMonitoresActividad.setViewportView(listMonitoresActividad);
 					}
 				}
