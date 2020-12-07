@@ -34,6 +34,8 @@ import javax.swing.event.ChangeListener;
 import javax.swing.event.ChangeEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.File;
+import java.io.IOException;
 import java.util.Date;
 import java.awt.SystemColor;
 import javax.swing.JScrollPane;
@@ -870,6 +872,7 @@ public class UI_Gestor {
 				}
 				{
 					btnHelp = new JButton("");
+					btnHelp.addActionListener(new BtnHelpActionListener());
 					btnHelp.setBackground(new Color(240, 240, 240));
 					btnHelp.setOpaque(false);
 					btnHelp.setToolTipText("Ayuda");
@@ -1115,6 +1118,18 @@ public class UI_Gestor {
 				JFrame window= new UI_Calendario();
 				window.setVisible(true);
 				comprobadorCalendario++;
+			}
+		}
+	}
+	private class BtnHelpActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			File f = new File("manual.pdf");
+			String path = f.getAbsolutePath();
+			System.out.println(f.getAbsolutePath());
+			try {
+				Runtime.getRuntime().exec(path);
+			} catch (IOException e1) {
+				e1.printStackTrace();
 			}
 		}
 	}
