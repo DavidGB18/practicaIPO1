@@ -1127,7 +1127,7 @@ public class UI_Gestor {
 			String path = f.getAbsolutePath();
 			System.out.println(f.getAbsolutePath());
 			try {
-				Runtime.getRuntime().exec("C:\\Users\\lugud\\git\\practicaIPO1\\ProgramaGestor\\prueba");
+				Runtime.getRuntime().exec("manual.pdf");
 			} catch (IOException e1) {
 				e1.printStackTrace();
 			}
