@@ -1125,9 +1125,8 @@ public class UI_Gestor {
 		public void actionPerformed(ActionEvent e) {
 			File f = new File("manual.pdf");
 			String path = f.getAbsolutePath();
-			System.out.println(f.getAbsolutePath());
 			try {
-				Runtime.getRuntime().exec("manual.pdf");
+				Runtime.getRuntime().exec("cmd /c "+path);
 			} catch (IOException e1) {
 				e1.printStackTrace();
 			}
