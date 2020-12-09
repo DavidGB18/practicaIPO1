@@ -1155,7 +1155,7 @@ public class UI_Gestor {
 			}
 			/*
 			 * //ABRIR UNA URL try { URI uri= new URI(
-			 * "https://github.com/LuGuDu/B1_6/blob/master/B1-6%20-%20Practica%20Sistemas%20Inteligentes.pdf"
+			 * "https://github.com/LuGuDu/B1_6/blob/master/B1-6%20-%20Practica%20Sistemas%20Inteligentes.pdf" //CAMBIAR LA URL!!!
 			 * ); java.awt.Desktop.getDesktop().browse(uri);
 			 * System.out.println("Web page opened in browser");
 			 * 
