@@ -1,7 +1,6 @@
 package presentacion;
 
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
@@ -47,6 +46,7 @@ import java.awt.Toolkit;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.SoftBevelBorder;
 import javax.swing.border.BevelBorder;
+import javax.swing.JMenuItem;
 
 public class UI_Gestor {
 
@@ -65,7 +65,7 @@ public class UI_Gestor {
 	private JPanel panelMigas;
 	private JMenuBar menuBar;
 	private JMenu mnInicio;
-	private JMenu mnVer;
+	private JMenu mnOpciones;
 	private JMenu mnAyuda;
 	private JPanel panelBanner;
 	private JTree treePrograma;
@@ -131,6 +131,10 @@ public class UI_Gestor {
 	private JButton btnCalendario;
 	private JButton btnVerActividad;
 	private JButton btnVerMonitor;
+	private JMenuItem mntmAbrirManual;
+	private JMenuItem mntmAboutUs;
+	private JMenuItem mntmAboutProgram;
+	private JMenuItem mntmSalir;
 
 	/**
 	 * Launch the application.
@@ -164,9 +168,8 @@ public class UI_Gestor {
 		frmGestorLosOlivos.setIconImage(Toolkit.getDefaultToolkit().getImage(UI_Gestor.class.getResource("/recursos/logo.png")));
 		frmGestorLosOlivos.addWindowListener(new FrmGestorLosOlivosWindowListener());
 		frmGestorLosOlivos.setResizable(false);
-		frmGestorLosOlivos.setTitle("Gestor Los olivos");
+		frmGestorLosOlivos.setTitle("Gestor Los Olivos");
 		frmGestorLosOlivos.setBounds(100, 100, 849, 596);
-		// frmGestorLosOlivos.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmGestorLosOlivos.getContentPane().setLayout(new CardLayout(0, 0));
 		{
 			panelAutenticacion = new JPanel();
@@ -184,10 +187,10 @@ public class UI_Gestor {
 				panelUsuarioPass.setBorder(new EmptyBorder(0, 0, 0, 0));
 				panelAutenticacion.add(panelUsuarioPass, BorderLayout.CENTER);
 				GridBagLayout gbl_panelUsuarioPass = new GridBagLayout();
-				gbl_panelUsuarioPass.columnWidths = new int[]{415, 129, 0};
-				gbl_panelUsuarioPass.rowHeights = new int[]{531, 0};
-				gbl_panelUsuarioPass.columnWeights = new double[]{0.0, 1.0, Double.MIN_VALUE};
-				gbl_panelUsuarioPass.rowWeights = new double[]{1.0, Double.MIN_VALUE};
+				gbl_panelUsuarioPass.columnWidths = new int[] { 415, 129, 0 };
+				gbl_panelUsuarioPass.rowHeights = new int[] { 531, 0 };
+				gbl_panelUsuarioPass.columnWeights = new double[] { 0.0, 1.0, Double.MIN_VALUE };
+				gbl_panelUsuarioPass.rowWeights = new double[] { 1.0, Double.MIN_VALUE };
 				panelUsuarioPass.setLayout(gbl_panelUsuarioPass);
 				{
 					panelImagen = new JPanel();
@@ -220,8 +223,8 @@ public class UI_Gestor {
 						panelFoto.setBounds(122, 73, 158, 160);
 						panelInicioSesion.add(panelFoto);
 						panelFoto.setBackground(new Color(240, 240, 240));
-						panelFoto.setBorder(new TitledBorder(null, "Foto de Perfil", TitledBorder.LEADING, TitledBorder.TOP,
-								null, null));
+						panelFoto.setBorder(new TitledBorder(null, "Foto de Perfil", TitledBorder.LEADING,
+								TitledBorder.TOP, null, null));
 						panelFoto.setLayout(null);
 						{
 
@@ -300,46 +303,44 @@ public class UI_Gestor {
 						treePrograma.setAutoscrolls(true);
 						treePrograma.setBackground(Color.WHITE);
 						treePrograma.setForeground(Color.WHITE);
-						treePrograma.setModel(new DefaultTreeModel(
-							new DefaultMutableTreeNode("Gestor") {
-								{
-									DefaultMutableTreeNode node_1;
-									DefaultMutableTreeNode node_2;
-									node_1 = new DefaultMutableTreeNode("Parcelas-Bungalows");
-										node_2 = new DefaultMutableTreeNode("parcelas");
-											node_2.add(new DefaultMutableTreeNode("A\u00F1adir"));
-											node_2.add(new DefaultMutableTreeNode("Modificar"));
-											node_2.add(new DefaultMutableTreeNode("Borrar"));
-										node_1.add(node_2);
-										node_2 = new DefaultMutableTreeNode("Bungalows");
-											node_2.add(new DefaultMutableTreeNode("A\u00F1adir"));
-											node_2.add(new DefaultMutableTreeNode("Modificar"));
-											node_2.add(new DefaultMutableTreeNode("Borrar"));
-										node_1.add(node_2);
-									add(node_1);
-									node_1 = new DefaultMutableTreeNode("Reservas");
-										node_1.add(new DefaultMutableTreeNode("A\u00F1adir"));
-										node_1.add(new DefaultMutableTreeNode("Modificar "));
-										node_1.add(new DefaultMutableTreeNode("Borrar "));
-									add(node_1);
-									node_1 = new DefaultMutableTreeNode("Actividades");
-										node_1.add(new DefaultMutableTreeNode("A\u00F1adir"));
-										node_1.add(new DefaultMutableTreeNode("Modificar"));
-										node_1.add(new DefaultMutableTreeNode("Borrar"));
-									add(node_1);
-									node_1 = new DefaultMutableTreeNode("Rutas");
-										node_1.add(new DefaultMutableTreeNode("Consultar"));
-										node_1.add(new DefaultMutableTreeNode("Dise\u00F1ar"));
-									add(node_1);
-									node_1 = new DefaultMutableTreeNode("Monitores");
-										node_1.add(new DefaultMutableTreeNode("A\u00F1adir"));
-										node_1.add(new DefaultMutableTreeNode("Modificar"));
-										node_1.add(new DefaultMutableTreeNode("Borrar"));
-									add(node_1);
-									add(new DefaultMutableTreeNode("Configuracion"));
-								}
+						treePrograma.setModel(new DefaultTreeModel(new DefaultMutableTreeNode("Gestor") {
+							{
+								DefaultMutableTreeNode node_1;
+								DefaultMutableTreeNode node_2;
+								node_1 = new DefaultMutableTreeNode("Parcelas-Bungalows");
+								node_2 = new DefaultMutableTreeNode("parcelas");
+								node_2.add(new DefaultMutableTreeNode("A\u00F1adir"));
+								node_2.add(new DefaultMutableTreeNode("Modificar"));
+								node_2.add(new DefaultMutableTreeNode("Borrar"));
+								node_1.add(node_2);
+								node_2 = new DefaultMutableTreeNode("Bungalows");
+								node_2.add(new DefaultMutableTreeNode("A\u00F1adir"));
+								node_2.add(new DefaultMutableTreeNode("Modificar"));
+								node_2.add(new DefaultMutableTreeNode("Borrar"));
+								node_1.add(node_2);
+								add(node_1);
+								node_1 = new DefaultMutableTreeNode("Reservas");
+								node_1.add(new DefaultMutableTreeNode("A\u00F1adir"));
+								node_1.add(new DefaultMutableTreeNode("Modificar "));
+								node_1.add(new DefaultMutableTreeNode("Borrar "));
+								add(node_1);
+								node_1 = new DefaultMutableTreeNode("Actividades");
+								node_1.add(new DefaultMutableTreeNode("A\u00F1adir"));
+								node_1.add(new DefaultMutableTreeNode("Modificar"));
+								node_1.add(new DefaultMutableTreeNode("Borrar"));
+								add(node_1);
+								node_1 = new DefaultMutableTreeNode("Rutas");
+								node_1.add(new DefaultMutableTreeNode("Consultar"));
+								node_1.add(new DefaultMutableTreeNode("Dise\u00F1ar"));
+								add(node_1);
+								node_1 = new DefaultMutableTreeNode("Monitores");
+								node_1.add(new DefaultMutableTreeNode("A\u00F1adir"));
+								node_1.add(new DefaultMutableTreeNode("Modificar"));
+								node_1.add(new DefaultMutableTreeNode("Borrar"));
+								add(node_1);
+								add(new DefaultMutableTreeNode("Configuracion"));
 							}
-						));
+						}));
 					}
 				}
 			}
@@ -390,10 +391,12 @@ public class UI_Gestor {
 					}
 					{
 						btnParcelasBungalows = new JButton("");
-						btnParcelasBungalows.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
+						btnParcelasBungalows
+								.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
 						btnParcelasBungalows.addChangeListener(new BtnIniciarChangeListener());
 						btnParcelasBungalows.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-						btnParcelasBungalows.addActionListener(new BtnCambioPanelActionListener("panelParcelas-Bungalows"));
+						btnParcelasBungalows
+								.addActionListener(new BtnCambioPanelActionListener("panelParcelas-Bungalows"));
 						btnParcelasBungalows
 								.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/home@2x.png")));
 						btnParcelasBungalows.setToolTipText("Parcelas / Bungalows");
@@ -437,7 +440,8 @@ public class UI_Gestor {
 								btnRutas.addChangeListener(new BtnIniciarChangeListener());
 								btnRutas.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 								btnRutas.addActionListener(new BtnCambioPanelActionListener("panelRutas"));
-								btnRutas.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/compass@2x.png")));
+								btnRutas.setIcon(
+										new ImageIcon(UI_Gestor.class.getResource("/recursos/compass@2x.png")));
 								btnRutas.setToolTipText("Rutas");
 								GridBagConstraints gbc_btnRutas = new GridBagConstraints();
 								gbc_btnRutas.fill = GridBagConstraints.BOTH;
@@ -448,7 +452,8 @@ public class UI_Gestor {
 							}
 							{
 								btnMonitores = new JButton("");
-								btnMonitores.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
+								btnMonitores
+										.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
 								btnMonitores.addChangeListener(new BtnIniciarChangeListener());
 								btnMonitores.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 								btnMonitores.addActionListener(new BtnCambioPanelActionListener("panelMonitores"));
@@ -462,8 +467,8 @@ public class UI_Gestor {
 								gbc_btnMonitores.gridy = 4;
 								panelBotones.add(btnMonitores, gbc_btnMonitores);
 							}
-							btnActividades
-									.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/puzzle-piece@2x.png")));
+							btnActividades.setIcon(
+									new ImageIcon(UI_Gestor.class.getResource("/recursos/puzzle-piece@2x.png")));
 							btnActividades.setToolTipText("Actividades");
 							GridBagConstraints gbc_btnActividades = new GridBagConstraints();
 							gbc_btnActividades.fill = GridBagConstraints.BOTH;
@@ -472,8 +477,7 @@ public class UI_Gestor {
 							gbc_btnActividades.gridy = 4;
 							panelBotones.add(btnActividades, gbc_btnActividades);
 						}
-						btnConfiguracion
-								.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/gear@2x.png")));
+						btnConfiguracion.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/gear@2x.png")));
 						btnConfiguracion.setToolTipText("Configuraci\u00F3n");
 						GridBagConstraints gbc_btnConfiguracion = new GridBagConstraints();
 						gbc_btnConfiguracion.fill = GridBagConstraints.BOTH;
@@ -536,17 +540,18 @@ public class UI_Gestor {
 					panelParcelasBungalos.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 					panelPrincipal.add(panelParcelasBungalos, "panelParcelas-Bungalows");
 					GridBagLayout gbl_panelParcelasBungalos = new GridBagLayout();
-					gbl_panelParcelasBungalos.columnWidths = new int[]{33, 71, 81, 0, 0};
-					gbl_panelParcelasBungalos.rowHeights = new int[]{21, 0, 0, 0};
-					gbl_panelParcelasBungalos.columnWeights = new double[]{0.0, 1.0, 1.0, 0.0, Double.MIN_VALUE};
-					gbl_panelParcelasBungalos.rowWeights = new double[]{0.0, 1.0, 0.0, Double.MIN_VALUE};
+					gbl_panelParcelasBungalos.columnWidths = new int[] { 33, 71, 81, 0, 0 };
+					gbl_panelParcelasBungalos.rowHeights = new int[] { 21, 0, 0, 0 };
+					gbl_panelParcelasBungalos.columnWeights = new double[] { 0.0, 1.0, 1.0, 0.0, Double.MIN_VALUE };
+					gbl_panelParcelasBungalos.rowWeights = new double[] { 0.0, 1.0, 0.0, Double.MIN_VALUE };
 					panelParcelasBungalos.setLayout(gbl_panelParcelasBungalos);
 					{
 						btnParcelas = new JButton("");
 						btnParcelas.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 						btnParcelas.setBackground(new Color(240, 240, 240));
 						btnParcelas.setBorderPainted(false);
-						btnParcelas.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/location-pin@3x.png")));
+						btnParcelas
+								.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/location-pin@3x.png")));
 						GridBagConstraints gbc_btnParcelas = new GridBagConstraints();
 						gbc_btnParcelas.fill = GridBagConstraints.BOTH;
 						gbc_btnParcelas.insets = new Insets(0, 0, 5, 5);
@@ -574,10 +579,10 @@ public class UI_Gestor {
 					panelRutas.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 					panelPrincipal.add(panelRutas, "panelRutas");
 					GridBagLayout gbl_panelRutas = new GridBagLayout();
-					gbl_panelRutas.columnWidths = new int[]{16, 79, 91, 0, 0};
-					gbl_panelRutas.rowHeights = new int[]{21, 0, 0, 0};
-					gbl_panelRutas.columnWeights = new double[]{0.0, 1.0, 1.0, 0.0, Double.MIN_VALUE};
-					gbl_panelRutas.rowWeights = new double[]{0.0, 1.0, 0.0, Double.MIN_VALUE};
+					gbl_panelRutas.columnWidths = new int[] { 16, 79, 91, 0, 0 };
+					gbl_panelRutas.rowHeights = new int[] { 21, 0, 0, 0 };
+					gbl_panelRutas.columnWeights = new double[] { 0.0, 1.0, 1.0, 0.0, Double.MIN_VALUE };
+					gbl_panelRutas.rowWeights = new double[] { 0.0, 1.0, 0.0, Double.MIN_VALUE };
 					panelRutas.setLayout(gbl_panelRutas);
 					{
 						btnInfoRutas = new JButton("");
@@ -682,8 +687,8 @@ public class UI_Gestor {
 					gbl_panelMonitores.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 					gbl_panelMonitores.columnWeights = new double[] { 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0,
 							Double.MIN_VALUE };
-					gbl_panelMonitores.rowWeights = new double[] { 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0,
-							Double.MIN_VALUE };
+					gbl_panelMonitores.rowWeights = new double[] { 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0,
+							1.0, Double.MIN_VALUE };
 					panelMonitores.setLayout(gbl_panelMonitores);
 					{
 						lblMonitores = new JLabel("Monitores:");
@@ -764,8 +769,8 @@ public class UI_Gestor {
 					gbl_panelActividades.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 					gbl_panelActividades.columnWeights = new double[] { 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0,
 							Double.MIN_VALUE };
-					gbl_panelActividades.rowWeights = new double[] { 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0,
-							Double.MIN_VALUE };
+					gbl_panelActividades.rowWeights = new double[] { 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0,
+							1.0, Double.MIN_VALUE };
 					panelActividades.setLayout(gbl_panelActividades);
 					{
 						lblActividades = new JLabel("Actividades:");
@@ -938,22 +943,40 @@ public class UI_Gestor {
 				mnInicio = new JMenu("Inicio");
 				mnInicio.setMnemonic('I');
 				menuBar.add(mnInicio);
+				{
+					mntmSalir = new JMenuItem("Salir");
+					mntmSalir.addActionListener(new MntmSalirActionListener());
+					mnInicio.add(mntmSalir);
+				}
 			}
 			{
-				mnVer = new JMenu("Ver");
-				mnVer.setMnemonic('V');
-				menuBar.add(mnVer);
+				mnOpciones = new JMenu("Ver");
+				mnOpciones.setMnemonic('V');
+				menuBar.add(mnOpciones);
 			}
 			{
 				mnAyuda = new JMenu("Ayuda");
 				mnAyuda.setMnemonic('Y');
 				menuBar.add(mnAyuda);
+				{
+					mntmAbrirManual = new JMenuItem("Manual de Usuario");
+					mntmAbrirManual.addActionListener(new BtnHelpActionListener());
+					mnAyuda.add(mntmAbrirManual);
+				}
+				{
+					mntmAboutProgram = new JMenuItem("Sobre Gestor Los Olivos");
+					mnAyuda.add(mntmAboutProgram);
+				}
+				{
+					mntmAboutUs = new JMenuItem("Sobre nosotros");
+					mnAyuda.add(mntmAboutUs);
+				}
 			}
 		}
 	}
-	
-	//***EVENTOS***//
-	
+
+	// ***EVENTOS***//
+
 	private class FrmGestorLosOlivosWindowListener extends WindowAdapter {
 		public void windowClosing(WindowEvent e) {
 			int sel = JOptionPane.showOptionDialog(frmGestorLosOlivos, "¿Seguro que quieres salir?",
@@ -966,31 +989,30 @@ public class UI_Gestor {
 		}
 	}
 
-	
 	private class BtnInicioSesionActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			CardLayout panel = (CardLayout) (frmGestorLosOlivos.getContentPane().getLayout());
 			panel.show(frmGestorLosOlivos.getContentPane(), e.getActionCommand());
-			Date date=java.util.Calendar.getInstance().getTime();
-			lblBarraDeEstado.setText("Sesión iniciada a las: "+ date);
+			Date date = java.util.Calendar.getInstance().getTime();
+			lblBarraDeEstado.setText("Sesión iniciada a las: " + date);
 		}
 	}
-	
+
 	private class BtnLogoutActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			
+
 			int sel = JOptionPane.showOptionDialog(frmGestorLosOlivos, "¿Seguro que quieres cerrar sesión?",
 					"Cerrar Sesión", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
 			if (sel == JOptionPane.YES_OPTION) {
 				CardLayout panel = (CardLayout) (frmGestorLosOlivos.getContentPane().getLayout());
 				panel.show(frmGestorLosOlivos.getContentPane(), "PanelSesion"); // Yes
-				Date date=java.util.Calendar.getInstance().getTime();
-				lblBarraEstado.setText("Sesión cerrada a las: "+ date);
+				Date date = java.util.Calendar.getInstance().getTime();
+				lblBarraEstado.setText("Sesión cerrada a las: " + date);
 
-			} 
+			}
 		}
 	}
-	
+
 	private class BtnHomeActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			CardLayout panel = (CardLayout) (panelPrincipal.getLayout());
@@ -1000,20 +1022,14 @@ public class UI_Gestor {
 
 	private class BtnUserActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			if(comprobadorUsuario == 0) {
-				JFrame window= new UI_Usuario();
+			if (comprobadorUsuario == 0) {
+				JFrame window = new UI_Usuario();
 				window.setVisible(true);
 				comprobadorUsuario++;
 			}
 		}
 	}
-	
-	public static void setComprobadorUsuario(int valor) {
-		comprobadorUsuario=valor;
-	}
-	
-	
-	
+
 	private class BtnCambioPanelActionListener implements ActionListener {
 		String pane = null;
 
@@ -1046,93 +1062,114 @@ public class UI_Gestor {
 	private class TreeProgramaTreeSelectionListener implements TreeSelectionListener {
 		public void valueChanged(TreeSelectionEvent e) {
 			CardLayout panel = null;
-			if(e.getNewLeadSelectionPath() != null) {
+			if (e.getNewLeadSelectionPath() != null) {
 				int tam = e.getNewLeadSelectionPath().getPath().length;
-				switch(tam) {
+				switch (tam) {
 				case 1:
 					panel = (CardLayout) (panelPrincipal.getLayout());
-					panel.show(panelPrincipal, "panelPrincipal");	
+					panel.show(panelPrincipal, "panelPrincipal");
 					break;
 				case 2:
 					panel = (CardLayout) (panelPrincipal.getLayout());
-					panel.show(panelPrincipal, "panel" + e.getNewLeadSelectionPath().getPath()[1]);	
+					panel.show(panelPrincipal, "panel" + e.getNewLeadSelectionPath().getPath()[1]);
 					break;
 				case 3:
-					
-					
-					//rellenar cuando esten disponibles las ventanas
-					
+
+					// rellenar cuando esten disponibles las ventanas
+
 					break;
 				default:
-			
+
 				}
 				treePrograma.setSelectionPath(null);
-			} 
-			
+			}
+
 		}
 	}
+
 	private class BtnMonitorActionListener implements ActionListener {
 		int valor = 0;
-		
+
 		public BtnMonitorActionListener(int valor) {
 			this.valor = valor;
 		}
-		
+
 		public void actionPerformed(ActionEvent e) {
-			JFrame window= new UI_Auxiliar();
+			JFrame window = new UI_Auxiliar();
 			window.setVisible(true);
 			UI_Auxiliar.setElegirPanel(valor);
 			UI_Auxiliar.setElegirFormulario(0);
 		}
 	}
-	
+
 	private class BtnActividadActionListener implements ActionListener {
 		int valor = 0;
-		
+
 		public BtnActividadActionListener(int valor) {
 			this.valor = valor;
 		}
-		
+
 		public void actionPerformed(ActionEvent e) {
-			JFrame window= new UI_Auxiliar();
+			JFrame window = new UI_Auxiliar();
 			window.setVisible(true);
 			UI_Auxiliar.setElegirPanel(valor);
 			UI_Auxiliar.setElegirFormulario(1);
 		}
 	}
+
 	private class BtnReservasActionListener implements ActionListener {
 		int valor = 0;
-		
+
 		public BtnReservasActionListener(int valor) {
 			this.valor = valor;
 		}
+
 		public void actionPerformed(ActionEvent e) {
-			JFrame window= new UI_Reservas();
+			JFrame window = new UI_Reservas();
 			window.setVisible(true);
 			UI_Reservas.setElegirPanel(valor);
 		}
 	}
+
 	private class BtnCalendarioActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			if(comprobadorCalendario == 0) {
-				JFrame window= new UI_Calendario();
+			if (comprobadorCalendario == 0) {
+				JFrame window = new UI_Calendario();
 				window.setVisible(true);
 				comprobadorCalendario++;
 			}
 		}
 	}
+
 	private class BtnHelpActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			File f = new File("manual.pdf");
 			String path = f.getAbsolutePath();
 			try {
-				Runtime.getRuntime().exec("cmd /c "+path);
+				Runtime.getRuntime().exec("cmd /c " + path);
 			} catch (IOException e1) {
 				e1.printStackTrace();
 			}
 		}
 	}
-	public static void setComprobadorCalendario(int valor) {
-		comprobadorCalendario=valor;
+	private class MntmSalirActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			int sel = JOptionPane.showOptionDialog(frmGestorLosOlivos, "¿Seguro que quieres salir?",
+					"Salir del programa", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
+			if (sel == JOptionPane.YES_OPTION) {
+				System.exit(1);
+			} 
+		}
 	}
+
+	// ***METODOS***//
+
+	public static void setComprobadorCalendario(int valor) {
+		comprobadorCalendario = valor;
+	}
+
+	public static void setComprobadorUsuario(int valor) {
+		comprobadorUsuario = valor;
+	}
+
 }
