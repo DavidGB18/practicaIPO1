@@ -35,6 +35,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.File;
 import java.io.IOException;
+import java.net.URI;
 import java.util.Date;
 import java.awt.SystemColor;
 import javax.swing.JScrollPane;
@@ -1143,6 +1144,8 @@ public class UI_Gestor {
 
 	private class BtnHelpActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
+
+			// ABRIR EL DOCUMENTO
 			File f = new File("manual.pdf");
 			String path = f.getAbsolutePath();
 			try {
@@ -1150,6 +1153,16 @@ public class UI_Gestor {
 			} catch (IOException e1) {
 				e1.printStackTrace();
 			}
+			/*
+			 * //ABRIR UNA URL try { URI uri= new URI(
+			 * "https://github.com/LuGuDu/B1_6/blob/master/B1-6%20-%20Practica%20Sistemas%20Inteligentes.pdf"
+			 * ); java.awt.Desktop.getDesktop().browse(uri);
+			 * System.out.println("Web page opened in browser");
+			 * 
+			 * } catch (Exception e2) {
+			 * 
+			 * e2.printStackTrace(); }
+			 */
 		}
 	}
 	private class MntmSalirActionListener implements ActionListener {
