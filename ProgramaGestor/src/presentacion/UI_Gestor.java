@@ -595,6 +595,7 @@ public class UI_Gestor {
 					}
 					{
 						btnDiseñoRuta = new JButton("");
+						btnDiseñoRuta.addActionListener(new BtnDiseñoRutaActionListener());
 						btnDiseñoRuta.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 						btnDiseñoRuta.setOpaque(false);
 						btnDiseñoRuta.setBorder(null);
@@ -1130,6 +1131,12 @@ public class UI_Gestor {
 			} catch (IOException e1) {
 				e1.printStackTrace();
 			}
+		}
+	}
+	private class BtnDiseñoRutaActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			JFrame window= new UI_DibujoRutas();
+			window.setVisible(true);
 		}
 	}
 	public static void setComprobadorCalendario(int valor) {
