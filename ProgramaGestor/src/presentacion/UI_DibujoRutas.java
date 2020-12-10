@@ -1,6 +1,7 @@
 package presentacion;
 
 import java.awt.EventQueue;
+import java.awt.Image;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -45,6 +46,8 @@ public class UI_DibujoRutas extends JFrame {
 	int modo = -1;
 	private final int DIBUJO = 1;
 	private final int TEXTO = 2;
+	private final int ZOOMMAYOR = 2;
+	private final double ZOOMMENOR = 0.5;
 	private int currentX, currentY, oldX, oldY;
 
 	// Variables para almacenar las coordenadas actuales
@@ -53,6 +56,8 @@ public class UI_DibujoRutas extends JFrame {
 	// Componente de entrada de texto que permitirá
 	// añadir anotaciones (dibujar texto) sobre la imagen
 	private JTextField txtTexto = new JTextField();
+	private JButton btnZoomMayor;
+	private JButton btnZoomMenor;
 
 	/**
 	 * Launch the application.
@@ -84,25 +89,41 @@ public class UI_DibujoRutas extends JFrame {
 			contentPane.add(tbBarraDibujo, BorderLayout.NORTH);
 			{
 				btnGuardar = new JButton("");
+				btnGuardar.setIcon(new ImageIcon(UI_DibujoRutas.class.getResource("/recursos/floppy-disk-2@1x.png")));
 				btnGuardar.addActionListener(new BtnGuardarActionListener());
 
 				tbBarraDibujo.add(btnGuardar);
 			}
 			{
 				btnCargar = new JButton("");
+				btnCargar.setIcon(new ImageIcon(UI_DibujoRutas.class.getResource("/recursos/folder@1x.png")));
 				btnCargar.addActionListener(new BtnCargarActionListener());
 				tbBarraDibujo.add(btnCargar);
 			}
 			{
 				btnDibujar = new JButton("");
+				btnDibujar.setIcon(new ImageIcon(UI_DibujoRutas.class.getResource("/recursos/pencil@1x.png")));
 				btnDibujar.addActionListener(new BtnDibujarActionListener());
 				tbBarraDibujo.add(btnDibujar);
 			}
 			{
 				btnTexto = new JButton("");
+				btnTexto.setIcon(new ImageIcon(UI_DibujoRutas.class.getResource("/recursos/texto.png")));
 				btnTexto.addActionListener(new BtnTextoActionListener());
 
 				tbBarraDibujo.add(btnTexto);
+			}
+			{
+				btnZoomMayor = new JButton("");
+				btnZoomMayor.addActionListener(new BtnZoomMayorActionListener());
+				btnZoomMayor.setIcon(new ImageIcon(UI_DibujoRutas.class.getResource("/recursos/plus-in-circle@1x.png")));
+				tbBarraDibujo.add(btnZoomMayor);
+			}
+			{
+				btnZoomMenor = new JButton("");
+				btnZoomMenor.addActionListener(new BtnZoomMenorActionListener());
+				btnZoomMenor.setIcon(new ImageIcon(UI_DibujoRutas.class.getResource("/recursos/minus-in-circle@1x.png")));
+				tbBarraDibujo.add(btnZoomMenor);
 			}
 		}
 		{
@@ -204,6 +225,25 @@ public class UI_DibujoRutas extends JFrame {
 		public void windowClosing(WindowEvent e) {
 			UI_Gestor.setComprobadorCalendario(0);
 			dispose();
+		}
+	}
+	private class BtnZoomMayorActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			int newH = (int) (imagen.getIconHeight() * ZOOMMAYOR);
+			int newW = (int) (imagen.getIconWidth() * ZOOMMAYOR);
+			Image img= imagen.getImage();
+			imagen = new ImageIcon(img.getScaledInstance(newW, newH, Image.SCALE_SMOOTH));
+			miAreaDibujo.setIcon(imagen);
+			
+		}
+	}
+	private class BtnZoomMenorActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			int newH = (int) (imagen.getIconHeight() * ZOOMMENOR);
+			int newW = (int) (imagen.getIconWidth() * ZOOMMENOR);
+			Image img= imagen.getImage();
+			imagen = new ImageIcon(img.getScaledInstance(newW, newH, Image.SCALE_SMOOTH));
+			miAreaDibujo.setIcon(imagen);
 		}
 	}
 
