@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 import java.awt.CardLayout;
 import javax.swing.JTable;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JScrollPane;
 import java.awt.Toolkit;
@@ -16,6 +17,10 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.SwingConstants;
 import java.awt.Font;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Cursor;
 
 public class UI_ParcelasBungalows extends JFrame {
 
@@ -30,6 +35,9 @@ public class UI_ParcelasBungalows extends JFrame {
 	public static int elegirPanel;
 	private JLabel lblTituloParcelas;
 	private JLabel lblTituloBungalows;
+	private JPanel panelBotones;
+	private JButton btnCancelar;
+	private JButton btnGuardarCambios;
 	
 	/**
 	 * Launch the application.
@@ -119,6 +127,21 @@ public class UI_ParcelasBungalows extends JFrame {
 							lblTituloBungalows.setHorizontalAlignment(SwingConstants.CENTER);
 							panelBungalows.add(lblTituloBungalows, BorderLayout.NORTH);
 						}
+						{
+							panelBotones = new JPanel();
+							contentPane.add(panelBotones, BorderLayout.SOUTH);
+							{
+								btnCancelar = new JButton("Cancelar");
+								btnCancelar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+								btnCancelar.addActionListener(new BtnCancelarActionListener());
+								panelBotones.add(btnCancelar);
+							}
+							{
+								btnGuardarCambios = new JButton("Guardar Cambios");
+								btnGuardarCambios.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+								panelBotones.add(btnGuardarCambios);
+							}
+						}
 						tBungalows.getColumnModel().getColumn(6).setPreferredWidth(96);
 					}
 				}
@@ -143,6 +166,16 @@ public class UI_ParcelasBungalows extends JFrame {
 		public void windowClosing(WindowEvent e) {
 			UI_Gestor.setComprobadorParcelasBungalows(0);
 			dispose();
+		}
+	}
+	private class BtnCancelarActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			int sel = JOptionPane.showOptionDialog(null, "¿Seguro que quieres cancelar?",
+					"Cancelar operacion", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
+			if (sel == JOptionPane.YES_OPTION) {
+				UI_Gestor.setComprobadorParcelasBungalows(0);
+				dispose();
+			} 
 		}
 	}
 	
