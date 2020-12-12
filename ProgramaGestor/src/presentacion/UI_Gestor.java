@@ -307,44 +307,40 @@ public class UI_Gestor {
 						treePrograma.setAutoscrolls(true);
 						treePrograma.setBackground(Color.WHITE);
 						treePrograma.setForeground(Color.WHITE);
-						treePrograma.setModel(new DefaultTreeModel(new DefaultMutableTreeNode("Gestor") {
-							{
-								DefaultMutableTreeNode node_1;
-								DefaultMutableTreeNode node_2;
-								node_1 = new DefaultMutableTreeNode("Parcelas-Bungalows");
-								node_2 = new DefaultMutableTreeNode("parcelas");
-								node_2.add(new DefaultMutableTreeNode("A\u00F1adir"));
-								node_2.add(new DefaultMutableTreeNode("Modificar"));
-								node_2.add(new DefaultMutableTreeNode("Borrar"));
-								node_1.add(node_2);
-								node_2 = new DefaultMutableTreeNode("Bungalows");
-								node_2.add(new DefaultMutableTreeNode("A\u00F1adir"));
-								node_2.add(new DefaultMutableTreeNode("Modificar"));
-								node_2.add(new DefaultMutableTreeNode("Borrar"));
-								node_1.add(node_2);
-								add(node_1);
-								node_1 = new DefaultMutableTreeNode("Reservas");
-								node_1.add(new DefaultMutableTreeNode("A\u00F1adir"));
-								node_1.add(new DefaultMutableTreeNode("Modificar "));
-								node_1.add(new DefaultMutableTreeNode("Borrar "));
-								add(node_1);
-								node_1 = new DefaultMutableTreeNode("Actividades");
-								node_1.add(new DefaultMutableTreeNode("A\u00F1adir"));
-								node_1.add(new DefaultMutableTreeNode("Modificar"));
-								node_1.add(new DefaultMutableTreeNode("Borrar"));
-								add(node_1);
-								node_1 = new DefaultMutableTreeNode("Rutas");
-								node_1.add(new DefaultMutableTreeNode("Consultar"));
-								node_1.add(new DefaultMutableTreeNode("Dise\u00F1ar"));
-								add(node_1);
-								node_1 = new DefaultMutableTreeNode("Monitores");
-								node_1.add(new DefaultMutableTreeNode("A\u00F1adir"));
-								node_1.add(new DefaultMutableTreeNode("Modificar"));
-								node_1.add(new DefaultMutableTreeNode("Borrar"));
-								add(node_1);
-								add(new DefaultMutableTreeNode("Configuracion"));
+						treePrograma.setModel(new DefaultTreeModel(
+							new DefaultMutableTreeNode("Gestor") {
+								{
+									DefaultMutableTreeNode node_1;
+									node_1 = new DefaultMutableTreeNode("Parcelas-Bungalows");
+										node_1.add(new DefaultMutableTreeNode("Parcelas"));
+										node_1.add(new DefaultMutableTreeNode("Bungalows"));
+									add(node_1);
+									node_1 = new DefaultMutableTreeNode("Reservas");
+										node_1.add(new DefaultMutableTreeNode("A\u00F1adir"));
+										node_1.add(new DefaultMutableTreeNode("Modificar "));
+										node_1.add(new DefaultMutableTreeNode("Borrar"));
+										node_1.add(new DefaultMutableTreeNode("Consultar "));
+									add(node_1);
+									node_1 = new DefaultMutableTreeNode("Actividades");
+										node_1.add(new DefaultMutableTreeNode("A\u00F1adir"));
+										node_1.add(new DefaultMutableTreeNode("Modificar"));
+										node_1.add(new DefaultMutableTreeNode("Borrar"));
+										node_1.add(new DefaultMutableTreeNode("Consultar"));
+									add(node_1);
+									node_1 = new DefaultMutableTreeNode("Rutas");
+										node_1.add(new DefaultMutableTreeNode("Informacion"));
+										node_1.add(new DefaultMutableTreeNode("Dise\u00F1ar"));
+									add(node_1);
+									node_1 = new DefaultMutableTreeNode("Monitores");
+										node_1.add(new DefaultMutableTreeNode("A\u00F1adir"));
+										node_1.add(new DefaultMutableTreeNode("Modificar"));
+										node_1.add(new DefaultMutableTreeNode("Borrar"));
+										node_1.add(new DefaultMutableTreeNode("Consultar"));
+									add(node_1);
+									add(new DefaultMutableTreeNode("Configuracion"));
+								}
 							}
-						}));
+						));
 					}
 				}
 			}
@@ -551,6 +547,7 @@ public class UI_Gestor {
 					panelParcelasBungalos.setLayout(gbl_panelParcelasBungalos);
 					{
 						btnParcelas = new JButton("");
+						btnParcelas.setToolTipText("Parcelas");
 						btnParcelas.addActionListener(new BtnParcelasBungalowsActionListener(0));
 						btnParcelas.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 						btnParcelas.setBackground(new Color(240, 240, 240));
@@ -566,6 +563,7 @@ public class UI_Gestor {
 					}
 					{
 						btnBungalows = new JButton("");
+						btnBungalows.setToolTipText("Bungalows");
 						btnBungalows.addActionListener(new BtnParcelasBungalowsActionListener(1));
 						btnBungalows.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 						btnBungalows.setOpaque(false);
@@ -1082,8 +1080,47 @@ public class UI_Gestor {
 					panel.show(panelPrincipal, "panel" + e.getNewLeadSelectionPath().getPath()[1]);
 					break;
 				case 3:
-
-					// rellenar cuando esten disponibles las ventanas
+					String s = e.getNewLeadSelectionPath().getPath()[2].toString();
+					String s1 = e.getNewLeadSelectionPath().getPath()[1].toString();
+					switch(s) {
+					case "Parcelas":
+						
+						break;
+					case "Bungalows":
+						break;
+					case "Informacion":
+						break;
+					case "Dibujo":
+						break;
+					case "Añadir":
+						switch(s1) {
+						case "Reservas":
+							
+							break;
+						case "Actividades":
+							
+							break;
+						case "Monitores":
+							
+							break;
+						}
+						break;
+					case "Borrar":
+						switch(s1) {
+						
+						}
+						break;
+					case "Modificar":
+						switch(s1) {
+						
+						}
+						break;
+					case "Consultar":
+						switch(s1) {
+						
+						}
+						break;
+					}
 
 					break;
 				default:
