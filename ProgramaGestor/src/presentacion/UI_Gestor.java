@@ -317,7 +317,6 @@ public class UI_Gestor {
 									add(node_1);
 									node_1 = new DefaultMutableTreeNode("Reservas");
 										node_1.add(new DefaultMutableTreeNode("A\u00F1adir"));
-										node_1.add(new DefaultMutableTreeNode("Modificar "));
 										node_1.add(new DefaultMutableTreeNode("Borrar"));
 										node_1.add(new DefaultMutableTreeNode("Consultar "));
 									add(node_1);
@@ -1084,41 +1083,28 @@ public class UI_Gestor {
 					String s1 = e.getNewLeadSelectionPath().getPath()[1].toString();
 					switch(s) {
 					case "Parcelas":
-						
+						new BtnParcelasBungalowsActionListener(0).actionPerformed(null);
 						break;
 					case "Bungalows":
+						new BtnParcelasBungalowsActionListener(1).actionPerformed(null);
 						break;
 					case "Informacion":
+						new BtnInfoRutasActionListener().actionPerformed(null);
 						break;
 					case "Dibujo":
-						break;
+						new BtnDisenoRutaActionListener().actionPerformed(null);
+						break;				
 					case "Añadir":
-						switch(s1) {
-						case "Reservas":
-							
-							break;
-						case "Actividades":
-							
-							break;
-						case "Monitores":
-							
-							break;
-						}
+						abrirVentanaArbol(s1, 1);
 						break;
 					case "Borrar":
-						switch(s1) {
-						
-						}
+						abrirVentanaArbol(s1, 2);
 						break;
 					case "Modificar":
-						switch(s1) {
-						
-						}
+						abrirVentanaArbol(s1, 3);
 						break;
 					case "Consultar":
-						switch(s1) {
-						
-						}
+						abrirVentanaArbol(s1, 4);
 						break;
 					}
 
@@ -1131,7 +1117,7 @@ public class UI_Gestor {
 
 		}
 	}
-
+	
 	private class BtnMonitorActionListener implements ActionListener {
 		int valor = 0;
 
@@ -1246,6 +1232,43 @@ public class UI_Gestor {
 
 	// ***METODOS***//
 
+	private void abrirVentanaArbol(String seleccion, int modo) {
+		switch(seleccion) {
+		case "Reservas":
+			if(modo==1) {
+				System.out.println(seleccion);
+				new BtnReservasActionListener(0).actionPerformed(null);
+			} else if(modo==2) {
+				new BtnReservasActionListener(1).actionPerformed(null);
+			} else if(modo==3) {
+				new BtnReservasActionListener(2).actionPerformed(null);
+			} 
+			break;
+		case "Actividades":
+			if(modo==1) {
+				new BtnActividadActionListener(1).actionPerformed(null);
+			} else if(modo==2) {
+				new BtnActividadActionListener(3).actionPerformed(null);
+			} else if(modo==3) {
+				new BtnActividadActionListener(2).actionPerformed(null);
+			} else {
+				new BtnActividadActionListener(0).actionPerformed(null);
+			}
+			break;
+		case "Monitores":
+			if(modo==1) {
+				new BtnMonitorActionListener(1).actionPerformed(null);
+			} else if(modo==2) {
+				new BtnMonitorActionListener(3).actionPerformed(null);
+			} else if(modo==3) {
+				new BtnMonitorActionListener(2).actionPerformed(null);
+			} else {
+				new BtnMonitorActionListener(0).actionPerformed(null);
+			}
+			break;
+		}
+	}
+	
 	public static void setComprobadorCalendario(int valor) {
 		comprobadorCalendario = valor;
 	}
