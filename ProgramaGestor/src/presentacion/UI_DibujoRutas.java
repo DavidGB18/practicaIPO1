@@ -26,6 +26,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.awt.Toolkit;
 
 public class UI_DibujoRutas extends JFrame {
 
@@ -76,6 +77,8 @@ public class UI_DibujoRutas extends JFrame {
 	}
 
 	public UI_DibujoRutas() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(UI_DibujoRutas.class.getResource("/recursos/logo.png")));
+		setTitle("Dise\u00F1o de Rutas");
 		setResizable(false);
 		addWindowListener(new ThisWindowListener());
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);

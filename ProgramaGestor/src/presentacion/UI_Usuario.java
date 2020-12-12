@@ -18,6 +18,7 @@ import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Cursor;
+import java.awt.Toolkit;
 
 public class UI_Usuario extends JFrame {
 
@@ -54,9 +55,10 @@ public class UI_Usuario extends JFrame {
 	 * Create the frame.
 	 */
 	public UI_Usuario() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(UI_Usuario.class.getResource("/recursos/logo.png")));
 		addWindowListener(new ThisWindowListener());
 		setResizable(false);
-		setTitle("Informacion de Usuario");
+		setTitle("Gestor Los Olivos - Usuario");
 		setBounds(100, 100, 531, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

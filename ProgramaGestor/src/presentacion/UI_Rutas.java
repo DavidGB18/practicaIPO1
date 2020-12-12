@@ -19,6 +19,7 @@ import javax.swing.JTextArea;
 import javax.swing.ImageIcon;
 import javax.swing.JList;
 import javax.swing.SpinnerNumberModel;
+import java.awt.Toolkit;
 
 public class UI_Rutas extends JFrame {
 
@@ -71,6 +72,8 @@ public class UI_Rutas extends JFrame {
 	 * Create the frame.
 	 */
 	public UI_Rutas() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(UI_Rutas.class.getResource("/recursos/logo.png")));
+		setTitle("Gestor Los Olivos - Rutas");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 771, 577);
 		contentPane = new JPanel();

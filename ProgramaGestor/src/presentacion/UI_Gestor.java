@@ -35,7 +35,6 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.File;
 import java.io.IOException;
-import java.net.URI;
 import java.util.Date;
 import java.awt.SystemColor;
 import javax.swing.JScrollPane;

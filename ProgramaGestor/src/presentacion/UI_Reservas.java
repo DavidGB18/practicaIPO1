@@ -25,6 +25,7 @@ import javax.swing.JProgressBar;
 import javax.swing.JSpinner;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Toolkit;
 
 public class UI_Reservas extends JFrame {
 
@@ -129,9 +130,10 @@ public class UI_Reservas extends JFrame {
 	 * Create the frame.
 	 */
 	public UI_Reservas() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(UI_Reservas.class.getResource("/recursos/logo.png")));
 		setResizable(false);
 		addWindowListener(new ThisWindowListener());
-		setTitle("Vista de Reserva");
+		setTitle("Gestor Los Olivos - Reservas");
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 534, 412);
 		contentPane = new JPanel();

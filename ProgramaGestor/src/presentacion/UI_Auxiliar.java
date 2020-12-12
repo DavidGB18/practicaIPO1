@@ -32,6 +32,7 @@ import javax.swing.SpinnerNumberModel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Cursor;
+import java.awt.Toolkit;
 
 public class UI_Auxiliar extends JFrame {
 
@@ -116,6 +117,8 @@ public class UI_Auxiliar extends JFrame {
 	 * Create the frame.
 	 */
 	public UI_Auxiliar() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(UI_Auxiliar.class.getResource("/recursos/logo.png")));
+		setTitle("Gestor Los Olivos - Formularios");
 		setResizable(false);
 		addWindowListener(new ThisWindowListener());
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
