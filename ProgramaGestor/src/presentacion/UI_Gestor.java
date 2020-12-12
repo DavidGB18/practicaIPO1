@@ -50,6 +50,12 @@ import javax.swing.JMenuItem;
 
 public class UI_Gestor {
 
+	private static int comprobadorUsuario = 0;
+	private static int comprobadorCalendario = 0;
+	private static int comprobadorInfoRuta = 0;
+	private static int comprobadorDibujoRuta = 0;
+	private static int comprobadorParcelasBungalows = 0;
+	
 	private JFrame frmGestorLosOlivos;
 	private JPanel panelAutenticacion;
 	private JPanel panelMenuPrincipal;
@@ -62,7 +68,7 @@ public class UI_Gestor {
 	private JPasswordField passwordField;
 	private JPanel panelFoto;
 	private JLabel lblFoto;
-	private JPanel panelMigas;
+	private JPanel panelArbol;
 	private JMenuBar menuBar;
 	private JMenu mnInicio;
 	private JMenu mnOpciones;
@@ -120,10 +126,6 @@ public class UI_Gestor {
 	private JPanel panelImagen;
 	private JLabel lblImagen;
 	private JPanel panelInicioSesion;
-	private static int comprobadorUsuario = 0;
-	private static int comprobadorCalendario = 0;
-	private static int comprobadorInfoRuta = 0;
-	private static int comprobadorDibujoRuta = 0;
 	private JLabel lblActividades;
 	private JScrollPane scrollPaneActividades;
 	private JList listActividades;
@@ -281,21 +283,21 @@ public class UI_Gestor {
 			frmGestorLosOlivos.getContentPane().add(panelMenuPrincipal, "Iniciar Sesión");
 			panelMenuPrincipal.setLayout(new BorderLayout(0, 0));
 			{
-				panelMigas = new JPanel();
-				panelMenuPrincipal.add(panelMigas, BorderLayout.WEST);
-				GridBagLayout gbl_panelMigas = new GridBagLayout();
-				gbl_panelMigas.columnWidths = new int[] { 133, 0 };
-				gbl_panelMigas.rowHeights = new int[] { 0, 0 };
-				gbl_panelMigas.columnWeights = new double[] { 1.0, Double.MIN_VALUE };
-				gbl_panelMigas.rowWeights = new double[] { 1.0, Double.MIN_VALUE };
-				panelMigas.setLayout(gbl_panelMigas);
+				panelArbol = new JPanel();
+				panelMenuPrincipal.add(panelArbol, BorderLayout.WEST);
+				GridBagLayout gbl_panelArbol = new GridBagLayout();
+				gbl_panelArbol.columnWidths = new int[] { 133, 0 };
+				gbl_panelArbol.rowHeights = new int[] { 0, 0 };
+				gbl_panelArbol.columnWeights = new double[] { 1.0, Double.MIN_VALUE };
+				gbl_panelArbol.rowWeights = new double[] { 1.0, Double.MIN_VALUE };
+				panelArbol.setLayout(gbl_panelArbol);
 				{
 					scrollMigas = new JScrollPane();
 					GridBagConstraints gbc_scrollMigas = new GridBagConstraints();
 					gbc_scrollMigas.fill = GridBagConstraints.BOTH;
 					gbc_scrollMigas.gridx = 0;
 					gbc_scrollMigas.gridy = 0;
-					panelMigas.add(scrollMigas, gbc_scrollMigas);
+					panelArbol.add(scrollMigas, gbc_scrollMigas);
 					{
 						treePrograma = new JTree();
 						treePrograma.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
@@ -549,6 +551,7 @@ public class UI_Gestor {
 					panelParcelasBungalos.setLayout(gbl_panelParcelasBungalos);
 					{
 						btnParcelas = new JButton("");
+						btnParcelas.addActionListener(new BtnParcelasBungalowsActionListener(0));
 						btnParcelas.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 						btnParcelas.setBackground(new Color(240, 240, 240));
 						btnParcelas.setBorderPainted(false);
@@ -563,6 +566,7 @@ public class UI_Gestor {
 					}
 					{
 						btnBungalows = new JButton("");
+						btnBungalows.addActionListener(new BtnParcelasBungalowsActionListener(1));
 						btnBungalows.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 						btnBungalows.setOpaque(false);
 						btnBungalows.setBorder(null);
@@ -1185,6 +1189,23 @@ public class UI_Gestor {
 			}
 		}
 	}
+	private class BtnParcelasBungalowsActionListener implements ActionListener {
+		int valor = 0;
+
+		public BtnParcelasBungalowsActionListener(int valor) {
+			this.valor = valor;
+		}
+
+		public void actionPerformed(ActionEvent e) {
+			
+			if (comprobadorParcelasBungalows == 0) {
+				JFrame window = new UI_ParcelasBungalows();
+				window.setVisible(true);
+				UI_ParcelasBungalows.setElegirPanel(valor);
+				comprobadorParcelasBungalows++;
+			}
+		}
+	}
 
 	// ***METODOS***//
 
@@ -1202,6 +1223,10 @@ public class UI_Gestor {
 
 	public static void setComprobadorUsuario(int valor) {
 		comprobadorUsuario = valor;
+	}
+	
+	public static void setComprobadorParcelasBungalows(int valor) {
+		comprobadorParcelasBungalows = valor;
 	}
 
 }
