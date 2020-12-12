@@ -88,7 +88,7 @@ public class UI_Gestor {
 	private JButton btnBungalows;
 	private JPanel panelRutas;
 	private JButton btnInfoRutas;
-	private JButton btnDiseñoRuta;
+	private JButton btnDisenoRuta;
 	private JPanel panelConfiguracion;
 	private JPanel panelMonitores;
 	private JPanel panelActividades;
@@ -122,6 +122,8 @@ public class UI_Gestor {
 	private JPanel panelInicioSesion;
 	private static int comprobadorUsuario = 0;
 	private static int comprobadorCalendario = 0;
+	private static int comprobadorInfoRuta = 0;
+	private static int comprobadorDibujoRuta = 0;
 	private JLabel lblActividades;
 	private JScrollPane scrollPaneActividades;
 	private JList listActividades;
@@ -586,6 +588,7 @@ public class UI_Gestor {
 					panelRutas.setLayout(gbl_panelRutas);
 					{
 						btnInfoRutas = new JButton("");
+						btnInfoRutas.addActionListener(new BtnInfoRutasActionListener());
 						btnInfoRutas.setOpaque(false);
 						btnInfoRutas.setBorder(null);
 						btnInfoRutas.setBackground(new Color(240, 240, 240));
@@ -599,19 +602,19 @@ public class UI_Gestor {
 						panelRutas.add(btnInfoRutas, gbc_btnInfoRutas);
 					}
 					{
-						btnDiseñoRuta = new JButton("");
-						btnDiseñoRuta.addActionListener(new BtnDiseñoRutaActionListener());
-						btnDiseñoRuta.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-						btnDiseñoRuta.setOpaque(false);
-						btnDiseñoRuta.setBorder(null);
-						btnDiseñoRuta.setBackground(new Color(240, 240, 240));
-						btnDiseñoRuta.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/pencil@3x.png")));
-						GridBagConstraints gbc_btnDiseñoRuta = new GridBagConstraints();
-						gbc_btnDiseñoRuta.fill = GridBagConstraints.BOTH;
-						gbc_btnDiseñoRuta.insets = new Insets(0, 0, 5, 5);
-						gbc_btnDiseñoRuta.gridx = 2;
-						gbc_btnDiseñoRuta.gridy = 1;
-						panelRutas.add(btnDiseñoRuta, gbc_btnDiseñoRuta);
+						btnDisenoRuta = new JButton("");
+						btnDisenoRuta.addActionListener(new BtnDisenoRutaActionListener());
+						btnDisenoRuta.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+						btnDisenoRuta.setOpaque(false);
+						btnDisenoRuta.setBorder(null);
+						btnDisenoRuta.setBackground(new Color(240, 240, 240));
+						btnDisenoRuta.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/pencil@3x.png")));
+						GridBagConstraints gbc_btnDisenoRuta = new GridBagConstraints();
+						gbc_btnDisenoRuta.fill = GridBagConstraints.BOTH;
+						gbc_btnDisenoRuta.insets = new Insets(0, 0, 5, 5);
+						gbc_btnDisenoRuta.gridx = 2;
+						gbc_btnDisenoRuta.gridy = 1;
+						panelRutas.add(btnDisenoRuta, gbc_btnDisenoRuta);
 					}
 				}
 				{
@@ -1145,7 +1148,6 @@ public class UI_Gestor {
 	private class BtnHelpActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 
-			// ABRIR EL DOCUMENTO
 			File f = new File("manual.pdf");
 			String path = f.getAbsolutePath();
 			try {
@@ -1153,23 +1155,16 @@ public class UI_Gestor {
 			} catch (IOException e1) {
 				e1.printStackTrace();
 			}
-			/*
-			 * //ABRIR UNA URL try { URI uri= new URI(
-			 * "https://github.com/LuGuDu/B1_6/blob/master/B1-6%20-%20Practica%20Sistemas%20Inteligentes.pdf" //CAMBIAR LA URL!!!
-			 * ); java.awt.Desktop.getDesktop().browse(uri);
-			 * System.out.println("Web page opened in browser");
-			 * 
-			 * } catch (Exception e2) {
-			 * 
-			 * e2.printStackTrace(); }
-			 */
 		}
 	}
 
-	private class BtnDiseñoRutaActionListener implements ActionListener {
+	private class BtnDisenoRutaActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			JFrame window= new UI_DibujoRutas();
-			window.setVisible(true);
+			if (comprobadorDibujoRuta == 0) {
+				JFrame window= new UI_DibujoRutas();
+				window.setVisible(true);
+				comprobadorDibujoRuta++;
+			}
 		}
 	}
 	private class MntmSalirActionListener implements ActionListener {
@@ -1181,11 +1176,28 @@ public class UI_Gestor {
 			} 
 		}
 	}
+	private class BtnInfoRutasActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {			
+			if (comprobadorInfoRuta == 0) {
+				JFrame window = new UI_Rutas();
+				window.setVisible(true);
+				comprobadorInfoRuta++;
+			}
+		}
+	}
 
 	// ***METODOS***//
 
 	public static void setComprobadorCalendario(int valor) {
 		comprobadorCalendario = valor;
+	}
+	
+	public static void setComprobadorInfoRuta(int valor) {
+		comprobadorInfoRuta = valor;
+	}
+	
+	public static void setComprobadorDibujoRuta(int valor) {
+		comprobadorDibujoRuta = valor;
 	}
 
 	public static void setComprobadorUsuario(int valor) {

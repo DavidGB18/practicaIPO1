@@ -226,7 +226,7 @@ public class UI_DibujoRutas extends JFrame {
 	}
 	private class ThisWindowListener extends WindowAdapter {
 		public void windowClosing(WindowEvent e) {
-			UI_Gestor.setComprobadorCalendario(0);
+			UI_Gestor.setComprobadorDibujoRuta(0);
 			dispose();
 		}
 	}
