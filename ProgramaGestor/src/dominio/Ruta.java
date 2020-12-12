@@ -2,6 +2,7 @@ package dominio;
 
 public class Ruta {
 	
+	private String nombre;
 	private Fecha fecha;
 	private int horaInicio;
 	private int horaFinal;
@@ -13,10 +14,11 @@ public class Ruta {
 	private String descripcion;
 	private String pathImagenRuta;
 	
-	public Ruta(Fecha fecha, int horaInicio, int horaFinal, Monitor[] monitores, String puntoEncuentro,
+	public Ruta(String nombre, Fecha fecha, int horaInicio, int horaFinal, Monitor[] monitores, String puntoEncuentro,
 			int numeroMinimoPersonas, int numeroMaximoPersonas, Dificultad gradoDificultad, String descripcion,
 			String pathImagenRuta) {
-		super();
+
+		this.nombre = nombre;
 		this.fecha = fecha;
 		this.horaInicio = horaInicio;
 		this.horaFinal = horaFinal;
@@ -27,6 +29,14 @@ public class Ruta {
 		this.gradoDificultad = gradoDificultad;
 		this.descripcion = descripcion;
 		this.pathImagenRuta = pathImagenRuta;
+	}
+	
+	public String getNombre() {
+		return nombre;
+	}
+	
+	public void setNombre(String nombre)	{
+		this.nombre = nombre;
 	}
 
 	public Fecha getFecha() {
