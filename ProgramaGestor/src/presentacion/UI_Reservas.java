@@ -830,8 +830,7 @@ public class UI_Reservas extends JFrame {
 					panebotones = "botonesfinal";
 					break;
 				}
-				numPanel--;
-				progressBar.setValue(++numPanel);
+				progressBar.setValue(numPanel);
 				numPanel--;
 				CardLayout panel = (CardLayout) (panelPasos.getLayout());
 				CardLayout panelbotones = (CardLayout) (panelBotones.getLayout());
