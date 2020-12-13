@@ -318,7 +318,7 @@ public class UI_Gestor {
 									node_1 = new DefaultMutableTreeNode("Reservas");
 										node_1.add(new DefaultMutableTreeNode("A\u00F1adir"));
 										node_1.add(new DefaultMutableTreeNode("Borrar"));
-										node_1.add(new DefaultMutableTreeNode("Consultar "));
+										node_1.add(new DefaultMutableTreeNode("Consultar"));
 									add(node_1);
 									node_1 = new DefaultMutableTreeNode("Actividades");
 										node_1.add(new DefaultMutableTreeNode("A\u00F1adir"));
@@ -1091,7 +1091,7 @@ public class UI_Gestor {
 					case "Informacion":
 						new BtnInfoRutasActionListener().actionPerformed(null);
 						break;
-					case "Dibujo":
+					case "Diseñar":
 						new BtnDisenoRutaActionListener().actionPerformed(null);
 						break;				
 					case "Añadir":
@@ -1240,7 +1240,7 @@ public class UI_Gestor {
 				new BtnReservasActionListener(0).actionPerformed(null);
 			} else if(modo==2) {
 				new BtnReservasActionListener(1).actionPerformed(null);
-			} else if(modo==3) {
+			} else {
 				new BtnReservasActionListener(2).actionPerformed(null);
 			} 
 			break;
