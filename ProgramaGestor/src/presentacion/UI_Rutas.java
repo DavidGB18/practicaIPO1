@@ -5,45 +5,33 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
-
-import java.awt.CardLayout;
-import java.awt.Color;
 
 import javax.swing.JTabbedPane;
 import java.awt.GridBagLayout;
-import java.awt.Image;
 
 import javax.swing.JComboBox;
-import javax.swing.JFileChooser;
 
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionAdapter;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.io.File;
 
 import javax.swing.JLabel;
 import javax.swing.JTextPane;
-import javax.swing.JToolBar;
 import javax.swing.JSpinner;
 import javax.swing.JTextArea;
-import javax.swing.JTextField;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JList;
 import javax.swing.SpinnerNumberModel;
 import java.awt.Cursor;
 import java.awt.Toolkit;
 
 public class UI_Rutas extends JFrame {
-
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8705213009070343242L;
 	private JPanel contentPane;
 	private JPanel panel;
 	private JPanel panelInfoRuta;

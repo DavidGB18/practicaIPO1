@@ -24,6 +24,10 @@ import java.awt.Cursor;
 
 public class UI_ParcelasBungalows extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5396939609123725256L;
 	private JPanel contentPane;
 	private JPanel panelParcelasBungalows;
 	private JPanel panelParcelas;

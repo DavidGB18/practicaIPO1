@@ -28,9 +28,10 @@ import java.awt.event.ActionEvent;
 import java.awt.Toolkit;
 
 public class UI_Reservas extends JFrame {
-
-	private static final long serialVersionUID = 1L;
-	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3781716042905688011L;
 	private JPanel contentPane;
 	private JPanel panelReservas;
 	private JPanel panelAnadirReserva;

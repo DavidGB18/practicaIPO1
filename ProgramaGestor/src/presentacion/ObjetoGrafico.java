@@ -3,6 +3,11 @@ package presentacion;
 import java.io.Serializable;
 
 public class ObjetoGrafico implements Serializable {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8383411679447068443L;
 	private int x, y;
 
 	public ObjetoGrafico(int x, int y) {

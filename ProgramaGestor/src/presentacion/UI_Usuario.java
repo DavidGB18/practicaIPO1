@@ -21,9 +21,10 @@ import java.awt.Cursor;
 import java.awt.Toolkit;
 
 public class UI_Usuario extends JFrame {
-
-	private static final long serialVersionUID = 1L;
-	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5491443667104786935L;
 	private JPanel contentPane;
 	private JPanel panel;
 	private JLabel lblFotoUsuario;

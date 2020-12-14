@@ -22,8 +22,10 @@ import javax.swing.DefaultComboBoxModel;
 import java.awt.Toolkit;
 
 public class UI_Calendario extends JFrame {
-
-	private static final long serialVersionUID = 1L;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5816561387594361557L;
 	private JPanel contentPane;
 	private JPanel panelCalendario;
 	private JButton btn4;

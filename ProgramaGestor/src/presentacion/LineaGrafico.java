@@ -4,6 +4,10 @@ import java.awt.Color;
 import java.io.Serializable;
 
 public class LineaGrafico extends ObjetoGrafico implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int x1, y1;
 	private Color color;
 

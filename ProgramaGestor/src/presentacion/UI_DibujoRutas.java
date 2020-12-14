@@ -30,6 +30,10 @@ import java.awt.Toolkit;
 
 public class UI_DibujoRutas extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1805295933480759024L;
 	private JPanel contentPane;
 	private JToolBar tbBarraDibujo;
 	private JButton btnGuardar;

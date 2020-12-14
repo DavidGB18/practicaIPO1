@@ -5,6 +5,10 @@ import java.util.ArrayList;
 import javax.swing.JLabel;
 
 public class MiAreaDibujo extends JLabel {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7078744495126391785L;
 	private ArrayList<ObjetoGrafico> objetosGraficos = new ArrayList<ObjetoGrafico>();
 
 	public MiAreaDibujo() {

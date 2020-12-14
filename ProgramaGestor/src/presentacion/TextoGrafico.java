@@ -4,6 +4,10 @@ import java.awt.Color;
 import java.io.Serializable;
 
 public class TextoGrafico extends ObjetoGrafico implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6590072607963839774L;
 	private String texto;
 	private Color color;
 
