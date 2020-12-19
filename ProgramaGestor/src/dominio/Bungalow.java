@@ -1,7 +1,10 @@
 package dominio;
 
-public class Bungalow extends Casa{
+public class Bungalow{
 
+	private int tamaño;
+	private double precioNoche;
+	private boolean disponibilidad;
 	private String descripcion;
 	private String[] pathFotos;
 	private String equipamiento;
@@ -10,12 +13,38 @@ public class Bungalow extends Casa{
 	
 	public Bungalow (int tamaño, double precioNoche, boolean disponibilidad, String descripcion, String[] pathFotos, 
 			String equipamiento, int capacidadMaxima, int estanciaMinima) {
-		super(tamaño, precioNoche, disponibilidad);
+		this.tamaño = tamaño;
+		this.precioNoche = precioNoche;
+		this.disponibilidad = disponibilidad;
 		this.descripcion = descripcion;
 		this.pathFotos = pathFotos;
 		this.equipamiento = equipamiento;
 		this.capacidadMaxima = capacidadMaxima;
 		this.estanciaMinima = estanciaMinima;
+	}
+	
+	public int getTamaño() {
+		return tamaño;
+	}
+
+	public void setTamaño(int tamaño) {
+		this.tamaño = tamaño;
+	}
+
+	public double getPrecioNoche() {
+		return precioNoche;
+	}
+
+	public void setPrecioNoche(double precioNoche) {
+		this.precioNoche = precioNoche;
+	}
+
+	public boolean isDisponibilidad() {
+		return disponibilidad;
+	}
+
+	public void setDisponibilidad(boolean disponibilidad) {
+		this.disponibilidad = disponibilidad;
 	}
 
 	public String getDescripcion() {

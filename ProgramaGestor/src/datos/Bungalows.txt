@@ -1,0 +1,3 @@
+45 30 true 'agradable' foto piscina 2 5
+65 25 false 'comoda y confortable' foto cancha 3 5
+100 50 true 'grande y espaciosa' foto piscina 5 7 

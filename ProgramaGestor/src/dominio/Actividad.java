@@ -11,7 +11,6 @@ public class Actividad {
 	private String descripcion;
 	
 	public Actividad(Monitor[] monitores, int horaComienzo, int horaFin, int cupoMaximo, Destinatarios[] destinatarios, int precio, String descripcion) {
-		super();
 		this.monitores = monitores;
 		this.horaComienzo = horaComienzo;
 		this.horaFin = horaFin;

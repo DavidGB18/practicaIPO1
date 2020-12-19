@@ -1,0 +1,5 @@
+500 159 true 'Cercano al bosque' deporte,senderismo DELUXE
+350 200 false 'Cerca de las colinas escombrosas' senderismo,vistas PEQUEÑA
+460 230 false 'Cercano al rio y al bosque' natacion,senderismo MEDIANA
+100 140 true 'Cercano al rio' natacion AUTOCARAVANA
+130 100 true 'Cercano al poblado' deporte,civilizacion GRANDE

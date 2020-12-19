@@ -1,0 +1,3 @@
+Sergio,Pablo 10 13 15 NIÑOS, ADULTOS 15 'Cuentacuentos'
+Pablo,Carlos 16 21 20 ADULTOS,ANCIANOS 20 'Taller sobre la vida'
+Carlos 15 23 10 ANCIANOS 0 'Cuidado de mayores con pasatiempos'
