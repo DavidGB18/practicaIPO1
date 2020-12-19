@@ -63,6 +63,7 @@ public class UI_ParcelasBungalows extends JFrame {
 	 * Create the frame.
 	 */
 	public UI_ParcelasBungalows() {
+		setResizable(false);
 		addWindowListener(new ThisWindowListener());
 		setIconImage(Toolkit.getDefaultToolkit().getImage(UI_ParcelasBungalows.class.getResource("/recursos/logo.png")));
 		setTitle("Gestor Los Olivos - Tablas Parcelas y Bungalows");

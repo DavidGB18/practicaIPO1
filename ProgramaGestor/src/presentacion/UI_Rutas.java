@@ -123,6 +123,7 @@ public class UI_Rutas extends JFrame {
 	 * Create the frame.
 	 */
 	public UI_Rutas() {
+		setResizable(false);
 		addWindowListener(new ThisWindowListener());
 		setIconImage(Toolkit.getDefaultToolkit().getImage(UI_Rutas.class.getResource("/recursos/logo.png")));
 		setTitle("Gestor Los Olivos - Rutas");
