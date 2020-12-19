@@ -35,6 +35,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.File;
 import java.io.IOException;
+import java.net.URI;
 import java.util.Date;
 import java.awt.SystemColor;
 import javax.swing.JScrollPane;
@@ -55,7 +56,7 @@ public class UI_Gestor {
 	private static int comprobadorInfoRuta = 0;
 	private static int comprobadorDibujoRuta = 0;
 	private static int comprobadorParcelasBungalows = 0;
-	
+
 	private JFrame frmGestorLosOlivos;
 	private JPanel panelAutenticacion;
 	private JPanel panelMenuPrincipal;
@@ -169,7 +170,8 @@ public class UI_Gestor {
 	 */
 	private void initialize() {
 		frmGestorLosOlivos = new JFrame();
-		frmGestorLosOlivos.setIconImage(Toolkit.getDefaultToolkit().getImage(UI_Gestor.class.getResource("/recursos/logo.png")));
+		frmGestorLosOlivos
+				.setIconImage(Toolkit.getDefaultToolkit().getImage(UI_Gestor.class.getResource("/recursos/logo.png")));
 		frmGestorLosOlivos.addWindowListener(new FrmGestorLosOlivosWindowListener());
 		frmGestorLosOlivos.setResizable(false);
 		frmGestorLosOlivos.setTitle("Gestor Los Olivos");
@@ -307,39 +309,37 @@ public class UI_Gestor {
 						treePrograma.setAutoscrolls(true);
 						treePrograma.setBackground(Color.WHITE);
 						treePrograma.setForeground(Color.WHITE);
-						treePrograma.setModel(new DefaultTreeModel(
-							new DefaultMutableTreeNode("Gestor") {
-								{
-									DefaultMutableTreeNode node_1;
-									node_1 = new DefaultMutableTreeNode("Parcelas-Bungalows");
-										node_1.add(new DefaultMutableTreeNode("Parcelas"));
-										node_1.add(new DefaultMutableTreeNode("Bungalows"));
-									add(node_1);
-									node_1 = new DefaultMutableTreeNode("Reservas");
-										node_1.add(new DefaultMutableTreeNode("A\u00F1adir"));
-										node_1.add(new DefaultMutableTreeNode("Borrar"));
-										node_1.add(new DefaultMutableTreeNode("Consultar"));
-									add(node_1);
-									node_1 = new DefaultMutableTreeNode("Actividades");
-										node_1.add(new DefaultMutableTreeNode("A\u00F1adir"));
-										node_1.add(new DefaultMutableTreeNode("Modificar"));
-										node_1.add(new DefaultMutableTreeNode("Borrar"));
-										node_1.add(new DefaultMutableTreeNode("Consultar"));
-									add(node_1);
-									node_1 = new DefaultMutableTreeNode("Rutas");
-										node_1.add(new DefaultMutableTreeNode("Informacion"));
-										node_1.add(new DefaultMutableTreeNode("Dise\u00F1ar"));
-									add(node_1);
-									node_1 = new DefaultMutableTreeNode("Monitores");
-										node_1.add(new DefaultMutableTreeNode("A\u00F1adir"));
-										node_1.add(new DefaultMutableTreeNode("Modificar"));
-										node_1.add(new DefaultMutableTreeNode("Borrar"));
-										node_1.add(new DefaultMutableTreeNode("Consultar"));
-									add(node_1);
-									add(new DefaultMutableTreeNode("Configuracion"));
-								}
+						treePrograma.setModel(new DefaultTreeModel(new DefaultMutableTreeNode("Gestor") {
+							{
+								DefaultMutableTreeNode node_1;
+								node_1 = new DefaultMutableTreeNode("Parcelas-Bungalows");
+								node_1.add(new DefaultMutableTreeNode("Parcelas"));
+								node_1.add(new DefaultMutableTreeNode("Bungalows"));
+								add(node_1);
+								node_1 = new DefaultMutableTreeNode("Reservas");
+								node_1.add(new DefaultMutableTreeNode("A\u00F1adir"));
+								node_1.add(new DefaultMutableTreeNode("Borrar"));
+								node_1.add(new DefaultMutableTreeNode("Consultar"));
+								add(node_1);
+								node_1 = new DefaultMutableTreeNode("Actividades");
+								node_1.add(new DefaultMutableTreeNode("A\u00F1adir"));
+								node_1.add(new DefaultMutableTreeNode("Modificar"));
+								node_1.add(new DefaultMutableTreeNode("Borrar"));
+								node_1.add(new DefaultMutableTreeNode("Consultar"));
+								add(node_1);
+								node_1 = new DefaultMutableTreeNode("Rutas");
+								node_1.add(new DefaultMutableTreeNode("Informacion"));
+								node_1.add(new DefaultMutableTreeNode("Dise\u00F1ar"));
+								add(node_1);
+								node_1 = new DefaultMutableTreeNode("Monitores");
+								node_1.add(new DefaultMutableTreeNode("A\u00F1adir"));
+								node_1.add(new DefaultMutableTreeNode("Modificar"));
+								node_1.add(new DefaultMutableTreeNode("Borrar"));
+								node_1.add(new DefaultMutableTreeNode("Consultar"));
+								add(node_1);
+								add(new DefaultMutableTreeNode("Configuracion"));
 							}
-						));
+						}));
 					}
 				}
 			}
@@ -1081,7 +1081,7 @@ public class UI_Gestor {
 				case 3:
 					String s = e.getNewLeadSelectionPath().getPath()[2].toString();
 					String s1 = e.getNewLeadSelectionPath().getPath()[1].toString();
-					switch(s) {
+					switch (s) {
 					case "Parcelas":
 						new BtnParcelasBungalowsActionListener(0).actionPerformed(null);
 						break;
@@ -1093,7 +1093,7 @@ public class UI_Gestor {
 						break;
 					case "Diseñar":
 						new BtnDisenoRutaActionListener().actionPerformed(null);
-						break;				
+						break;
 					case "Añadir":
 						abrirVentanaArbol(s1, 1);
 						break;
@@ -1117,7 +1117,7 @@ public class UI_Gestor {
 
 		}
 	}
-	
+
 	private class BtnMonitorActionListener implements ActionListener {
 		int valor = 0;
 
@@ -1175,36 +1175,40 @@ public class UI_Gestor {
 	private class BtnHelpActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 
-			File f = new File("manual.pdf");
-			String path = f.getAbsolutePath();
+			String url = "https://github.com/DavidGB18/practicaIPO1/blob/Lucas/ProgramaGestor/manual.pdf";
+			
 			try {
-				Runtime.getRuntime().exec("cmd /c " + path);
-			} catch (IOException e1) {
-				e1.printStackTrace();
+				URI uri = new URI(url);
+				java.awt.Desktop.getDesktop().browse(uri);
+			} catch (Exception e2) {
+				e2.printStackTrace();
 			}
+
 		}
 	}
 
 	private class BtnDisenoRutaActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			if (comprobadorDibujoRuta == 0) {
-				JFrame window= new UI_DibujoRutas();
+				JFrame window = new UI_DibujoRutas();
 				window.setVisible(true);
 				comprobadorDibujoRuta++;
 			}
 		}
 	}
+
 	private class MntmSalirActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			int sel = JOptionPane.showOptionDialog(frmGestorLosOlivos, "¿Seguro que quieres salir?",
 					"Salir del programa", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
 			if (sel == JOptionPane.YES_OPTION) {
 				System.exit(1);
-			} 
+			}
 		}
 	}
+
 	private class BtnInfoRutasActionListener implements ActionListener {
-		public void actionPerformed(ActionEvent e) {			
+		public void actionPerformed(ActionEvent e) {
 			if (comprobadorInfoRuta == 0) {
 				JFrame window = new UI_Rutas();
 				window.setVisible(true);
@@ -1212,6 +1216,7 @@ public class UI_Gestor {
 			}
 		}
 	}
+
 	private class BtnParcelasBungalowsActionListener implements ActionListener {
 		int valor = 0;
 
@@ -1220,7 +1225,7 @@ public class UI_Gestor {
 		}
 
 		public void actionPerformed(ActionEvent e) {
-			
+
 			if (comprobadorParcelasBungalows == 0) {
 				JFrame window = new UI_ParcelasBungalows();
 				window.setVisible(true);
@@ -1233,34 +1238,34 @@ public class UI_Gestor {
 	// ***METODOS***//
 
 	private void abrirVentanaArbol(String seleccion, int modo) {
-		switch(seleccion) {
+		switch (seleccion) {
 		case "Reservas":
-			if(modo==1) {
+			if (modo == 1) {
 				System.out.println(seleccion);
 				new BtnReservasActionListener(0).actionPerformed(null);
-			} else if(modo==2) {
+			} else if (modo == 2) {
 				new BtnReservasActionListener(1).actionPerformed(null);
 			} else {
 				new BtnReservasActionListener(2).actionPerformed(null);
-			} 
+			}
 			break;
 		case "Actividades":
-			if(modo==1) {
+			if (modo == 1) {
 				new BtnActividadActionListener(1).actionPerformed(null);
-			} else if(modo==2) {
+			} else if (modo == 2) {
 				new BtnActividadActionListener(3).actionPerformed(null);
-			} else if(modo==3) {
+			} else if (modo == 3) {
 				new BtnActividadActionListener(2).actionPerformed(null);
 			} else {
 				new BtnActividadActionListener(0).actionPerformed(null);
 			}
 			break;
 		case "Monitores":
-			if(modo==1) {
+			if (modo == 1) {
 				new BtnMonitorActionListener(1).actionPerformed(null);
-			} else if(modo==2) {
+			} else if (modo == 2) {
 				new BtnMonitorActionListener(3).actionPerformed(null);
-			} else if(modo==3) {
+			} else if (modo == 3) {
 				new BtnMonitorActionListener(2).actionPerformed(null);
 			} else {
 				new BtnMonitorActionListener(0).actionPerformed(null);
@@ -1268,15 +1273,15 @@ public class UI_Gestor {
 			break;
 		}
 	}
-	
+
 	public static void setComprobadorCalendario(int valor) {
 		comprobadorCalendario = valor;
 	}
-	
+
 	public static void setComprobadorInfoRuta(int valor) {
 		comprobadorInfoRuta = valor;
 	}
-	
+
 	public static void setComprobadorDibujoRuta(int valor) {
 		comprobadorDibujoRuta = valor;
 	}
@@ -1284,7 +1289,7 @@ public class UI_Gestor {
 	public static void setComprobadorUsuario(int valor) {
 		comprobadorUsuario = valor;
 	}
-	
+
 	public static void setComprobadorParcelasBungalows(int valor) {
 		comprobadorParcelasBungalows = valor;
 	}
