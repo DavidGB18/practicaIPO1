@@ -50,6 +50,9 @@ import javax.swing.border.SoftBevelBorder;
 import javax.swing.border.BevelBorder;
 import javax.swing.JMenuItem;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JPopupMenu;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class UI_Gestor {
 
@@ -140,6 +143,7 @@ public class UI_Gestor {
 	private JMenuItem mntmAboutUs;
 	private JMenuItem mntmAboutProgram;
 	private JMenuItem mntmSalir;
+	private JButton btnIdioma;
 
 	/**
 	 * Launch the application.
@@ -850,9 +854,9 @@ public class UI_Gestor {
 				panelMenuPrincipal.add(panelOpcionesPrincipales, BorderLayout.EAST);
 				GridBagLayout gbl_panelOpcionesPrincipales = new GridBagLayout();
 				gbl_panelOpcionesPrincipales.columnWidths = new int[] { 33, 0 };
-				gbl_panelOpcionesPrincipales.rowHeights = new int[] { 33, 40, 36, 0, 32, 0 };
+				gbl_panelOpcionesPrincipales.rowHeights = new int[] { 33, 0, 40, 36, 0, 32, 0 };
 				gbl_panelOpcionesPrincipales.columnWeights = new double[] { 0.0, Double.MIN_VALUE };
-				gbl_panelOpcionesPrincipales.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
+				gbl_panelOpcionesPrincipales.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
 				panelOpcionesPrincipales.setLayout(gbl_panelOpcionesPrincipales);
 				{
 					{
@@ -874,6 +878,17 @@ public class UI_Gestor {
 				{
 					btnHelp = new JButton("");
 					btnHelp.addActionListener(new BtnHelpActionListener());
+					{
+						btnIdioma = new JButton("");
+						btnIdioma.setBorder(null);
+						btnIdioma.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+						btnIdioma.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/banderaEsp.gif")));
+						GridBagConstraints gbc_btnIdioma = new GridBagConstraints();
+						gbc_btnIdioma.insets = new Insets(0, 0, 5, 0);
+						gbc_btnIdioma.gridx = 0;
+						gbc_btnIdioma.gridy = 1;
+						panelOpcionesPrincipales.add(btnIdioma, gbc_btnIdioma);
+					}
 					btnHelp.setBackground(new Color(240, 240, 240));
 					btnHelp.setOpaque(false);
 					btnHelp.setToolTipText("Ayuda");
@@ -883,7 +898,7 @@ public class UI_Gestor {
 					GridBagConstraints gbc_btnHelp = new GridBagConstraints();
 					gbc_btnHelp.insets = new Insets(0, 0, 5, 0);
 					gbc_btnHelp.gridx = 0;
-					gbc_btnHelp.gridy = 1;
+					gbc_btnHelp.gridy = 2;
 					panelOpcionesPrincipales.add(btnHelp, gbc_btnHelp);
 				}
 				{
@@ -898,7 +913,7 @@ public class UI_Gestor {
 					GridBagConstraints gbc_btnUser = new GridBagConstraints();
 					gbc_btnUser.insets = new Insets(0, 0, 5, 0);
 					gbc_btnUser.gridx = 0;
-					gbc_btnUser.gridy = 2;
+					gbc_btnUser.gridy = 3;
 					panelOpcionesPrincipales.add(btnUser, gbc_btnUser);
 				}
 				{
@@ -920,14 +935,14 @@ public class UI_Gestor {
 						GridBagConstraints gbc_btnCalendario = new GridBagConstraints();
 						gbc_btnCalendario.insets = new Insets(0, 0, 5, 0);
 						gbc_btnCalendario.gridx = 0;
-						gbc_btnCalendario.gridy = 3;
+						gbc_btnCalendario.gridy = 4;
 						panelOpcionesPrincipales.add(btnCalendario, gbc_btnCalendario);
 					}
 					btnLogout.setBorder(null);
 					btnLogout.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/exit.png")));
 					GridBagConstraints gbc_btnLogout = new GridBagConstraints();
 					gbc_btnLogout.gridx = 0;
-					gbc_btnLogout.gridy = 4;
+					gbc_btnLogout.gridy = 5;
 					panelOpcionesPrincipales.add(btnLogout, gbc_btnLogout);
 				}
 			}
@@ -1284,5 +1299,6 @@ public class UI_Gestor {
 	public static void setComprobadorParcelasBungalows(int valor) {
 		comprobadorParcelasBungalows = valor;
 	}
-	
+	private static void addPopup(Component component, final JPopupMenu popup) {
+	}
 }
