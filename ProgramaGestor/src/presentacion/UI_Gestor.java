@@ -25,6 +25,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JMenu;
 import javax.swing.JTree;
 import javax.swing.tree.DefaultTreeModel;
+
+import dominio.*;
+
 import javax.swing.tree.DefaultMutableTreeNode;
 import java.awt.FlowLayout;
 import javax.swing.JComboBox;
@@ -33,8 +36,6 @@ import javax.swing.event.ChangeListener;
 import javax.swing.event.ChangeEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.io.File;
-import java.io.IOException;
 import java.net.URI;
 import java.util.Date;
 import java.awt.SystemColor;
@@ -48,6 +49,7 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.border.SoftBevelBorder;
 import javax.swing.border.BevelBorder;
 import javax.swing.JMenuItem;
+import javax.swing.DefaultComboBoxModel;
 
 public class UI_Gestor {
 
@@ -99,11 +101,9 @@ public class UI_Gestor {
 	private JPanel panelConfiguracion;
 	private JPanel panelMonitores;
 	private JPanel panelActividades;
-	private JLabel lblIdioma;
 	private JLabel lblApariencia;
 	private JLabel lblTipoLetra;
 	private JLabel lblTamLetra;
-	private JComboBox comboBox;
 	private JComboBox comboBox_1;
 	private JComboBox comboBox_2;
 	private JComboBox comboBox_3;
@@ -116,7 +116,7 @@ public class UI_Gestor {
 	private JButton btnModificarMonitor;
 	private JButton btnEliminarMonitor;
 	private JScrollPane scrollPaneMonitores;
-	private JList listMonitores;
+	private JList<Monitor> listMonitores;
 	private JLabel lblMonitores;
 	private JPanel panelOpcionesPrincipales;
 	private JButton btnHome;
@@ -129,7 +129,7 @@ public class UI_Gestor {
 	private JPanel panelInicioSesion;
 	private JLabel lblActividades;
 	private JScrollPane scrollPaneActividades;
-	private JList listActividades;
+	private JList<Actividad> listActividades;
 	private JButton btnAnadirActividad;
 	private JButton btnModificarActividad;
 	private JButton btnEliminarActividad;
@@ -624,13 +624,6 @@ public class UI_Gestor {
 					panelPrincipal.add(panelConfiguracion, "panelConfiguracion");
 					panelConfiguracion.setLayout(null);
 					{
-						lblIdioma = new JLabel("Idioma:");
-						lblIdioma.setHorizontalAlignment(SwingConstants.RIGHT);
-						lblIdioma.setFont(new Font("Tahoma", Font.PLAIN, 18));
-						lblIdioma.setBounds(234, 121, 68, 32);
-						panelConfiguracion.add(lblIdioma);
-					}
-					{
 						lblApariencia = new JLabel("Apariencia:");
 						lblApariencia.setHorizontalAlignment(SwingConstants.RIGHT);
 						lblApariencia.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -652,22 +645,20 @@ public class UI_Gestor {
 						panelConfiguracion.add(lblTamLetra);
 					}
 					{
-						comboBox = new JComboBox();
-						comboBox.setBounds(328, 130, 132, 21);
-						panelConfiguracion.add(comboBox);
-					}
-					{
 						comboBox_1 = new JComboBox();
+						comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"Claro", "Oscuro"}));
 						comboBox_1.setBounds(328, 171, 132, 21);
 						panelConfiguracion.add(comboBox_1);
 					}
 					{
 						comboBox_2 = new JComboBox();
+						comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"Tahoma"}));
 						comboBox_2.setBounds(328, 213, 132, 21);
 						panelConfiguracion.add(comboBox_2);
 					}
 					{
 						comboBox_3 = new JComboBox();
+						comboBox_3.setModel(new DefaultComboBoxModel(new String[] {"Pequena", "Mediana", "Grande"}));
 						comboBox_3.setBounds(328, 253, 132, 21);
 						panelConfiguracion.add(comboBox_3);
 					}
