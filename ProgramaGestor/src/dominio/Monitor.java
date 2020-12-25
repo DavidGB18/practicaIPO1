@@ -8,12 +8,12 @@ public class Monitor {
 	private String dni;
 	private long telefono;
 	private String correoElectronico;
-	private String[] idiomas;
 	private String formacion;
 	public String rutaFotoMonitor;
+	private String idiomas;
 	
 	public Monitor(String nombre, String apellido1, String apellido2, String dni, long telefono, String correoElectronico,
-			String[] idiomas, String formacion, String rutaFotoMonitor) {
+			 String formacion, String rutaFotoMonitor, String idiomas) {
 		super();
 		this.nombre = nombre;
 		this.apellido1 = apellido1;
@@ -74,11 +74,11 @@ public class Monitor {
 		this.correoElectronico = correoElectronico;
 	}
 
-	public String[] getIdiomas() {
+	public String getIdiomas() {
 		return idiomas;
 	}
 
-	public void setIdiomas(String[] idiomas) {
+	public void setIdiomas(String idiomas) {
 		this.idiomas = idiomas;
 	}
 
@@ -97,4 +97,13 @@ public class Monitor {
 	public void setRutaFotoMonitor(String rutaFotoMonitor) {
 		this.rutaFotoMonitor = rutaFotoMonitor;
 	}
+
+	@Override
+	public String toString() {
+		return "Monitor [nombre=" + nombre + ", apellido1=" + apellido1 + ", apellido2=" + apellido2 + ", dni=" + dni
+				+ ", telefono=" + telefono + ", correoElectronico=" + correoElectronico + ", formacion=" + formacion
+				+ ", rutaFotoMonitor=" + rutaFotoMonitor + ", idiomas=" + idiomas + "]";
+	}
+	
+	
 }

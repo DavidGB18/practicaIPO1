@@ -2,18 +2,18 @@ package dominio;
 
 public class Bungalow{
 
-	private int tamaño;
+	private int tam;
 	private double precioNoche;
 	private boolean disponibilidad;
 	private String descripcion;
-	private String[] pathFotos;
+	private String pathFotos;
 	private String equipamiento;
 	private int capacidadMaxima;
 	private int estanciaMinima;
 	
-	public Bungalow (int tamaño, double precioNoche, boolean disponibilidad, String descripcion, String[] pathFotos, 
+	public Bungalow (int tam, double precioNoche, boolean disponibilidad, String descripcion, String pathFotos, 
 			String equipamiento, int capacidadMaxima, int estanciaMinima) {
-		this.tamaño = tamaño;
+		this.tam = tam;
 		this.precioNoche = precioNoche;
 		this.disponibilidad = disponibilidad;
 		this.descripcion = descripcion;
@@ -23,12 +23,12 @@ public class Bungalow{
 		this.estanciaMinima = estanciaMinima;
 	}
 	
-	public int getTamaño() {
-		return tamaño;
+	public int getTam() {
+		return tam;
 	}
 
-	public void setTamaño(int tamaño) {
-		this.tamaño = tamaño;
+	public void setTam(int tam) {
+		this.tam = tam;
 	}
 
 	public double getPrecioNoche() {
@@ -55,11 +55,11 @@ public class Bungalow{
 		this.descripcion = descripcion;
 	}
 
-	public String[] getPathFotos() {
+	public String getPathFotos() {
 		return pathFotos;
 	}
 
-	public void setPathFotos(String[] pathFotos) {
+	public void setPathFotos(String pathFotos) {
 		this.pathFotos = pathFotos;
 	}
 
@@ -86,4 +86,13 @@ public class Bungalow{
 	public void setEstanciaMinima(int estanciaMinima) {
 		this.estanciaMinima = estanciaMinima;
 	}
+
+	@Override
+	public String toString() {
+		return "Bungalow [tam=" + tam + ", precioNoche=" + precioNoche + ", disponibilidad=" + disponibilidad
+				+ ", descripcion=" + descripcion + ", pathFotos=" + pathFotos + ", equipamiento=" + equipamiento
+				+ ", capacidadMaxima=" + capacidadMaxima + ", estanciaMinima=" + estanciaMinima + "]";
+	}
+	
+	
 }

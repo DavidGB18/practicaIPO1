@@ -6,7 +6,7 @@ public class Ruta {
 	private Fecha fecha;
 	private int horaInicio;
 	private int horaFinal;
-	private Monitor[] monitores;
+	private String monitor;
 	private String puntoEncuentro;
 	private int numeroMinimoPersonas;
 	private int numeroMaximoPersonas;
@@ -14,7 +14,7 @@ public class Ruta {
 	private String descripcion;
 	private String pathImagenRuta;
 	
-	public Ruta(String nombre, Fecha fecha, int horaInicio, int horaFinal, Monitor[] monitores, String puntoEncuentro,
+	public Ruta(String nombre, Fecha fecha, int horaInicio, int horaFinal, String monitor, String puntoEncuentro,
 			int numeroMinimoPersonas, int numeroMaximoPersonas, Dificultad gradoDificultad, String descripcion,
 			String pathImagenRuta) {
 
@@ -22,7 +22,7 @@ public class Ruta {
 		this.fecha = fecha;
 		this.horaInicio = horaInicio;
 		this.horaFinal = horaFinal;
-		this.monitores = monitores;
+		this.monitor = monitor;
 		this.puntoEncuentro = puntoEncuentro;
 		this.numeroMinimoPersonas = numeroMinimoPersonas;
 		this.numeroMaximoPersonas = numeroMaximoPersonas;
@@ -63,12 +63,12 @@ public class Ruta {
 		this.horaFinal = horaFinal;
 	}
 
-	public Monitor[] getMonitores() {
-		return monitores;
+	public String getMonitor() {
+		return monitor;
 	}
 
-	public void setMonitores(Monitor[] monitores) {
-		this.monitores = monitores;
+	public void setMonitores(String monitor) {
+		this.monitor = monitor;
 	}
 
 	public String getPuntoEncuentro() {
@@ -118,4 +118,14 @@ public class Ruta {
 	public void setPathImagenRuta(String pathImagenRuta) {
 		this.pathImagenRuta = pathImagenRuta;
 	}
+
+	@Override
+	public String toString() {
+		return "Ruta [nombre=" + nombre + ", fecha=" + fecha + ", horaInicio=" + horaInicio + ", horaFinal=" + horaFinal
+				+ ", monitor=" + monitor + ", puntoEncuentro=" + puntoEncuentro + ", numeroMinimoPersonas="
+				+ numeroMinimoPersonas + ", numeroMaximoPersonas=" + numeroMaximoPersonas + ", gradoDificultad="
+				+ gradoDificultad + ", descripcion=" + descripcion + ", pathImagenRuta=" + pathImagenRuta + "]";
+	}
+	
+	
 }

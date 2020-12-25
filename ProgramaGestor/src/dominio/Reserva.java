@@ -9,13 +9,13 @@ public class Reserva {
 	private String correoElectronico;
 	private long telefono;
 	private int ocupantes;
-	private String[] solicitudesEspeciales;
+	private String solicitudesEspeciales;
 	private int horaEntrada;
 	private int horaSalida;
 	
 	public Reserva(int idReserva, Fecha fechaEntrada, Fecha fechaSalida, String dni, String correoElectronico, long telefono,
-			int ocupantes, String[] solicitudesEspeciales, int horaEntrada, int horaSalida) {
-		super();
+			int ocupantes, String solicitudesEspeciales, int horaEntrada, int horaSalida) {
+		this.idReserva = idReserva;
 		this.fechaEntrada = fechaEntrada;
 		this.fechaSalida = fechaSalida;
 		this.dni = dni;
@@ -83,11 +83,11 @@ public class Reserva {
 		this.ocupantes = ocupantes;
 	}
 
-	public String[] getSolicitudesEspeciales() {
+	public String getSolicitudesEspeciales() {
 		return solicitudesEspeciales;
 	}
 
-	public void setSolicitudesEspeciales(String[] solicitudesEspeciales) {
+	public void setSolicitudesEspeciales(String solicitudesEspeciales) {
 		this.solicitudesEspeciales = solicitudesEspeciales;
 	}
 
@@ -105,6 +105,14 @@ public class Reserva {
 
 	public void setHoraSalida(int horaSalida) {
 		this.horaSalida = horaSalida;
+	}
+
+	@Override
+	public String toString() {
+		return "Reserva [idReserva=" + idReserva + ", fechaEntrada=" + fechaEntrada + ", fechaSalida=" + fechaSalida
+				+ ", dni=" + dni + ", correoElectronico=" + correoElectronico + ", telefono=" + telefono
+				+ ", ocupantes=" + ocupantes + ", solicitudesEspeciales=" + solicitudesEspeciales
+				+ ", horaEntrada=" + horaEntrada + ", horaSalida=" + horaSalida + "]";
 	}
 	
 	

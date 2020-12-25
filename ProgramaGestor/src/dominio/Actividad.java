@@ -2,30 +2,30 @@ package dominio;
 
 public class Actividad {
 
-	private Monitor[] monitores;
+	private String monitor;
 	private int horaComienzo;
 	private int horaFin;
 	private int cupoMaximo;
-	private Destinatarios[] destinatarios;	
+	private String destinatario;	
 	private int precio;
 	private String descripcion;
 	
-	public Actividad(Monitor[] monitores, int horaComienzo, int horaFin, int cupoMaximo, Destinatarios[] destinatarios, int precio, String descripcion) {
-		this.monitores = monitores;
+	public Actividad(String monitor, int horaComienzo, int horaFin, int cupoMaximo, String destinatario, int precio, String descripcion) {
+		this.monitor = monitor;
 		this.horaComienzo = horaComienzo;
 		this.horaFin = horaFin;
 		this.cupoMaximo = cupoMaximo;
-		this.destinatarios = destinatarios;
+		this.destinatario = destinatario;
 		this.precio = precio;
 		this.descripcion = descripcion;
 	}
 
-	public Monitor[] getMonitores() {
-		return monitores;
+	public String getMonitor() {
+		return monitor;
 	}
 
-	public void setMonitores(Monitor[] monitores) {
-		this.monitores = monitores;
+	public void setMonitor(String monitor) {
+		this.monitor = monitor;
 	}
 
 	public int getHoraComienzo() {
@@ -52,12 +52,12 @@ public class Actividad {
 		this.cupoMaximo = cupoMaximo;
 	}
 
-	public Destinatarios[] getDestinatarios() {
-		return destinatarios;
+	public String getDestinatario() {
+		return destinatario;
 	}
 
-	public void setDestinatarios(Destinatarios[] destinatarios) {
-		this.destinatarios = destinatarios;
+	public void setDestinatario(String destinatario) {
+		this.destinatario = destinatario;
 	}
 
 	public int getPrecio() {
@@ -74,6 +74,13 @@ public class Actividad {
 
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
+	}
+
+	@Override
+	public String toString() {
+		return "Actividad [monitores=" + monitor + ", horaComienzo=" + horaComienzo + ", horaFin="
+				+ horaFin + ", cupoMaximo=" + cupoMaximo + ", destinatarios=" + destinatario
+				+ ", precio=" + precio + ", descripcion=" + descripcion + "]";
 	}
 	
 }

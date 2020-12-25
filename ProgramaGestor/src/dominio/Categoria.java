@@ -1,7 +1,7 @@
 package dominio;
 
 public enum Categoria {
-	PEQUEÑA,
+	PEQUENA,
 	MEDIANA,
 	DELUXE,
 	GRANDE,

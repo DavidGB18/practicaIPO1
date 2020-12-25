@@ -1,3 +1,3 @@
-'La senda' 13/7/2021 10 13 Sergio,Pablo 'Poblado' 5 10 FACIL 'Caminata alrededor del pueblo' foto
-'El camino ancho' 21/8/2021 11 13 Pablo,Carlos 'Rio' 5 15 INTERMEDIA 'Caminata junto al rio' foto
-'La grieta del invocador' 12/12/2020 16 20 Sergio,Carlos 'Arboleda' 10 20 DIFICIL 'Caminata larga y dura por el bosque' foto
+'La_senda' 13/7/2021 10 13 Sergio Poblado 5 10 FACIL foto 'Caminata alrededor del pueblo' 
+'El_camino_ancho' 21/8/2021 11 13 Carlos Rio 5 15 INTERMEDIA foto 'Caminata junto al rio' 
+'La_grieta_del_invocador' 12/12/2020 16 20 Sergio Arboleda 10 20 DIFICIL foto 'Caminata larga y dura por el bosque' 

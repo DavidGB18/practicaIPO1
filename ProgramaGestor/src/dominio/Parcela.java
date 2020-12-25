@@ -2,15 +2,15 @@ package dominio;
 
 public class Parcela{
 
-	private int tamaño;
+	private int tam;
 	private double precioNoche;
 	private boolean disponibilidad;
 	private String ubicacion;
-	private String[] arrayServicios;
+	private String arrayServicios;
 	private Categoria categoria;
 	
-	public Parcela(int tamaño, double precioNoche, boolean disponibilidad, String ubicacion, String[] arrayServicios, Categoria categoria) {
-		this.tamaño = tamaño;
+	public Parcela(int tam, double precioNoche, boolean disponibilidad, String ubicacion, String arrayServicios, Categoria categoria) {
+		this.tam = tam;
 		this.precioNoche = precioNoche;
 		this.disponibilidad = disponibilidad;
 		this.ubicacion = ubicacion;
@@ -18,12 +18,12 @@ public class Parcela{
 		this.categoria = categoria;
 	}
 
-	public int getTamaño() {
-		return tamaño;
+	public int getTam() {
+		return tam;
 	}
 
-	public void setTamaño(int tamaño) {
-		this.tamaño = tamaño;
+	public void setTam(int tam) {
+		this.tam = tam;
 	}
 
 	public double getPrecioNoche() {
@@ -50,11 +50,11 @@ public class Parcela{
 		this.ubicacion = ubicacion;
 	}
 
-	public String[] getArrayServicios() {
+	public String getArrayServicios() {
 		return arrayServicios;
 	}
 
-	public void setArrayServicios(String[] arrayServicios) {
+	public void setArrayServicios(String arrayServicios) {
 		this.arrayServicios = arrayServicios;
 	}
 
@@ -64,6 +64,12 @@ public class Parcela{
 
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
+	}
+
+	@Override
+	public String toString() {
+		return "Parcela [tamaño=" + tam + ", precioNoche=" + precioNoche + ", disponibilidad=" + disponibilidad
+				+ ", ubicacion=" + ubicacion + ", arrayServicios=" + arrayServicios + ", categoria=" + categoria + "]";
 	}
 	
 	

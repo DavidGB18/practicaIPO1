@@ -45,6 +45,12 @@ public class Configuracion {
 	public void setTamLetra(int tamLetra) {
 		this.tamLetra = tamLetra;
 	}
+
+	@Override
+	public String toString() {
+		return "Configuracion [idioma=" + idioma + ", apariencia=" + apariencia + ", tipoLetra=" + tipoLetra
+				+ ", tamLetra=" + tamLetra + "]";
+	}
 	
 	
 }
