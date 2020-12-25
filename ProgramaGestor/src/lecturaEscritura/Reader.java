@@ -18,7 +18,7 @@ public class Reader {
 	public static ArrayList<Reserva> listReservas;
 	public static ArrayList<Configuracion> listConfiguracion;
 
-	public static void main(String[] args) {
+	public static void leerFicheros() {
 
 		listConfiguracion = new ArrayList<>();
 		listActividades = new ArrayList<>();
@@ -102,8 +102,6 @@ public class Reader {
 				Bungalow b = new Bungalow(tam, precioNoche, disponibilidad, descripcion, pathFotos, equipamiento,
 						capacidadMaxima, estanciaMinima);
 				listBungalows.add(b);
-				System.out.println(b.toString());
-
 			}
 			myReader.close();
 		} catch (FileNotFoundException e) {
@@ -235,4 +233,70 @@ public class Reader {
 			e.printStackTrace();
 		}
 	}
+
+	public static ArrayList<Actividad> getListActividades() {
+		return listActividades;
+	}
+
+	public static void setListActividades(ArrayList<Actividad> listActividades) {
+		Reader.listActividades = listActividades;
+	}
+
+	public static ArrayList<Bungalow> getListBungalows() {
+		return listBungalows;
+	}
+
+	public static void setListBungalows(ArrayList<Bungalow> listBungalows) {
+		Reader.listBungalows = listBungalows;
+	}
+
+	public static ArrayList<Monitor> getListMonitores() {
+		return listMonitores;
+	}
+
+	public static void setListMonitores(ArrayList<Monitor> listMonitores) {
+		Reader.listMonitores = listMonitores;
+	}
+
+	public static ArrayList<Parcela> getListParcelas() {
+		return listParcelas;
+	}
+
+	public static void setListParcelas(ArrayList<Parcela> listParcelas) {
+		Reader.listParcelas = listParcelas;
+	}
+
+	public static ArrayList<Usuario> getListUsuarios() {
+		return listUsuarios;
+	}
+
+	public static void setListUsuarios(ArrayList<Usuario> listUsuarios) {
+		Reader.listUsuarios = listUsuarios;
+	}
+
+	public static ArrayList<Ruta> getListRutas() {
+		return listRutas;
+	}
+
+	public static void setListRutas(ArrayList<Ruta> listRutas) {
+		Reader.listRutas = listRutas;
+	}
+
+	public static ArrayList<Reserva> getListReservas() {
+		return listReservas;
+	}
+
+	public static void setListReservas(ArrayList<Reserva> listReservas) {
+		Reader.listReservas = listReservas;
+	}
+
+	public static ArrayList<Configuracion> getListConfiguracion() {
+		return listConfiguracion;
+	}
+
+	public static void setListConfiguracion(ArrayList<Configuracion> listConfiguracion) {
+		Reader.listConfiguracion = listConfiguracion;
+	}
+	
+	
 }
