@@ -42,22 +42,6 @@ public class UI_ParcelasBungalows extends JFrame {
 	private JPanel panelBotones;
 	private JButton btnCancelar;
 	private JButton btnGuardarCambios;
-	
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					UI_ParcelasBungalows frame = new UI_ParcelasBungalows();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.

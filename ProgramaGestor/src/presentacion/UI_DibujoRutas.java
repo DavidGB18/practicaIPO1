@@ -64,22 +64,6 @@ public class UI_DibujoRutas extends JFrame {
 	private JButton btnZoomMayor;
 	private JButton btnZoomMenor;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					UI_DibujoRutas frame = new UI_DibujoRutas();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
 	public UI_DibujoRutas() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(UI_DibujoRutas.class.getResource("/recursos/logo.png")));
 		setTitle("Dise\u00F1o de Rutas");
