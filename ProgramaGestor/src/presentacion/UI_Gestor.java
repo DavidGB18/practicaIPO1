@@ -1284,5 +1284,5 @@ public class UI_Gestor {
 	public static void setComprobadorParcelasBungalows(int valor) {
 		comprobadorParcelasBungalows = valor;
 	}
-
+	
 }
