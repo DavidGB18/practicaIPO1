@@ -29,6 +29,10 @@ import javax.swing.JList;
 import javax.swing.SpinnerNumberModel;
 import java.awt.Cursor;
 import java.awt.Toolkit;
+import java.awt.Color;
+import java.awt.event.ItemListener;
+import java.awt.event.ItemEvent;
+import javax.swing.JTextField;
 
 public class UI_Rutas extends JFrame {
 	/**
@@ -38,7 +42,7 @@ public class UI_Rutas extends JFrame {
 	private JPanel contentPane;
 	private JTabbedPane tabbedPaneRutas;
 	private JPanel Faciles;
-	private JComboBox<Ruta> cbNombre;
+	private JComboBox<String> cbNombre;
 	private JLabel lblNombre;
 	private JTextPane txtFecha;
 	private JLabel lblFechal;
@@ -58,10 +62,9 @@ public class UI_Rutas extends JFrame {
 	private JLabel lblFoto;
 	private JLabel lblDificultad;
 	private JLabel lblListaMonitores;
-	private JList<String> listMonitores;
 	private JPanel Intermedias;
 	private JLabel lblNombre_1;
-	private JComboBox<Ruta> cbNombre_1;
+	private JComboBox<String> cbNombre_1;
 	private JLabel lblIntermedia;
 	private JLabel lblFechal_1;
 	private JLabel lblHoraInicio_1;
@@ -78,12 +81,11 @@ public class UI_Rutas extends JFrame {
 	private JSpinner spinnerGenteMin_1;
 	private JSpinner spinnerGenteMax_1;
 	private JLabel lblListaMonitores_1;
-	private JList<String> listMonitores_1;
 	private JLabel lblDescripcion_1;
 	private JTextArea txtDescripcion_1;
 	private JPanel Dificiles;
 	private JLabel lblNombre_2;
-	private JComboBox<Ruta> cbNombre_2;
+	private JComboBox<String> cbNombre_2;
 	private JLabel lblDificil;
 	private JLabel lblFechal_2;
 	private JLabel lblHoraInicio_2;
@@ -100,9 +102,11 @@ public class UI_Rutas extends JFrame {
 	private JSpinner spinnerGenteMin_2;
 	private JSpinner spinnerGenteMax_2;
 	private JLabel lblListaMonitores_2;
-	private JList<String> listMonitores_2;
 	private JLabel lblDescripcion_2;
 	private JTextArea txtDescripcion_2;
+	private JTextField txtMonitores;
+	private JTextField textMonitores_1;
+	private JTextField textMonitores_2;
 
 	/**
 	 * Create the frame.
@@ -143,6 +147,7 @@ public class UI_Rutas extends JFrame {
 						}
 						{
 							cbNombre = new JComboBox();
+							cbNombre.addItemListener(new CbNombreItemListener());
 							GridBagConstraints gbc_cbNombre = new GridBagConstraints();
 							gbc_cbNombre.gridwidth = 3;
 							gbc_cbNombre.insets = new Insets(0, 0, 5, 5);
@@ -153,6 +158,7 @@ public class UI_Rutas extends JFrame {
 						}
 						{
 							lblDificultad = new JLabel("FACIL");
+							lblDificultad.setForeground(Color.GREEN);
 							GridBagConstraints gbc_lblDificultad = new GridBagConstraints();
 							gbc_lblDificultad.fill = GridBagConstraints.VERTICAL;
 							gbc_lblDificultad.gridwidth = 2;
@@ -209,6 +215,7 @@ public class UI_Rutas extends JFrame {
 						}
 						{
 							spinnerHoraInicio = new JSpinner();
+							spinnerHoraInicio.setEnabled(false);
 							spinnerHoraInicio.setModel(new SpinnerNumberModel(new Integer(0), null, null, new Integer(1)));
 							GridBagConstraints gbc_spinnerHoraInicio = new GridBagConstraints();
 							gbc_spinnerHoraInicio.anchor = GridBagConstraints.WEST;
@@ -219,6 +226,7 @@ public class UI_Rutas extends JFrame {
 						}
 						{
 							spinnerHoraFin = new JSpinner();
+							spinnerHoraFin.setEnabled(false);
 							GridBagConstraints gbc_spinnerHoraFin = new GridBagConstraints();
 							gbc_spinnerHoraFin.anchor = GridBagConstraints.WEST;
 							gbc_spinnerHoraFin.insets = new Insets(0, 0, 5, 5);
@@ -276,6 +284,7 @@ public class UI_Rutas extends JFrame {
 						}
 						{
 							spinnerGenteMin = new JSpinner();
+							spinnerGenteMin.setEnabled(false);
 							GridBagConstraints gbc_spinnerGenteMin = new GridBagConstraints();
 							gbc_spinnerGenteMin.anchor = GridBagConstraints.WEST;
 							gbc_spinnerGenteMin.insets = new Insets(0, 0, 5, 5);
@@ -285,6 +294,7 @@ public class UI_Rutas extends JFrame {
 						}
 						{
 							spinnerGenteMax = new JSpinner();
+							spinnerGenteMax.setEnabled(false);
 							GridBagConstraints gbc_spinnerGenteMax = new GridBagConstraints();
 							gbc_spinnerGenteMax.anchor = GridBagConstraints.WEST;
 							gbc_spinnerGenteMax.insets = new Insets(0, 0, 5, 5);
@@ -302,15 +312,15 @@ public class UI_Rutas extends JFrame {
 							Faciles.add(lblListaMonitores, gbc_lblListaMonitores);
 						}
 						{
-							listMonitores = new JList();
-							GridBagConstraints gbc_listMonitores = new GridBagConstraints();
-							gbc_listMonitores.gridheight = 2;
-							gbc_listMonitores.gridwidth = 4;
-							gbc_listMonitores.insets = new Insets(0, 0, 5, 5);
-							gbc_listMonitores.fill = GridBagConstraints.BOTH;
-							gbc_listMonitores.gridx = 1;
-							gbc_listMonitores.gridy = 10;
-							Faciles.add(listMonitores, gbc_listMonitores);
+							txtMonitores = new JTextField();
+							GridBagConstraints gbc_txtMonitores = new GridBagConstraints();
+							gbc_txtMonitores.gridwidth = 3;
+							gbc_txtMonitores.insets = new Insets(0, 0, 5, 5);
+							gbc_txtMonitores.fill = GridBagConstraints.HORIZONTAL;
+							gbc_txtMonitores.gridx = 1;
+							gbc_txtMonitores.gridy = 10;
+							Faciles.add(txtMonitores, gbc_txtMonitores);
+							txtMonitores.setColumns(10);
 						}
 						{
 							lblDescripcion = new JLabel("Descripcion:");
@@ -318,19 +328,19 @@ public class UI_Rutas extends JFrame {
 							gbc_lblDescripcion.anchor = GridBagConstraints.WEST;
 							gbc_lblDescripcion.insets = new Insets(0, 0, 5, 5);
 							gbc_lblDescripcion.gridx = 1;
-							gbc_lblDescripcion.gridy = 13;
+							gbc_lblDescripcion.gridy = 11;
 							Faciles.add(lblDescripcion, gbc_lblDescripcion);
 						}
 						{
 							txtDescripcion = new JTextArea();
 							txtDescripcion.setEditable(false);
 							GridBagConstraints gbc_txtDescripcion = new GridBagConstraints();
-							gbc_txtDescripcion.gridheight = 2;
+							gbc_txtDescripcion.gridheight = 4;
 							gbc_txtDescripcion.gridwidth = 7;
 							gbc_txtDescripcion.insets = new Insets(0, 0, 5, 5);
 							gbc_txtDescripcion.fill = GridBagConstraints.BOTH;
 							gbc_txtDescripcion.gridx = 1;
-							gbc_txtDescripcion.gridy = 14;
+							gbc_txtDescripcion.gridy = 12;
 							Faciles.add(txtDescripcion, gbc_txtDescripcion);
 						}
 					}
@@ -355,6 +365,7 @@ public class UI_Rutas extends JFrame {
 						}
 						{
 							cbNombre_1 = new JComboBox();
+							cbNombre_1.addItemListener(new CbNombre_1ItemListener());
 							GridBagConstraints gbc_cbNombre_1 = new GridBagConstraints();
 							gbc_cbNombre_1.fill = GridBagConstraints.HORIZONTAL;
 							gbc_cbNombre_1.gridwidth = 3;
@@ -365,6 +376,7 @@ public class UI_Rutas extends JFrame {
 						}
 						{
 							lblIntermedia = new JLabel("INTERMEDIA");
+							lblIntermedia.setForeground(Color.ORANGE);
 							GridBagConstraints gbc_lblIntermedia = new GridBagConstraints();
 							gbc_lblIntermedia.fill = GridBagConstraints.VERTICAL;
 							gbc_lblIntermedia.gridwidth = 2;
@@ -421,6 +433,7 @@ public class UI_Rutas extends JFrame {
 						}
 						{
 							spinnerHoraInicio_1 = new JSpinner();
+							spinnerHoraInicio_1.setEnabled(false);
 							GridBagConstraints gbc_spinnerHoraInicio_1 = new GridBagConstraints();
 							gbc_spinnerHoraInicio_1.anchor = GridBagConstraints.WEST;
 							gbc_spinnerHoraInicio_1.insets = new Insets(0, 0, 5, 5);
@@ -430,6 +443,7 @@ public class UI_Rutas extends JFrame {
 						}
 						{
 							spinnerHoraFin_1 = new JSpinner();
+							spinnerHoraFin_1.setEnabled(false);
 							GridBagConstraints gbc_spinnerHoraFin_1 = new GridBagConstraints();
 							gbc_spinnerHoraFin_1.anchor = GridBagConstraints.WEST;
 							gbc_spinnerHoraFin_1.insets = new Insets(0, 0, 5, 5);
@@ -487,6 +501,7 @@ public class UI_Rutas extends JFrame {
 						}
 						{
 							spinnerGenteMin_1 = new JSpinner();
+							spinnerGenteMin_1.setEnabled(false);
 							GridBagConstraints gbc_spinnerGenteMin_1 = new GridBagConstraints();
 							gbc_spinnerGenteMin_1.anchor = GridBagConstraints.WEST;
 							gbc_spinnerGenteMin_1.insets = new Insets(0, 0, 5, 5);
@@ -496,6 +511,7 @@ public class UI_Rutas extends JFrame {
 						}
 						{
 							spinnerGenteMax_1 = new JSpinner();
+							spinnerGenteMax_1.setEnabled(false);
 							GridBagConstraints gbc_spinnerGenteMax_1 = new GridBagConstraints();
 							gbc_spinnerGenteMax_1.anchor = GridBagConstraints.WEST;
 							gbc_spinnerGenteMax_1.insets = new Insets(0, 0, 5, 5);
@@ -513,15 +529,15 @@ public class UI_Rutas extends JFrame {
 							Intermedias.add(lblListaMonitores_1, gbc_lblListaMonitores_1);
 						}
 						{
-							listMonitores_1 = new JList();
-							GridBagConstraints gbc_listMonitores_1 = new GridBagConstraints();
-							gbc_listMonitores_1.fill = GridBagConstraints.BOTH;
-							gbc_listMonitores_1.gridheight = 2;
-							gbc_listMonitores_1.gridwidth = 4;
-							gbc_listMonitores_1.insets = new Insets(0, 0, 5, 5);
-							gbc_listMonitores_1.gridx = 1;
-							gbc_listMonitores_1.gridy = 10;
-							Intermedias.add(listMonitores_1, gbc_listMonitores_1);
+							textMonitores_1 = new JTextField();
+							textMonitores_1.setColumns(10);
+							GridBagConstraints gbc_textMonitores_1 = new GridBagConstraints();
+							gbc_textMonitores_1.gridwidth = 3;
+							gbc_textMonitores_1.insets = new Insets(0, 0, 5, 5);
+							gbc_textMonitores_1.fill = GridBagConstraints.HORIZONTAL;
+							gbc_textMonitores_1.gridx = 1;
+							gbc_textMonitores_1.gridy = 10;
+							Intermedias.add(textMonitores_1, gbc_textMonitores_1);
 						}
 						{
 							lblDescripcion_1 = new JLabel("Descripcion:");
@@ -529,7 +545,7 @@ public class UI_Rutas extends JFrame {
 							gbc_lblDescripcion_1.anchor = GridBagConstraints.WEST;
 							gbc_lblDescripcion_1.insets = new Insets(0, 0, 5, 5);
 							gbc_lblDescripcion_1.gridx = 1;
-							gbc_lblDescripcion_1.gridy = 13;
+							gbc_lblDescripcion_1.gridy = 11;
 							Intermedias.add(lblDescripcion_1, gbc_lblDescripcion_1);
 						}
 						{
@@ -537,11 +553,11 @@ public class UI_Rutas extends JFrame {
 							txtDescripcion_1.setEditable(false);
 							GridBagConstraints gbc_txtDescripcion_1 = new GridBagConstraints();
 							gbc_txtDescripcion_1.fill = GridBagConstraints.BOTH;
-							gbc_txtDescripcion_1.gridheight = 2;
+							gbc_txtDescripcion_1.gridheight = 4;
 							gbc_txtDescripcion_1.gridwidth = 7;
 							gbc_txtDescripcion_1.insets = new Insets(0, 0, 5, 5);
 							gbc_txtDescripcion_1.gridx = 1;
-							gbc_txtDescripcion_1.gridy = 14;
+							gbc_txtDescripcion_1.gridy = 12;
 							Intermedias.add(txtDescripcion_1, gbc_txtDescripcion_1);
 						}
 					}
@@ -566,6 +582,7 @@ public class UI_Rutas extends JFrame {
 						}
 						{
 							cbNombre_2 = new JComboBox();
+							cbNombre_2.addItemListener(new CbNombre_2ItemListener());
 							GridBagConstraints gbc_cbNombre_2 = new GridBagConstraints();
 							gbc_cbNombre_2.fill = GridBagConstraints.HORIZONTAL;
 							gbc_cbNombre_2.gridwidth = 3;
@@ -576,6 +593,7 @@ public class UI_Rutas extends JFrame {
 						}
 						{
 							lblDificil = new JLabel("DIFICIL");
+							lblDificil.setForeground(Color.RED);
 							GridBagConstraints gbc_lblDificil = new GridBagConstraints();
 							gbc_lblDificil.fill = GridBagConstraints.VERTICAL;
 							gbc_lblDificil.gridwidth = 2;
@@ -632,6 +650,7 @@ public class UI_Rutas extends JFrame {
 						}
 						{
 							spinnerHoraInicio_2 = new JSpinner();
+							spinnerHoraInicio_2.setEnabled(false);
 							GridBagConstraints gbc_spinnerHoraInicio_2 = new GridBagConstraints();
 							gbc_spinnerHoraInicio_2.anchor = GridBagConstraints.WEST;
 							gbc_spinnerHoraInicio_2.insets = new Insets(0, 0, 5, 5);
@@ -641,6 +660,7 @@ public class UI_Rutas extends JFrame {
 						}
 						{
 							spinnerHoraFin_2 = new JSpinner();
+							spinnerHoraFin_2.setEnabled(false);
 							GridBagConstraints gbc_spinnerHoraFin_2 = new GridBagConstraints();
 							gbc_spinnerHoraFin_2.anchor = GridBagConstraints.WEST;
 							gbc_spinnerHoraFin_2.insets = new Insets(0, 0, 5, 5);
@@ -698,6 +718,7 @@ public class UI_Rutas extends JFrame {
 						}
 						{
 							spinnerGenteMin_2 = new JSpinner();
+							spinnerGenteMin_2.setEnabled(false);
 							GridBagConstraints gbc_spinnerGenteMin_2 = new GridBagConstraints();
 							gbc_spinnerGenteMin_2.anchor = GridBagConstraints.WEST;
 							gbc_spinnerGenteMin_2.insets = new Insets(0, 0, 5, 5);
@@ -707,6 +728,7 @@ public class UI_Rutas extends JFrame {
 						}
 						{
 							spinnerGenteMax_2 = new JSpinner();
+							spinnerGenteMax_2.setEnabled(false);
 							GridBagConstraints gbc_spinnerGenteMax_2 = new GridBagConstraints();
 							gbc_spinnerGenteMax_2.anchor = GridBagConstraints.WEST;
 							gbc_spinnerGenteMax_2.insets = new Insets(0, 0, 5, 5);
@@ -724,15 +746,15 @@ public class UI_Rutas extends JFrame {
 							Dificiles.add(lblListaMonitores_2, gbc_lblListaMonitores_2);
 						}
 						{
-							listMonitores_2 = new JList();
-							GridBagConstraints gbc_listMonitores_2 = new GridBagConstraints();
-							gbc_listMonitores_2.fill = GridBagConstraints.BOTH;
-							gbc_listMonitores_2.gridheight = 2;
-							gbc_listMonitores_2.gridwidth = 4;
-							gbc_listMonitores_2.insets = new Insets(0, 0, 5, 5);
-							gbc_listMonitores_2.gridx = 1;
-							gbc_listMonitores_2.gridy = 10;
-							Dificiles.add(listMonitores_2, gbc_listMonitores_2);
+							textMonitores_2 = new JTextField();
+							textMonitores_2.setColumns(10);
+							GridBagConstraints gbc_textMonitores_2 = new GridBagConstraints();
+							gbc_textMonitores_2.gridwidth = 3;
+							gbc_textMonitores_2.insets = new Insets(0, 0, 5, 5);
+							gbc_textMonitores_2.fill = GridBagConstraints.HORIZONTAL;
+							gbc_textMonitores_2.gridx = 1;
+							gbc_textMonitores_2.gridy = 10;
+							Dificiles.add(textMonitores_2, gbc_textMonitores_2);
 						}
 						{
 							lblDescripcion_2 = new JLabel("Descripcion:");
@@ -740,7 +762,7 @@ public class UI_Rutas extends JFrame {
 							gbc_lblDescripcion_2.anchor = GridBagConstraints.WEST;
 							gbc_lblDescripcion_2.insets = new Insets(0, 0, 5, 5);
 							gbc_lblDescripcion_2.gridx = 1;
-							gbc_lblDescripcion_2.gridy = 13;
+							gbc_lblDescripcion_2.gridy = 11;
 							Dificiles.add(lblDescripcion_2, gbc_lblDescripcion_2);
 						}
 						{
@@ -748,11 +770,11 @@ public class UI_Rutas extends JFrame {
 							txtDescripcion_2.setEditable(false);
 							GridBagConstraints gbc_txtDescripcion_2 = new GridBagConstraints();
 							gbc_txtDescripcion_2.fill = GridBagConstraints.BOTH;
-							gbc_txtDescripcion_2.gridheight = 2;
+							gbc_txtDescripcion_2.gridheight = 4;
 							gbc_txtDescripcion_2.gridwidth = 7;
 							gbc_txtDescripcion_2.insets = new Insets(0, 0, 5, 5);
 							gbc_txtDescripcion_2.gridx = 1;
-							gbc_txtDescripcion_2.gridy = 14;
+							gbc_txtDescripcion_2.gridy = 12;
 							Dificiles.add(txtDescripcion_2, gbc_txtDescripcion_2);
 						}
 					}
@@ -767,21 +789,78 @@ public class UI_Rutas extends JFrame {
 		@Override
 		public void windowActivated(WindowEvent e) {
 			
-			for(int i=0; i<Reader.getListRutas().size(); i++	) {
+			for(int i=0; i<Reader.getListRutas().size(); i++) {
 				switch(Reader.getListRutas().get(i).getGradoDificultad()) {
 				case FACIL:
-					cbNombre.addItem(Reader.getListRutas().get(i));
+					cbNombre.addItem(Reader.getListRutas().get(i).getNombre());
 					break;
 				case INTERMEDIA:
-					cbNombre_1.addItem(Reader.getListRutas().get(i));
+					cbNombre_1.addItem(Reader.getListRutas().get(i).getNombre());
 					break;
 				case DIFICIL:
-					cbNombre_2.addItem(Reader.getListRutas().get(i));
+					cbNombre_2.addItem(Reader.getListRutas().get(i).getNombre());
 					break;
 				}
 			}
 			
 			
+		}
+	}
+	private class CbNombreItemListener implements ItemListener {
+		public void itemStateChanged(ItemEvent e) {
+			String ruta = (String) cbNombre.getSelectedItem();
+			for(int i=0; i<Reader.getListRutas().size(); i++) {
+				if(ruta.equals(Reader.getListRutas().get(i).getNombre())) {
+					Ruta rutaAuxiliar = Reader.getListRutas().get(i);
+					txtFecha.setText(rutaAuxiliar.getFecha().toString());
+					txtEncuentro.setText(rutaAuxiliar.getPuntoEncuentro());
+					txtMonitores.setText(rutaAuxiliar.getMonitor());
+					txtDescripcion.setText(rutaAuxiliar.getDescripcion());
+					spinnerGenteMin.setModel(new SpinnerNumberModel(rutaAuxiliar.getNumeroMinimoPersonas(), null, null, 1));
+					spinnerGenteMax.setModel(new SpinnerNumberModel(rutaAuxiliar.getNumeroMaximoPersonas(), null, null, 1));
+					spinnerHoraInicio.setModel(new SpinnerNumberModel(rutaAuxiliar.getHoraInicio(), null, null, 1));
+					spinnerHoraFin.setModel(new SpinnerNumberModel(rutaAuxiliar.getHoraFinal(), null, null, 1));
+					//FALTA AÑADIR LA IMAGEN
+				}
+			}
+		}
+	}
+	private class CbNombre_1ItemListener implements ItemListener {
+		public void itemStateChanged(ItemEvent e) {
+			String ruta = (String) cbNombre_1.getSelectedItem();
+			for(int i=0; i<Reader.getListRutas().size(); i++) {
+				if(ruta.equals(Reader.getListRutas().get(i).getNombre())) {
+					Ruta rutaAuxiliar = Reader.getListRutas().get(i);
+					txtFecha_1.setText(rutaAuxiliar.getFecha().toString());
+					txtEncuentro_1.setText(rutaAuxiliar.getPuntoEncuentro());
+					textMonitores_1.setText(rutaAuxiliar.getMonitor());
+					txtDescripcion_1.setText(rutaAuxiliar.getDescripcion());
+					spinnerGenteMin_1.setModel(new SpinnerNumberModel(rutaAuxiliar.getNumeroMinimoPersonas(), null, null, 1));
+					spinnerGenteMax_1.setModel(new SpinnerNumberModel(rutaAuxiliar.getNumeroMaximoPersonas(), null, null, 1));
+					spinnerHoraInicio_1.setModel(new SpinnerNumberModel(rutaAuxiliar.getHoraInicio(), null, null, 1));
+					spinnerHoraFin_1.setModel(new SpinnerNumberModel(rutaAuxiliar.getHoraFinal(), null, null, 1));
+					//FALTA AÑADIR LA IMAGEN
+				}
+			}
+		}
+	}
+	private class CbNombre_2ItemListener implements ItemListener {
+		public void itemStateChanged(ItemEvent e) {
+			String ruta = (String) cbNombre_2.getSelectedItem();
+			for(int i=0; i<Reader.getListRutas().size(); i++) {
+				if(ruta.equals(Reader.getListRutas().get(i).getNombre())) {
+					Ruta rutaAuxiliar = Reader.getListRutas().get(i);
+					txtFecha_2.setText(rutaAuxiliar.getFecha().toString());
+					txtEncuentro_2.setText(rutaAuxiliar.getPuntoEncuentro());
+					textMonitores_2.setText(rutaAuxiliar.getMonitor());
+					txtDescripcion_2.setText(rutaAuxiliar.getDescripcion());
+					spinnerGenteMin_2.setModel(new SpinnerNumberModel(rutaAuxiliar.getNumeroMinimoPersonas(), null, null, 1));
+					spinnerGenteMax_2.setModel(new SpinnerNumberModel(rutaAuxiliar.getNumeroMaximoPersonas(), null, null, 1));
+					spinnerHoraInicio_2.setModel(new SpinnerNumberModel(rutaAuxiliar.getHoraInicio(), null, null, 1));
+					spinnerHoraFin_2.setModel(new SpinnerNumberModel(rutaAuxiliar.getHoraFinal(), null, null, 1));
+					//FALTA AÑADIR LA IMAGEN
+				}
+			}
 		}
 	}
 }
