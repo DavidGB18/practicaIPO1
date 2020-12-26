@@ -883,6 +883,7 @@ public class UI_Reservas extends JFrame {
 			case 3:
 
 				// CREACION DE LA RESERVA
+				try {
 				int idReserva = Integer.parseInt(txtIdGenerado.getText());
 				Fecha fechaEntrada = new Fecha(formattedTextFieldFechaEntradaNuevaReserva.getText());
 				Fecha fechaSalida = new Fecha(formattedTextFieldFechaSalidaNuevaReserva.getText());
@@ -897,6 +898,10 @@ public class UI_Reservas extends JFrame {
 				Reserva r = new Reserva( idReserva,  fechaEntrada,  fechaSalida,  dni,  correoElectronico,  telefono,
 						 ocupantes,  solicitudesEspeciales,  horaEntrada,  horaSalida);
 				
+				} catch(Exception e1) {
+					JOptionPane.showMessageDialog(new JFrame(), "Algo fue mal en el proceso, vuelva a intentarlo", "Error", JOptionPane.ERROR_MESSAGE);
+					dispose();
+				}
 				//AÑADIR LA RESERVA Y SOBREESCRIBIR FICHERO
 				
 				pane = "Paso5";
