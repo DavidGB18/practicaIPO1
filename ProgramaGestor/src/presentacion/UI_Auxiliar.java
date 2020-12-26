@@ -36,10 +36,10 @@ import java.awt.Toolkit;
 public class UI_Auxiliar extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	public static Monitor monitor;
 	public static Actividad actividad;
-	
+
 	private JPanel contentPane;
 	private JPanel panelFormularios;
 	private JPanel panelBotones;
@@ -75,7 +75,7 @@ public class UI_Auxiliar extends JFrame {
 	private JLabel lblFotoMonitor2;
 	private JFormattedTextField formattedTextFieldCorreoMonitor;
 	private JLabel lblCorreoMonitor;
-	
+
 	public static int elegirPanel;
 	public static int elegirFormulario;
 	private JLabel lblConfiguracionActividad;
@@ -102,10 +102,10 @@ public class UI_Auxiliar extends JFrame {
 	 * Create the frame.
 	 */
 	public UI_Auxiliar() {
-		
+
 		monitor = new Monitor();
 		actividad = new Actividad();
-		
+
 		setIconImage(Toolkit.getDefaultToolkit().getImage(UI_Auxiliar.class.getResource("/recursos/logo.png")));
 		setTitle("Gestor Los Olivos - Formularios");
 		setResizable(false);
@@ -124,10 +124,12 @@ public class UI_Auxiliar extends JFrame {
 				panelMonitores = new JPanel();
 				panelFormularios.add(panelMonitores, "Monitor");
 				GridBagLayout gbl_panelMonitores = new GridBagLayout();
-				gbl_panelMonitores.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-				gbl_panelMonitores.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-				gbl_panelMonitores.columnWeights = new double[]{1.0, 0.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
-				gbl_panelMonitores.rowWeights = new double[]{1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 1.0, Double.MIN_VALUE};
+				gbl_panelMonitores.columnWidths = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+				gbl_panelMonitores.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+				gbl_panelMonitores.columnWeights = new double[] { 1.0, 0.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0,
+						Double.MIN_VALUE };
+				gbl_panelMonitores.rowWeights = new double[] { 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0,
+						1.0, Double.MIN_VALUE };
 				panelMonitores.setLayout(gbl_panelMonitores);
 				{
 					lblConfiguracionMonitor = new JLabel("Configuraci\u00F3n Monitor:");
@@ -314,10 +316,11 @@ public class UI_Auxiliar extends JFrame {
 				panelActividad = new JPanel();
 				panelFormularios.add(panelActividad, "Actividad");
 				GridBagLayout gbl_panelActividad = new GridBagLayout();
-				gbl_panelActividad.columnWidths = new int[]{0, 0, 213, 0, 0, 0, 0, 0};
-				gbl_panelActividad.rowHeights = new int[]{0, 0, 0, 45, 0, 0, 0, 0, 0, 0, 0};
-				gbl_panelActividad.columnWeights = new double[]{1.0, 0.0, 1.0, 1.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
-				gbl_panelActividad.rowWeights = new double[]{1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 0.0, Double.MIN_VALUE};
+				gbl_panelActividad.columnWidths = new int[] { 0, 0, 213, 0, 0, 0, 0, 0 };
+				gbl_panelActividad.rowHeights = new int[] { 0, 0, 0, 45, 0, 0, 0, 0, 0, 0, 0 };
+				gbl_panelActividad.columnWeights = new double[] { 1.0, 0.0, 1.0, 1.0, 0.0, 0.0, 1.0, Double.MIN_VALUE };
+				gbl_panelActividad.rowWeights = new double[] { 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 0.0,
+						Double.MIN_VALUE };
 				panelActividad.setLayout(gbl_panelActividad);
 				{
 					lblConfiguracionActividad = new JLabel("Configuraci\u00F3n Actividad:");
@@ -542,15 +545,15 @@ public class UI_Auxiliar extends JFrame {
 
 	private class ThisWindowListener extends WindowAdapter {
 		public void windowClosing(WindowEvent e) {
-			int sel = JOptionPane.showOptionDialog(null, "¿Seguro que quieres cancelar la operación?",
-					"Cerrar ventana", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
+			int sel = JOptionPane.showOptionDialog(null, "¿Seguro que quieres cancelar la operación?", "Cerrar ventana",
+					JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
 			if (sel == JOptionPane.YES_OPTION) {
 				dispose(); // Yes
 			} else {
 				setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE); // No
 			}
 		}
-		
+
 		public void setEditableFalse() {
 			txtNombreMonitor.setEditable(false);
 			txtApellido1Monitor.setEditable(false);
@@ -560,7 +563,7 @@ public class UI_Auxiliar extends JFrame {
 			formattedTextFieldCorreoMonitor.setEditable(false);
 			txtFormacion.setEditable(false);
 			cbIdiomasMonitor.setEditable(false);
-			
+
 			textFieldMonitor.setEditable(false);
 			textFieldPrecioActividad.setEditable(false);
 			textFieldCupoMaximoActividad.setEditable(false);
@@ -571,7 +574,7 @@ public class UI_Auxiliar extends JFrame {
 			spinnerInicioActividad.setEnabled(false);
 			spinnerFinalActividad.setEnabled(false);
 		}
-		
+
 		public void cargarMonitor(Monitor m) {
 			txtNombreMonitor.setText(m.getNombre());
 			txtApellido1Monitor.setText(m.getApellido1());
@@ -580,17 +583,17 @@ public class UI_Auxiliar extends JFrame {
 			formattedTextFieldTlfMonitor.setText(String.valueOf(m.getTelefono()));
 			formattedTextFieldCorreoMonitor.setText(m.getCorreoElectronico());
 			txtFormacion.setText(m.getFormacion());
-			//lblFotoMonitor.setIcon();
-			//cbIdiomasMonitor.setText();
+			// lblFotoMonitor.setIcon();
+			// cbIdiomasMonitor.setText();
 		}
-		
+
 		public void cargarActividad(Actividad a) {
 			textFieldMonitor.setText(a.getMonitor());
 			textFieldPrecioActividad.setText(String.valueOf(a.getPrecio()));
 			textFieldCupoMaximoActividad.setText(String.valueOf(a.getCupoMaximo()));
 			txtDescripcionActividad.setText(a.getDescripcion());
-			
-			switch(a.getDestinatario()) {
+
+			switch (a.getDestinatario()) {
 			case "NINOS":
 				rdbtnNinos.setSelected(true);
 				break;
@@ -601,21 +604,21 @@ public class UI_Auxiliar extends JFrame {
 				rdbtnAncianos.setSelected(true);
 				break;
 			}
-			
+
 			spinnerInicioActividad.setValue(a.getHoraComienzo());
 			spinnerFinalActividad.setValue(a.getHoraFin());
 		}
-		
+
 		@Override
 		public void windowOpened(WindowEvent e) {
 			CardLayout panel = (CardLayout) (panelBotones.getLayout());
-			switch(elegirPanel) {		
-			case 0:				
-				panel.show(panelBotones, "Ver");			
+			switch (elegirPanel) {
+			case 0:
+				panel.show(panelBotones, "Ver");
 				setEditableFalse();
 				cargarMonitor(monitor);
 				cargarActividad(actividad);
-				
+
 				break;
 			case 1:
 				panel.show(panelBotones, "Anadir");
@@ -630,12 +633,12 @@ public class UI_Auxiliar extends JFrame {
 				cargarMonitor(monitor);
 				cargarActividad(actividad);
 				setEditableFalse();
-							
+
 				break;
 			}
-			
+
 			CardLayout panel2 = (CardLayout) (panelFormularios.getLayout());
-			switch(elegirFormulario) {
+			switch (elegirFormulario) {
 			case 0:
 				panel2.show(panelFormularios, "Monitor");
 				setTitle("Vista de Monitor");
@@ -647,15 +650,17 @@ public class UI_Auxiliar extends JFrame {
 			}
 		}
 	}
+
 	private class BtnCerrarActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			dispose();
 		}
 	}
+
 	private class BtnCancelarActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			int sel = JOptionPane.showOptionDialog(null, "¿Seguro que quieres cancelar la operación?",
-					"Cerrar ventana", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
+			int sel = JOptionPane.showOptionDialog(null, "¿Seguro que quieres cancelar la operación?", "Cerrar ventana",
+					JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
 			if (sel == JOptionPane.YES_OPTION) {
 				dispose(); // Yes
 			} else {
@@ -663,21 +668,23 @@ public class UI_Auxiliar extends JFrame {
 			}
 		}
 	}
+
 	private class BtnConfirmacionAccionActionListener implements ActionListener {
 		String palabra = null;
+
 		public BtnConfirmacionAccionActionListener(String palabra) {
 			this.palabra = palabra;
 		}
-		
+
 		public void actionPerformed(ActionEvent e) {
-			int sel = JOptionPane.showOptionDialog(null, "¿Seguro que quieres "+palabra+" este elemento?",
+			int sel = JOptionPane.showOptionDialog(null, "¿Seguro que quieres " + palabra + " este elemento?",
 					"Confirmar operación", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
 			if (sel == JOptionPane.YES_OPTION) {
-				
-				//HACER LA FUNCION QUE HAGA FALTA
-				
-				JOptionPane.showMessageDialog(null, "Se han guardado los cambios",
-						"Confirmación de cambios", JOptionPane.PLAIN_MESSAGE);
+
+				// HACER LA FUNCION QUE HAGA FALTA
+
+				JOptionPane.showMessageDialog(null, "Se han guardado los cambios", "Confirmación de cambios",
+						JOptionPane.PLAIN_MESSAGE);
 				dispose(); // Yes
 			} else {
 				setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE); // No
@@ -686,10 +693,10 @@ public class UI_Auxiliar extends JFrame {
 	}
 
 	public static void setElegirPanel(int valor) {
-		elegirPanel=valor;
+		elegirPanel = valor;
 	}
-	
+
 	public static void setElegirFormulario(int valor) {
-		elegirFormulario=valor;
+		elegirFormulario = valor;
 	}
 }
