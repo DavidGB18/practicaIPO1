@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import dominio.Fecha;
 import dominio.Reserva;
 import dominio.Ruta;
 import lecturaEscritura.Reader;
@@ -27,6 +28,8 @@ import javax.swing.SpinnerNumberModel;
 import javax.swing.JFormattedTextField;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.Random;
+
 import javax.swing.JProgressBar;
 import javax.swing.JSpinner;
 import java.awt.event.ActionListener;
@@ -64,7 +67,7 @@ public class UI_Reservas extends JFrame {
 	private JTextField txtHoraSalida;
 	private JTextPane txtConsideraciones;
 	private JButton btnCerrar;
-	
+
 	public static int elegirPanel;
 	private JPanel panelPasos;
 	private JPanel panelPaso1;
@@ -85,9 +88,9 @@ public class UI_Reservas extends JFrame {
 	private JFormattedTextField formattedTextFieldFechaEntradaNuevaReserva;
 	private JFormattedTextField formattedTextFieldFechaSalidaNuevaReserva;
 	private JLabel lblHoraEntradaNuevaReserva;
-	private JSpinner spinner;
+	private JSpinner spinnerHoraEntrada;
 	private JLabel lblHoraSalidaNuevaReserva;
-	private JSpinner spinner_1;
+	private JSpinner spinnerHoraSalida;
 	private JButton btnSiguienteP2;
 	private JButton btnAtrasP2;
 	private JPanel panelBotones;
@@ -148,10 +151,11 @@ public class UI_Reservas extends JFrame {
 						panelPaso1 = new JPanel();
 						panelPasos.add(panelPaso1, "Paso1");
 						GridBagLayout gbl_panelPaso1 = new GridBagLayout();
-						gbl_panelPaso1.columnWidths = new int[]{145, 85, 26, 96, 85, 0};
-						gbl_panelPaso1.rowHeights = new int[]{71, 19, 43, 47, 0, 76, 21, 0};
-						gbl_panelPaso1.columnWeights = new double[]{1.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
-						gbl_panelPaso1.rowWeights = new double[]{1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, Double.MIN_VALUE};
+						gbl_panelPaso1.columnWidths = new int[] { 145, 85, 26, 96, 85, 0 };
+						gbl_panelPaso1.rowHeights = new int[] { 71, 19, 43, 47, 0, 76, 21, 0 };
+						gbl_panelPaso1.columnWeights = new double[] { 1.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE };
+						gbl_panelPaso1.rowWeights = new double[] { 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0,
+								Double.MIN_VALUE };
 						panelPaso1.setLayout(gbl_panelPaso1);
 						{
 							lblIdNuevaReserva = new JLabel("ID Reserva:");
@@ -189,10 +193,11 @@ public class UI_Reservas extends JFrame {
 						panelPaso2 = new JPanel();
 						panelPasos.add(panelPaso2, "Paso2");
 						GridBagLayout gbl_panelPaso2 = new GridBagLayout();
-						gbl_panelPaso2.columnWidths = new int[]{36, 91, 41, 14, 30, 10, 54, 5, 78, 91, 0};
-						gbl_panelPaso2.rowHeights = new int[]{81, 31, 31, 19, 34, 20, 0};
-						gbl_panelPaso2.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-						gbl_panelPaso2.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+						gbl_panelPaso2.columnWidths = new int[] { 36, 91, 41, 14, 30, 10, 54, 5, 78, 91, 0 };
+						gbl_panelPaso2.rowHeights = new int[] { 81, 31, 31, 19, 34, 20, 0 };
+						gbl_panelPaso2.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+								Double.MIN_VALUE };
+						gbl_panelPaso2.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
 						panelPaso2.setLayout(gbl_panelPaso2);
 						{
 							lblFechaNuevaReserva = new JLabel("Fecha y hora");
@@ -221,7 +226,8 @@ public class UI_Reservas extends JFrame {
 							gbc_formattedTextFieldFechaEntradaNuevaReserva.gridwidth = 3;
 							gbc_formattedTextFieldFechaEntradaNuevaReserva.gridx = 2;
 							gbc_formattedTextFieldFechaEntradaNuevaReserva.gridy = 3;
-							panelPaso2.add(formattedTextFieldFechaEntradaNuevaReserva, gbc_formattedTextFieldFechaEntradaNuevaReserva);
+							panelPaso2.add(formattedTextFieldFechaEntradaNuevaReserva,
+									gbc_formattedTextFieldFechaEntradaNuevaReserva);
 						}
 						{
 							lblFechaSalidaNuevaReserva = new JLabel("Fecha Salida:");
@@ -241,7 +247,8 @@ public class UI_Reservas extends JFrame {
 							gbc_formattedTextFieldFechaSalidaNuevaReserva.insets = new Insets(0, 0, 5, 5);
 							gbc_formattedTextFieldFechaSalidaNuevaReserva.gridx = 7;
 							gbc_formattedTextFieldFechaSalidaNuevaReserva.gridy = 3;
-							panelPaso2.add(formattedTextFieldFechaSalidaNuevaReserva, gbc_formattedTextFieldFechaSalidaNuevaReserva);
+							panelPaso2.add(formattedTextFieldFechaSalidaNuevaReserva,
+									gbc_formattedTextFieldFechaSalidaNuevaReserva);
 						}
 						{
 							lblHoraEntradaNuevaReserva = new JLabel("Hora Entrada:");
@@ -254,13 +261,13 @@ public class UI_Reservas extends JFrame {
 							panelPaso2.add(lblHoraEntradaNuevaReserva, gbc_lblHoraEntradaNuevaReserva);
 						}
 						{
-							spinner = new JSpinner();
-							GridBagConstraints gbc_spinner = new GridBagConstraints();
-							gbc_spinner.anchor = GridBagConstraints.NORTHWEST;
-							gbc_spinner.insets = new Insets(0, 0, 0, 5);
-							gbc_spinner.gridx = 4;
-							gbc_spinner.gridy = 5;
-							panelPaso2.add(spinner, gbc_spinner);
+							spinnerHoraEntrada = new JSpinner();
+							GridBagConstraints gbc_spinnerHoraEntrada = new GridBagConstraints();
+							gbc_spinnerHoraEntrada.anchor = GridBagConstraints.NORTHWEST;
+							gbc_spinnerHoraEntrada.insets = new Insets(0, 0, 0, 5);
+							gbc_spinnerHoraEntrada.gridx = 4;
+							gbc_spinnerHoraEntrada.gridy = 5;
+							panelPaso2.add(spinnerHoraEntrada, gbc_spinnerHoraEntrada);
 						}
 						{
 							lblHoraSalidaNuevaReserva = new JLabel("Hora Salida:");
@@ -273,23 +280,24 @@ public class UI_Reservas extends JFrame {
 							panelPaso2.add(lblHoraSalidaNuevaReserva, gbc_lblHoraSalidaNuevaReserva);
 						}
 						{
-							spinner_1 = new JSpinner();
-							GridBagConstraints gbc_spinner_1 = new GridBagConstraints();
-							gbc_spinner_1.anchor = GridBagConstraints.NORTHWEST;
-							gbc_spinner_1.insets = new Insets(0, 0, 0, 5);
-							gbc_spinner_1.gridx = 8;
-							gbc_spinner_1.gridy = 5;
-							panelPaso2.add(spinner_1, gbc_spinner_1);
+							spinnerHoraSalida = new JSpinner();
+							GridBagConstraints gbc_spinnerHoraSalida = new GridBagConstraints();
+							gbc_spinnerHoraSalida.anchor = GridBagConstraints.NORTHWEST;
+							gbc_spinnerHoraSalida.insets = new Insets(0, 0, 0, 5);
+							gbc_spinnerHoraSalida.gridx = 8;
+							gbc_spinnerHoraSalida.gridy = 5;
+							panelPaso2.add(spinnerHoraSalida, gbc_spinnerHoraSalida);
 						}
 					}
 					{
 						panelPaso3 = new JPanel();
 						panelPasos.add(panelPaso3, "Paso3");
 						GridBagLayout gbl_panelPaso3 = new GridBagLayout();
-						gbl_panelPaso3.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0};
-						gbl_panelPaso3.rowHeights = new int[]{0, 0, 47, 0, 0, 0, 0};
-						gbl_panelPaso3.columnWeights = new double[]{0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, Double.MIN_VALUE};
-						gbl_panelPaso3.rowWeights = new double[]{1.0, 0.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
+						gbl_panelPaso3.columnWidths = new int[] { 0, 0, 0, 0, 0, 0, 0, 0 };
+						gbl_panelPaso3.rowHeights = new int[] { 0, 0, 47, 0, 0, 0, 0 };
+						gbl_panelPaso3.columnWeights = new double[] { 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0,
+								Double.MIN_VALUE };
+						gbl_panelPaso3.rowWeights = new double[] { 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE };
 						panelPaso3.setLayout(gbl_panelPaso3);
 						{
 							lblContacto = new JLabel("Contacto");
@@ -343,7 +351,8 @@ public class UI_Reservas extends JFrame {
 							gbc_formattedTextFieldTelefonoNuevaReserva.fill = GridBagConstraints.HORIZONTAL;
 							gbc_formattedTextFieldTelefonoNuevaReserva.gridx = 3;
 							gbc_formattedTextFieldTelefonoNuevaReserva.gridy = 4;
-							panelPaso3.add(formattedTextFieldTelefonoNuevaReserva, gbc_formattedTextFieldTelefonoNuevaReserva);
+							panelPaso3.add(formattedTextFieldTelefonoNuevaReserva,
+									gbc_formattedTextFieldTelefonoNuevaReserva);
 						}
 						{
 							txtCorreoElectronico = new JTextField();
@@ -360,10 +369,12 @@ public class UI_Reservas extends JFrame {
 						panelPaso4 = new JPanel();
 						panelPasos.add(panelPaso4, "Paso4");
 						GridBagLayout gbl_panelPaso4 = new GridBagLayout();
-						gbl_panelPaso4.columnWidths = new int[]{0, 0, 0, 0, 0, 39, 0, 0};
-						gbl_panelPaso4.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0};
-						gbl_panelPaso4.columnWeights = new double[]{0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-						gbl_panelPaso4.rowWeights = new double[]{1.0, 0.0, 1.0, 0.0, 1.0, 1.0, 1.0, Double.MIN_VALUE};
+						gbl_panelPaso4.columnWidths = new int[] { 0, 0, 0, 0, 0, 39, 0, 0 };
+						gbl_panelPaso4.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0 };
+						gbl_panelPaso4.columnWeights = new double[] { 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0,
+								Double.MIN_VALUE };
+						gbl_panelPaso4.rowWeights = new double[] { 1.0, 0.0, 1.0, 0.0, 1.0, 1.0, 1.0,
+								Double.MIN_VALUE };
 						panelPaso4.setLayout(gbl_panelPaso4);
 						{
 							lblDatosReserva = new JLabel("Datos de la Reserva");
@@ -416,10 +427,10 @@ public class UI_Reservas extends JFrame {
 						panelPaso5 = new JPanel();
 						panelPasos.add(panelPaso5, "Paso5");
 						GridBagLayout gbl_panelPaso5 = new GridBagLayout();
-						gbl_panelPaso5.columnWidths = new int[]{0, 0, 0, 0};
-						gbl_panelPaso5.rowHeights = new int[]{0, 0, 0, 0};
-						gbl_panelPaso5.columnWeights = new double[]{0.0, 1.0, 0.0, Double.MIN_VALUE};
-						gbl_panelPaso5.rowWeights = new double[]{1.0, 0.0, 1.0, Double.MIN_VALUE};
+						gbl_panelPaso5.columnWidths = new int[] { 0, 0, 0, 0 };
+						gbl_panelPaso5.rowHeights = new int[] { 0, 0, 0, 0 };
+						gbl_panelPaso5.columnWeights = new double[] { 0.0, 1.0, 0.0, Double.MIN_VALUE };
+						gbl_panelPaso5.rowWeights = new double[] { 1.0, 0.0, 1.0, Double.MIN_VALUE };
 						panelPaso5.setLayout(gbl_panelPaso5);
 						{
 							lblMensajeExito = new JLabel("RESERVA REALIZADA CON \u00C9XITO");
@@ -441,8 +452,7 @@ public class UI_Reservas extends JFrame {
 						progressBar = new JProgressBar(1, 5);
 						progressBar.setStringPainted(true);
 						panelBarraProgreso.add(progressBar);
-						
-						
+
 					}
 				}
 				{
@@ -512,10 +522,11 @@ public class UI_Reservas extends JFrame {
 				panelBorrarReserva = new JPanel();
 				panelReservas.add(panelBorrarReserva, "Borrar");
 				GridBagLayout gbl_panelBorrarReserva = new GridBagLayout();
-				gbl_panelBorrarReserva.columnWidths = new int[]{115, 172, 225, 0, 0, 0};
-				gbl_panelBorrarReserva.rowHeights = new int[]{0, 0, 0, 44, 0, 54, 0, 0};
-				gbl_panelBorrarReserva.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
-				gbl_panelBorrarReserva.rowWeights = new double[]{1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, Double.MIN_VALUE};
+				gbl_panelBorrarReserva.columnWidths = new int[] { 115, 172, 225, 0, 0, 0 };
+				gbl_panelBorrarReserva.rowHeights = new int[] { 0, 0, 0, 44, 0, 54, 0, 0 };
+				gbl_panelBorrarReserva.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE };
+				gbl_panelBorrarReserva.rowWeights = new double[] { 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0,
+						Double.MIN_VALUE };
 				panelBorrarReserva.setLayout(gbl_panelBorrarReserva);
 				{
 					lblBorrarReserva = new JLabel("Borrar Reserva");
@@ -571,10 +582,12 @@ public class UI_Reservas extends JFrame {
 				panelConsultarReservas = new JPanel();
 				panelReservas.add(panelConsultarReservas, "Consultar");
 				GridBagLayout gbl_panelConsultarReservas = new GridBagLayout();
-				gbl_panelConsultarReservas.columnWidths = new int[]{0, 0, 134, 0, 0, 0, 0, 0};
-				gbl_panelConsultarReservas.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-				gbl_panelConsultarReservas.columnWeights = new double[]{1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, Double.MIN_VALUE};
-				gbl_panelConsultarReservas.rowWeights = new double[]{1.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 0.0, Double.MIN_VALUE};
+				gbl_panelConsultarReservas.columnWidths = new int[] { 0, 0, 134, 0, 0, 0, 0, 0 };
+				gbl_panelConsultarReservas.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+				gbl_panelConsultarReservas.columnWeights = new double[] { 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0,
+						Double.MIN_VALUE };
+				gbl_panelConsultarReservas.rowWeights = new double[] { 1.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 1.0,
+						1.0, 1.0, 0.0, Double.MIN_VALUE };
 				panelConsultarReservas.setLayout(gbl_panelConsultarReservas);
 				{
 					lblIdReservaConsulta = new JLabel("ID Reserva:");
@@ -772,13 +785,14 @@ public class UI_Reservas extends JFrame {
 	}
 
 	public static void setElegirPanel(int valor) {
-		elegirPanel=valor;
+		elegirPanel = valor;
 	}
+
 	private class ThisWindowListener extends WindowAdapter {
 
 		public void windowClosing(WindowEvent e) {
-			int sel = JOptionPane.showOptionDialog(null, "¿Seguro que quieres cancelar la operación?",
-					"Cerrar ventana", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
+			int sel = JOptionPane.showOptionDialog(null, "¿Seguro que quieres cancelar la operación?", "Cerrar ventana",
+					JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
 			if (sel == JOptionPane.YES_OPTION) {
 				dispose(); // Yes
 			} else {
@@ -787,14 +801,19 @@ public class UI_Reservas extends JFrame {
 		}
 
 		public void windowOpened(WindowEvent e) {
+
+			Random rand = new Random();
+			int int_random = rand.nextInt(1000000000); 
 			
-			for(int i=0; i<Reader.getListReservas().size(); i++) {
+			txtIdGenerado.setText(String.valueOf(int_random));
+			
+			for (int i = 0; i < Reader.getListReservas().size(); i++) {
 				cbReserva.addItem(Reader.getListReservas().get(i).getIdReserva());
 				cbIdReserva.addItem(Reader.getListReservas().get(i).getIdReserva());
 			}
-			
+
 			CardLayout panel = (CardLayout) (panelReservas.getLayout());
-			switch(elegirPanel) {
+			switch (elegirPanel) {
 			case 0:
 				panel.show(panelReservas, "Añadir");
 				break;
@@ -806,49 +825,51 @@ public class UI_Reservas extends JFrame {
 			}
 		}
 	}
-	private class BtnAnteriorActionListener implements ActionListener {			
-			String pane = null;
-			String panebotones = null;
-			
-			public void actionPerformed(ActionEvent e) {
-				
-				switch(numPanel) {
-				case 0:
-					dispose();	
-					break;
-				case 1:
-					pane = "Paso1";
-					panebotones = "botonesinicial";
-					break;
-				case 2:
-					pane = "Paso2";
-					panebotones = "botonesintermedios";
-				case 3:
-					pane = "Paso3";
-					panebotones = "botonesintermedios";
-					break;
-				case 4:
-					pane = "Paso4";	
-					panebotones = "botonesfinal";
-					break;
-				}
-				progressBar.setValue(numPanel);
-				numPanel--;
-				CardLayout panel = (CardLayout) (panelPasos.getLayout());
-				CardLayout panelbotones = (CardLayout) (panelBotones.getLayout());
-				panelbotones.show(panelBotones, panebotones);
-				panel.show(panelPasos, pane);
+
+	private class BtnAnteriorActionListener implements ActionListener {
+		String pane = null;
+		String panebotones = null;
+
+		public void actionPerformed(ActionEvent e) {
+
+			switch (numPanel) {
+			case 0:
+				dispose();
+				break;
+			case 1:
+				pane = "Paso1";
+				panebotones = "botonesinicial";
+				break;
+			case 2:
+				pane = "Paso2";
+				panebotones = "botonesintermedios";
+			case 3:
+				pane = "Paso3";
+				panebotones = "botonesintermedios";
+				break;
+			case 4:
+				pane = "Paso4";
+				panebotones = "botonesfinal";
+				break;
+			}
+			progressBar.setValue(numPanel);
+			numPanel--;
+			CardLayout panel = (CardLayout) (panelPasos.getLayout());
+			CardLayout panelbotones = (CardLayout) (panelBotones.getLayout());
+			panelbotones.show(panelBotones, panebotones);
+			panel.show(panelPasos, pane);
 		}
 	}
-	
+
 	private class BtnSiguienteActionListener implements ActionListener {
 		String pane = null;
 		String panebotones = null;
+
 		public void actionPerformed(ActionEvent e) {
-			
-			switch(numPanel) {
+
+			switch (numPanel) {
 			case 0:
-				pane = "Paso2";	
+				pane = "Paso2";
 				panebotones = "botonesintermedios";
 				break;
 			case 1:
@@ -860,6 +881,24 @@ public class UI_Reservas extends JFrame {
 				panebotones = "botonesfinal";
 				break;
 			case 3:
+
+				// CREACION DE LA RESERVA
+				int idReserva = Integer.parseInt(txtIdGenerado.getText());
+				Fecha fechaEntrada = new Fecha(formattedTextFieldFechaEntradaNuevaReserva.getText());
+				Fecha fechaSalida = new Fecha(formattedTextFieldFechaSalidaNuevaReserva.getText());
+				String dni = formattedTextFieldDNI.getText();
+				String correoElectronico = txtCorreoElectronico.getText();
+				long telefono = Long.parseLong(formattedTextFieldTelefonoNuevaReserva.getText());
+				int ocupantes = (int) spinnerOcupantes.getValue();
+				String solicitudesEspeciales = txtSolicitudesNuevaReserva.getText();
+				int horaEntrada = (int) spinnerHoraEntrada.getValue();
+				int horaSalida = (int) spinnerHoraSalida.getValue();;
+
+				Reserva r = new Reserva( idReserva,  fechaEntrada,  fechaSalida,  dni,  correoElectronico,  telefono,
+						 ocupantes,  solicitudesEspeciales,  horaEntrada,  horaSalida);
+				
+				//AÑADIR LA RESERVA Y SOBREESCRIBIR FICHERO
+				
 				pane = "Paso5";
 				panebotones = "botonesexito";
 				break;
@@ -874,37 +913,40 @@ public class UI_Reservas extends JFrame {
 			CardLayout panelbotones = (CardLayout) (panelBotones.getLayout());
 			panelbotones.show(panelBotones, panebotones);
 			panel.show(panelPasos, pane);
-			
+
 		}
 	}
+
 	private class CbReservaItemListener implements ItemListener {
 		public void itemStateChanged(ItemEvent e) {
 			int idReserva = (int) cbReserva.getSelectedItem();
-			for(int i=0; i<Reader.getListReservas().size(); i++) {
-				if(idReserva == Reader.getListReservas().get(i).getIdReserva()) {
+			for (int i = 0; i < Reader.getListReservas().size(); i++) {
+				if (idReserva == Reader.getListReservas().get(i).getIdReserva()) {
 					Reserva r = Reader.getListReservas().get(i);
 					txtHoraSalida.setText(String.valueOf(r.getHoraSalida()));
-					txtHoraEntrada.setText(String.valueOf(r.getHoraEntrada()));		
+					txtHoraEntrada.setText(String.valueOf(r.getHoraEntrada()));
 					txtConsideraciones.setText(r.getSolicitudesEspeciales());
 					txtFechaEntrada.setText(r.getFechaEntrada().toString());
 					txtFechaSalida.setText(r.getFechaSalida().toString());
 					txtDni.setText(r.getDni());
 					txtTel.setText(String.valueOf(r.getTelefono()));
-					txtCorreo.setText(r.getCorreoElectronico());	
+					txtCorreo.setText(r.getCorreoElectronico());
 				}
 			}
 		}
 	}
+
 	private class CbIdReservaItemListener implements ItemListener {
 		public void itemStateChanged(ItemEvent e) {
 			int idReserva = (int) cbReserva.getSelectedItem();
-			for(int i=0; i<Reader.getListReservas().size(); i++) {
-				if(idReserva == Reader.getListReservas().get(i).getIdReserva()) {
-					//eliminar reserva
+			for (int i = 0; i < Reader.getListReservas().size(); i++) {
+				if (idReserva == Reader.getListReservas().get(i).getIdReserva()) {
+					// eliminar reserva
 				}
 			}
 		}
 	}
+
 	private class BtnCerrarActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			dispose();
