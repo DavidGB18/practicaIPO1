@@ -597,6 +597,7 @@ public class UI_Reservas extends JFrame {
 				}
 				{
 					formattedTextFieldFechaEntrada = new JFormattedTextField();
+					formattedTextFieldFechaEntrada.setEditable(false);
 					GridBagConstraints gbc_formattedTextFieldFechaEntrada = new GridBagConstraints();
 					gbc_formattedTextFieldFechaEntrada.insets = new Insets(0, 0, 5, 5);
 					gbc_formattedTextFieldFechaEntrada.fill = GridBagConstraints.HORIZONTAL;
@@ -615,6 +616,7 @@ public class UI_Reservas extends JFrame {
 				}
 				{
 					txtHoraEntrada = new JTextField();
+					txtHoraEntrada.setEditable(false);
 					GridBagConstraints gbc_txtHoraEntrada = new GridBagConstraints();
 					gbc_txtHoraEntrada.insets = new Insets(0, 0, 5, 5);
 					gbc_txtHoraEntrada.fill = GridBagConstraints.HORIZONTAL;
@@ -634,6 +636,7 @@ public class UI_Reservas extends JFrame {
 				}
 				{
 					formattedTextFieldFechaSalida = new JFormattedTextField();
+					formattedTextFieldFechaSalida.setEditable(false);
 					GridBagConstraints gbc_formattedTextFieldFechaSalida = new GridBagConstraints();
 					gbc_formattedTextFieldFechaSalida.insets = new Insets(0, 0, 5, 5);
 					gbc_formattedTextFieldFechaSalida.fill = GridBagConstraints.HORIZONTAL;
@@ -652,6 +655,7 @@ public class UI_Reservas extends JFrame {
 				}
 				{
 					txtHoraSalida = new JTextField();
+					txtHoraSalida.setEditable(false);
 					GridBagConstraints gbc_txtHoraSalida = new GridBagConstraints();
 					gbc_txtHoraSalida.insets = new Insets(0, 0, 5, 5);
 					gbc_txtHoraSalida.fill = GridBagConstraints.HORIZONTAL;
@@ -671,6 +675,7 @@ public class UI_Reservas extends JFrame {
 				}
 				{
 					formattedTextFieldDniReserva = new JFormattedTextField();
+					formattedTextFieldDniReserva.setEditable(false);
 					GridBagConstraints gbc_formattedTextFieldDniReserva = new GridBagConstraints();
 					gbc_formattedTextFieldDniReserva.insets = new Insets(0, 0, 5, 5);
 					gbc_formattedTextFieldDniReserva.fill = GridBagConstraints.HORIZONTAL;
@@ -689,6 +694,7 @@ public class UI_Reservas extends JFrame {
 				}
 				{
 					formattedTextFieldTlf = new JFormattedTextField();
+					formattedTextFieldTlf.setEditable(false);
 					GridBagConstraints gbc_formattedTextFieldTlf = new GridBagConstraints();
 					gbc_formattedTextFieldTlf.insets = new Insets(0, 0, 5, 5);
 					gbc_formattedTextFieldTlf.fill = GridBagConstraints.HORIZONTAL;
@@ -707,6 +713,7 @@ public class UI_Reservas extends JFrame {
 				}
 				{
 					txtCorreo = new JTextField();
+					txtCorreo.setEditable(false);
 					GridBagConstraints gbc_txtCorreo = new GridBagConstraints();
 					gbc_txtCorreo.insets = new Insets(0, 0, 5, 5);
 					gbc_txtCorreo.fill = GridBagConstraints.HORIZONTAL;
@@ -725,6 +732,7 @@ public class UI_Reservas extends JFrame {
 				}
 				{
 					txtConsideraciones = new JTextPane();
+					txtConsideraciones.setEditable(false);
 					GridBagConstraints gbc_txtConsideraciones = new GridBagConstraints();
 					gbc_txtConsideraciones.gridwidth = 4;
 					gbc_txtConsideraciones.insets = new Insets(0, 0, 5, 5);

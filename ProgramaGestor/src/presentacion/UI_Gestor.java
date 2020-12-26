@@ -27,6 +27,7 @@ import javax.swing.JTree;
 import javax.swing.tree.DefaultTreeModel;
 
 import dominio.*;
+import lecturaEscritura.Reader;
 
 import javax.swing.tree.DefaultMutableTreeNode;
 import java.awt.FlowLayout;
@@ -149,6 +150,9 @@ public class UI_Gestor {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		
+		Reader.leerFicheros();
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {

@@ -78,8 +78,6 @@ public class UI_Auxiliar extends JFrame {
 	public static int elegirFormulario;
 	private JLabel lblConfiguracionActividad;
 	private JLabel lblMonitoresActividades;
-	private JScrollPane scrollPaneMonitoresActividad;
-	private JList<Monitor> listMonitoresActividad;
 	private JLabel lblPrecio;
 	private JTextField textFieldPrecioActividad;
 	private JLabel lblHoraInicioActividad;
@@ -96,6 +94,7 @@ public class UI_Auxiliar extends JFrame {
 	private JScrollPane scrollPaneDescripcionActividad;
 	private JTextPane txtDescripcionActividad;
 	private JTextField textFieldCupoMaximoActividad;
+	private JTextField textFieldMonitor;
 
 	/**
 	 * Create the frame.
@@ -310,7 +309,7 @@ public class UI_Auxiliar extends JFrame {
 				panelFormularios.add(panelActividad, "Actividad");
 				GridBagLayout gbl_panelActividad = new GridBagLayout();
 				gbl_panelActividad.columnWidths = new int[]{0, 0, 213, 0, 0, 0, 0, 0};
-				gbl_panelActividad.rowHeights = new int[]{0, 0, 0, 64, 0, 0, 0, 0, 0, 0, 0};
+				gbl_panelActividad.rowHeights = new int[]{0, 0, 0, 45, 0, 0, 0, 0, 0, 0, 0};
 				gbl_panelActividad.columnWeights = new double[]{1.0, 0.0, 1.0, 1.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
 				gbl_panelActividad.rowWeights = new double[]{1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 0.0, Double.MIN_VALUE};
 				panelActividad.setLayout(gbl_panelActividad);
@@ -326,26 +325,23 @@ public class UI_Auxiliar extends JFrame {
 					panelActividad.add(lblConfiguracionActividad, gbc_lblConfiguracionActividad);
 				}
 				{
-					lblMonitoresActividades = new JLabel("Monitores:");
+					lblMonitoresActividades = new JLabel("Monitor:");
 					GridBagConstraints gbc_lblMonitoresActividades = new GridBagConstraints();
-					gbc_lblMonitoresActividades.anchor = GridBagConstraints.NORTH;
+					gbc_lblMonitoresActividades.anchor = GridBagConstraints.EAST;
 					gbc_lblMonitoresActividades.insets = new Insets(0, 0, 5, 5);
 					gbc_lblMonitoresActividades.gridx = 1;
 					gbc_lblMonitoresActividades.gridy = 3;
 					panelActividad.add(lblMonitoresActividades, gbc_lblMonitoresActividades);
 				}
 				{
-					scrollPaneMonitoresActividad = new JScrollPane();
-					GridBagConstraints gbc_scrollPaneMonitoresActividad = new GridBagConstraints();
-					gbc_scrollPaneMonitoresActividad.insets = new Insets(0, 0, 5, 5);
-					gbc_scrollPaneMonitoresActividad.fill = GridBagConstraints.BOTH;
-					gbc_scrollPaneMonitoresActividad.gridx = 2;
-					gbc_scrollPaneMonitoresActividad.gridy = 3;
-					panelActividad.add(scrollPaneMonitoresActividad, gbc_scrollPaneMonitoresActividad);
-					{
-						listMonitoresActividad = new JList<Monitor>();
-						scrollPaneMonitoresActividad.setViewportView(listMonitoresActividad);
-					}
+					textFieldMonitor = new JTextField();
+					GridBagConstraints gbc_textFieldMonitor = new GridBagConstraints();
+					gbc_textFieldMonitor.insets = new Insets(0, 0, 5, 5);
+					gbc_textFieldMonitor.fill = GridBagConstraints.HORIZONTAL;
+					gbc_textFieldMonitor.gridx = 2;
+					gbc_textFieldMonitor.gridy = 3;
+					panelActividad.add(textFieldMonitor, gbc_textFieldMonitor);
+					textFieldMonitor.setColumns(10);
 				}
 				{
 					lblPrecio = new JLabel("Precio:");
@@ -554,6 +550,26 @@ public class UI_Auxiliar extends JFrame {
 			switch(elegirPanel) {		
 			case 0:				
 				panel.show(panelBotones, "Ver");
+				
+				txtNombreMonitor.setEditable(false);
+				txtApellido1Monitor.setEditable(false);
+				txtApellido2Monitor.setEditable(false);
+				formattedTextFieldDniMonitor.setEditable(false);
+				formattedTextFieldTlfMonitor.setEditable(false);
+				formattedTextFieldCorreoMonitor.setEditable(false);
+				textField.setEditable(false);
+				cbIdiomasMonitor.setEditable(false);
+				
+				textFieldMonitor.setEditable(false);
+				textFieldPrecioActividad.setEditable(false);
+				textFieldCupoMaximoActividad.setEditable(false);
+				txtDescripcionActividad.setEditable(false);
+				rdbtnNinos.setEnabled(false);
+				rdbtnAdultos.setEnabled(false);
+				rdbtnAncianos.setEnabled(false);
+				spinnerInicioActividad.setEnabled(false);
+				spinnerFinalActividad.setEnabled(false);
+				
 				break;
 			case 1:
 				panel.show(panelBotones, "Anadir");
@@ -563,6 +579,26 @@ public class UI_Auxiliar extends JFrame {
 				break;
 			case 3:
 				panel.show(panelBotones, "Borrar");
+				
+				txtNombreMonitor.setEditable(false);
+				txtApellido1Monitor.setEditable(false);
+				txtApellido2Monitor.setEditable(false);
+				formattedTextFieldDniMonitor.setEditable(false);
+				formattedTextFieldTlfMonitor.setEditable(false);
+				formattedTextFieldCorreoMonitor.setEditable(false);
+				textField.setEditable(false);
+				cbIdiomasMonitor.setEditable(false);
+				
+				textFieldMonitor.setEditable(false);
+				textFieldPrecioActividad.setEditable(false);
+				textFieldCupoMaximoActividad.setEditable(false);
+				txtDescripcionActividad.setEditable(false);
+				rdbtnNinos.setEnabled(false);
+				rdbtnAdultos.setEnabled(false);
+				rdbtnAncianos.setEnabled(false);
+				spinnerInicioActividad.setEnabled(false);
+				spinnerFinalActividad.setEnabled(false);
+				
 				break;
 			}
 			
