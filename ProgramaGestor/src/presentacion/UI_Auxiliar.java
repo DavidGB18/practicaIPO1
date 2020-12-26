@@ -20,7 +20,6 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.JTextPane;
 import javax.swing.JTextField;
-import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import java.awt.Font;
 import javax.swing.ImageIcon;
