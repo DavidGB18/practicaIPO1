@@ -1,6 +1,5 @@
 package presentacion;
 
-import java.awt.EventQueue;
 import java.awt.Image;
 
 import javax.swing.JFrame;

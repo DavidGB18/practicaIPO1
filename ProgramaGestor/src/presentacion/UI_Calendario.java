@@ -1,7 +1,6 @@
 package presentacion;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -65,7 +64,7 @@ public class UI_Calendario extends JFrame {
 	private JLabel lblS;
 	private JLabel lblD;
 	private JSpinner spinner;
-	private JComboBox comboBox;
+	private JComboBox<String> comboBox;
 	private JLabel lblNewLabel;
 	private JLabel lblNewLabel_1;
 	private JLabel lblNewLabel_2;
@@ -77,6 +76,7 @@ public class UI_Calendario extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+
 	public UI_Calendario() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(UI_Calendario.class.getResource("/recursos/logo.png")));
 		addWindowListener(new ThisWindowListener());
@@ -97,9 +97,9 @@ public class UI_Calendario extends JFrame {
 			gbl_panelCalendario.rowWeights = new double[]{1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
 			panelCalendario.setLayout(gbl_panelCalendario);
 			{
-				comboBox = new JComboBox();
+				comboBox = new JComboBox<String>();
 				comboBox.setEnabled(false);
-				comboBox.setModel(new DefaultComboBoxModel(new String[] {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"}));
+				comboBox.setModel(new DefaultComboBoxModel<String>(new String[] {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"}));
 				GridBagConstraints gbc_comboBox = new GridBagConstraints();
 				gbc_comboBox.gridwidth = 2;
 				gbc_comboBox.insets = new Insets(0, 0, 5, 5);
@@ -111,7 +111,7 @@ public class UI_Calendario extends JFrame {
 			{
 				spinner = new JSpinner();
 				spinner.setEnabled(false);
-				spinner.setModel(new SpinnerNumberModel(new Integer(2021), null, null, new Integer(0)));
+				spinner.setModel(new SpinnerNumberModel(2021, null, null, 0));
 				GridBagConstraints gbc_spinner = new GridBagConstraints();
 				gbc_spinner.fill = GridBagConstraints.HORIZONTAL;
 				gbc_spinner.gridwidth = 2;

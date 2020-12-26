@@ -1,7 +1,6 @@
 package presentacion;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -9,7 +8,6 @@ import javax.swing.border.EmptyBorder;
 
 import dominio.Fecha;
 import dominio.Reserva;
-import dominio.Ruta;
 import lecturaEscritura.Reader;
 
 import java.awt.CardLayout;
@@ -24,7 +22,6 @@ import java.awt.Font;
 import java.awt.Cursor;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
-import javax.swing.SpinnerNumberModel;
 import javax.swing.JFormattedTextField;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -897,6 +894,8 @@ public class UI_Reservas extends JFrame {
 
 				Reserva r = new Reserva( idReserva,  fechaEntrada,  fechaSalida,  dni,  correoElectronico,  telefono,
 						 ocupantes,  solicitudesEspeciales,  horaEntrada,  horaSalida);
+				
+				System.out.println(r.toString());
 				
 				} catch(Exception e1) {
 					JOptionPane.showMessageDialog(new JFrame(), "Algo fue mal en el proceso, vuelva a intentarlo", "Error", JOptionPane.ERROR_MESSAGE);

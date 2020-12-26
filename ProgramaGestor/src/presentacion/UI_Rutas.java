@@ -1,7 +1,6 @@
 package presentacion;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -25,7 +24,6 @@ import javax.swing.JTextPane;
 import javax.swing.JSpinner;
 import javax.swing.JTextArea;
 import javax.swing.ImageIcon;
-import javax.swing.JList;
 import javax.swing.SpinnerNumberModel;
 import java.awt.Cursor;
 import java.awt.Toolkit;
@@ -146,7 +144,7 @@ public class UI_Rutas extends JFrame {
 							Faciles.add(lblNombre, gbc_lblNombre);
 						}
 						{
-							cbNombre = new JComboBox();
+							cbNombre = new JComboBox<String>();
 							cbNombre.addItemListener(new CbNombreItemListener());
 							GridBagConstraints gbc_cbNombre = new GridBagConstraints();
 							gbc_cbNombre.gridwidth = 3;
@@ -216,7 +214,7 @@ public class UI_Rutas extends JFrame {
 						{
 							spinnerHoraInicio = new JSpinner();
 							spinnerHoraInicio.setEnabled(false);
-							spinnerHoraInicio.setModel(new SpinnerNumberModel(new Integer(0), null, null, new Integer(1)));
+							spinnerHoraInicio.setModel(new SpinnerNumberModel(0, null, null, 1));
 							GridBagConstraints gbc_spinnerHoraInicio = new GridBagConstraints();
 							gbc_spinnerHoraInicio.anchor = GridBagConstraints.WEST;
 							gbc_spinnerHoraInicio.insets = new Insets(0, 0, 5, 5);
@@ -364,7 +362,7 @@ public class UI_Rutas extends JFrame {
 							Intermedias.add(lblNombre_1, gbc_lblNombre_1);
 						}
 						{
-							cbNombre_1 = new JComboBox();
+							cbNombre_1 = new JComboBox<String>();
 							cbNombre_1.addItemListener(new CbNombre_1ItemListener());
 							GridBagConstraints gbc_cbNombre_1 = new GridBagConstraints();
 							gbc_cbNombre_1.fill = GridBagConstraints.HORIZONTAL;
@@ -581,7 +579,7 @@ public class UI_Rutas extends JFrame {
 							Dificiles.add(lblNombre_2, gbc_lblNombre_2);
 						}
 						{
-							cbNombre_2 = new JComboBox();
+							cbNombre_2 = new JComboBox<String>();
 							cbNombre_2.addItemListener(new CbNombre_2ItemListener());
 							GridBagConstraints gbc_cbNombre_2 = new GridBagConstraints();
 							gbc_cbNombre_2.fill = GridBagConstraints.HORIZONTAL;

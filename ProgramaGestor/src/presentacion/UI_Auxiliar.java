@@ -1,14 +1,11 @@
 package presentacion;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
-import dominio.Monitor;
 
 import java.awt.CardLayout;
 import javax.swing.JButton;
@@ -25,7 +22,6 @@ import javax.swing.JFormattedTextField;
 import java.awt.Font;
 import javax.swing.ImageIcon;
 import javax.swing.JScrollPane;
-import javax.swing.JList;
 import javax.swing.JSpinner;
 import javax.swing.JRadioButton;
 import javax.swing.SpinnerNumberModel;

@@ -26,7 +26,6 @@ import javax.swing.JMenu;
 import javax.swing.JTree;
 import javax.swing.tree.DefaultTreeModel;
 
-import dominio.*;
 import lecturaEscritura.Reader;
 
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -51,9 +50,6 @@ import javax.swing.border.SoftBevelBorder;
 import javax.swing.border.BevelBorder;
 import javax.swing.JMenuItem;
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.JPopupMenu;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.border.LineBorder;
@@ -111,19 +107,18 @@ public class UI_Gestor {
 	private JLabel lblApariencia;
 	private JLabel lblTipoLetra;
 	private JLabel lblTamLetra;
-	private JComboBox comboBox_1;
-	private JComboBox comboBox_2;
-	private JComboBox comboBox_3;
+	private JComboBox<String> comboBox_1;
+	private JComboBox<String> comboBox_2;
+	private JComboBox<String> comboBox_3;
 	private JButton btnGuardarCambios;
 	private JButton btnCancelarCambios;
 	private JLabel lblBarraDeEstado;
 	private int index = 0;
-	private String text = null;
 	private JButton btnAnadirMonitor;
 	private JButton btnModificarMonitor;
 	private JButton btnEliminarMonitor;
 	private JScrollPane scrollPaneMonitores;
-	private JList<Monitor> listMonitores;
+	private JList<String> listMonitores;
 	private JLabel lblMonitores;
 	private JPanel panelOpcionesPrincipales;
 	private JButton btnHome;
@@ -136,7 +131,7 @@ public class UI_Gestor {
 	private JPanel panelInicioSesion;
 	private JLabel lblActividades;
 	private JScrollPane scrollPaneActividades;
-	private JList<Actividad> listActividades;
+	private JList<String> listActividades;
 	private JButton btnAnadirActividad;
 	private JButton btnModificarActividad;
 	private JButton btnEliminarActividad;
@@ -324,6 +319,9 @@ public class UI_Gestor {
 						treePrograma.setBackground(Color.WHITE);
 						treePrograma.setForeground(Color.WHITE);
 						treePrograma.setModel(new DefaultTreeModel(new DefaultMutableTreeNode("Gestor") {
+
+							private static final long serialVersionUID = 8896833283667913486L;
+
 							{
 								DefaultMutableTreeNode node_1;
 								node_1 = new DefaultMutableTreeNode("Parcelas-Bungalows");
@@ -659,20 +657,20 @@ public class UI_Gestor {
 						panelConfiguracion.add(lblTamLetra);
 					}
 					{
-						comboBox_1 = new JComboBox();
-						comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"Claro", "Oscuro"}));
+						comboBox_1 = new JComboBox<String>();
+						comboBox_1.setModel(new DefaultComboBoxModel<String>(new String[] {"Claro", "Oscuro"}));
 						comboBox_1.setBounds(328, 171, 132, 21);
 						panelConfiguracion.add(comboBox_1);
 					}
 					{
-						comboBox_2 = new JComboBox();
-						comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"Tahoma"}));
+						comboBox_2 = new JComboBox<String>();
+						comboBox_2.setModel(new DefaultComboBoxModel<String>(new String[] {"Tahoma"}));
 						comboBox_2.setBounds(328, 213, 132, 21);
 						panelConfiguracion.add(comboBox_2);
 					}
 					{
-						comboBox_3 = new JComboBox();
-						comboBox_3.setModel(new DefaultComboBoxModel(new String[] {"Pequena", "Mediana", "Grande"}));
+						comboBox_3 = new JComboBox<String>();
+						comboBox_3.setModel(new DefaultComboBoxModel<String>(new String[] {"Pequena", "Mediana", "Grande"}));
 						comboBox_3.setBounds(328, 253, 132, 21);
 						panelConfiguracion.add(comboBox_3);
 					}
@@ -722,7 +720,7 @@ public class UI_Gestor {
 						gbc_scrollPaneMonitores.gridy = 1;
 						panelMonitores.add(scrollPaneMonitores, gbc_scrollPaneMonitores);
 						{
-							listMonitores = new JList();
+							listMonitores = new JList<String>();
 							scrollPaneMonitores.setViewportView(listMonitores);
 						}
 					}
@@ -803,7 +801,7 @@ public class UI_Gestor {
 						gbc_scrollPaneActividades.gridy = 1;
 						panelActividades.add(scrollPaneActividades, gbc_scrollPaneActividades);
 						{
-							listActividades = new JList();
+							listActividades = new JList<String>();
 							scrollPaneActividades.setViewportView(listActividades);
 						}
 					}
@@ -1339,7 +1337,5 @@ public class UI_Gestor {
 
 	public static void setComprobadorParcelasBungalows(int valor) {
 		comprobadorParcelasBungalows = valor;
-	}
-	private static void addPopup(Component component, final JPopupMenu popup) {
 	}
 }
