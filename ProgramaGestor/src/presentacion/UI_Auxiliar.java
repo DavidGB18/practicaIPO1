@@ -7,6 +7,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import dominio.Actividad;
+import dominio.Monitor;
+
 import java.awt.CardLayout;
 import javax.swing.JButton;
 import java.awt.event.WindowAdapter;
@@ -33,6 +36,9 @@ import java.awt.Toolkit;
 public class UI_Auxiliar extends JFrame {
 
 	private static final long serialVersionUID = 1L;
+	
+	public static Monitor monitor;
+	public static Actividad actividad;
 	
 	private JPanel contentPane;
 	private JPanel panelFormularios;
@@ -64,7 +70,7 @@ public class UI_Auxiliar extends JFrame {
 	private JFormattedTextField formattedTextFieldTlfMonitor;
 	private JFormattedTextField formattedTextFieldDniMonitor;
 	private JLabel lblFormacionMonitor;
-	private JTextField textField;
+	private JTextField txtFormacion;
 	private JLabel lblConfiguracionMonitor;
 	private JLabel lblFotoMonitor2;
 	private JFormattedTextField formattedTextFieldCorreoMonitor;
@@ -96,6 +102,10 @@ public class UI_Auxiliar extends JFrame {
 	 * Create the frame.
 	 */
 	public UI_Auxiliar() {
+		
+		monitor = new Monitor();
+		actividad = new Actividad();
+		
 		setIconImage(Toolkit.getDefaultToolkit().getImage(UI_Auxiliar.class.getResource("/recursos/logo.png")));
 		setTitle("Gestor Los Olivos - Formularios");
 		setResizable(false);
@@ -270,16 +280,16 @@ public class UI_Auxiliar extends JFrame {
 					panelMonitores.add(formattedTextFieldCorreoMonitor, gbc_formattedTextFieldCorreoMonitor);
 				}
 				{
-					textField = new JTextField();
-					GridBagConstraints gbc_textField = new GridBagConstraints();
-					gbc_textField.gridheight = 2;
-					gbc_textField.gridwidth = 6;
-					gbc_textField.insets = new Insets(0, 0, 5, 5);
-					gbc_textField.fill = GridBagConstraints.BOTH;
-					gbc_textField.gridx = 4;
-					gbc_textField.gridy = 9;
-					panelMonitores.add(textField, gbc_textField);
-					textField.setColumns(10);
+					txtFormacion = new JTextField();
+					GridBagConstraints gbc_txtFormacion = new GridBagConstraints();
+					gbc_txtFormacion.gridheight = 2;
+					gbc_txtFormacion.gridwidth = 6;
+					gbc_txtFormacion.insets = new Insets(0, 0, 5, 5);
+					gbc_txtFormacion.fill = GridBagConstraints.BOTH;
+					gbc_txtFormacion.gridx = 4;
+					gbc_txtFormacion.gridy = 9;
+					panelMonitores.add(txtFormacion, gbc_txtFormacion);
+					txtFormacion.setColumns(10);
 				}
 				{
 					lblIdiomasMonitor = new JLabel("Idiomas:");
@@ -540,31 +550,71 @@ public class UI_Auxiliar extends JFrame {
 				setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE); // No
 			}
 		}
+		
+		public void setEditableFalse() {
+			txtNombreMonitor.setEditable(false);
+			txtApellido1Monitor.setEditable(false);
+			txtApellido2Monitor.setEditable(false);
+			formattedTextFieldDniMonitor.setEditable(false);
+			formattedTextFieldTlfMonitor.setEditable(false);
+			formattedTextFieldCorreoMonitor.setEditable(false);
+			txtFormacion.setEditable(false);
+			cbIdiomasMonitor.setEditable(false);
+			
+			textFieldMonitor.setEditable(false);
+			textFieldPrecioActividad.setEditable(false);
+			textFieldCupoMaximoActividad.setEditable(false);
+			txtDescripcionActividad.setEditable(false);
+			rdbtnNinos.setEnabled(false);
+			rdbtnAdultos.setEnabled(false);
+			rdbtnAncianos.setEnabled(false);
+			spinnerInicioActividad.setEnabled(false);
+			spinnerFinalActividad.setEnabled(false);
+		}
+		
+		public void cargarMonitor(Monitor m) {
+			txtNombreMonitor.setText(m.getNombre());
+			txtApellido1Monitor.setText(m.getApellido1());
+			txtApellido2Monitor.setText(m.getApellido2());
+			formattedTextFieldDniMonitor.setText(m.getDni());
+			formattedTextFieldTlfMonitor.setText(String.valueOf(m.getTelefono()));
+			formattedTextFieldCorreoMonitor.setText(m.getCorreoElectronico());
+			txtFormacion.setText(m.getFormacion());
+			//lblFotoMonitor.setIcon();
+			//cbIdiomasMonitor.setText();
+		}
+		
+		public void cargarActividad(Actividad a) {
+			textFieldMonitor.setText(a.getMonitor());
+			textFieldPrecioActividad.setText(String.valueOf(a.getPrecio()));
+			textFieldCupoMaximoActividad.setText(String.valueOf(a.getCupoMaximo()));
+			txtDescripcionActividad.setText(a.getDescripcion());
+			
+			switch(a.getDestinatario()) {
+			case "NINOS":
+				rdbtnNinos.setSelected(true);
+				break;
+			case "ADULTOS":
+				rdbtnAdultos.setSelected(true);
+				break;
+			case "ANCIANOS":
+				rdbtnAncianos.setSelected(true);
+				break;
+			}
+			
+			spinnerInicioActividad.setValue(a.getHoraComienzo());
+			spinnerFinalActividad.setValue(a.getHoraFin());
+		}
+		
 		@Override
 		public void windowOpened(WindowEvent e) {
 			CardLayout panel = (CardLayout) (panelBotones.getLayout());
 			switch(elegirPanel) {		
 			case 0:				
-				panel.show(panelBotones, "Ver");
-				
-				txtNombreMonitor.setEditable(false);
-				txtApellido1Monitor.setEditable(false);
-				txtApellido2Monitor.setEditable(false);
-				formattedTextFieldDniMonitor.setEditable(false);
-				formattedTextFieldTlfMonitor.setEditable(false);
-				formattedTextFieldCorreoMonitor.setEditable(false);
-				textField.setEditable(false);
-				cbIdiomasMonitor.setEditable(false);
-				
-				textFieldMonitor.setEditable(false);
-				textFieldPrecioActividad.setEditable(false);
-				textFieldCupoMaximoActividad.setEditable(false);
-				txtDescripcionActividad.setEditable(false);
-				rdbtnNinos.setEnabled(false);
-				rdbtnAdultos.setEnabled(false);
-				rdbtnAncianos.setEnabled(false);
-				spinnerInicioActividad.setEnabled(false);
-				spinnerFinalActividad.setEnabled(false);
+				panel.show(panelBotones, "Ver");			
+				setEditableFalse();
+				cargarMonitor(monitor);
+				cargarActividad(actividad);
 				
 				break;
 			case 1:
@@ -572,29 +622,15 @@ public class UI_Auxiliar extends JFrame {
 				break;
 			case 2:
 				panel.show(panelBotones, "Modificar");
+				cargarMonitor(monitor);
+				cargarActividad(actividad);
 				break;
 			case 3:
 				panel.show(panelBotones, "Borrar");
-				
-				txtNombreMonitor.setEditable(false);
-				txtApellido1Monitor.setEditable(false);
-				txtApellido2Monitor.setEditable(false);
-				formattedTextFieldDniMonitor.setEditable(false);
-				formattedTextFieldTlfMonitor.setEditable(false);
-				formattedTextFieldCorreoMonitor.setEditable(false);
-				textField.setEditable(false);
-				cbIdiomasMonitor.setEditable(false);
-				
-				textFieldMonitor.setEditable(false);
-				textFieldPrecioActividad.setEditable(false);
-				textFieldCupoMaximoActividad.setEditable(false);
-				txtDescripcionActividad.setEditable(false);
-				rdbtnNinos.setEnabled(false);
-				rdbtnAdultos.setEnabled(false);
-				rdbtnAncianos.setEnabled(false);
-				spinnerInicioActividad.setEnabled(false);
-				spinnerFinalActividad.setEnabled(false);
-				
+				cargarMonitor(monitor);
+				cargarActividad(actividad);
+				setEditableFalse();
+							
 				break;
 			}
 			

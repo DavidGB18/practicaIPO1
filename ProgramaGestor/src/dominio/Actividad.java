@@ -10,6 +10,10 @@ public class Actividad {
 	private int precio;
 	private String descripcion;
 	
+	public Actividad() {
+		
+	}
+	
 	public Actividad(String monitor, int horaComienzo, int horaFin, int cupoMaximo, String destinatario, int precio, String descripcion) {
 		this.monitor = monitor;
 		this.horaComienzo = horaComienzo;

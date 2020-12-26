@@ -26,6 +26,8 @@ import javax.swing.JMenu;
 import javax.swing.JTree;
 import javax.swing.tree.DefaultTreeModel;
 
+import dominio.Actividad;
+import dominio.Monitor;
 import lecturaEscritura.Reader;
 
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -50,6 +52,8 @@ import javax.swing.border.SoftBevelBorder;
 import javax.swing.border.BevelBorder;
 import javax.swing.JMenuItem;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
+
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.border.LineBorder;
@@ -1051,6 +1055,7 @@ public class UI_Gestor {
 				JFrame window = new UI_Usuario();
 				UI_Usuario.usuario.setNombre(textUsuario.getText());
 				UI_Usuario.usuario.setPass(new String(passwordField.getPassword()));
+				//FALTA LA FOTO
 				window.setVisible(true);
 				comprobadorUsuario++;
 			}
@@ -1059,6 +1064,7 @@ public class UI_Gestor {
 
 	private class BtnCambioPanelActionListener implements ActionListener {
 		String pane = null;
+		DefaultListModel<String> listModel;
 
 		public BtnCambioPanelActionListener(String pane) {
 			this.pane = pane;
@@ -1067,6 +1073,25 @@ public class UI_Gestor {
 		public void actionPerformed(ActionEvent e) {
 			CardLayout panel = (CardLayout) (panelPrincipal.getLayout());
 			panel.show(panelPrincipal, pane);
+			switch(pane) {
+				case "panelMonitores":
+					listModel = new DefaultListModel<String>();
+					for(int i=0; i<Reader.getListMonitores().size(); i++) {
+						listModel.addElement(Reader.getListMonitores().get(i).getNombre());
+					}
+					listMonitores.setModel(listModel);
+					listMonitores.setSelectedIndex(0);
+					break;
+				case "panelActividades":
+					listModel = new DefaultListModel<String>();
+					for(int i=0; i<Reader.getListActividades().size(); i++) {
+						listModel.addElement(Reader.getListActividades().get(i).getDescripcion());
+					}
+					listActividades.setModel(listModel);
+					listActividades.setSelectedIndex(0);
+					break;
+			}
+					
 		}
 	}
 
@@ -1149,6 +1174,23 @@ public class UI_Gestor {
 
 		public void actionPerformed(ActionEvent e) {
 			JFrame window = new UI_Auxiliar();
+			
+			for(int i=0; i<Reader.getListMonitores().size(); i++) {
+				if(listMonitores.getSelectedValue().equals(Reader.getListMonitores().get(i).getNombre()) && !listMonitores.isSelectionEmpty()) {
+					Monitor m = Reader.getListMonitores().get(i);
+					
+					UI_Auxiliar.monitor.setNombre(m.getNombre());
+					UI_Auxiliar.monitor.setApellido1(m.getApellido1());
+					UI_Auxiliar.monitor.setApellido2(m.getApellido2());
+					UI_Auxiliar.monitor.setDni(m.getDni());
+					UI_Auxiliar.monitor.setTelefono(m.getTelefono());
+					UI_Auxiliar.monitor.setCorreoElectronico(m.getCorreoElectronico());
+					UI_Auxiliar.monitor.setFormacion(m.getFormacion());
+					UI_Auxiliar.monitor.setRutaFotoMonitor(m.getRutaFotoMonitor());
+					UI_Auxiliar.monitor.setIdiomas(m.getIdiomas());	
+				} 
+			}
+			
 			window.setVisible(true);
 			UI_Auxiliar.setElegirPanel(valor);
 			UI_Auxiliar.setElegirFormulario(0);
@@ -1164,6 +1206,22 @@ public class UI_Gestor {
 
 		public void actionPerformed(ActionEvent e) {
 			JFrame window = new UI_Auxiliar();
+			
+			for(int i=0; i<Reader.getListActividades().size(); i++) {
+				if(listActividades.getSelectedValue().equals(Reader.getListActividades().get(i).getDescripcion()) && !listActividades.isSelectionEmpty()) {
+					Actividad a = Reader.getListActividades().get(i);
+					
+					UI_Auxiliar.actividad.setMonitor(a.getMonitor());
+					UI_Auxiliar.actividad.setHoraComienzo(a.getHoraComienzo());
+					UI_Auxiliar.actividad.setHoraFin(a.getHoraFin());
+					UI_Auxiliar.actividad.setCupoMaximo(a.getCupoMaximo());
+					UI_Auxiliar.actividad.setDestinatario(a.getDestinatario());
+					UI_Auxiliar.actividad.setPrecio(a.getPrecio());
+					UI_Auxiliar.actividad.setDescripcion(a.getDescripcion());
+				
+				} 
+			}
+			
 			window.setVisible(true);
 			UI_Auxiliar.setElegirPanel(valor);
 			UI_Auxiliar.setElegirFormulario(1);

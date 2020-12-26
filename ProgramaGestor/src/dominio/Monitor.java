@@ -12,6 +12,10 @@ public class Monitor {
 	public String rutaFotoMonitor;
 	private String idiomas;
 	
+	public Monitor() {
+		
+	}
+	
 	public Monitor(String nombre, String apellido1, String apellido2, String dni, long telefono, String correoElectronico,
 			 String formacion, String rutaFotoMonitor, String idiomas) {
 		super();
