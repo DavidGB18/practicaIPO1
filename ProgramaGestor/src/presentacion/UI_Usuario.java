@@ -5,6 +5,8 @@ import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import dominio.Usuario;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.GridBagLayout;
@@ -24,6 +26,7 @@ public class UI_Usuario extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 5491443667104786935L;
+	public static Usuario usuario;
 	private JPanel contentPane;
 	private JPanel panel;
 	private JLabel lblFotoUsuario;
@@ -39,6 +42,7 @@ public class UI_Usuario extends JFrame {
 	 * Create the frame.
 	 */
 	public UI_Usuario() {
+		usuario = new Usuario();
 		setIconImage(Toolkit.getDefaultToolkit().getImage(UI_Usuario.class.getResource("/recursos/logo.png")));
 		addWindowListener(new ThisWindowListener());
 		setResizable(false);
@@ -105,6 +109,7 @@ public class UI_Usuario extends JFrame {
 			}
 			{
 				btnCambiarFoto = new JButton("Cambiar Foto");
+				btnCambiarFoto.setEnabled(false);
 				btnCambiarFoto.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 				GridBagConstraints gbc_btnCambiarFoto = new GridBagConstraints();
 				gbc_btnCambiarFoto.insets = new Insets(0, 0, 5, 5);
@@ -114,6 +119,7 @@ public class UI_Usuario extends JFrame {
 			}
 			{
 				btnCambiarPass = new JButton("Cambiar Contrase\u00F1a");
+				btnCambiarPass.setEnabled(false);
 				btnCambiarPass.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 				GridBagConstraints gbc_btnCambiarPass = new GridBagConstraints();
 				gbc_btnCambiarPass.insets = new Insets(0, 0, 5, 5);
@@ -145,6 +151,12 @@ public class UI_Usuario extends JFrame {
 		public void windowClosing(WindowEvent e) {
 			UI_Gestor.setComprobadorUsuario(0);
 			dispose();
+		}
+		@Override
+		public void windowOpened(WindowEvent e) {
+			textPaneNombre.setText(usuario.getNombre());
+			textPanePass.setText(usuario.getPass());
+			//FALTA LA FOTO
 		}
 	}
 }

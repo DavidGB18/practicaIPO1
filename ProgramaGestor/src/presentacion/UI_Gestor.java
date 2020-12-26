@@ -69,7 +69,7 @@ public class UI_Gestor {
 	private JPanel panelUsuarioPass;
 	private JLabel lblUsuario;
 	private JLabel lblPass;
-	private JTextField textUsuario;
+	public JTextField textUsuario;
 	private JButton btnIniciar;
 	private JPasswordField passwordField;
 	private JPanel panelFoto;
@@ -1049,6 +1049,8 @@ public class UI_Gestor {
 		public void actionPerformed(ActionEvent e) {
 			if (comprobadorUsuario == 0) {
 				JFrame window = new UI_Usuario();
+				UI_Usuario.usuario.setNombre(textUsuario.getText());
+				UI_Usuario.usuario.setPass(new String(passwordField.getPassword()));
 				window.setVisible(true);
 				comprobadorUsuario++;
 			}
