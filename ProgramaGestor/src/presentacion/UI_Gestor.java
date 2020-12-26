@@ -54,6 +54,8 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JPopupMenu;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class UI_Gestor {
 
@@ -258,6 +260,7 @@ public class UI_Gestor {
 					}
 					{
 						textUsuario = new JTextField();
+						textUsuario.addKeyListener(new TextUsuarioKeyListener());
 						textUsuario.setBounds(162, 264, 150, 19);
 						panelInicioSesion.add(textUsuario);
 						textUsuario.setColumns(10);
@@ -272,12 +275,14 @@ public class UI_Gestor {
 					}
 					{
 						passwordField = new JPasswordField();
+						passwordField.addKeyListener(new PasswordFieldKeyListener());
 						passwordField.setBounds(162, 293, 150, 19);
 						panelInicioSesion.add(passwordField);
 						passwordField.setEnabled(false);
 					}
 					{
 						btnIniciar = new JButton("Iniciar Sesión");
+						btnIniciar.setEnabled(false);
 						btnIniciar.setBounds(122, 376, 158, 29);
 						panelInicioSesion.add(btnIniciar);
 						btnIniciar.addChangeListener(new BtnIniciarChangeListener());
@@ -1241,6 +1246,28 @@ public class UI_Gestor {
 				window.setVisible(true);
 				UI_ParcelasBungalows.setElegirPanel(valor);
 				comprobadorParcelasBungalows++;
+			}
+		}
+	}
+	private class TextUsuarioKeyListener extends KeyAdapter {
+		@Override
+		public void keyReleased(KeyEvent e) {
+			String user = textUsuario.getText();
+			for(int i = 0; i<Reader.getListUsuarios().size(); i++) {
+				if (user.equals(Reader.getListUsuarios().get(i).getNombre())) {
+					passwordField.setEnabled(true);
+				}
+			}
+		}
+	}
+	private class PasswordFieldKeyListener extends KeyAdapter {
+		@Override
+		public void keyReleased(KeyEvent e) {
+			String pass = new String(passwordField.getPassword());
+			for(int i = 0; i<Reader.getListUsuarios().size(); i++) {
+				if (pass.equals(Reader.getListUsuarios().get(i).getPass())) {
+					btnIniciar.setEnabled(true);
+				}
 			}
 		}
 	}
