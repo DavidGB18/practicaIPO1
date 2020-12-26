@@ -6,6 +6,11 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import dominio.Reserva;
+import dominio.Ruta;
+import lecturaEscritura.Reader;
+
 import java.awt.CardLayout;
 import javax.swing.JButton;
 import java.awt.GridBagLayout;
@@ -18,6 +23,7 @@ import java.awt.Font;
 import java.awt.Cursor;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
+import javax.swing.SpinnerNumberModel;
 import javax.swing.JFormattedTextField;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -26,6 +32,8 @@ import javax.swing.JSpinner;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Toolkit;
+import java.awt.event.ItemListener;
+import java.awt.event.ItemEvent;
 
 public class UI_Reservas extends JFrame {
 	/**
@@ -41,8 +49,8 @@ public class UI_Reservas extends JFrame {
 	private JButton btnBorrarReserva;
 	private JLabel lblBorrarReserva;
 	private JLabel lblIdReserva;
-	private JComboBox<String> cbIdReserva;
-	private JComboBox<String> cbReserva;
+	private JComboBox<Integer> cbIdReserva;
+	private JComboBox<Integer> cbReserva;
 	private JLabel lblIdReservaConsulta;
 	private JLabel lblFechaEntrada;
 	private JLabel lblHoraEntrada;
@@ -51,19 +59,13 @@ public class UI_Reservas extends JFrame {
 	private JLabel lblTelefono;
 	private JLabel lblCorreo;
 	private JLabel lblConsideraciones;
-	private JTextField txtCorreo;
 	private JLabel lblFechaSalida;
 	private JLabel lblHoraSalida;
 	private JTextField txtHoraSalida;
 	private JTextPane txtConsideraciones;
 	private JButton btnCerrar;
-	private JButton btnModificar;
-	private JFormattedTextField formattedTextFieldTlf;
-	private JFormattedTextField formattedTextFieldFechaEntrada;
-	private JFormattedTextField formattedTextFieldFechaSalida;
 	
 	public static int elegirPanel;
-	private JFormattedTextField formattedTextFieldDniReserva;
 	private JPanel panelPasos;
 	private JPanel panelPaso1;
 	private JPanel panelPaso2;
@@ -110,6 +112,11 @@ public class UI_Reservas extends JFrame {
 	private JTextField txtSolicitudesNuevaReserva;
 	private JLabel lblMensajeExito;
 	private int numPanel = 0;
+	private JTextField txtFechaEntrada;
+	private JTextField txtFechaSalida;
+	private JTextField txtDni;
+	private JTextField txtTel;
+	private JTextField txtCorreo;
 
 	/**
 	 * Create the frame.
@@ -530,7 +537,8 @@ public class UI_Reservas extends JFrame {
 					panelBorrarReserva.add(lblIdReserva, gbc_lblIdReserva);
 				}
 				{
-					cbIdReserva = new JComboBox<String>();
+					cbIdReserva = new JComboBox<Integer>();
+					cbIdReserva.addItemListener(new CbIdReservaItemListener());
 					GridBagConstraints gbc_cbIdReserva = new GridBagConstraints();
 					gbc_cbIdReserva.insets = new Insets(0, 0, 5, 5);
 					gbc_cbIdReserva.fill = GridBagConstraints.HORIZONTAL;
@@ -563,7 +571,7 @@ public class UI_Reservas extends JFrame {
 				panelConsultarReservas = new JPanel();
 				panelReservas.add(panelConsultarReservas, "Consultar");
 				GridBagLayout gbl_panelConsultarReservas = new GridBagLayout();
-				gbl_panelConsultarReservas.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0};
+				gbl_panelConsultarReservas.columnWidths = new int[]{0, 0, 134, 0, 0, 0, 0, 0};
 				gbl_panelConsultarReservas.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 				gbl_panelConsultarReservas.columnWeights = new double[]{1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, Double.MIN_VALUE};
 				gbl_panelConsultarReservas.rowWeights = new double[]{1.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 0.0, Double.MIN_VALUE};
@@ -578,7 +586,8 @@ public class UI_Reservas extends JFrame {
 					panelConsultarReservas.add(lblIdReservaConsulta, gbc_lblIdReservaConsulta);
 				}
 				{
-					cbReserva = new JComboBox<String>();
+					cbReserva = new JComboBox<Integer>();
+					cbReserva.addItemListener(new CbReservaItemListener());
 					GridBagConstraints gbc_cbReserva = new GridBagConstraints();
 					gbc_cbReserva.insets = new Insets(0, 0, 5, 5);
 					gbc_cbReserva.fill = GridBagConstraints.HORIZONTAL;
@@ -596,14 +605,15 @@ public class UI_Reservas extends JFrame {
 					panelConsultarReservas.add(lblFechaEntrada, gbc_lblFechaEntrada);
 				}
 				{
-					formattedTextFieldFechaEntrada = new JFormattedTextField();
-					formattedTextFieldFechaEntrada.setEditable(false);
-					GridBagConstraints gbc_formattedTextFieldFechaEntrada = new GridBagConstraints();
-					gbc_formattedTextFieldFechaEntrada.insets = new Insets(0, 0, 5, 5);
-					gbc_formattedTextFieldFechaEntrada.fill = GridBagConstraints.HORIZONTAL;
-					gbc_formattedTextFieldFechaEntrada.gridx = 2;
-					gbc_formattedTextFieldFechaEntrada.gridy = 3;
-					panelConsultarReservas.add(formattedTextFieldFechaEntrada, gbc_formattedTextFieldFechaEntrada);
+					txtFechaEntrada = new JTextField();
+					txtFechaEntrada.setEditable(false);
+					GridBagConstraints gbc_txtFechaEntrada = new GridBagConstraints();
+					gbc_txtFechaEntrada.insets = new Insets(0, 0, 5, 5);
+					gbc_txtFechaEntrada.fill = GridBagConstraints.HORIZONTAL;
+					gbc_txtFechaEntrada.gridx = 2;
+					gbc_txtFechaEntrada.gridy = 3;
+					panelConsultarReservas.add(txtFechaEntrada, gbc_txtFechaEntrada);
+					txtFechaEntrada.setColumns(10);
 				}
 				{
 					lblHoraEntrada = new JLabel("Hora Entrada:");
@@ -635,14 +645,15 @@ public class UI_Reservas extends JFrame {
 					panelConsultarReservas.add(lblFechaSalida, gbc_lblFechaSalida);
 				}
 				{
-					formattedTextFieldFechaSalida = new JFormattedTextField();
-					formattedTextFieldFechaSalida.setEditable(false);
-					GridBagConstraints gbc_formattedTextFieldFechaSalida = new GridBagConstraints();
-					gbc_formattedTextFieldFechaSalida.insets = new Insets(0, 0, 5, 5);
-					gbc_formattedTextFieldFechaSalida.fill = GridBagConstraints.HORIZONTAL;
-					gbc_formattedTextFieldFechaSalida.gridx = 2;
-					gbc_formattedTextFieldFechaSalida.gridy = 4;
-					panelConsultarReservas.add(formattedTextFieldFechaSalida, gbc_formattedTextFieldFechaSalida);
+					txtFechaSalida = new JTextField();
+					txtFechaSalida.setEditable(false);
+					GridBagConstraints gbc_txtFechaSalida = new GridBagConstraints();
+					gbc_txtFechaSalida.insets = new Insets(0, 0, 5, 5);
+					gbc_txtFechaSalida.fill = GridBagConstraints.HORIZONTAL;
+					gbc_txtFechaSalida.gridx = 2;
+					gbc_txtFechaSalida.gridy = 4;
+					panelConsultarReservas.add(txtFechaSalida, gbc_txtFechaSalida);
+					txtFechaSalida.setColumns(10);
 				}
 				{
 					lblHoraSalida = new JLabel("Hora Salida:");
@@ -674,14 +685,15 @@ public class UI_Reservas extends JFrame {
 					panelConsultarReservas.add(lblDniReserva, gbc_lblDniReserva);
 				}
 				{
-					formattedTextFieldDniReserva = new JFormattedTextField();
-					formattedTextFieldDniReserva.setEditable(false);
-					GridBagConstraints gbc_formattedTextFieldDniReserva = new GridBagConstraints();
-					gbc_formattedTextFieldDniReserva.insets = new Insets(0, 0, 5, 5);
-					gbc_formattedTextFieldDniReserva.fill = GridBagConstraints.HORIZONTAL;
-					gbc_formattedTextFieldDniReserva.gridx = 2;
-					gbc_formattedTextFieldDniReserva.gridy = 6;
-					panelConsultarReservas.add(formattedTextFieldDniReserva, gbc_formattedTextFieldDniReserva);
+					txtDni = new JTextField();
+					txtDni.setEditable(false);
+					GridBagConstraints gbc_txtDni = new GridBagConstraints();
+					gbc_txtDni.insets = new Insets(0, 0, 5, 5);
+					gbc_txtDni.fill = GridBagConstraints.HORIZONTAL;
+					gbc_txtDni.gridx = 2;
+					gbc_txtDni.gridy = 6;
+					panelConsultarReservas.add(txtDni, gbc_txtDni);
+					txtDni.setColumns(10);
 				}
 				{
 					lblTelefono = new JLabel("Tel\u00E9fono:");
@@ -693,14 +705,15 @@ public class UI_Reservas extends JFrame {
 					panelConsultarReservas.add(lblTelefono, gbc_lblTelefono);
 				}
 				{
-					formattedTextFieldTlf = new JFormattedTextField();
-					formattedTextFieldTlf.setEditable(false);
-					GridBagConstraints gbc_formattedTextFieldTlf = new GridBagConstraints();
-					gbc_formattedTextFieldTlf.insets = new Insets(0, 0, 5, 5);
-					gbc_formattedTextFieldTlf.fill = GridBagConstraints.HORIZONTAL;
-					gbc_formattedTextFieldTlf.gridx = 2;
-					gbc_formattedTextFieldTlf.gridy = 7;
-					panelConsultarReservas.add(formattedTextFieldTlf, gbc_formattedTextFieldTlf);
+					txtTel = new JTextField();
+					txtTel.setEditable(false);
+					GridBagConstraints gbc_txtTel = new GridBagConstraints();
+					gbc_txtTel.insets = new Insets(0, 0, 5, 5);
+					gbc_txtTel.fill = GridBagConstraints.HORIZONTAL;
+					gbc_txtTel.gridx = 2;
+					gbc_txtTel.gridy = 7;
+					panelConsultarReservas.add(txtTel, gbc_txtTel);
+					txtTel.setColumns(10);
 				}
 				{
 					lblCorreo = new JLabel("Correo:");
@@ -743,26 +756,16 @@ public class UI_Reservas extends JFrame {
 				}
 				{
 					btnCerrar = new JButton("Cerrar");
+					btnCerrar.addActionListener(new BtnCerrarActionListener());
 					btnCerrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 					btnCerrar.setFont(new Font("Tahoma", Font.PLAIN, 16));
 					GridBagConstraints gbc_btnCerrar = new GridBagConstraints();
+					gbc_btnCerrar.gridwidth = 3;
 					gbc_btnCerrar.fill = GridBagConstraints.BOTH;
 					gbc_btnCerrar.insets = new Insets(0, 0, 5, 5);
 					gbc_btnCerrar.gridx = 2;
 					gbc_btnCerrar.gridy = 11;
 					panelConsultarReservas.add(btnCerrar, gbc_btnCerrar);
-				}
-				{
-					btnModificar = new JButton("Modificar");
-					btnModificar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-					btnModificar.setFont(new Font("Tahoma", Font.PLAIN, 16));
-					GridBagConstraints gbc_btnModificar = new GridBagConstraints();
-					gbc_btnModificar.gridwidth = 2;
-					gbc_btnModificar.fill = GridBagConstraints.BOTH;
-					gbc_btnModificar.insets = new Insets(0, 0, 5, 5);
-					gbc_btnModificar.gridx = 4;
-					gbc_btnModificar.gridy = 11;
-					panelConsultarReservas.add(btnModificar, gbc_btnModificar);
 				}
 			}
 		}
@@ -784,6 +787,12 @@ public class UI_Reservas extends JFrame {
 		}
 
 		public void windowOpened(WindowEvent e) {
+			
+			for(int i=0; i<Reader.getListReservas().size(); i++) {
+				cbReserva.addItem(Reader.getListReservas().get(i).getIdReserva());
+				cbIdReserva.addItem(Reader.getListReservas().get(i).getIdReserva());
+			}
+			
 			CardLayout panel = (CardLayout) (panelReservas.getLayout());
 			switch(elegirPanel) {
 			case 0:
@@ -866,6 +875,39 @@ public class UI_Reservas extends JFrame {
 			panelbotones.show(panelBotones, panebotones);
 			panel.show(panelPasos, pane);
 			
+		}
+	}
+	private class CbReservaItemListener implements ItemListener {
+		public void itemStateChanged(ItemEvent e) {
+			int idReserva = (int) cbReserva.getSelectedItem();
+			for(int i=0; i<Reader.getListReservas().size(); i++) {
+				if(idReserva == Reader.getListReservas().get(i).getIdReserva()) {
+					Reserva r = Reader.getListReservas().get(i);
+					txtHoraSalida.setText(String.valueOf(r.getHoraSalida()));
+					txtHoraEntrada.setText(String.valueOf(r.getHoraEntrada()));		
+					txtConsideraciones.setText(r.getSolicitudesEspeciales());
+					txtFechaEntrada.setText(r.getFechaEntrada().toString());
+					txtFechaSalida.setText(r.getFechaSalida().toString());
+					txtDni.setText(r.getDni());
+					txtTel.setText(String.valueOf(r.getTelefono()));
+					txtCorreo.setText(r.getCorreoElectronico());	
+				}
+			}
+		}
+	}
+	private class CbIdReservaItemListener implements ItemListener {
+		public void itemStateChanged(ItemEvent e) {
+			int idReserva = (int) cbReserva.getSelectedItem();
+			for(int i=0; i<Reader.getListReservas().size(); i++) {
+				if(idReserva == Reader.getListReservas().get(i).getIdReserva()) {
+					//eliminar reserva
+				}
+			}
+		}
+	}
+	private class BtnCerrarActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			dispose();
 		}
 	}
 }

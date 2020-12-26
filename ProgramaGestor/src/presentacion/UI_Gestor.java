@@ -284,7 +284,6 @@ public class UI_Gestor {
 					}
 					{
 						btnIniciar = new JButton("Iniciar Sesión");
-						btnIniciar.setVisible(false);
 						btnIniciar.setBounds(122, 376, 158, 29);
 						panelInicioSesion.add(btnIniciar);
 						btnIniciar.addChangeListener(new BtnIniciarChangeListener());
