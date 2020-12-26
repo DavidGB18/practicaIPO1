@@ -32,6 +32,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Cursor;
 import java.awt.Toolkit;
+import javax.swing.ButtonGroup;
 
 public class UI_Auxiliar extends JFrame {
 
@@ -66,7 +67,6 @@ public class UI_Auxiliar extends JFrame {
 	private JLabel lblDniMonitor;
 	private JLabel lblIdiomasMonitor;
 	private JTextField txtApellido2Monitor;
-	private JComboBox<String> cbIdiomasMonitor;
 	private JFormattedTextField formattedTextFieldTlfMonitor;
 	private JFormattedTextField formattedTextFieldDniMonitor;
 	private JLabel lblFormacionMonitor;
@@ -97,6 +97,8 @@ public class UI_Auxiliar extends JFrame {
 	private JTextPane txtDescripcionActividad;
 	private JTextField textFieldCupoMaximoActividad;
 	private JTextField textFieldMonitor;
+	private JTextField txtIdiomas;
+	private final ButtonGroup buttonGroup = new ButtonGroup();
 
 	/**
 	 * Create the frame.
@@ -303,13 +305,14 @@ public class UI_Auxiliar extends JFrame {
 					panelMonitores.add(lblIdiomasMonitor, gbc_lblIdiomasMonitor);
 				}
 				{
-					cbIdiomasMonitor = new JComboBox<String>();
-					GridBagConstraints gbc_cbIdiomasMonitor = new GridBagConstraints();
-					gbc_cbIdiomasMonitor.insets = new Insets(0, 0, 5, 5);
-					gbc_cbIdiomasMonitor.fill = GridBagConstraints.HORIZONTAL;
-					gbc_cbIdiomasMonitor.gridx = 2;
-					gbc_cbIdiomasMonitor.gridy = 10;
-					panelMonitores.add(cbIdiomasMonitor, gbc_cbIdiomasMonitor);
+					txtIdiomas = new JTextField();
+					GridBagConstraints gbc_txtIdiomas = new GridBagConstraints();
+					gbc_txtIdiomas.insets = new Insets(0, 0, 5, 5);
+					gbc_txtIdiomas.fill = GridBagConstraints.HORIZONTAL;
+					gbc_txtIdiomas.gridx = 2;
+					gbc_txtIdiomas.gridy = 10;
+					panelMonitores.add(txtIdiomas, gbc_txtIdiomas);
+					txtIdiomas.setColumns(10);
 				}
 			}
 			{
@@ -389,14 +392,17 @@ public class UI_Auxiliar extends JFrame {
 					panelActividad.add(panelDestinatariosActividad, gbc_panelDestinatariosActividad);
 					{
 						rdbtnNinos = new JRadioButton("Ni\u00F1os");
+						buttonGroup.add(rdbtnNinos);
 						panelDestinatariosActividad.add(rdbtnNinos);
 					}
 					{
 						rdbtnAdultos = new JRadioButton("Adultos");
+						buttonGroup.add(rdbtnAdultos);
 						panelDestinatariosActividad.add(rdbtnAdultos);
 					}
 					{
 						rdbtnAncianos = new JRadioButton("Ancianos");
+						buttonGroup.add(rdbtnAncianos);
 						panelDestinatariosActividad.add(rdbtnAncianos);
 					}
 				}
@@ -504,7 +510,7 @@ public class UI_Auxiliar extends JFrame {
 				{
 					btnAnadir = new JButton("A\u00F1adir");
 					btnAnadir.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-					btnAnadir.addActionListener(new BtnConfirmacionAccionActionListener("añadir"));
+					btnAnadir.addActionListener(new BtnConfirmacionAccionActionListener("agregar"));
 					panelAnadir.add(btnAnadir);
 				}
 			}
@@ -562,7 +568,7 @@ public class UI_Auxiliar extends JFrame {
 			formattedTextFieldTlfMonitor.setEditable(false);
 			formattedTextFieldCorreoMonitor.setEditable(false);
 			txtFormacion.setEditable(false);
-			cbIdiomasMonitor.setEditable(false);
+			txtIdiomas.setEditable(false);
 
 			textFieldMonitor.setEditable(false);
 			textFieldPrecioActividad.setEditable(false);
@@ -584,7 +590,7 @@ public class UI_Auxiliar extends JFrame {
 			formattedTextFieldCorreoMonitor.setText(m.getCorreoElectronico());
 			txtFormacion.setText(m.getFormacion());
 			// lblFotoMonitor.setIcon();
-			// cbIdiomasMonitor.setText();
+			txtIdiomas.setText(m.getIdiomas());
 		}
 
 		public void cargarActividad(Actividad a) {
@@ -681,7 +687,69 @@ public class UI_Auxiliar extends JFrame {
 					"Confirmar operación", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
 			if (sel == JOptionPane.YES_OPTION) {
 
-				// HACER LA FUNCION QUE HAGA FALTA
+				// 0-Monitor, 1-Actividad -> Paneles
+				switch (palabra) {
+				case "agregar":
+					switch (elegirFormulario) {
+					case 0:
+						try {
+							String nombre = txtNombreMonitor.getText();
+							String apellido1 = txtApellido1Monitor.getText();
+							String apellido2 = txtApellido2Monitor.getText();
+							String dni = formattedTextFieldDniMonitor.getText();
+							Long telefono = Long.parseLong(formattedTextFieldTlfMonitor.getText());
+							String correoElectronico = formattedTextFieldCorreoMonitor.getText();
+							String formacion = txtFormacion.getText();
+							String idiomas = txtIdiomas.getText();
+							String rutaFotoMonitor = lblFotoMonitor.getIcon().toString();
+
+							Monitor m = new Monitor(nombre, apellido1, apellido2, dni, telefono, correoElectronico,
+									formacion, rutaFotoMonitor, idiomas);
+
+							System.out.println(m.toString());
+
+						} catch (Exception e1) {
+							JOptionPane.showMessageDialog(new JFrame(), "Algo fue mal en el proceso, vuelva a intentarlo", "Error", JOptionPane.ERROR_MESSAGE);
+							dispose();
+						}
+
+						break;
+					case 1:
+
+						try {
+						String monitor = textFieldMonitor.getText();
+						int horaComienzo = (int) spinnerInicioActividad.getValue();
+						int horaFin = (int) spinnerFinalActividad.getValue();
+						int cupoMaximo = Integer.parseInt(textFieldCupoMaximoActividad.getText());
+						String destinatario = null;
+						
+						if( rdbtnNinos.isSelected() ) {
+							 destinatario = "sinos";	
+						} else if(rdbtnAdultos.isSelected()){
+							 destinatario = "adultos";
+						} else if(rdbtnAncianos.isSelected()){ 
+							 destinatario = "ancianos";
+						}
+						
+						
+						int precio = Integer.parseInt(textFieldPrecioActividad.getText());
+						String descripcion = txtDescripcionActividad.getText();
+						
+						Actividad a = new Actividad( monitor,  horaComienzo,  horaFin,  cupoMaximo,  destinatario,  precio,  descripcion);
+						
+						System.out.println(a.toString());
+						}catch(Exception e2) {
+							JOptionPane.showMessageDialog(new JFrame(), "Algo fue mal en el proceso, vuelva a intentarlo", "Error", JOptionPane.ERROR_MESSAGE);
+							dispose();
+						}
+						break;
+					}
+					break;
+				case "modificar":
+					break;
+				case "borrar":
+					break;
+				}
 
 				JOptionPane.showMessageDialog(null, "Se han guardado los cambios", "Confirmación de cambios",
 						JOptionPane.PLAIN_MESSAGE);
