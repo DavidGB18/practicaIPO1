@@ -56,6 +56,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import javax.swing.border.LineBorder;
 
 public class UI_Gestor {
 
@@ -260,6 +261,7 @@ public class UI_Gestor {
 					}
 					{
 						textUsuario = new JTextField();
+						textUsuario.setBorder(new LineBorder(Color.RED, 2));
 						textUsuario.addKeyListener(new TextUsuarioKeyListener());
 						textUsuario.setBounds(162, 264, 150, 19);
 						panelInicioSesion.add(textUsuario);
@@ -282,7 +284,7 @@ public class UI_Gestor {
 					}
 					{
 						btnIniciar = new JButton("Iniciar Sesión");
-						btnIniciar.setEnabled(false);
+						btnIniciar.setVisible(false);
 						btnIniciar.setBounds(122, 376, 158, 29);
 						panelInicioSesion.add(btnIniciar);
 						btnIniciar.addChangeListener(new BtnIniciarChangeListener());
@@ -1029,6 +1031,12 @@ public class UI_Gestor {
 				Date date = java.util.Calendar.getInstance().getTime();
 				lblBarraEstado.setText("Sesión cerrada a las: " + date);
 
+				textUsuario.setText("");
+				textUsuario.setBorder(new LineBorder(Color.RED, 2));
+				lblFoto.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/user.png")));
+				passwordField.setText("");
+				btnIniciar.setVisible(false);
+				
 			}
 		}
 	}
@@ -1255,8 +1263,9 @@ public class UI_Gestor {
 			String user = textUsuario.getText();
 			for(int i = 0; i<Reader.getListUsuarios().size(); i++) {
 				if (user.equals(Reader.getListUsuarios().get(i).getNombre())) {
+					textUsuario.setBorder(new LineBorder(Color.GREEN, 2));
 					passwordField.setEnabled(true);
-				}
+				} 
 			}
 		}
 	}
@@ -1266,7 +1275,9 @@ public class UI_Gestor {
 			String pass = new String(passwordField.getPassword());
 			for(int i = 0; i<Reader.getListUsuarios().size(); i++) {
 				if (pass.equals(Reader.getListUsuarios().get(i).getPass())) {
-					btnIniciar.setEnabled(true);
+					btnIniciar.setVisible(true);
+				} else {
+					btnIniciar.setVisible(false);
 				}
 			}
 		}

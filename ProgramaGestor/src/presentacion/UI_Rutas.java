@@ -7,6 +7,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import dominio.Ruta;
+import lecturaEscritura.Reader;
+
 import javax.swing.JTabbedPane;
 import java.awt.GridBagLayout;
 
@@ -33,11 +36,9 @@ public class UI_Rutas extends JFrame {
 	 */
 	private static final long serialVersionUID = -8705213009070343242L;
 	private JPanel contentPane;
-	private JPanel panel;
-	private JPanel panelInfoRuta;
 	private JTabbedPane tabbedPaneRutas;
 	private JPanel Faciles;
-	private JComboBox cbNombre;
+	private JComboBox<Ruta> cbNombre;
 	private JLabel lblNombre;
 	private JTextPane txtFecha;
 	private JLabel lblFechal;
@@ -57,10 +58,10 @@ public class UI_Rutas extends JFrame {
 	private JLabel lblFoto;
 	private JLabel lblDificultad;
 	private JLabel lblListaMonitores;
-	private JList listMonitores;
+	private JList<String> listMonitores;
 	private JPanel Intermedias;
 	private JLabel lblNombre_1;
-	private JComboBox cbNombre_1;
+	private JComboBox<Ruta> cbNombre_1;
 	private JLabel lblIntermedia;
 	private JLabel lblFechal_1;
 	private JLabel lblHoraInicio_1;
@@ -77,12 +78,12 @@ public class UI_Rutas extends JFrame {
 	private JSpinner spinnerGenteMin_1;
 	private JSpinner spinnerGenteMax_1;
 	private JLabel lblListaMonitores_1;
-	private JList listMonitores_1;
+	private JList<String> listMonitores_1;
 	private JLabel lblDescripcion_1;
 	private JTextArea txtDescripcion_1;
 	private JPanel Dificiles;
 	private JLabel lblNombre_2;
-	private JComboBox cbNombre_2;
+	private JComboBox<Ruta> cbNombre_2;
 	private JLabel lblDificil;
 	private JLabel lblFechal_2;
 	private JLabel lblHoraInicio_2;
@@ -99,7 +100,7 @@ public class UI_Rutas extends JFrame {
 	private JSpinner spinnerGenteMin_2;
 	private JSpinner spinnerGenteMax_2;
 	private JLabel lblListaMonitores_2;
-	private JList listMonitores_2;
+	private JList<String> listMonitores_2;
 	private JLabel lblDescripcion_2;
 	private JTextArea txtDescripcion_2;
 
@@ -762,6 +763,25 @@ public class UI_Rutas extends JFrame {
 		public void windowClosing(WindowEvent e) {
 			UI_Gestor.setComprobadorInfoRuta(0);
 			dispose();
+		}
+		@Override
+		public void windowActivated(WindowEvent e) {
+			
+			for(int i=0; i<Reader.getListRutas().size(); i++	) {
+				switch(Reader.getListRutas().get(i).getGradoDificultad()) {
+				case FACIL:
+					cbNombre.addItem(Reader.getListRutas().get(i));
+					break;
+				case INTERMEDIA:
+					cbNombre_1.addItem(Reader.getListRutas().get(i));
+					break;
+				case DIFICIL:
+					cbNombre_2.addItem(Reader.getListRutas().get(i));
+					break;
+				}
+			}
+			
+			
 		}
 	}
 }
