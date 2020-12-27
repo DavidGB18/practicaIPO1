@@ -82,9 +82,7 @@ public class Actividad {
 
 	@Override
 	public String toString() {
-		return monitor + " " + horaComienzo + " "
-				+ horaFin + " " + cupoMaximo + " " + destinatario
-				+ " " + precio + " " + descripcion;
+		return monitor + " " + horaComienzo + " " + horaFin + " " + cupoMaximo + " " + destinatario + " " + precio + " '" + descripcion + "'";
 	}
 	
 }

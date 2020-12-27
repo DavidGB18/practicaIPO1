@@ -121,8 +121,8 @@ public class Ruta {
 
 	@Override
 	public String toString() {
-		return nombre + " " + fecha + " " + horaInicio + " " + horaFinal + " " + monitor + " " + puntoEncuentro + " "
-				+ numeroMinimoPersonas + " " + numeroMaximoPersonas + " " + gradoDificultad + " " + descripcion + " " + pathImagenRuta;
+		return "'" + nombre + "' " + fecha + " " + horaInicio + " " + horaFinal + " " + monitor + " " + puntoEncuentro + " "
+				+ numeroMinimoPersonas + " " + numeroMaximoPersonas + " " + gradoDificultad + " " + pathImagenRuta + " '" + descripcion + "'";
 	}
 	
 	
