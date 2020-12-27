@@ -66,7 +66,7 @@ public class UI_Gestor {
 	private static int comprobadorDibujoRuta = 0;
 	private static int comprobadorParcelasBungalows = 0;
 
-	private JFrame frmGestorLosOlivos;
+	JFrame frmGestorLosOlivos;
 	private JPanel panelAutenticacion;
 	private JPanel panelMenuPrincipal;
 	private JLabel lblBarraEstado;
@@ -147,26 +147,6 @@ public class UI_Gestor {
 	private JMenuItem mntmAboutProgram;
 	private JMenuItem mntmSalir;
 	private JButton btnIdioma;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		
-		Reader.leerFicheros();
-		
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					UI_Gestor window = new UI_Gestor();
-					window.frmGestorLosOlivos.setVisible(true);
-					window.frmGestorLosOlivos.setLocationRelativeTo(null);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 	
 	/**
 	 * Create the application.
@@ -179,6 +159,7 @@ public class UI_Gestor {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		Reader.leerFicheros();
 		frmGestorLosOlivos = new JFrame();
 		frmGestorLosOlivos
 				.setIconImage(Toolkit.getDefaultToolkit().getImage(UI_Gestor.class.getResource("/recursos/logo.png")));
