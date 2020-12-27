@@ -4,16 +4,17 @@ import java.awt.BorderLayout;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
 import javax.swing.border.EmptyBorder;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 
 import java.awt.CardLayout;
+import java.awt.Component;
+
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.JLabel;
+import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 
 import dominio.Bungalow;
 import dominio.Parcela;
@@ -26,9 +27,10 @@ import java.awt.event.WindowEvent;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.event.ActionEvent;
 import java.awt.Cursor;
 
@@ -52,6 +54,9 @@ public class UI_ParcelasBungalows extends JFrame {
 	private JPanel panelBotones;
 	private JButton btnCancelar;
 	private JButton btnGuardarCambios;
+	private JPopupMenu popupMenu;
+	private JMenuItem mntmAñadir;
+	private JMenuItem mntmEliminar;
 
 	/**
 	 * Create the frame.
@@ -62,7 +67,7 @@ public class UI_ParcelasBungalows extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(UI_ParcelasBungalows.class.getResource("/recursos/logo.png")));
 		setTitle("Gestor Los Olivos - Tablas Parcelas y Bungalows");
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		setBounds(100, 100, 686, 290);
+		setBounds(100, 100, 686, 437);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -91,7 +96,20 @@ public class UI_ParcelasBungalows extends JFrame {
 							Object[] fila = {p.getTam(), p.getPrecioNoche(), p.isDisponibilidad(), p.getUbicacion(), p.getArrayServicios(), p.getCategoria()};
 							modeloTabla.aniadeFila(fila);
 						}
-						
+						{
+							popupMenu = new JPopupMenu();
+							addPopup(tParcelas, popupMenu);
+							{
+								mntmAñadir = new JMenuItem("Agregar");
+								mntmAñadir.addActionListener(new BtnAñadirFilaActionListener(0));
+								popupMenu.add(mntmAñadir);
+							}
+							{
+								mntmEliminar = new JMenuItem("Eliminar");
+								mntmEliminar.addActionListener(new BtnEliminarFilaActionListener(0));
+								popupMenu.add(mntmEliminar);
+							}
+						}
 						spParcelas.setViewportView(tParcelas);
 					}
 				}
@@ -122,6 +140,20 @@ public class UI_ParcelasBungalows extends JFrame {
 							Object[] fila = {b.getTam(), b.getPrecioNoche(), b.isDisponibilidad(), b.getDescripcion(), 
 									b.getPathFotos(), b.getEquipamiento(), b.getCapacidadMaxima(), b.getEstanciaMinima()};
 							modeloTabla.aniadeFila(fila);
+						}
+						{
+							popupMenu = new JPopupMenu();
+							addPopup(tBungalows, popupMenu);
+							{
+								mntmAñadir = new JMenuItem("Agregar");
+								mntmAñadir.addActionListener(new BtnAñadirFilaActionListener(1));
+								popupMenu.add(mntmAñadir);
+							}
+							{
+								mntmEliminar = new JMenuItem("Eliminar");
+								mntmEliminar.addActionListener(new BtnEliminarFilaActionListener(1));
+								popupMenu.add(mntmEliminar);
+							}
 						}
 						spBungalows.setViewportView(tBungalows);
 
@@ -186,4 +218,83 @@ public class UI_ParcelasBungalows extends JFrame {
 	public static void setElegirPanel(int valor) {
 		elegirPanel=valor;
 	}
+	
+	private class BtnAñadirFilaActionListener implements ActionListener {
+		
+		int selector;
+		
+		public BtnAñadirFilaActionListener(int selector) {
+			this.selector = selector;
+		}
+		
+		public void actionPerformed(ActionEvent e) {
+
+			switch(selector) {
+			case 0:
+				MiModeloTablaParcelas modeloTablaP = (MiModeloTablaParcelas) tParcelas.getModel();
+				Object[] nuevaFilaP = {0,0,false,"", null, ""};
+				modeloTablaP.aniadeFila(nuevaFilaP);
+				modeloTablaP.fireTableDataChanged();
+				break;
+			case 1:
+				MiModeloTablaBungalows modeloTablaB = (MiModeloTablaBungalows) tBungalows.getModel();
+				Object[] nuevaFilaB = {0,0,false,"","",0,0,""};
+				modeloTablaB.aniadeFila(nuevaFilaB);
+				modeloTablaB.fireTableDataChanged();
+				break;
+			}
+		}
+	}
+
+	private class BtnEliminarFilaActionListener implements ActionListener {
+		
+		int selector;
+		
+		public BtnEliminarFilaActionListener(int selector) {
+			this.selector = selector;
+		}
+		
+		public void actionPerformed(ActionEvent e) {
+			
+			switch(selector) {
+			case 0:
+				MiModeloTablaParcelas modeloTablaP = (MiModeloTablaParcelas) tParcelas.getModel();
+				int n1 = tParcelas.getSelectedRow();
+				if (n1 != -1)
+					modeloTablaP.eliminaFila(tParcelas.getSelectedRow());
+				modeloTablaP.fireTableDataChanged();
+				break;
+			case 1:
+				MiModeloTablaBungalows modeloTablaB = (MiModeloTablaBungalows) tBungalows.getModel();
+				int n2 = tBungalows.getSelectedRow();
+				if (n2 != -1)
+					modeloTablaB.eliminaFila(tBungalows.getSelectedRow());
+				modeloTablaB.fireTableDataChanged();
+				break;
+			}
+			
+
+		}
+	}
+
+	private static void addPopup(Component component, final JPopupMenu popup) {
+		component.addMouseListener(new MouseAdapter() {
+			public void mousePressed(MouseEvent e) {
+				if (e.isPopupTrigger()) {
+					showMenu(e);
+				}
+			}
+
+			public void mouseReleased(MouseEvent e) {
+				if (e.isPopupTrigger()) {
+					showMenu(e);
+				}
+			}
+
+			private void showMenu(MouseEvent e) {
+				popup.show(e.getComponent(), e.getX(), e.getY());
+			}
+		});
+	}
+	
 }
