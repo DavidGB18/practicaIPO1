@@ -38,7 +38,7 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return "Usuario [nombre=" + nombre + ", pass=" + pass + ", foto=" + foto + "]";
+		return nombre + " " + pass + " " + foto;
 	}
 	
 }

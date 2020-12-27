@@ -48,8 +48,7 @@ public class Configuracion {
 
 	@Override
 	public String toString() {
-		return "Configuracion [idioma=" + idioma + ", apariencia=" + apariencia + ", tipoLetra=" + tipoLetra
-				+ ", tamLetra=" + tamLetra + "]";
+		return idioma + " " + apariencia + " " + tipoLetra + " " + tamLetra;
 	}
 	
 	

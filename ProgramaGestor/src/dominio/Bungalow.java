@@ -89,9 +89,9 @@ public class Bungalow{
 
 	@Override
 	public String toString() {
-		return "Bungalow [tam=" + tam + ", precioNoche=" + precioNoche + ", disponibilidad=" + disponibilidad
-				+ ", descripcion=" + descripcion + ", pathFotos=" + pathFotos + ", equipamiento=" + equipamiento
-				+ ", capacidadMaxima=" + capacidadMaxima + ", estanciaMinima=" + estanciaMinima + "]";
+		return tam + " " + precioNoche + " " + disponibilidad
+				+ " " + descripcion + " " + pathFotos + " " + equipamiento
+				+ " " + capacidadMaxima + " " + estanciaMinima;
 	}
 	
 	

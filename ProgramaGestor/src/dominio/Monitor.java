@@ -104,9 +104,8 @@ public class Monitor {
 
 	@Override
 	public String toString() {
-		return "Monitor [nombre=" + nombre + ", apellido1=" + apellido1 + ", apellido2=" + apellido2 + ", dni=" + dni
-				+ ", telefono=" + telefono + ", correoElectronico=" + correoElectronico + ", formacion=" + formacion
-				+ ", rutaFotoMonitor=" + rutaFotoMonitor + ", idiomas=" + idiomas + "]";
+		return nombre + " " + apellido1 + " " + apellido2 + " " + dni + " " + telefono + " " + correoElectronico + " " + formacion
+				+ " " + rutaFotoMonitor + " " + idiomas;
 	}
 	
 	

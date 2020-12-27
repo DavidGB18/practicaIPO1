@@ -68,8 +68,8 @@ public class Parcela{
 
 	@Override
 	public String toString() {
-		return "Parcela [tamaño=" + tam + ", precioNoche=" + precioNoche + ", disponibilidad=" + disponibilidad
-				+ ", ubicacion=" + ubicacion + ", arrayServicios=" + arrayServicios + ", categoria=" + categoria + "]";
+		return tam + " " + precioNoche + " " + disponibilidad
+				+ " " + ubicacion + " " + arrayServicios + " " + categoria;
 	}
 	
 	

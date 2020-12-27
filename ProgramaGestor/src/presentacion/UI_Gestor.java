@@ -167,14 +167,14 @@ public class UI_Gestor {
 			}
 		});
 	}
-
+	
 	/**
 	 * Create the application.
 	 */
 	public UI_Gestor() {
 		initialize();
 	}
-
+	
 	/**
 	 * Initialize the contents of the frame.
 	 */

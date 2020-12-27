@@ -82,9 +82,9 @@ public class Actividad {
 
 	@Override
 	public String toString() {
-		return "Actividad [monitores=" + monitor + ", horaComienzo=" + horaComienzo + ", horaFin="
-				+ horaFin + ", cupoMaximo=" + cupoMaximo + ", destinatarios=" + destinatario
-				+ ", precio=" + precio + ", descripcion=" + descripcion + "]";
+		return monitor + " " + horaComienzo + " "
+				+ horaFin + " " + cupoMaximo + " " + destinatario
+				+ " " + precio + " " + descripcion;
 	}
 	
 }
