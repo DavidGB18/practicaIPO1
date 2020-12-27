@@ -156,7 +156,8 @@ public class UI_Usuario extends JFrame {
 		public void windowOpened(WindowEvent e) {
 			textPaneNombre.setText(usuario.getNombre());
 			textPanePass.setText(usuario.getPass());
-			//FALTA LA FOTO
+			String[] absolutePath = usuario.getFoto().split("recursos");
+			lblFotoUsuario.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos"+absolutePath[1])));
 		}
 	}
 }

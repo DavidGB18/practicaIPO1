@@ -1057,7 +1057,7 @@ public class UI_Gestor {
 				JFrame window = new UI_Usuario();
 				UI_Usuario.usuario.setNombre(textUsuario.getText());
 				UI_Usuario.usuario.setPass(new String(passwordField.getPassword()));
-				//FALTA LA FOTO
+				UI_Usuario.usuario.setFoto(lblFoto.getIcon().toString());
 				window.setVisible(true);
 				comprobadorUsuario++;
 			}
