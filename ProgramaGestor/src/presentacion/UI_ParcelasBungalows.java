@@ -5,17 +5,28 @@ import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
 import java.awt.CardLayout;
 import javax.swing.JTable;
+import javax.swing.ListSelectionModel;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+
+import dominio.Bungalow;
+import dominio.Parcela;
+import lecturaEscritura.Reader;
+
 import javax.swing.JScrollPane;
 import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.SwingConstants;
 import java.awt.Font;
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -69,17 +80,19 @@ public class UI_ParcelasBungalows extends JFrame {
 					panelParcelas.add(spParcelas, BorderLayout.CENTER);
 					{
 						tParcelas = new JTable();
+						tParcelas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+						
+						tParcelas.setRowHeight(30);
+						MiModeloTablaParcelas modeloTabla = new MiModeloTablaParcelas();
+						tParcelas.setModel(modeloTabla);
+						
+						for(int i=0; i<Reader.getListParcelas().size(); i++) {
+							Parcela p = Reader.getListParcelas().get(i);
+							Object[] fila = {p.getTam(), p.getPrecioNoche(), p.isDisponibilidad(), p.getUbicacion(), p.getArrayServicios(), p.getCategoria()};
+							modeloTabla.aniadeFila(fila);
+						}
+						
 						spParcelas.setViewportView(tParcelas);
-						tParcelas.setModel(new DefaultTableModel(
-							new Object[][] {
-								{null, null, null, null, null, null},
-								{null, null, null, null, null, null},
-								{null, null, null, null, null, null},
-							},
-							new String[] {
-								"Disponibilidad", "Categoria", "Precio Noche", "Ubicaci\u00F3n", "Servicios", "Tama\u00F1o"
-							}
-						));
 					}
 				}
 				{
@@ -98,17 +111,20 @@ public class UI_ParcelasBungalows extends JFrame {
 					panelBungalows.add(spBungalows, BorderLayout.CENTER);
 					{
 						tBungalows = new JTable();
+						tBungalows.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+						
+						tBungalows.setRowHeight(30);
+						MiModeloTablaBungalows modeloTabla = new MiModeloTablaBungalows();
+						tBungalows.setModel(modeloTabla);
+						
+						for(int i=0; i<Reader.getListBungalows().size(); i++) {
+							Bungalow b = Reader.getListBungalows().get(i);
+							Object[] fila = {b.getTam(), b.getPrecioNoche(), b.isDisponibilidad(), b.getDescripcion(), 
+									b.getPathFotos(), b.getEquipamiento(), b.getCapacidadMaxima(), b.getEstanciaMinima()};
+							modeloTabla.aniadeFila(fila);
+						}
 						spBungalows.setViewportView(tBungalows);
-						tBungalows.setModel(new DefaultTableModel(
-							new Object[][] {
-								{null, null, null, null, null, null, null, null},
-								{null, null, null, null, null, null, null, null},
-								{null, null, null, null, null, null, null, null},
-							},
-							new String[] {
-								"Tama\u00F1o", "Precio Noche", "Disponibilidad", "Descripcion", "Equipamiento", "Capacidad", "Estancia Minima", "Foto"
-							}
-						));
+
 						{
 							lblTituloBungalows = new JLabel("Bungalows");
 							lblTituloBungalows.setFont(new Font("Tahoma", Font.BOLD, 20));
