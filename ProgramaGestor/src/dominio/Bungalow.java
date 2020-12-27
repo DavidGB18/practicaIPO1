@@ -89,8 +89,8 @@ public class Bungalow{
 
 	@Override
 	public String toString() {
-		return tam + " " + precioNoche + " " + disponibilidad + pathFotos + " " + equipamiento
-				+ " " + capacidadMaxima + " " + estanciaMinima + " '" + descripcion + "'";
+		return tam + " " + precioNoche + " " + disponibilidad + " " + pathFotos + " " + equipamiento
+				+ " " + capacidadMaxima + " " + estanciaMinima + " " + descripcion;
 	}
 	
 	

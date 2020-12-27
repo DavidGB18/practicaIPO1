@@ -1,3 +1,4 @@
-45 30 true foto piscina 2 5 agradable
-65 25 false foto cancha 3 5 comoda y confortable
-100 50 true foto piscina 5 7 grande y espaciosa
+45 30.0 true foto piscina 2 5  agradable
+65 25.0 false foto cancha 3 5  comoda y confortable
+100 50.0 true foto piscina 5 7  grande y espaciosa
+333 333.0 true aqui nada 3 0 hola

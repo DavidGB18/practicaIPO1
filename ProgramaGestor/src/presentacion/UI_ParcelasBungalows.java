@@ -314,6 +314,11 @@ public class UI_ParcelasBungalows extends JFrame {
 					Parcela p = new Parcela(tam, precioNoche, disponibilidad, ubicacion, arrayServicios, categoria);
 					listParcelasNueva.add(p);
 				}
+				while(tParcelas.getRowCount()!=0) {
+					MiModeloTablaParcelas modeloTablaP = (MiModeloTablaParcelas) tParcelas.getModel();
+					modeloTablaP.eliminaFila(0);
+					modeloTablaP.fireTableDataChanged();
+				}
 				Writer.escribirListaParcelas(listParcelasNueva);
 				break;
 			case 1:
@@ -334,7 +339,11 @@ public class UI_ParcelasBungalows extends JFrame {
 							 equipamiento, capacidadMaxima, estanciaMinima);
 					listBungalowsNueva.add(b);
 				}
-				
+				while(tBungalows.getRowCount()!=0) {
+					MiModeloTablaBungalows modeloTablaB = (MiModeloTablaBungalows) tBungalows.getModel();
+					modeloTablaB.eliminaFila(0);
+					modeloTablaB.fireTableDataChanged();
+				}
 				Writer.escribirListaBungalows(listBungalowsNueva);
 				break;
 			}

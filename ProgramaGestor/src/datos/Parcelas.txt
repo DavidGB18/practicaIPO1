@@ -1,4 +1,4 @@
-500 159.0 true DELUXE senderismo    Cercano al bosque
-350 200.0 false PEQUENA vistas    Cerca de las colinas escombrosas
-460 230.0 false MEDIANA senderismo    Cercano al rio y al bosque
-100 140.0 true AUTOCARAVANA natacion    Cercano al rio
+500 159.0 true DELUXE senderismo     Cercano al bosque
+350 200.0 false PEQUENA vistas     Cerca de las colinas escombrosas
+460 230.0 false MEDIANA senderismo     Cercano al rio y al bosque
+100 140.0 true AUTOCARAVANA natacion     Cercano al rio
