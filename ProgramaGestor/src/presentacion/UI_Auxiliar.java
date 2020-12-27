@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.text.MaskFormatter;
 
 import dominio.Actividad;
 import dominio.Monitor;
@@ -16,6 +17,7 @@ import java.awt.CardLayout;
 import javax.swing.JButton;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.text.ParseException;
 import java.awt.GridBagLayout;
 import javax.swing.JLabel;
 import java.awt.GridBagConstraints;
@@ -74,7 +76,7 @@ public class UI_Auxiliar extends JFrame {
 	private JTextField txtFormacion;
 	private JLabel lblConfiguracionMonitor;
 	private JLabel lblFotoMonitor2;
-	private JFormattedTextField formattedTextFieldCorreoMonitor;
+	private JTextField txtCorreoMonitor;
 	private JLabel lblCorreoMonitor;
 
 	public static int elegirPanel;
@@ -231,7 +233,15 @@ public class UI_Auxiliar extends JFrame {
 					panelMonitores.add(lblDniMonitor, gbc_lblDniMonitor);
 				}
 				{
-					formattedTextFieldDniMonitor = new JFormattedTextField();
+					MaskFormatter formatoDNI;
+					try {
+						formatoDNI = new MaskFormatter("#######'-U");
+						formatoDNI.setPlaceholderCharacter('X');
+						formattedTextFieldDniMonitor = new JFormattedTextField(formatoDNI);
+					} catch (ParseException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 					GridBagConstraints gbc_formattedTextFieldDniMonitor = new GridBagConstraints();
 					gbc_formattedTextFieldDniMonitor.insets = new Insets(0, 0, 5, 5);
 					gbc_formattedTextFieldDniMonitor.fill = GridBagConstraints.HORIZONTAL;
@@ -249,7 +259,15 @@ public class UI_Auxiliar extends JFrame {
 					panelMonitores.add(lblTlfMonitor, gbc_lblTlfMonitor);
 				}
 				{
-					formattedTextFieldTlfMonitor = new JFormattedTextField();
+					MaskFormatter formato;
+					try {
+						formato = new MaskFormatter("###'-###'-###");
+						formato.setPlaceholderCharacter('*');
+						formattedTextFieldTlfMonitor = new JFormattedTextField(formato);
+					} catch (ParseException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 					GridBagConstraints gbc_formattedTextFieldTlfMonitor = new GridBagConstraints();
 					gbc_formattedTextFieldTlfMonitor.insets = new Insets(0, 0, 5, 5);
 					gbc_formattedTextFieldTlfMonitor.fill = GridBagConstraints.HORIZONTAL;
@@ -276,13 +294,13 @@ public class UI_Auxiliar extends JFrame {
 					panelMonitores.add(lblCorreoMonitor, gbc_lblCorreoMonitor);
 				}
 				{
-					formattedTextFieldCorreoMonitor = new JFormattedTextField();
-					GridBagConstraints gbc_formattedTextFieldCorreoMonitor = new GridBagConstraints();
-					gbc_formattedTextFieldCorreoMonitor.insets = new Insets(0, 0, 5, 5);
-					gbc_formattedTextFieldCorreoMonitor.fill = GridBagConstraints.HORIZONTAL;
-					gbc_formattedTextFieldCorreoMonitor.gridx = 2;
-					gbc_formattedTextFieldCorreoMonitor.gridy = 9;
-					panelMonitores.add(formattedTextFieldCorreoMonitor, gbc_formattedTextFieldCorreoMonitor);
+					txtCorreoMonitor = new JTextField();
+					GridBagConstraints gbc_txtCorreoMonitor = new GridBagConstraints();
+					gbc_txtCorreoMonitor.insets = new Insets(0, 0, 5, 5);
+					gbc_txtCorreoMonitor.fill = GridBagConstraints.HORIZONTAL;
+					gbc_txtCorreoMonitor.gridx = 2;
+					gbc_txtCorreoMonitor.gridy = 9;
+					panelMonitores.add(txtCorreoMonitor, gbc_txtCorreoMonitor);
 				}
 				{
 					txtFormacion = new JTextField();
@@ -567,7 +585,7 @@ public class UI_Auxiliar extends JFrame {
 			txtApellido2Monitor.setEditable(false);
 			formattedTextFieldDniMonitor.setEditable(false);
 			formattedTextFieldTlfMonitor.setEditable(false);
-			formattedTextFieldCorreoMonitor.setEditable(false);
+			txtCorreoMonitor.setEditable(false);
 			txtFormacion.setEditable(false);
 			txtIdiomas.setEditable(false);
 
@@ -588,7 +606,7 @@ public class UI_Auxiliar extends JFrame {
 			txtApellido2Monitor.setText(m.getApellido2());
 			formattedTextFieldDniMonitor.setText(m.getDni());
 			formattedTextFieldTlfMonitor.setText(String.valueOf(m.getTelefono()));
-			formattedTextFieldCorreoMonitor.setText(m.getCorreoElectronico());
+			txtCorreoMonitor.setText(m.getCorreoElectronico());
 			txtFormacion.setText(m.getFormacion());
 			// lblFotoMonitor.setIcon();
 			txtIdiomas.setText(m.getIdiomas());
@@ -699,7 +717,7 @@ public class UI_Auxiliar extends JFrame {
 							String apellido2 = txtApellido2Monitor.getText();
 							String dni = formattedTextFieldDniMonitor.getText();
 							Long telefono = Long.parseLong(formattedTextFieldTlfMonitor.getText());
-							String correoElectronico = formattedTextFieldCorreoMonitor.getText();
+							String correoElectronico = txtCorreoMonitor.getText();
 							String formacion = txtFormacion.getText();
 							String idiomas = txtIdiomas.getText();
 							String rutaFotoMonitor = lblFotoMonitor.getIcon().toString();
@@ -765,7 +783,7 @@ public class UI_Auxiliar extends JFrame {
 									String apellido2 = txtApellido2Monitor.getText();
 									String dni = formattedTextFieldDniMonitor.getText();
 									Long telefono = Long.parseLong(formattedTextFieldTlfMonitor.getText());
-									String correoElectronico = formattedTextFieldCorreoMonitor.getText();
+									String correoElectronico = txtCorreoMonitor.getText();
 									String formacion = txtFormacion.getText();
 									String idiomas = txtIdiomas.getText();
 									String rutaFotoMonitor = lblFotoMonitor.getIcon().toString();

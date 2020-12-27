@@ -5,6 +5,7 @@ import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.text.MaskFormatter;
 
 import dominio.Fecha;
 import dominio.Reserva;
@@ -26,6 +27,7 @@ import javax.swing.JTextPane;
 import javax.swing.JFormattedTextField;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.text.ParseException;
 import java.util.Random;
 
 import javax.swing.JProgressBar;
@@ -216,7 +218,15 @@ public class UI_Reservas extends JFrame {
 							panelPaso2.add(lblFechaEntradaNuevaReserva, gbc_lblFechaEntradaNuevaReserva);
 						}
 						{
-							formattedTextFieldFechaEntradaNuevaReserva = new JFormattedTextField();
+							MaskFormatter formatoDNI;
+							try {
+								formatoDNI = new MaskFormatter("##'/##'/####");
+								formatoDNI.setPlaceholderCharacter('*');
+								formattedTextFieldFechaEntradaNuevaReserva = new JFormattedTextField(formatoDNI);
+							} catch (ParseException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
 							GridBagConstraints gbc_formattedTextFieldFechaEntradaNuevaReserva = new GridBagConstraints();
 							gbc_formattedTextFieldFechaEntradaNuevaReserva.anchor = GridBagConstraints.NORTH;
 							gbc_formattedTextFieldFechaEntradaNuevaReserva.fill = GridBagConstraints.HORIZONTAL;
@@ -228,6 +238,15 @@ public class UI_Reservas extends JFrame {
 									gbc_formattedTextFieldFechaEntradaNuevaReserva);
 						}
 						{
+							MaskFormatter formatoDNI;
+							try {
+								formatoDNI = new MaskFormatter("##'/##'/####");
+								formatoDNI.setPlaceholderCharacter('*');
+								formattedTextFieldFechaEntradaNuevaReserva = new JFormattedTextField(formatoDNI);
+							} catch (ParseException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
 							lblFechaSalidaNuevaReserva = new JLabel("Fecha Salida:");
 							GridBagConstraints gbc_lblFechaSalidaNuevaReserva = new GridBagConstraints();
 							gbc_lblFechaSalidaNuevaReserva.fill = GridBagConstraints.HORIZONTAL;
@@ -334,7 +353,16 @@ public class UI_Reservas extends JFrame {
 							panelPaso3.add(lblCorreoElectronico, gbc_lblCorreoElectronico);
 						}
 						{
-							formattedTextFieldDNI = new JFormattedTextField();
+							
+							MaskFormatter formatoDNI;
+							try {
+								formatoDNI = new MaskFormatter("#######'-U");
+								formatoDNI.setPlaceholderCharacter('X');
+								formattedTextFieldDNI = new JFormattedTextField(formatoDNI);
+							} catch (ParseException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
 							GridBagConstraints gbc_formattedTextFieldDNI = new GridBagConstraints();
 							gbc_formattedTextFieldDNI.insets = new Insets(0, 0, 5, 5);
 							gbc_formattedTextFieldDNI.fill = GridBagConstraints.HORIZONTAL;
@@ -343,7 +371,15 @@ public class UI_Reservas extends JFrame {
 							panelPaso3.add(formattedTextFieldDNI, gbc_formattedTextFieldDNI);
 						}
 						{
-							formattedTextFieldTelefonoNuevaReserva = new JFormattedTextField();
+							MaskFormatter formato;
+							try {
+								formato = new MaskFormatter("###'-###'-###");
+								formato.setPlaceholderCharacter('*');
+								formattedTextFieldTelefonoNuevaReserva = new JFormattedTextField(formato);
+							} catch (ParseException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
 							GridBagConstraints gbc_formattedTextFieldTelefonoNuevaReserva = new GridBagConstraints();
 							gbc_formattedTextFieldTelefonoNuevaReserva.insets = new Insets(0, 0, 5, 5);
 							gbc_formattedTextFieldTelefonoNuevaReserva.fill = GridBagConstraints.HORIZONTAL;
