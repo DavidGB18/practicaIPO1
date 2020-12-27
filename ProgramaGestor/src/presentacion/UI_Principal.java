@@ -9,12 +9,12 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 
-public class UI_PantallaCarga extends JFrame {
+public class UI_Principal extends JFrame {
 
 	private static final long serialVersionUID = 6103557088498636460L;
 	private JPanel contentPane;
 	private JLabel lblGif;
-	private static UI_PantallaCarga frame;
+	private static UI_Principal frame;
 
 	/**
 	 * Launch the application.
@@ -23,7 +23,7 @@ public class UI_PantallaCarga extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					frame = new UI_PantallaCarga();
+					frame = new UI_Principal();
 					frame.setLocationRelativeTo(null);
 					frame.setVisible(true);
 
@@ -55,7 +55,7 @@ public class UI_PantallaCarga extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public UI_PantallaCarga() {
+	public UI_Principal() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		setUndecorated(true);
@@ -65,7 +65,7 @@ public class UI_PantallaCarga extends JFrame {
 		setContentPane(contentPane);
 		{
 			lblGif = new JLabel("");
-			lblGif.setIcon(new ImageIcon(UI_PantallaCarga.class.getResource("/recursos/prueba.gif")));
+			lblGif.setIcon(new ImageIcon(UI_Principal.class.getResource("/recursos/prueba.gif")));
 			contentPane.add(lblGif, BorderLayout.CENTER);
 		}
 	}
