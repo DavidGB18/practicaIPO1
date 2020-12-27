@@ -543,7 +543,7 @@ public class UI_Auxiliar extends JFrame {
 				{
 					btnModificar = new JButton("Modificar");
 					btnModificar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-					btnModificar.addActionListener(new BtnConfirmacionAccionActionListener("Modificar"));
+					btnModificar.addActionListener(new BtnConfirmacionAccionActionListener("modificar"));
 					panelModificar.add(btnModificar);
 				}
 			}
@@ -601,13 +601,13 @@ public class UI_Auxiliar extends JFrame {
 			txtDescripcionActividad.setText(a.getDescripcion());
 
 			switch (a.getDestinatario()) {
-			case "NINOS":
+			case "ninos":
 				rdbtnNinos.setSelected(true);
 				break;
-			case "ADULTOS":
+			case "adultos":
 				rdbtnAdultos.setSelected(true);
 				break;
-			case "ANCIANOS":
+			case "ancianos":
 				rdbtnAncianos.setSelected(true);
 				break;
 			}
@@ -711,7 +711,9 @@ public class UI_Auxiliar extends JFrame {
 							Writer.escribirListaMonitores(Reader.getListMonitores());
 
 						} catch (Exception e1) {
-							JOptionPane.showMessageDialog(new JFrame(), "Algo fue mal en el proceso, vuelva a intentarlo", "Error", JOptionPane.ERROR_MESSAGE);
+							JOptionPane.showMessageDialog(new JFrame(),
+									"Algo fue mal en el proceso, vuelva a intentarlo", "Error",
+									JOptionPane.ERROR_MESSAGE);
 							dispose();
 						}
 
@@ -719,43 +721,139 @@ public class UI_Auxiliar extends JFrame {
 					case 1:
 
 						try {
-						String monitor = textFieldMonitor.getText();
-						int horaComienzo = (int) spinnerInicioActividad.getValue();
-						int horaFin = (int) spinnerFinalActividad.getValue();
-						int cupoMaximo = Integer.parseInt(textFieldCupoMaximoActividad.getText());
-						String destinatario = null;
-						
-						if( rdbtnNinos.isSelected() ) {
-							 destinatario = "sinos";	
-						} else if(rdbtnAdultos.isSelected()){
-							 destinatario = "adultos";
-						} else if(rdbtnAncianos.isSelected()){ 
-							 destinatario = "ancianos";
-						}
-						
-						
-						int precio = Integer.parseInt(textFieldPrecioActividad.getText());
-						String descripcion = txtDescripcionActividad.getText();
-						
-						Actividad a = new Actividad( monitor,  horaComienzo,  horaFin,  cupoMaximo,  destinatario,  precio,  descripcion);
-						
-						Reader.getListActividades().add(a);
-						Writer.escribirListaActividades(Reader.getListActividades());
-						
-						}catch(Exception e2) {
-							JOptionPane.showMessageDialog(new JFrame(), "Algo fue mal en el proceso, vuelva a intentarlo", "Error", JOptionPane.ERROR_MESSAGE);
+							String monitor = textFieldMonitor.getText();
+							int horaComienzo = (int) spinnerInicioActividad.getValue();
+							int horaFin = (int) spinnerFinalActividad.getValue();
+							int cupoMaximo = Integer.parseInt(textFieldCupoMaximoActividad.getText());
+							String destinatario = null;
+
+							if (rdbtnNinos.isSelected()) {
+								destinatario = "ninos";
+							} else if (rdbtnAdultos.isSelected()) {
+								destinatario = "adultos";
+							} else if (rdbtnAncianos.isSelected()) {
+								destinatario = "ancianos";
+							}
+
+							int precio = Integer.parseInt(textFieldPrecioActividad.getText());
+							String descripcion = txtDescripcionActividad.getText();
+
+							Actividad a = new Actividad(monitor, horaComienzo, horaFin, cupoMaximo, destinatario,
+									precio, descripcion);
+
+							Reader.getListActividades().add(a);
+							Writer.escribirListaActividades(Reader.getListActividades());
+
+						} catch (Exception e2) {
+							JOptionPane.showMessageDialog(new JFrame(),
+									"Algo fue mal en el proceso, vuelva a intentarlo", "Error",
+									JOptionPane.ERROR_MESSAGE);
 							dispose();
 						}
 						break;
 					}
 					break;
 				case "modificar":
-					
-					
+					switch (elegirFormulario) {
+					case 0:
+						for (int i = 0; i < Reader.getListMonitores().size(); i++) {
+							if (monitor.getNombre().equals(Reader.getListMonitores().get(i).getNombre())) {
+
+								try {
+									String nombre = txtNombreMonitor.getText();
+									String apellido1 = txtApellido1Monitor.getText();
+									String apellido2 = txtApellido2Monitor.getText();
+									String dni = formattedTextFieldDniMonitor.getText();
+									Long telefono = Long.parseLong(formattedTextFieldTlfMonitor.getText());
+									String correoElectronico = formattedTextFieldCorreoMonitor.getText();
+									String formacion = txtFormacion.getText();
+									String idiomas = txtIdiomas.getText();
+									String rutaFotoMonitor = lblFotoMonitor.getIcon().toString();
+
+									Monitor m = new Monitor(nombre, apellido1, apellido2, dni, telefono,
+											correoElectronico, formacion, rutaFotoMonitor, idiomas);
+
+									Reader.getListMonitores().remove(i);
+									Reader.getListMonitores().add(m);
+
+									Writer.escribirListaMonitores(Reader.getListMonitores());
+									break;
+								} catch (Exception e2) {
+									JOptionPane.showMessageDialog(new JFrame(),
+											"Algo fue mal en el proceso, vuelva a intentarlo", "Error",
+											JOptionPane.ERROR_MESSAGE);
+									dispose();
+								}
+							}
+						}
+
+						break;
+					case 1:
+						for (int i = 0; i < Reader.getListActividades().size(); i++) {
+							if (actividad.getDescripcion()
+									.equals(Reader.getListActividades().get(i).getDescripcion())) {
+
+								try {
+									String monitor = textFieldMonitor.getText();
+									int horaComienzo = (int) spinnerInicioActividad.getValue();
+									int horaFin = (int) spinnerFinalActividad.getValue();
+									int cupoMaximo = Integer.parseInt(textFieldCupoMaximoActividad.getText());
+									String destinatario = null;
+
+									if (rdbtnNinos.isSelected()) {
+										destinatario = "ninos";
+									} else if (rdbtnAdultos.isSelected()) {
+										destinatario = "adultos";
+									} else if (rdbtnAncianos.isSelected()) {
+										destinatario = "ancianos";
+									}
+
+									int precio = Integer.parseInt(textFieldPrecioActividad.getText());
+									String descripcion = txtDescripcionActividad.getText();
+
+									Actividad a = new Actividad(monitor, horaComienzo, horaFin, cupoMaximo,
+											destinatario, precio, descripcion);
+
+									Reader.getListActividades().remove(i);
+									Reader.getListActividades().add(a);
+
+									Writer.escribirListaActividades(Reader.getListActividades());
+									break;
+								} catch (Exception e2) {
+									JOptionPane.showMessageDialog(new JFrame(),
+											"Algo fue mal en el proceso, vuelva a intentarlo", "Error",
+											JOptionPane.ERROR_MESSAGE);
+									dispose();
+								}
+							}
+						}
+
+						break;
+					}
+
 					break;
 				case "borrar":
-					
-					
+
+					switch (elegirFormulario) {
+					case 0:
+						for (int i = 0; i < Reader.getListMonitores().size(); i++) {
+							if (monitor.getNombre().equals(Reader.getListMonitores().get(i).getNombre())) {
+								Reader.getListMonitores().remove(i);
+								Writer.escribirListaMonitores(Reader.getListMonitores());
+							}
+						}
+						break;
+					case 1:
+						for (int i = 0; i < Reader.getListActividades().size(); i++) {
+							if (actividad.getDescripcion()
+									.equals(Reader.getListActividades().get(i).getDescripcion())) {
+								Reader.getListActividades().remove(i);
+								Writer.escribirListaActividades(Reader.getListActividades());
+							}
+						}
+						break;
+					}
+
 					break;
 				}
 
