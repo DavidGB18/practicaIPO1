@@ -79,26 +79,26 @@ public class UI_DibujoRutas extends JFrame {
 			contentPane.add(tbBarraDibujo, BorderLayout.NORTH);
 			{
 				btnGuardar = new JButton("");
-				btnGuardar.setIcon(new ImageIcon(UI_DibujoRutas.class.getResource("/recursos/floppy-disk-2@1x.png")));
+				btnGuardar.setIcon(new ImageIcon(UI_DibujoRutas.class.getResource("/recursos/ruta/floppy-disk-2@1x.png")));
 				btnGuardar.addActionListener(new BtnGuardarActionListener());
 
 				tbBarraDibujo.add(btnGuardar);
 			}
 			{
 				btnCargar = new JButton("");
-				btnCargar.setIcon(new ImageIcon(UI_DibujoRutas.class.getResource("/recursos/folder@1x.png")));
+				btnCargar.setIcon(new ImageIcon(UI_DibujoRutas.class.getResource("/recursos/ruta/folder@1x.png")));
 				btnCargar.addActionListener(new BtnCargarActionListener());
 				tbBarraDibujo.add(btnCargar);
 			}
 			{
 				btnDibujar = new JButton("");
-				btnDibujar.setIcon(new ImageIcon(UI_DibujoRutas.class.getResource("/recursos/pencil@1x.png")));
+				btnDibujar.setIcon(new ImageIcon(UI_DibujoRutas.class.getResource("/recursos/ruta/pencil@1x.png")));
 				btnDibujar.addActionListener(new BtnDibujarActionListener());
 				tbBarraDibujo.add(btnDibujar);
 			}
 			{
 				btnTexto = new JButton("");
-				btnTexto.setIcon(new ImageIcon(UI_DibujoRutas.class.getResource("/recursos/texto.png")));
+				btnTexto.setIcon(new ImageIcon(UI_DibujoRutas.class.getResource("/recursos/ruta/texto.png")));
 				btnTexto.addActionListener(new BtnTextoActionListener());
 
 				tbBarraDibujo.add(btnTexto);
@@ -106,13 +106,13 @@ public class UI_DibujoRutas extends JFrame {
 			{
 				btnZoomMayor = new JButton("");
 				btnZoomMayor.addActionListener(new BtnZoomMayorActionListener());
-				btnZoomMayor.setIcon(new ImageIcon(UI_DibujoRutas.class.getResource("/recursos/plus-in-circle@1x.png")));
+				btnZoomMayor.setIcon(new ImageIcon(UI_DibujoRutas.class.getResource("/recursos/ruta/plus-in-circle@1x.png")));
 				tbBarraDibujo.add(btnZoomMayor);
 			}
 			{
 				btnZoomMenor = new JButton("");
 				btnZoomMenor.addActionListener(new BtnZoomMenorActionListener());
-				btnZoomMenor.setIcon(new ImageIcon(UI_DibujoRutas.class.getResource("/recursos/minus-in-circle@1x.png")));
+				btnZoomMenor.setIcon(new ImageIcon(UI_DibujoRutas.class.getResource("/recursos/ruta/minus-in-circle@1x.png")));
 				tbBarraDibujo.add(btnZoomMenor);
 			}
 		}

@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.TableColumn;
 
 import java.awt.CardLayout;
 import java.awt.Component;
@@ -17,17 +18,24 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
 import dominio.Bungalow;
+import dominio.Categoria;
 import dominio.Parcela;
 import lecturaEscritura.Reader;
+import lecturaEscritura.Writer;
 
 import javax.swing.JScrollPane;
 import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.ArrayList;
+
 import javax.swing.SwingConstants;
 import java.awt.Font;
 
+import javax.swing.DefaultCellEditor;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
+
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -111,6 +119,17 @@ public class UI_ParcelasBungalows extends JFrame {
 							}
 						}
 						spParcelas.setViewportView(tParcelas);
+						
+						TableColumn columnaCategoria = tParcelas.getColumnModel().getColumn(5);
+
+						JComboBox<Categoria> comboBox = new JComboBox<Categoria>();
+						comboBox.addItem(Categoria.PEQUENA);
+						comboBox.addItem(Categoria.MEDIANA);
+						comboBox.addItem(Categoria.DELUXE);
+						comboBox.addItem(Categoria.GRANDE);
+						comboBox.addItem(Categoria.AUTOCARAVANA);
+
+						columnaCategoria.setCellEditor(new DefaultCellEditor(comboBox));
 					}
 				}
 				{
@@ -174,6 +193,7 @@ public class UI_ParcelasBungalows extends JFrame {
 							}
 							{
 								btnGuardarCambios = new JButton("Guardar Cambios");
+								btnGuardarCambios.addActionListener(new BtnGuardarCambiosActionListener());
 								btnGuardarCambios.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 								panelBotones.add(btnGuardarCambios);
 							}
@@ -274,6 +294,52 @@ public class UI_ParcelasBungalows extends JFrame {
 			}
 			
 
+		}
+	}
+	private class BtnGuardarCambiosActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			//parcelas-0 , bungalows-1
+			switch(elegirPanel) {
+			case 0:
+				ArrayList<Parcela> listParcelasNueva = new ArrayList<Parcela>();
+				for(int i=0; i<tParcelas.getRowCount();i++) {
+					
+					int tam = (int) tParcelas.getValueAt(i,0);
+					double precioNoche = (double) tParcelas.getValueAt(i,1);
+					boolean disponibilidad = (boolean) tParcelas.getValueAt(i,2);
+					String ubicacion= (String) tParcelas.getValueAt(i,3);
+					String arrayServicios = (String) tParcelas.getValueAt(i,4);
+					Categoria categoria = (Categoria) tParcelas.getValueAt(i,5);
+					
+					Parcela p = new Parcela(tam, precioNoche, disponibilidad, ubicacion, arrayServicios, categoria);
+					listParcelasNueva.add(p);
+				}
+				Writer.escribirListaParcelas(listParcelasNueva);
+				break;
+			case 1:
+				ArrayList<Bungalow> listBungalowsNueva = new ArrayList<Bungalow>();
+				
+				for(int i=0; i<tBungalows.getRowCount();i++) {
+					
+					 int tam = (int) tBungalows.getValueAt(i,0);
+					 double precioNoche = (double) tBungalows.getValueAt(i,1);
+					 boolean disponibilidad = (boolean) tBungalows.getValueAt(i,2);
+					 String descripcion = (String) tBungalows.getValueAt(i,3);
+					 String pathFotos = (String) tBungalows.getValueAt(i,4);
+					 String equipamiento = (String) tBungalows.getValueAt(i,5);
+					 int capacidadMaxima = (int) tBungalows.getValueAt(i,6);
+					 int estanciaMinima = (int) tBungalows.getValueAt(i,7);
+					
+					Bungalow b = new Bungalow(tam, precioNoche, disponibilidad, descripcion, pathFotos, 
+							 equipamiento, capacidadMaxima, estanciaMinima);
+					listBungalowsNueva.add(b);
+				}
+				
+				Writer.escribirListaBungalows(listBungalowsNueva);
+				break;
+			}
+			UI_Gestor.setComprobadorParcelasBungalows(0);
+			dispose();	
 		}
 	}
 

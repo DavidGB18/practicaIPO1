@@ -29,17 +29,14 @@ public class Reader {
 		listReservas = new ArrayList<>();
 		listRutas = new ArrayList<>();
 
-		leerActividades();
-		leerBungalows();
-		leerMonitores();
-		leerParcelas();
 		leerUsuarios();
 		leerRutas();
-		leerReservas();
+		leerActividades();
+		leerMonitores();
 		leerConfiguracion();
 	}
 
-	private static void leerConfiguracion() {
+	public static void leerConfiguracion() {
 		try {
 			File myObj = new File("src/datos/Configuracion.txt");
 			Scanner myReader = new Scanner(myObj);
@@ -144,8 +141,8 @@ public class Reader {
 				int tam = Integer.parseInt(myReader.next());
 				double precioNoche = Double.parseDouble(myReader.next());
 				boolean disponibilidad = Boolean.parseBoolean(myReader.next());
-				String servicios = myReader.next();
 				Categoria categoria = Categoria.valueOf(myReader.next());
+				String servicios = myReader.next();
 				String ubicacion = myReader.nextLine();
 
 				Parcela p = new Parcela(tam, precioNoche, disponibilidad, ubicacion, servicios, categoria);

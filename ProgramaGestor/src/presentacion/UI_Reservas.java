@@ -373,7 +373,7 @@ public class UI_Reservas extends JFrame {
 						{
 							MaskFormatter formato;
 							try {
-								formato = new MaskFormatter("###'-###'-###");
+								formato = new MaskFormatter("#########");
 								formato.setPlaceholderCharacter('*');
 								formattedTextFieldTelefonoNuevaReserva = new JFormattedTextField(formato);
 							} catch (ParseException e) {

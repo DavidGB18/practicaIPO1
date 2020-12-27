@@ -881,7 +881,7 @@ public class UI_Gestor {
 						btnHome.addActionListener(new BtnHomeActionListener());
 						btnHome.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 						btnHome.setBorder(null);
-						btnHome.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/pestana1.png")));
+						btnHome.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/barraLateral/pestana1.png")));
 						GridBagConstraints gbc_btnHome = new GridBagConstraints();
 						gbc_btnHome.insets = new Insets(0, 0, 5, 0);
 						gbc_btnHome.gridx = 0;
@@ -896,7 +896,7 @@ public class UI_Gestor {
 						btnIdioma = new JButton("");
 						btnIdioma.setBorder(null);
 						btnIdioma.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-						btnIdioma.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/banderaEsp.gif")));
+						btnIdioma.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/barraLateral/banderaEsp.gif")));
 						GridBagConstraints gbc_btnIdioma = new GridBagConstraints();
 						gbc_btnIdioma.insets = new Insets(0, 0, 5, 0);
 						gbc_btnIdioma.gridx = 0;
@@ -908,7 +908,7 @@ public class UI_Gestor {
 					btnHelp.setToolTipText("Ayuda");
 					btnHelp.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 					btnHelp.setBorder(null);
-					btnHelp.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/help.png")));
+					btnHelp.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/barraLateral/help.png")));
 					GridBagConstraints gbc_btnHelp = new GridBagConstraints();
 					gbc_btnHelp.insets = new Insets(0, 0, 5, 0);
 					gbc_btnHelp.gridx = 0;
@@ -923,7 +923,7 @@ public class UI_Gestor {
 					btnUser.addActionListener(new BtnUserActionListener());
 					btnUser.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 					btnUser.setBorder(null);
-					btnUser.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/user-male.png")));
+					btnUser.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/barraLateral/user-male.png")));
 					GridBagConstraints gbc_btnUser = new GridBagConstraints();
 					gbc_btnUser.insets = new Insets(0, 0, 5, 0);
 					gbc_btnUser.gridx = 0;
@@ -945,7 +945,7 @@ public class UI_Gestor {
 						btnCalendario.setOpaque(false);
 						btnCalendario.setToolTipText("Calendario");
 						btnCalendario.setBorder(null);
-						btnCalendario.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/calendarbtn.png")));
+						btnCalendario.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/barraLateral/calendarbtn.png")));
 						GridBagConstraints gbc_btnCalendario = new GridBagConstraints();
 						gbc_btnCalendario.insets = new Insets(0, 0, 5, 0);
 						gbc_btnCalendario.gridx = 0;
@@ -953,7 +953,7 @@ public class UI_Gestor {
 						panelOpcionesPrincipales.add(btnCalendario, gbc_btnCalendario);
 					}
 					btnLogout.setBorder(null);
-					btnLogout.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/exit.png")));
+					btnLogout.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/barraLateral/exit.png")));
 					GridBagConstraints gbc_btnLogout = new GridBagConstraints();
 					gbc_btnLogout.gridx = 0;
 					gbc_btnLogout.gridy = 5;
@@ -1307,7 +1307,8 @@ public class UI_Gestor {
 		}
 
 		public void actionPerformed(ActionEvent e) {
-
+			Reader.leerParcelas();
+			Reader.leerBungalows();
 			if (comprobadorParcelasBungalows == 0) {
 				JFrame window = new UI_ParcelasBungalows();
 				window.setVisible(true);

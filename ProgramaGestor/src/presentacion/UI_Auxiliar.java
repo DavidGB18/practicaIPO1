@@ -261,7 +261,7 @@ public class UI_Auxiliar extends JFrame {
 				{
 					MaskFormatter formato;
 					try {
-						formato = new MaskFormatter("###'-###'-###");
+						formato = new MaskFormatter("#########");
 						formato.setPlaceholderCharacter('*');
 						formattedTextFieldTlfMonitor = new JFormattedTextField(formato);
 					} catch (ParseException e) {
@@ -729,6 +729,7 @@ public class UI_Auxiliar extends JFrame {
 							Writer.escribirListaMonitores(Reader.getListMonitores());
 
 						} catch (Exception e1) {
+							e1.printStackTrace();
 							JOptionPane.showMessageDialog(new JFrame(),
 									"Algo fue mal en el proceso, vuelva a intentarlo", "Error",
 									JOptionPane.ERROR_MESSAGE);
