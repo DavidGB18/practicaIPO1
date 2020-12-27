@@ -258,7 +258,7 @@ public class UI_ParcelasBungalows extends JFrame {
 				break;
 			case 1:
 				MiModeloTablaBungalows modeloTablaB = (MiModeloTablaBungalows) tBungalows.getModel();
-				Object[] nuevaFilaB = {0,0,false,"","",0,0,""};
+				Object[] nuevaFilaB = {0,0,false,"","","",0,0};
 				modeloTablaB.aniadeFila(nuevaFilaB);
 				modeloTablaB.fireTableDataChanged();
 				break;
