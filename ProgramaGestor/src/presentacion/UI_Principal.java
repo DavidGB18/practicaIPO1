@@ -33,7 +33,7 @@ public class UI_Principal extends JFrame {
 			}
 		});
 		try {
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 			frame.dispose();
 		} catch (InterruptedException e) {
 			e.printStackTrace();
@@ -52,9 +52,6 @@ public class UI_Principal extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public UI_Principal() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);

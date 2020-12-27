@@ -1,6 +1,5 @@
 package presentacion;
 
-import java.awt.EventQueue;
 import javax.swing.JFrame;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
