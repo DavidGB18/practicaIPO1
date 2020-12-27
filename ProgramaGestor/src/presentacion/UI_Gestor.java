@@ -1324,6 +1324,7 @@ public class UI_Gestor {
 				if (user.equals(Reader.getListUsuarios().get(i).getNombre())) {
 					textUsuario.setBorder(new LineBorder(Color.GREEN, 2));
 					passwordField.setEnabled(true);
+					lblFoto.setIcon(new ImageIcon(UI_Gestor.class.getResource(Reader.getListUsuarios().get(i).getFoto())));
 				} 
 			}
 		}
