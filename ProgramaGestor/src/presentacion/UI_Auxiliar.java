@@ -9,6 +9,8 @@ import javax.swing.border.EmptyBorder;
 
 import dominio.Actividad;
 import dominio.Monitor;
+import lecturaEscritura.Reader;
+import lecturaEscritura.Writer;
 
 import java.awt.CardLayout;
 import javax.swing.JButton;
@@ -705,7 +707,8 @@ public class UI_Auxiliar extends JFrame {
 							Monitor m = new Monitor(nombre, apellido1, apellido2, dni, telefono, correoElectronico,
 									formacion, rutaFotoMonitor, idiomas);
 
-							System.out.println(m.toString());
+							Reader.getListMonitores().add(m);
+							Writer.escribirListaMonitores(Reader.getListMonitores());
 
 						} catch (Exception e1) {
 							JOptionPane.showMessageDialog(new JFrame(), "Algo fue mal en el proceso, vuelva a intentarlo", "Error", JOptionPane.ERROR_MESSAGE);
@@ -736,7 +739,9 @@ public class UI_Auxiliar extends JFrame {
 						
 						Actividad a = new Actividad( monitor,  horaComienzo,  horaFin,  cupoMaximo,  destinatario,  precio,  descripcion);
 						
-						System.out.println(a.toString());
+						Reader.getListActividades().add(a);
+						Writer.escribirListaActividades(Reader.getListActividades());
+						
 						}catch(Exception e2) {
 							JOptionPane.showMessageDialog(new JFrame(), "Algo fue mal en el proceso, vuelva a intentarlo", "Error", JOptionPane.ERROR_MESSAGE);
 							dispose();
@@ -745,8 +750,12 @@ public class UI_Auxiliar extends JFrame {
 					}
 					break;
 				case "modificar":
+					
+					
 					break;
 				case "borrar":
+					
+					
 					break;
 				}
 
