@@ -17,7 +17,7 @@ import dominio.Usuario;
 
 public class Writer {
 	
-	public void escribirListaUsuarios(ArrayList<Usuario> list) {
+	public static void escribirListaUsuarios(ArrayList<Usuario> list) {
 		File myObj = new File("src/datos/Usuarios.txt");
 		FileWriter w;
 		try {
@@ -35,7 +35,7 @@ public class Writer {
 
 	}
 	
-	public void escribirConfiguracion(ArrayList<Configuracion> list) {
+	public static void escribirConfiguracion(ArrayList<Configuracion> list) {
 		File myObj = new File("src/datos/Configuracion.txt");
 		FileWriter w;
 		try {
@@ -53,7 +53,7 @@ public class Writer {
 		
 	}
 	
-	public void escribirListaMonitores(ArrayList<Monitor> list) {
+	public static void escribirListaMonitores(ArrayList<Monitor> list) {
 		File myObj = new File("src/datos/Monitores.txt");
 		FileWriter w;
 		try {
@@ -70,7 +70,7 @@ public class Writer {
 		}
 	}
 	
-	public void escribirListaActividades(ArrayList<Actividad> list) {
+	public static void escribirListaActividades(ArrayList<Actividad> list) {
 		File myObj = new File("src/datos/Actividades.txt");
 		FileWriter w;
 		try {
@@ -87,7 +87,7 @@ public class Writer {
 		}
 	}
 	
-	public void escribirListaRutas(ArrayList<Ruta> list) {
+	public static void escribirListaRutas(ArrayList<Ruta> list) {
 		File myObj = new File("src/datos/Rutas.txt");
 		FileWriter w;
 		try {
@@ -104,7 +104,7 @@ public class Writer {
 		}
 	}
 	
-	public void escribirListaReservas(ArrayList<Reserva> list) {
+	public static void escribirListaReservas(ArrayList<Reserva> list) {
 		File myObj = new File("src/datos/Reservas.txt");
 		FileWriter w;
 		try {
@@ -121,7 +121,7 @@ public class Writer {
 		}
 	}
 	
-	public void escribirListaParcelas(ArrayList<Parcela> list) {
+	public static void escribirListaParcelas(ArrayList<Parcela> list) {
 		File myObj = new File("src/datos/Parcelas.txt");
 		FileWriter w;
 		try {
@@ -138,7 +138,7 @@ public class Writer {
 		}
 	}
 	
-	public void escribirListaBungalows(ArrayList<Bungalow> list) {
+	public static void escribirListaBungalows(ArrayList<Bungalow> list) {
 		File myObj = new File("src/datos/Bungalows.txt");
 		FileWriter w;
 		try {

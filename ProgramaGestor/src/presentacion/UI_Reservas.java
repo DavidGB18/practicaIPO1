@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 import dominio.Fecha;
 import dominio.Reserva;
 import lecturaEscritura.Reader;
+import lecturaEscritura.Writer;
 
 import java.awt.CardLayout;
 import javax.swing.JButton;
@@ -546,7 +547,6 @@ public class UI_Reservas extends JFrame {
 				}
 				{
 					cbIdReserva = new JComboBox<Integer>();
-					cbIdReserva.addItemListener(new CbIdReservaItemListener());
 					GridBagConstraints gbc_cbIdReserva = new GridBagConstraints();
 					gbc_cbIdReserva.insets = new Insets(0, 0, 5, 5);
 					gbc_cbIdReserva.fill = GridBagConstraints.HORIZONTAL;
@@ -566,6 +566,7 @@ public class UI_Reservas extends JFrame {
 				}
 				{
 					btnBorrarReserva = new JButton("Borrar");
+					btnBorrarReserva.addActionListener(new BtnBorrarReservaActionListener());
 					btnBorrarReserva.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 					GridBagConstraints gbc_btnBorrarReserva = new GridBagConstraints();
 					gbc_btnBorrarReserva.fill = GridBagConstraints.BOTH;
@@ -895,13 +896,14 @@ public class UI_Reservas extends JFrame {
 				Reserva r = new Reserva( idReserva,  fechaEntrada,  fechaSalida,  dni,  correoElectronico,  telefono,
 						 ocupantes,  solicitudesEspeciales,  horaEntrada,  horaSalida);
 				
-				System.out.println(r.toString());
+				Reader.getListReservas().add(r);
+				Writer.escribirListaReservas(Reader.getListReservas());
 				
 				} catch(Exception e1) {
 					JOptionPane.showMessageDialog(new JFrame(), "Algo fue mal en el proceso, vuelva a intentarlo", "Error", JOptionPane.ERROR_MESSAGE);
 					dispose();
 				}
-				//AÑADIR LA RESERVA Y SOBREESCRIBIR FICHERO
+				
 				
 				pane = "Paso5";
 				panebotones = "botonesexito";
@@ -940,20 +942,20 @@ public class UI_Reservas extends JFrame {
 		}
 	}
 
-	private class CbIdReservaItemListener implements ItemListener {
-		public void itemStateChanged(ItemEvent e) {
-			int idReserva = (int) cbReserva.getSelectedItem();
-			for (int i = 0; i < Reader.getListReservas().size(); i++) {
-				if (idReserva == Reader.getListReservas().get(i).getIdReserva()) {
-					// eliminar reserva
-				}
-			}
-		}
-	}
-
 	private class BtnCerrarActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			dispose();
+		}
+	}
+	private class BtnBorrarReservaActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			int idReserva = (int) cbReserva.getSelectedItem();
+			for (int i = 0; i < Reader.getListReservas().size(); i++) {
+				if (idReserva == Reader.getListReservas().get(i).getIdReserva()) {
+					Reader.getListReservas().remove(i);
+					Writer.escribirListaReservas(Reader.getListReservas());
+				}
+			}
 		}
 	}
 }

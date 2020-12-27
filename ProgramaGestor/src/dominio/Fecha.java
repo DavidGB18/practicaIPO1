@@ -45,7 +45,7 @@ public class Fecha {
 	}
 
 	public String toString() {
-		String fecha = ("dia:" + dia + " mes:" + mes + " año:" + año);
+		String fecha = (dia + "/" + mes + "/" + año);
 		return fecha;
 	}
 }
