@@ -356,6 +356,8 @@ public class UI_Gestor {
 								add(new DefaultMutableTreeNode("Configuracion"));
 							}
 						}));
+						
+						treePrograma.setCellRenderer(new MiRenderizadoArbol());
 					}
 				}
 			}
@@ -1346,7 +1348,6 @@ public class UI_Gestor {
 		switch (seleccion) {
 		case "Reservas":
 			if (modo == 1) {
-				System.out.println(seleccion);
 				new BtnReservasActionListener(0).actionPerformed(null);
 			} else if (modo == 2) {
 				new BtnReservasActionListener(1).actionPerformed(null);
