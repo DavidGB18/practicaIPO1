@@ -238,15 +238,7 @@ public class UI_Reservas extends JFrame {
 									gbc_formattedTextFieldFechaEntradaNuevaReserva);
 						}
 						{
-							MaskFormatter formatoDNI;
-							try {
-								formatoDNI = new MaskFormatter("##'/##'/####");
-								formatoDNI.setPlaceholderCharacter('*');
-								formattedTextFieldFechaEntradaNuevaReserva = new JFormattedTextField(formatoDNI);
-							} catch (ParseException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}
+
 							lblFechaSalidaNuevaReserva = new JLabel("Fecha Salida:");
 							GridBagConstraints gbc_lblFechaSalidaNuevaReserva = new GridBagConstraints();
 							gbc_lblFechaSalidaNuevaReserva.fill = GridBagConstraints.HORIZONTAL;
@@ -256,7 +248,15 @@ public class UI_Reservas extends JFrame {
 							panelPaso2.add(lblFechaSalidaNuevaReserva, gbc_lblFechaSalidaNuevaReserva);
 						}
 						{
-							formattedTextFieldFechaSalidaNuevaReserva = new JFormattedTextField();
+							MaskFormatter formatoDNI;
+							try {
+								formatoDNI = new MaskFormatter("##'/##'/####");
+								formatoDNI.setPlaceholderCharacter('*');
+								formattedTextFieldFechaSalidaNuevaReserva = new JFormattedTextField(formatoDNI);
+							} catch (ParseException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
 							GridBagConstraints gbc_formattedTextFieldFechaSalidaNuevaReserva = new GridBagConstraints();
 							gbc_formattedTextFieldFechaSalidaNuevaReserva.gridwidth = 2;
 							gbc_formattedTextFieldFechaSalidaNuevaReserva.anchor = GridBagConstraints.NORTH;
@@ -592,6 +592,7 @@ public class UI_Reservas extends JFrame {
 				}
 				{
 					btnCancelar = new JButton("Cancelar");
+					btnCancelar.addActionListener(new BtnCancelarActionListener());
 					btnCancelar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 					GridBagConstraints gbc_btnCancelar = new GridBagConstraints();
 					gbc_btnCancelar.fill = GridBagConstraints.BOTH;
@@ -936,6 +937,7 @@ public class UI_Reservas extends JFrame {
 				Writer.escribirListaReservas(Reader.getListReservas());
 				
 				} catch(Exception e1) {
+					e1.printStackTrace();
 					JOptionPane.showMessageDialog(new JFrame(), "Algo fue mal en el proceso, vuelva a intentarlo", "Error", JOptionPane.ERROR_MESSAGE);
 					dispose();
 				}
@@ -985,12 +987,32 @@ public class UI_Reservas extends JFrame {
 	}
 	private class BtnBorrarReservaActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			int idReserva = (int) cbReserva.getSelectedItem();
-			for (int i = 0; i < Reader.getListReservas().size(); i++) {
-				if (idReserva == Reader.getListReservas().get(i).getIdReserva()) {
-					Reader.getListReservas().remove(i);
-					Writer.escribirListaReservas(Reader.getListReservas());
-				}
+			
+			if(cbReserva.getSelectedItem() != null) {
+				
+				int sel = JOptionPane.showOptionDialog(null, "¿Seguro que quieres borrar esta reserva?", "Borrar reserva",
+						JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
+				if (sel == JOptionPane.YES_OPTION) {
+					int idReserva = (int) cbReserva.getSelectedItem();
+					for (int i = 0; i < Reader.getListReservas().size(); i++) {
+						if (idReserva == Reader.getListReservas().get(i).getIdReserva()) {
+							Reader.getListReservas().remove(i);
+							Writer.escribirListaReservas(Reader.getListReservas());
+							dispose();
+						}
+					}
+				} 
+			}
+		}
+	}
+	private class BtnCancelarActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			int sel = JOptionPane.showOptionDialog(null, "¿Seguro que quieres cancelar la operación?", "Cerrar ventana",
+					JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
+			if (sel == JOptionPane.YES_OPTION) {
+				dispose(); // Yes
+			} else {
+
 			}
 		}
 	}

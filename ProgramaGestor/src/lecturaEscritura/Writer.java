@@ -25,7 +25,9 @@ public class Writer {
 			BufferedWriter myWriter = new BufferedWriter(w);
 			for(int i=0; i<list.size(); i++) {
 				myWriter.write(list.get(i).toString());
-				myWriter.newLine();
+				if(i!=list.size()-1) {
+					myWriter.newLine();
+				}	
 			}
 			
 		    myWriter.close();
@@ -43,8 +45,9 @@ public class Writer {
 			BufferedWriter myWriter = new BufferedWriter(w);
 			for(int i=0; i<list.size(); i++) {
 				myWriter.write(list.get(i).toString());
-				myWriter.newLine();
-			}
+				if(i!=list.size()-1) {
+					myWriter.newLine();
+				}				}
 			
 		    myWriter.close();
 		} catch (IOException e) {
@@ -61,8 +64,9 @@ public class Writer {
 			BufferedWriter myWriter = new BufferedWriter(w);
 			for(int i=0; i<list.size(); i++) {
 				myWriter.write(list.get(i).toString());
-				myWriter.newLine();
-			}
+				if(i!=list.size()-1) {
+					myWriter.newLine();
+				}				}
 			
 		    myWriter.close();
 		} catch (IOException e) {
@@ -78,8 +82,9 @@ public class Writer {
 			BufferedWriter myWriter = new BufferedWriter(w);
 			for(int i=0; i<list.size(); i++) {
 				myWriter.write(list.get(i).toString());
-				myWriter.newLine();
-			}
+				if(i!=list.size()-1) {
+					myWriter.newLine();
+				}				}
 			
 		    myWriter.close();
 		} catch (IOException e) {
@@ -95,8 +100,9 @@ public class Writer {
 			BufferedWriter myWriter = new BufferedWriter(w);
 			for(int i=0; i<list.size(); i++) {
 				myWriter.write(list.get(i).toString());
-				myWriter.newLine();
-			}
+				if(i!=list.size()-1) {
+					myWriter.newLine();
+				}				}
 			
 		    myWriter.close();
 		} catch (IOException e) {
@@ -112,7 +118,9 @@ public class Writer {
 			BufferedWriter myWriter = new BufferedWriter(w);
 			for(int i=0; i<list.size(); i++) {
 				myWriter.write(list.get(i).toString());
-				myWriter.newLine();
+				if(i!=list.size()-1) {
+					myWriter.newLine();
+				}	
 			}
 			
 		    myWriter.close();
@@ -129,7 +137,9 @@ public class Writer {
 			BufferedWriter myWriter = new BufferedWriter(w);
 			for(int i=0; i<list.size(); i++) {
 				myWriter.write(list.get(i).toString());
-				myWriter.newLine();
+				if(i!=list.size()-1) {
+					myWriter.newLine();
+				}	
 			}
 			
 		    myWriter.close();
@@ -146,8 +156,9 @@ public class Writer {
 			BufferedWriter myWriter = new BufferedWriter(w);
 			for(int i=0; i<list.size(); i++) {
 				myWriter.write(list.get(i).toString());
-				myWriter.newLine();
-			}
+				if(i!=list.size()-1) {
+					myWriter.newLine();
+				}				}
 			
 		    myWriter.close();
 		} catch (IOException e) {

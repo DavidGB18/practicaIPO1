@@ -34,6 +34,7 @@ public class Reader {
 		leerActividades();
 		leerMonitores();
 		leerConfiguracion();
+		leerReservas();
 	}
 
 	public static void leerConfiguracion() {
