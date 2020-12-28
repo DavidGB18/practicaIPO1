@@ -237,8 +237,15 @@ public class UI_ParcelasBungalows extends JFrame {
 		}
 		@Override
 		public void windowClosing(WindowEvent e) {
-			UI_Gestor.setComprobadorParcelasBungalows(0);
-			dispose();
+			
+			int sel = JOptionPane.showOptionDialog(null, "¿Seguro que quieres cancelar la operación?", "Cerrar ventana",
+					JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
+			if (sel == JOptionPane.YES_OPTION) {
+				UI_Gestor.setComprobadorParcelasBungalows(0);
+				dispose();
+			} else {
+				setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE); // No
+			}
 		}
 	}
 	private class BtnCancelarActionListener implements ActionListener {
@@ -316,56 +323,63 @@ public class UI_ParcelasBungalows extends JFrame {
 	private class BtnGuardarCambiosActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			//parcelas-0 , bungalows-1
-			switch(elegirPanel) {
-			case 0:
-				ArrayList<Parcela> listParcelasNueva = new ArrayList<Parcela>();
-				for(int i=0; i<tParcelas.getRowCount();i++) {
+			
+			int sel = JOptionPane.showOptionDialog(null, "¿Seguro que quieres cancelar?",
+					"Cancelar operacion", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
+			if (sel == JOptionPane.YES_OPTION) {
+				switch(elegirPanel) {
+				case 0:
+					ArrayList<Parcela> listParcelasNueva = new ArrayList<Parcela>();
+					for(int i=0; i<tParcelas.getRowCount();i++) {
+						
+						int tam = (int) tParcelas.getValueAt(i,0);
+						double precioNoche = (double) tParcelas.getValueAt(i,1);
+						boolean disponibilidad = (boolean) tParcelas.getValueAt(i,2);
+						String ubicacion= (String) tParcelas.getValueAt(i,3);
+						String arrayServicios = (String) tParcelas.getValueAt(i,4);
+						Categoria categoria = (Categoria) tParcelas.getValueAt(i,5);
+						
+						Parcela p = new Parcela(tam, precioNoche, disponibilidad, ubicacion, arrayServicios, categoria);
+						listParcelasNueva.add(p);
+					}
+					while(tParcelas.getRowCount()!=0) {
+						MiModeloTablaParcelas modeloTablaP = (MiModeloTablaParcelas) tParcelas.getModel();
+						modeloTablaP.eliminaFila(0);
+						modeloTablaP.fireTableDataChanged();
+					}
+					Writer.escribirListaParcelas(listParcelasNueva);
+					Reader.setListParcelas(listParcelasNueva);
+					break;
+				case 1:
+					ArrayList<Bungalow> listBungalowsNueva = new ArrayList<Bungalow>();
 					
-					int tam = (int) tParcelas.getValueAt(i,0);
-					double precioNoche = (double) tParcelas.getValueAt(i,1);
-					boolean disponibilidad = (boolean) tParcelas.getValueAt(i,2);
-					String ubicacion= (String) tParcelas.getValueAt(i,3);
-					String arrayServicios = (String) tParcelas.getValueAt(i,4);
-					Categoria categoria = (Categoria) tParcelas.getValueAt(i,5);
-					
-					Parcela p = new Parcela(tam, precioNoche, disponibilidad, ubicacion, arrayServicios, categoria);
-					listParcelasNueva.add(p);
+					for(int i=0; i<tBungalows.getRowCount();i++) {
+						
+						 int tam = (int) tBungalows.getValueAt(i,0);
+						 double precioNoche = (double) tBungalows.getValueAt(i,1);
+						 boolean disponibilidad = (boolean) tBungalows.getValueAt(i,2);
+						 String descripcion = (String) tBungalows.getValueAt(i,3);
+						 String pathFotos = (String) tBungalows.getValueAt(i,4);
+						 String equipamiento = (String) tBungalows.getValueAt(i,5);
+						 int capacidadMaxima = (int) tBungalows.getValueAt(i,6);
+						 int estanciaMinima = (int) tBungalows.getValueAt(i,7);
+						
+						Bungalow b = new Bungalow(tam, precioNoche, disponibilidad, descripcion, pathFotos, 
+								 equipamiento, capacidadMaxima, estanciaMinima);
+						listBungalowsNueva.add(b);
+					}
+					while(tBungalows.getRowCount()!=0) {
+						MiModeloTablaBungalows modeloTablaB = (MiModeloTablaBungalows) tBungalows.getModel();
+						modeloTablaB.eliminaFila(0);
+						modeloTablaB.fireTableDataChanged();
+					}
+					Writer.escribirListaBungalows(listBungalowsNueva);
+					Reader.setListBungalows(listBungalowsNueva);
+					break;
 				}
-				while(tParcelas.getRowCount()!=0) {
-					MiModeloTablaParcelas modeloTablaP = (MiModeloTablaParcelas) tParcelas.getModel();
-					modeloTablaP.eliminaFila(0);
-					modeloTablaP.fireTableDataChanged();
-				}
-				Writer.escribirListaParcelas(listParcelasNueva);
-				break;
-			case 1:
-				ArrayList<Bungalow> listBungalowsNueva = new ArrayList<Bungalow>();
-				
-				for(int i=0; i<tBungalows.getRowCount();i++) {
-					
-					 int tam = (int) tBungalows.getValueAt(i,0);
-					 double precioNoche = (double) tBungalows.getValueAt(i,1);
-					 boolean disponibilidad = (boolean) tBungalows.getValueAt(i,2);
-					 String descripcion = (String) tBungalows.getValueAt(i,3);
-					 String pathFotos = (String) tBungalows.getValueAt(i,4);
-					 String equipamiento = (String) tBungalows.getValueAt(i,5);
-					 int capacidadMaxima = (int) tBungalows.getValueAt(i,6);
-					 int estanciaMinima = (int) tBungalows.getValueAt(i,7);
-					
-					Bungalow b = new Bungalow(tam, precioNoche, disponibilidad, descripcion, pathFotos, 
-							 equipamiento, capacidadMaxima, estanciaMinima);
-					listBungalowsNueva.add(b);
-				}
-				while(tBungalows.getRowCount()!=0) {
-					MiModeloTablaBungalows modeloTablaB = (MiModeloTablaBungalows) tBungalows.getModel();
-					modeloTablaB.eliminaFila(0);
-					modeloTablaB.fireTableDataChanged();
-				}
-				Writer.escribirListaBungalows(listBungalowsNueva);
-				break;
-			}
-			UI_Gestor.setComprobadorParcelasBungalows(0);
-			dispose();	
+				UI_Gestor.setComprobadorParcelasBungalows(0);
+				dispose();	
+			} 
 		}
 	}
 
