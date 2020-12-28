@@ -36,7 +36,7 @@ public class UI_Principal extends JFrame {
 			}
 		});
 		try {
-			Thread.sleep(3000);
+			Thread.sleep(4900);
 			frame.dispose();
 		} catch (InterruptedException e) {
 			e.printStackTrace();
@@ -57,7 +57,7 @@ public class UI_Principal extends JFrame {
 
 	public UI_Principal() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 800, 500);
 		setUndecorated(true);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
