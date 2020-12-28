@@ -35,6 +35,8 @@ public class Reader {
 		leerMonitores();
 		leerConfiguracion();
 		leerReservas();
+		leerParcelas();
+		leerBungalows();
 	}
 
 	public static void leerConfiguracion() {

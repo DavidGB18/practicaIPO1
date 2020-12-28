@@ -1287,8 +1287,6 @@ public class UI_Gestor {
 		}
 
 		public void actionPerformed(ActionEvent e) {
-			Reader.leerParcelas();
-			Reader.leerBungalows();
 			if (comprobadorParcelasBungalows == 0) {
 				JFrame window = new UI_ParcelasBungalows();
 				window.setVisible(true);

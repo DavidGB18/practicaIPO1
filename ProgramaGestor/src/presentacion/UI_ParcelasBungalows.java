@@ -6,6 +6,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableColumn;
 
 import java.awt.CardLayout;
@@ -33,6 +35,7 @@ import javax.swing.SwingConstants;
 import java.awt.Font;
 
 import javax.swing.DefaultCellEditor;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 
@@ -94,6 +97,20 @@ public class UI_ParcelasBungalows extends JFrame {
 					{
 						tParcelas = new JTable();
 						tParcelas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+						
+						ListSelectionModel rowSM = tParcelas.getSelectionModel();
+						rowSM.addListSelectionListener(new ListSelectionListener() {
+							public void valueChanged(ListSelectionEvent e) {
+								ListSelectionModel lsm = (ListSelectionModel) e.getSource();
+
+								if (!lsm.isSelectionEmpty()) {
+									MiModeloTablaParcelas modeloTabla = (MiModeloTablaParcelas) tParcelas.getModel();
+									int n = tParcelas.getSelectedRow();
+									if (n != -1) {
+									}
+								}
+							}
+						});
 						
 						tParcelas.setRowHeight(30);
 						MiModeloTablaParcelas modeloTabla = new MiModeloTablaParcelas();
