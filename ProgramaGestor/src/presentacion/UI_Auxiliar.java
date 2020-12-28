@@ -641,8 +641,11 @@ public class UI_Auxiliar extends JFrame {
 			case 0:
 				panel.show(panelBotones, "Ver");
 				setEditableFalse();
-				cargarMonitor(monitor);
-				cargarActividad(actividad);
+				if(elegirFormulario==0) {
+					cargarMonitor(monitor);
+				} else {
+					cargarActividad(actividad);
+				}	
 
 				break;
 			case 1:
@@ -650,13 +653,19 @@ public class UI_Auxiliar extends JFrame {
 				break;
 			case 2:
 				panel.show(panelBotones, "Modificar");
-				cargarMonitor(monitor);
-				cargarActividad(actividad);
+				if(elegirFormulario==0) {
+					cargarMonitor(monitor);
+				} else {
+					cargarActividad(actividad);
+				}
 				break;
 			case 3:
 				panel.show(panelBotones, "Borrar");
-				cargarMonitor(monitor);
-				cargarActividad(actividad);
+				if(elegirFormulario==0) {
+					cargarMonitor(monitor);
+				} else {
+					cargarActividad(actividad);
+				}
 				setEditableFalse();
 
 				break;
