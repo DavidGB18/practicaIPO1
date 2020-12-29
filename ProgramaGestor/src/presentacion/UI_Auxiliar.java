@@ -780,7 +780,7 @@ public class UI_Auxiliar extends JFrame {
 
 							Reader.getListMonitores().add(m);
 							Writer.escribirListaMonitores(Reader.getListMonitores());
-
+	
 						} catch (Exception e1) {
 							e1.printStackTrace();
 							JOptionPane.showMessageDialog(new JFrame(),

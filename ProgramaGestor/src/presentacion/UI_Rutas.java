@@ -11,6 +11,7 @@ import lecturaEscritura.Reader;
 
 import javax.swing.JTabbedPane;
 import java.awt.GridBagLayout;
+import java.awt.Image;
 
 import javax.swing.JComboBox;
 
@@ -18,11 +19,14 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.File;
+import java.io.IOException;
 
 import javax.swing.JLabel;
 import javax.swing.JTextPane;
 import javax.swing.JSpinner;
 import javax.swing.JTextArea;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.SpinnerNumberModel;
 import java.awt.Cursor;
@@ -818,7 +822,23 @@ public class UI_Rutas extends JFrame {
 					spinnerGenteMax.setModel(new SpinnerNumberModel(rutaAuxiliar.getNumeroMaximoPersonas(), null, null, 1));
 					spinnerHoraInicio.setModel(new SpinnerNumberModel(rutaAuxiliar.getHoraInicio(), null, null, 1));
 					spinnerHoraFin.setModel(new SpinnerNumberModel(rutaAuxiliar.getHoraFinal(), null, null, 1));
-					//FALTA AÑADIR LA IMAGEN
+					
+					Image imagenOriginal;
+					
+					File file = new File(rutaAuxiliar.getPathImagenRuta());
+					try {
+						imagenOriginal = ImageIO.read(file);
+
+						Image imagenEscalada = imagenOriginal.getScaledInstance(lblFoto.getWidth(), lblFoto.getHeight(),
+								java.awt.Image.SCALE_SMOOTH);
+						ImageIcon iconoLabel = new ImageIcon(imagenEscalada);
+						lblFoto.setIcon(iconoLabel);
+					} catch (IOException a) {
+						a.printStackTrace();
+					}
+					
+					//String[] absolutePath = rutaAuxiliar.getPathImagenRuta().split("recursos");
+					//lblFoto.setIcon(new ImageIcon("src/recursos"+absolutePath[1]));
 				}
 			}
 		}
@@ -837,7 +857,19 @@ public class UI_Rutas extends JFrame {
 					spinnerGenteMax_1.setModel(new SpinnerNumberModel(rutaAuxiliar.getNumeroMaximoPersonas(), null, null, 1));
 					spinnerHoraInicio_1.setModel(new SpinnerNumberModel(rutaAuxiliar.getHoraInicio(), null, null, 1));
 					spinnerHoraFin_1.setModel(new SpinnerNumberModel(rutaAuxiliar.getHoraFinal(), null, null, 1));
-					//FALTA AÑADIR LA IMAGEN
+					Image imagenOriginal;
+					
+					File file = new File(rutaAuxiliar.getPathImagenRuta());
+					try {
+						imagenOriginal = ImageIO.read(file);
+
+						Image imagenEscalada = imagenOriginal.getScaledInstance(lblFoto_1.getWidth(), lblFoto_1.getHeight(),
+								java.awt.Image.SCALE_SMOOTH);
+						ImageIcon iconoLabel = new ImageIcon(imagenEscalada);
+						lblFoto_1.setIcon(iconoLabel);
+					} catch (IOException a) {
+						a.printStackTrace();
+					}
 				}
 			}
 		}
@@ -856,7 +888,19 @@ public class UI_Rutas extends JFrame {
 					spinnerGenteMax_2.setModel(new SpinnerNumberModel(rutaAuxiliar.getNumeroMaximoPersonas(), null, null, 1));
 					spinnerHoraInicio_2.setModel(new SpinnerNumberModel(rutaAuxiliar.getHoraInicio(), null, null, 1));
 					spinnerHoraFin_2.setModel(new SpinnerNumberModel(rutaAuxiliar.getHoraFinal(), null, null, 1));
-					//FALTA AÑADIR LA IMAGEN
+					Image imagenOriginal;
+					
+					File file = new File(rutaAuxiliar.getPathImagenRuta());
+					try {
+						imagenOriginal = ImageIO.read(file);
+
+						Image imagenEscalada = imagenOriginal.getScaledInstance(lblFoto_2.getWidth(), lblFoto_2.getHeight(),
+								java.awt.Image.SCALE_SMOOTH);
+						ImageIcon iconoLabel = new ImageIcon(imagenEscalada);
+						lblFoto_2.setIcon(iconoLabel);
+					} catch (IOException a) {
+						a.printStackTrace();
+					}
 				}
 			}
 		}

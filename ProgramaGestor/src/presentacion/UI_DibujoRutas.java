@@ -3,6 +3,7 @@ package presentacion;
 import java.awt.Image;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import javax.swing.JToolBar;
@@ -73,7 +74,7 @@ public class UI_DibujoRutas extends JFrame {
 
 	public UI_DibujoRutas() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(UI_DibujoRutas.class.getResource("/recursos/logo.png")));
-		setTitle("Dise\u00F1o de Rutas");
+		setTitle("Gestor Los Olivos - Dise\u00F1o de Rutas");
 		setResizable(false);
 		addWindowListener(new ThisWindowListener());
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -87,7 +88,8 @@ public class UI_DibujoRutas extends JFrame {
 			contentPane.add(tbBarraDibujo, BorderLayout.NORTH);
 			{
 				btnGuardar = new JButton("");
-				btnGuardar.setIcon(new ImageIcon(UI_DibujoRutas.class.getResource("/recursos/ruta/floppy-disk-2@1x.png")));
+				btnGuardar.setIcon(
+						new ImageIcon(UI_DibujoRutas.class.getResource("/recursos/ruta/floppy-disk-2@1x.png")));
 				btnGuardar.addActionListener(new BtnGuardarActionListener());
 
 				tbBarraDibujo.add(btnGuardar);
@@ -114,13 +116,15 @@ public class UI_DibujoRutas extends JFrame {
 			{
 				btnZoomMayor = new JButton("");
 				btnZoomMayor.addActionListener(new BtnZoomMayorActionListener());
-				btnZoomMayor.setIcon(new ImageIcon(UI_DibujoRutas.class.getResource("/recursos/ruta/plus-in-circle@1x.png")));
+				btnZoomMayor.setIcon(
+						new ImageIcon(UI_DibujoRutas.class.getResource("/recursos/ruta/plus-in-circle@1x.png")));
 				tbBarraDibujo.add(btnZoomMayor);
 			}
 			{
 				btnZoomMenor = new JButton("");
 				btnZoomMenor.addActionListener(new BtnZoomMenorActionListener());
-				btnZoomMenor.setIcon(new ImageIcon(UI_DibujoRutas.class.getResource("/recursos/ruta/minus-in-circle@1x.png")));
+				btnZoomMenor.setIcon(
+						new ImageIcon(UI_DibujoRutas.class.getResource("/recursos/ruta/minus-in-circle@1x.png")));
 				tbBarraDibujo.add(btnZoomMenor);
 			}
 		}
@@ -190,41 +194,13 @@ public class UI_DibujoRutas extends JFrame {
 
 		}
 	}
-	
-    public Image iconToImage(Icon icon) {
-        if (icon instanceof ImageIcon) {
-            return ((ImageIcon)icon).getImage();
-        } else {
-            int w = icon.getIconWidth();
-            int h = icon.getIconHeight();
-            GraphicsEnvironment ge = 
-              GraphicsEnvironment.getLocalGraphicsEnvironment();
-            GraphicsDevice gd = ge.getDefaultScreenDevice();
-            GraphicsConfiguration gc = gd.getDefaultConfiguration();
-            BufferedImage image = gc.createCompatibleImage(w, h);
-            Graphics2D g = image.createGraphics();
-            icon.paintIcon(null, g, 0, 0);
-            g.dispose();
-            return image;
-        }
-    }
 
 	private class BtnGuardarActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			Image img = iconToImage(miAreaDibujo.getIcon());
 
-			BufferedImage bi = new BufferedImage(img.getWidth(null),img.getHeight(null),BufferedImage.TYPE_INT_RGB);
-
-			Graphics2D g2 = bi.createGraphics();
-			g2.drawImage(img, 0, 0, null);
-			g2.dispose();
-			try {
-				//ImageIO.write(bi, "png", new File(System.getProperty("user.home")+"/desktop/img.png"));
-				ImageIO.write(bi, "png", new File("src/recursos/fotos/img.png"));
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
+			UI_CrearRuta frame = new UI_CrearRuta();
+			frame.setVisible(true);
+			UI_CrearRuta.recibirIcono(miAreaDibujo.getIcon());
 		}
 	}
 
@@ -251,27 +227,35 @@ public class UI_DibujoRutas extends JFrame {
 			modo = TEXTO;
 		}
 	}
+
 	private class ThisWindowListener extends WindowAdapter {
 		public void windowClosing(WindowEvent e) {
-			UI_Gestor.setComprobadorDibujoRuta(0);
-			dispose();
+			
+			int sel = JOptionPane.showOptionDialog(null, "¿Seguro que quieres cancelar la operación?", "Cerrar ventana",
+					JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
+			if (sel == JOptionPane.YES_OPTION) {
+				UI_Gestor.setComprobadorDibujoRuta(0);
+				dispose();
+			} 
 		}
 	}
+
 	private class BtnZoomMayorActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			int newH = (int) (imagen.getIconHeight() * ZOOMMAYOR);
 			int newW = (int) (imagen.getIconWidth() * ZOOMMAYOR);
-			Image img= imagen.getImage();
+			Image img = imagen.getImage();
 			imagen = new ImageIcon(img.getScaledInstance(newW, newH, Image.SCALE_SMOOTH));
 			miAreaDibujo.setIcon(imagen);
-			
+
 		}
 	}
+
 	private class BtnZoomMenorActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			int newH = (int) (imagen.getIconHeight() * ZOOMMENOR);
 			int newW = (int) (imagen.getIconWidth() * ZOOMMENOR);
-			Image img= imagen.getImage();
+			Image img = imagen.getImage();
 			imagen = new ImageIcon(img.getScaledInstance(newW, newH, Image.SCALE_SMOOTH));
 			miAreaDibujo.setIcon(imagen);
 		}
