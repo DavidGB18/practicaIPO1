@@ -160,7 +160,7 @@ public class UI_CrearRuta extends JFrame {
 			}
 			{
 				cbDificultad = new JComboBox<Dificultad>();
-				cbDificultad.setModel(new DefaultComboBoxModel(Dificultad.values()));
+				cbDificultad.setModel(new DefaultComboBoxModel<Dificultad>(Dificultad.values()));
 				GridBagConstraints gbc_cbDificultad = new GridBagConstraints();
 				gbc_cbDificultad.insets = new Insets(0, 0, 5, 5);
 				gbc_cbDificultad.fill = GridBagConstraints.HORIZONTAL;
