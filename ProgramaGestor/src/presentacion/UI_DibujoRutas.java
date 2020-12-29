@@ -219,7 +219,8 @@ public class UI_DibujoRutas extends JFrame {
 			g2.drawImage(img, 0, 0, null);
 			g2.dispose();
 			try {
-				ImageIO.write(bi, "png", new File(System.getProperty("user.home")+"/desktop/img.png"));
+				//ImageIO.write(bi, "png", new File(System.getProperty("user.home")+"/desktop/img.png"));
+				ImageIO.write(bi, "png", new File("src/recursos/fotos/img.png"));
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();

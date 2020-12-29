@@ -15,10 +15,17 @@ import lecturaEscritura.Writer;
 
 import java.awt.CardLayout;
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
+
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.text.ParseException;
 import java.awt.GridBagLayout;
+import java.awt.Image;
+
 import javax.swing.JLabel;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
@@ -26,6 +33,11 @@ import javax.swing.JTextPane;
 import javax.swing.JTextField;
 import javax.swing.JFormattedTextField;
 import java.awt.Font;
+import java.awt.Graphics2D;
+import java.awt.GraphicsConfiguration;
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
+
 import javax.swing.ImageIcon;
 import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
@@ -35,7 +47,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Cursor;
 import java.awt.Toolkit;
+
+import javax.imageio.ImageIO;
 import javax.swing.ButtonGroup;
+import javax.swing.Icon;
 
 public class UI_Auxiliar extends JFrame {
 
@@ -102,6 +117,7 @@ public class UI_Auxiliar extends JFrame {
 	private JTextField textFieldMonitor;
 	private JTextField txtIdiomas;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
+	private JButton btnAdjuntarImagen;
 
 	/**
 	 * Create the frame.
@@ -248,6 +264,16 @@ public class UI_Auxiliar extends JFrame {
 					gbc_formattedTextFieldDniMonitor.gridx = 2;
 					gbc_formattedTextFieldDniMonitor.gridy = 7;
 					panelMonitores.add(formattedTextFieldDniMonitor, gbc_formattedTextFieldDniMonitor);
+				}
+				{
+					btnAdjuntarImagen = new JButton("Adjuntar Imagen");
+					btnAdjuntarImagen.addActionListener(new BtnAdjuntarImagenActionListener());
+					GridBagConstraints gbc_btnAdjuntarImagen = new GridBagConstraints();
+					gbc_btnAdjuntarImagen.gridwidth = 4;
+					gbc_btnAdjuntarImagen.insets = new Insets(0, 0, 5, 5);
+					gbc_btnAdjuntarImagen.gridx = 5;
+					gbc_btnAdjuntarImagen.gridy = 7;
+					panelMonitores.add(btnAdjuntarImagen, gbc_btnAdjuntarImagen);
 				}
 				{
 					lblTlfMonitor = new JLabel("Tlf:");
@@ -588,6 +614,7 @@ public class UI_Auxiliar extends JFrame {
 			txtCorreoMonitor.setEditable(false);
 			txtFormacion.setEditable(false);
 			txtIdiomas.setEditable(false);
+			btnAdjuntarImagen.setEnabled(false);
 
 			textFieldMonitor.setEditable(false);
 			textFieldPrecioActividad.setEditable(false);
@@ -608,8 +635,11 @@ public class UI_Auxiliar extends JFrame {
 			formattedTextFieldTlfMonitor.setText(String.valueOf(m.getTelefono()));
 			txtCorreoMonitor.setText(m.getCorreoElectronico());
 			txtFormacion.setText(m.getFormacion());
-			// lblFotoMonitor.setIcon();
 			txtIdiomas.setText(m.getIdiomas());
+			
+			String[] absolutePath = m.getRutaFotoMonitor().split("recursos");
+			lblFotoMonitor.setIcon(new ImageIcon("src/recursos"+absolutePath[1]));
+			
 		}
 
 		public void cargarActividad(Actividad a) {
@@ -729,7 +759,21 @@ public class UI_Auxiliar extends JFrame {
 							String correoElectronico = txtCorreoMonitor.getText();
 							String formacion = txtFormacion.getText();
 							String idiomas = txtIdiomas.getText();
-							String rutaFotoMonitor = lblFotoMonitor.getIcon().toString();
+							
+							Image img = iconToImage(lblFotoMonitor.getIcon());
+
+							BufferedImage bi = new BufferedImage(img.getWidth(null),img.getHeight(null),BufferedImage.TYPE_INT_RGB);
+
+							Graphics2D g2 = bi.createGraphics();
+							g2.drawImage(img, 0, 0, null);
+							g2.dispose();
+							String rutaFotoMonitor = "src/recursos/fotos/"+dni+".png";
+							try {
+								ImageIO.write(bi, "png", new File(rutaFotoMonitor));
+							} catch (IOException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+							}
 
 							Monitor m = new Monitor(nombre, apellido1, apellido2, dni, telefono, correoElectronico,
 									formacion, rutaFotoMonitor, idiomas);
@@ -796,7 +840,21 @@ public class UI_Auxiliar extends JFrame {
 									String correoElectronico = txtCorreoMonitor.getText();
 									String formacion = txtFormacion.getText();
 									String idiomas = txtIdiomas.getText();
-									String rutaFotoMonitor = lblFotoMonitor.getIcon().toString();
+									
+									Image img = iconToImage(lblFotoMonitor.getIcon());
+
+									BufferedImage bi = new BufferedImage(img.getWidth(null),img.getHeight(null),BufferedImage.TYPE_INT_RGB);
+
+									Graphics2D g2 = bi.createGraphics();
+									g2.drawImage(img, 0, 0, null);
+									g2.dispose();
+									String rutaFotoMonitor = "src/recursos/fotos/"+dni+".png";
+									try {
+										ImageIO.write(bi, "png", new File(rutaFotoMonitor));
+									} catch (IOException e1) {
+										// TODO Auto-generated catch block
+										e1.printStackTrace();
+									}
 
 									Monitor m = new Monitor(nombre, apellido1, apellido2, dni, telefono,
 											correoElectronico, formacion, rutaFotoMonitor, idiomas);
@@ -891,6 +949,48 @@ public class UI_Auxiliar extends JFrame {
 			} else {
 				setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE); // No
 			}
+		}
+	}
+	
+    public Image iconToImage(Icon icon) {
+        if (icon instanceof ImageIcon) {
+            return ((ImageIcon)icon).getImage();
+        } else {
+            int w = icon.getIconWidth();
+            int h = icon.getIconHeight();
+            GraphicsEnvironment ge = 
+              GraphicsEnvironment.getLocalGraphicsEnvironment();
+            GraphicsDevice gd = ge.getDefaultScreenDevice();
+            GraphicsConfiguration gc = gd.getDefaultConfiguration();
+            BufferedImage image = gc.createCompatibleImage(w, h);
+            Graphics2D g = image.createGraphics();
+            icon.paintIcon(null, g, 0, 0);
+            g.dispose();
+            return image;
+        }
+    }
+    
+	private class BtnAdjuntarImagenActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			JFileChooser fcAbrir = new JFileChooser();
+			fcAbrir.setFileFilter(new ImageFilter());
+			fcAbrir.addChoosableFileFilter(new ImageFilter2());
+			int valorDevuelto = fcAbrir.showOpenDialog(null);
+			Image imagenOriginal;
+
+			if (valorDevuelto == JFileChooser.APPROVE_OPTION) {
+				File file = fcAbrir.getSelectedFile();
+				try {
+					imagenOriginal = ImageIO.read(file);
+
+					Image imagenEscalada = imagenOriginal.getScaledInstance(lblFotoMonitor.getWidth(), lblFotoMonitor.getHeight(),
+							java.awt.Image.SCALE_SMOOTH);
+					ImageIcon iconoLabel = new ImageIcon(imagenEscalada);
+					lblFotoMonitor.setIcon(iconoLabel);
+				} catch (IOException a) {
+					a.printStackTrace();
+				}
+		}
 		}
 	}
 
