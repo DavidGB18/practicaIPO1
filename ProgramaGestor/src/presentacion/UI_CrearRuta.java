@@ -377,7 +377,10 @@ public class UI_CrearRuta extends JFrame {
 					dispose();
 					
 				} catch (Exception e1) {
-					e1.printStackTrace();
+					JOptionPane.showMessageDialog(new JFrame(),
+							"Algo fue mal en el proceso, vuelva a intentarlo", "Error",
+							JOptionPane.ERROR_MESSAGE);
+					dispose();
 				}
 			}
 		}
@@ -429,8 +432,10 @@ public class UI_CrearRuta extends JFrame {
 		try {
 			ImageIO.write(bi, "png", new File(rutaIcono));
 		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
+			JOptionPane.showMessageDialog(new JFrame(),
+					"Algo fue mal en el proceso, vuelva a intentarlo", "Error",
+					JOptionPane.ERROR_MESSAGE);
+			dispose();
 		}
 		return rutaIcono;
 	}
