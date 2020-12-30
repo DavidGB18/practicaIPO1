@@ -962,6 +962,7 @@ public class UI_Gestor {
 					mntmSalir.addActionListener(new MntmSalirActionListener());
 					{
 						mntmCerrarSesion = new JMenuItem("Cerrar Sesion");
+						mntmCerrarSesion.setEnabled(false);
 						mnInicio.add(mntmCerrarSesion);
 					}
 					mnInicio.add(mntmSalir);
@@ -973,26 +974,32 @@ public class UI_Gestor {
 				menuBar.add(mnOpciones);
 				{
 					mntmParcelas = new JMenuItem("Parcelas");
+					mntmParcelas.setEnabled(false);
 					mnOpciones.add(mntmParcelas);
 				}
 				{
 					mntmBungalows = new JMenuItem("Bungalows");
+					mntmBungalows.setEnabled(false);
 					mnOpciones.add(mntmBungalows);
 				}
 				{
 					mntmReservas = new JMenuItem("Reservas");
+					mntmReservas.setEnabled(false);
 					mnOpciones.add(mntmReservas);
 				}
 				{
 					mntmActividades = new JMenuItem("Actividades");
+					mntmActividades.setEnabled(false);
 					mnOpciones.add(mntmActividades);
 				}
 				{
 					mntmMonitores = new JMenuItem("Monitores");
+					mntmMonitores.setEnabled(false);
 					mnOpciones.add(mntmMonitores);
 				}
 				{
 					mntmRutas = new JMenuItem("Rutas");
+					mntmRutas.setEnabled(false);
 					mnOpciones.add(mntmRutas);
 				}
 			}

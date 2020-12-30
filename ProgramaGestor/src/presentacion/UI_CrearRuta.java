@@ -81,22 +81,6 @@ public class UI_CrearRuta extends JFrame {
 	private static String rutaIcono;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					UI_CrearRuta frame = new UI_CrearRuta();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the frame.
 	 */
 	public UI_CrearRuta() {
