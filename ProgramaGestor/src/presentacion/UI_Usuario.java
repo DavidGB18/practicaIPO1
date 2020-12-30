@@ -46,7 +46,7 @@ public class UI_Usuario extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(UI_Usuario.class.getResource("/recursos/logo.png")));
 		addWindowListener(new ThisWindowListener());
 		setResizable(false);
-		setTitle("Gestor Los Olivos - Usuario");
+		setTitle(MessagesUI_Usuario.getString("UI_Usuario.this.title")); //$NON-NLS-1$
 		setBounds(100, 100, 531, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -72,7 +72,7 @@ public class UI_Usuario extends JFrame {
 				panel.add(lblFotoUsuario, gbc_lblFotoUsuario);
 			}
 			{
-				lblNombre = new JLabel("Nombre:");
+				lblNombre = new JLabel(MessagesUI_Usuario.getString("UI_Usuario.lblNombre.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_lblNombre = new GridBagConstraints();
 				gbc_lblNombre.insets = new Insets(0, 0, 5, 5);
 				gbc_lblNombre.gridx = 3;
@@ -90,7 +90,7 @@ public class UI_Usuario extends JFrame {
 				panel.add(textPaneNombre, gbc_textPaneNombre);
 			}
 			{
-				lblPassword = new JLabel("Contrase\u00F1a:");
+				lblPassword = new JLabel(MessagesUI_Usuario.getString("UI_Usuario.lblPassword.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_lblPassword = new GridBagConstraints();
 				gbc_lblPassword.insets = new Insets(0, 0, 5, 5);
 				gbc_lblPassword.gridx = 3;
@@ -108,7 +108,7 @@ public class UI_Usuario extends JFrame {
 				panel.add(textPanePass, gbc_textPanePass);
 			}
 			{
-				btnCambiarFoto = new JButton("Cambiar Foto");
+				btnCambiarFoto = new JButton(MessagesUI_Usuario.getString("UI_Usuario.btnCambiarFoto.text")); //$NON-NLS-1$
 				btnCambiarFoto.setEnabled(false);
 				btnCambiarFoto.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 				GridBagConstraints gbc_btnCambiarFoto = new GridBagConstraints();
@@ -118,7 +118,7 @@ public class UI_Usuario extends JFrame {
 				panel.add(btnCambiarFoto, gbc_btnCambiarFoto);
 			}
 			{
-				btnCambiarPass = new JButton("Cambiar Contrase\u00F1a");
+				btnCambiarPass = new JButton(MessagesUI_Usuario.getString("UI_Usuario.btnCambiarPass.text")); //$NON-NLS-1$
 				btnCambiarPass.setEnabled(false);
 				btnCambiarPass.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 				GridBagConstraints gbc_btnCambiarPass = new GridBagConstraints();
@@ -128,7 +128,7 @@ public class UI_Usuario extends JFrame {
 				panel.add(btnCambiarPass, gbc_btnCambiarPass);
 			}
 			{
-				btnAceptar = new JButton("Aceptar");
+				btnAceptar = new JButton(MessagesUI_Usuario.getString("UI_Usuario.btnAceptar.text")); //$NON-NLS-1$
 				btnAceptar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 				btnAceptar.addActionListener(new BtnAceptarActionListener());
 				GridBagConstraints gbc_btnAceptar = new GridBagConstraints();

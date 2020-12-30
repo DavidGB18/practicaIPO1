@@ -81,7 +81,7 @@ public class UI_Calendario extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(UI_Calendario.class.getResource("/recursos/logo.png")));
 		addWindowListener(new ThisWindowListener());
 		setResizable(false);
-		setTitle("Gestor Los Olivos - Calendario");
+		setTitle(MessagesUI_Calendario.getString("UI_Calendario.this.title")); //$NON-NLS-1$
 		setBounds(100, 100, 505, 460);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -121,7 +121,7 @@ public class UI_Calendario extends JFrame {
 				panelCalendario.add(spinner, gbc_spinner);
 			}
 			{
-				lblL = new JLabel("L");
+				lblL = new JLabel(MessagesUI_Calendario.getString("UI_Calendario.lblL.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_lblL = new GridBagConstraints();
 				gbc_lblL.insets = new Insets(0, 0, 5, 5);
 				gbc_lblL.gridx = 2;
@@ -129,7 +129,7 @@ public class UI_Calendario extends JFrame {
 				panelCalendario.add(lblL, gbc_lblL);
 			}
 			{
-				lblM = new JLabel("M");
+				lblM = new JLabel(MessagesUI_Calendario.getString("UI_Calendario.lblM.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_lblM = new GridBagConstraints();
 				gbc_lblM.insets = new Insets(0, 0, 5, 5);
 				gbc_lblM.gridx = 3;
@@ -137,7 +137,7 @@ public class UI_Calendario extends JFrame {
 				panelCalendario.add(lblM, gbc_lblM);
 			}
 			{
-				lblX = new JLabel("X");
+				lblX = new JLabel(MessagesUI_Calendario.getString("UI_Calendario.lblX.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_lblX = new GridBagConstraints();
 				gbc_lblX.insets = new Insets(0, 0, 5, 5);
 				gbc_lblX.gridx = 4;
@@ -145,7 +145,7 @@ public class UI_Calendario extends JFrame {
 				panelCalendario.add(lblX, gbc_lblX);
 			}
 			{
-				lblJ = new JLabel("J");
+				lblJ = new JLabel(MessagesUI_Calendario.getString("UI_Calendario.lblJ.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_lblJ = new GridBagConstraints();
 				gbc_lblJ.insets = new Insets(0, 0, 5, 5);
 				gbc_lblJ.gridx = 5;
@@ -153,7 +153,7 @@ public class UI_Calendario extends JFrame {
 				panelCalendario.add(lblJ, gbc_lblJ);
 			}
 			{
-				lblV = new JLabel("V");
+				lblV = new JLabel(MessagesUI_Calendario.getString("UI_Calendario.lblV.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_lblV = new GridBagConstraints();
 				gbc_lblV.insets = new Insets(0, 0, 5, 5);
 				gbc_lblV.gridx = 6;
@@ -161,7 +161,7 @@ public class UI_Calendario extends JFrame {
 				panelCalendario.add(lblV, gbc_lblV);
 			}
 			{
-				lblS = new JLabel("S");
+				lblS = new JLabel(MessagesUI_Calendario.getString("UI_Calendario.lblS.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_lblS = new GridBagConstraints();
 				gbc_lblS.insets = new Insets(0, 0, 5, 5);
 				gbc_lblS.gridx = 7;
@@ -169,7 +169,7 @@ public class UI_Calendario extends JFrame {
 				panelCalendario.add(lblS, gbc_lblS);
 			}
 			{
-				lblD = new JLabel("D");
+				lblD = new JLabel(MessagesUI_Calendario.getString("UI_Calendario.lblD.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_lblD = new GridBagConstraints();
 				gbc_lblD.insets = new Insets(0, 0, 5, 5);
 				gbc_lblD.gridx = 8;
@@ -177,7 +177,7 @@ public class UI_Calendario extends JFrame {
 				panelCalendario.add(lblD, gbc_lblD);
 			}
 			{
-				lblNewLabel = new JLabel("s1");
+				lblNewLabel = new JLabel(MessagesUI_Calendario.getString("UI_Calendario.lblNewLabel.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
 				gbc_lblNewLabel.insets = new Insets(0, 0, 5, 5);
 				gbc_lblNewLabel.gridx = 1;
@@ -185,7 +185,7 @@ public class UI_Calendario extends JFrame {
 				panelCalendario.add(lblNewLabel, gbc_lblNewLabel);
 			}
 			{
-				btn1 = new JButton("1");
+				btn1 = new JButton(MessagesUI_Calendario.getString("UI_Calendario.btn1.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_btn1 = new GridBagConstraints();
 				gbc_btn1.fill = GridBagConstraints.BOTH;
 				gbc_btn1.insets = new Insets(0, 0, 5, 5);
@@ -194,7 +194,7 @@ public class UI_Calendario extends JFrame {
 				panelCalendario.add(btn1, gbc_btn1);
 			}
 			{
-				btn2 = new JButton("2");
+				btn2 = new JButton(MessagesUI_Calendario.getString("UI_Calendario.btn2.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_btn2 = new GridBagConstraints();
 				gbc_btn2.fill = GridBagConstraints.BOTH;
 				gbc_btn2.insets = new Insets(0, 0, 5, 5);
@@ -203,7 +203,7 @@ public class UI_Calendario extends JFrame {
 				panelCalendario.add(btn2, gbc_btn2);
 			}
 			{
-				btn3 = new JButton("3");
+				btn3 = new JButton(MessagesUI_Calendario.getString("UI_Calendario.btn3.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_btn3 = new GridBagConstraints();
 				gbc_btn3.fill = GridBagConstraints.BOTH;
 				gbc_btn3.insets = new Insets(0, 0, 5, 5);
@@ -212,7 +212,7 @@ public class UI_Calendario extends JFrame {
 				panelCalendario.add(btn3, gbc_btn3);
 			}
 			{
-				lblNewLabel_1 = new JLabel("s2");
+				lblNewLabel_1 = new JLabel(MessagesUI_Calendario.getString("UI_Calendario.lblNewLabel_1.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_lblNewLabel_1 = new GridBagConstraints();
 				gbc_lblNewLabel_1.insets = new Insets(0, 0, 5, 5);
 				gbc_lblNewLabel_1.gridx = 1;
@@ -220,7 +220,7 @@ public class UI_Calendario extends JFrame {
 				panelCalendario.add(lblNewLabel_1, gbc_lblNewLabel_1);
 			}
 			{
-				btn4 = new JButton("4");
+				btn4 = new JButton(MessagesUI_Calendario.getString("UI_Calendario.btn4.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_btn4 = new GridBagConstraints();
 				gbc_btn4.fill = GridBagConstraints.BOTH;
 				gbc_btn4.insets = new Insets(0, 0, 5, 5);
@@ -229,7 +229,7 @@ public class UI_Calendario extends JFrame {
 				panelCalendario.add(btn4, gbc_btn4);
 			}
 			{
-				btn5 = new JButton("5");
+				btn5 = new JButton(MessagesUI_Calendario.getString("UI_Calendario.btn5.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_btn5 = new GridBagConstraints();
 				gbc_btn5.fill = GridBagConstraints.BOTH;
 				gbc_btn5.insets = new Insets(0, 0, 5, 5);
@@ -238,7 +238,7 @@ public class UI_Calendario extends JFrame {
 				panelCalendario.add(btn5, gbc_btn5);
 			}
 			{
-				btn6 = new JButton("6");
+				btn6 = new JButton(MessagesUI_Calendario.getString("UI_Calendario.btn6.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_btn6 = new GridBagConstraints();
 				gbc_btn6.fill = GridBagConstraints.BOTH;
 				gbc_btn6.insets = new Insets(0, 0, 5, 5);
@@ -247,7 +247,7 @@ public class UI_Calendario extends JFrame {
 				panelCalendario.add(btn6, gbc_btn6);
 			}
 			{
-				btn7 = new JButton("7");
+				btn7 = new JButton(MessagesUI_Calendario.getString("UI_Calendario.btn7.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_btn7 = new GridBagConstraints();
 				gbc_btn7.fill = GridBagConstraints.BOTH;
 				gbc_btn7.insets = new Insets(0, 0, 5, 5);
@@ -256,7 +256,7 @@ public class UI_Calendario extends JFrame {
 				panelCalendario.add(btn7, gbc_btn7);
 			}
 			{
-				btn8 = new JButton("8");
+				btn8 = new JButton(MessagesUI_Calendario.getString("UI_Calendario.btn8.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_btn8 = new GridBagConstraints();
 				gbc_btn8.fill = GridBagConstraints.BOTH;
 				gbc_btn8.insets = new Insets(0, 0, 5, 5);
@@ -265,7 +265,7 @@ public class UI_Calendario extends JFrame {
 				panelCalendario.add(btn8, gbc_btn8);
 			}
 			{
-				btn9 = new JButton("9");
+				btn9 = new JButton(MessagesUI_Calendario.getString("UI_Calendario.btn9.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_btn9 = new GridBagConstraints();
 				gbc_btn9.fill = GridBagConstraints.BOTH;
 				gbc_btn9.insets = new Insets(0, 0, 5, 5);
@@ -274,7 +274,7 @@ public class UI_Calendario extends JFrame {
 				panelCalendario.add(btn9, gbc_btn9);
 			}
 			{
-				btn10 = new JButton("10");
+				btn10 = new JButton(MessagesUI_Calendario.getString("UI_Calendario.btn10.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_btn10 = new GridBagConstraints();
 				gbc_btn10.fill = GridBagConstraints.BOTH;
 				gbc_btn10.insets = new Insets(0, 0, 5, 5);
@@ -283,7 +283,7 @@ public class UI_Calendario extends JFrame {
 				panelCalendario.add(btn10, gbc_btn10);
 			}
 			{
-				lblNewLabel_2 = new JLabel("s3");
+				lblNewLabel_2 = new JLabel(MessagesUI_Calendario.getString("UI_Calendario.lblNewLabel_2.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_lblNewLabel_2 = new GridBagConstraints();
 				gbc_lblNewLabel_2.insets = new Insets(0, 0, 5, 5);
 				gbc_lblNewLabel_2.gridx = 1;
@@ -291,7 +291,7 @@ public class UI_Calendario extends JFrame {
 				panelCalendario.add(lblNewLabel_2, gbc_lblNewLabel_2);
 			}
 			{
-				btn11 = new JButton("11");
+				btn11 = new JButton(MessagesUI_Calendario.getString("UI_Calendario.btn11.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_btn11 = new GridBagConstraints();
 				gbc_btn11.fill = GridBagConstraints.BOTH;
 				gbc_btn11.insets = new Insets(0, 0, 5, 5);
@@ -300,7 +300,7 @@ public class UI_Calendario extends JFrame {
 				panelCalendario.add(btn11, gbc_btn11);
 			}
 			{
-				btn12 = new JButton("12");
+				btn12 = new JButton(MessagesUI_Calendario.getString("UI_Calendario.btn12.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_btn12 = new GridBagConstraints();
 				gbc_btn12.fill = GridBagConstraints.BOTH;
 				gbc_btn12.insets = new Insets(0, 0, 5, 5);
@@ -309,7 +309,7 @@ public class UI_Calendario extends JFrame {
 				panelCalendario.add(btn12, gbc_btn12);
 			}
 			{
-				btn13 = new JButton("13");
+				btn13 = new JButton(MessagesUI_Calendario.getString("UI_Calendario.btn13.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_btn13 = new GridBagConstraints();
 				gbc_btn13.fill = GridBagConstraints.BOTH;
 				gbc_btn13.insets = new Insets(0, 0, 5, 5);
@@ -318,7 +318,7 @@ public class UI_Calendario extends JFrame {
 				panelCalendario.add(btn13, gbc_btn13);
 			}
 			{
-				btn14 = new JButton("14");
+				btn14 = new JButton(MessagesUI_Calendario.getString("UI_Calendario.btn14.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_btn14 = new GridBagConstraints();
 				gbc_btn14.fill = GridBagConstraints.BOTH;
 				gbc_btn14.insets = new Insets(0, 0, 5, 5);
@@ -327,7 +327,7 @@ public class UI_Calendario extends JFrame {
 				panelCalendario.add(btn14, gbc_btn14);
 			}
 			{
-				btn15 = new JButton("15");
+				btn15 = new JButton(MessagesUI_Calendario.getString("UI_Calendario.btn15.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_btn15 = new GridBagConstraints();
 				gbc_btn15.fill = GridBagConstraints.BOTH;
 				gbc_btn15.insets = new Insets(0, 0, 5, 5);
@@ -336,7 +336,7 @@ public class UI_Calendario extends JFrame {
 				panelCalendario.add(btn15, gbc_btn15);
 			}
 			{
-				btn16 = new JButton("16");
+				btn16 = new JButton(MessagesUI_Calendario.getString("UI_Calendario.btn16.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_btn16 = new GridBagConstraints();
 				gbc_btn16.fill = GridBagConstraints.BOTH;
 				gbc_btn16.insets = new Insets(0, 0, 5, 5);
@@ -345,7 +345,7 @@ public class UI_Calendario extends JFrame {
 				panelCalendario.add(btn16, gbc_btn16);
 			}
 			{
-				btn17 = new JButton("17");
+				btn17 = new JButton(MessagesUI_Calendario.getString("UI_Calendario.btn17.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_btn17 = new GridBagConstraints();
 				gbc_btn17.fill = GridBagConstraints.BOTH;
 				gbc_btn17.insets = new Insets(0, 0, 5, 5);
@@ -354,7 +354,7 @@ public class UI_Calendario extends JFrame {
 				panelCalendario.add(btn17, gbc_btn17);
 			}
 			{
-				lblNewLabel_3 = new JLabel("s4");
+				lblNewLabel_3 = new JLabel(MessagesUI_Calendario.getString("UI_Calendario.lblNewLabel_3.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_lblNewLabel_3 = new GridBagConstraints();
 				gbc_lblNewLabel_3.insets = new Insets(0, 0, 5, 5);
 				gbc_lblNewLabel_3.gridx = 1;
@@ -362,7 +362,7 @@ public class UI_Calendario extends JFrame {
 				panelCalendario.add(lblNewLabel_3, gbc_lblNewLabel_3);
 			}
 			{
-				btn18 = new JButton("18");
+				btn18 = new JButton(MessagesUI_Calendario.getString("UI_Calendario.btn18.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_btn18 = new GridBagConstraints();
 				gbc_btn18.fill = GridBagConstraints.BOTH;
 				gbc_btn18.insets = new Insets(0, 0, 5, 5);
@@ -371,7 +371,7 @@ public class UI_Calendario extends JFrame {
 				panelCalendario.add(btn18, gbc_btn18);
 			}
 			{
-				btn19 = new JButton("19");
+				btn19 = new JButton(MessagesUI_Calendario.getString("UI_Calendario.btn19.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_btn19 = new GridBagConstraints();
 				gbc_btn19.fill = GridBagConstraints.BOTH;
 				gbc_btn19.insets = new Insets(0, 0, 5, 5);
@@ -380,7 +380,7 @@ public class UI_Calendario extends JFrame {
 				panelCalendario.add(btn19, gbc_btn19);
 			}
 			{
-				btn20 = new JButton("20");
+				btn20 = new JButton(MessagesUI_Calendario.getString("UI_Calendario.btn20.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_btn20 = new GridBagConstraints();
 				gbc_btn20.fill = GridBagConstraints.BOTH;
 				gbc_btn20.insets = new Insets(0, 0, 5, 5);
@@ -389,7 +389,7 @@ public class UI_Calendario extends JFrame {
 				panelCalendario.add(btn20, gbc_btn20);
 			}
 			{
-				btn21 = new JButton("21");
+				btn21 = new JButton(MessagesUI_Calendario.getString("UI_Calendario.btn21.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_btn21 = new GridBagConstraints();
 				gbc_btn21.fill = GridBagConstraints.BOTH;
 				gbc_btn21.insets = new Insets(0, 0, 5, 5);
@@ -398,7 +398,7 @@ public class UI_Calendario extends JFrame {
 				panelCalendario.add(btn21, gbc_btn21);
 			}
 			{
-				btn22 = new JButton("22");
+				btn22 = new JButton(MessagesUI_Calendario.getString("UI_Calendario.btn22.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_btn22 = new GridBagConstraints();
 				gbc_btn22.fill = GridBagConstraints.BOTH;
 				gbc_btn22.insets = new Insets(0, 0, 5, 5);
@@ -407,7 +407,7 @@ public class UI_Calendario extends JFrame {
 				panelCalendario.add(btn22, gbc_btn22);
 			}
 			{
-				btn23 = new JButton("23");
+				btn23 = new JButton(MessagesUI_Calendario.getString("UI_Calendario.btn23.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_btn23 = new GridBagConstraints();
 				gbc_btn23.fill = GridBagConstraints.BOTH;
 				gbc_btn23.insets = new Insets(0, 0, 5, 5);
@@ -416,7 +416,7 @@ public class UI_Calendario extends JFrame {
 				panelCalendario.add(btn23, gbc_btn23);
 			}
 			{
-				btn24 = new JButton("24");
+				btn24 = new JButton(MessagesUI_Calendario.getString("UI_Calendario.btn24.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_btn24 = new GridBagConstraints();
 				gbc_btn24.fill = GridBagConstraints.BOTH;
 				gbc_btn24.insets = new Insets(0, 0, 5, 5);
@@ -425,7 +425,7 @@ public class UI_Calendario extends JFrame {
 				panelCalendario.add(btn24, gbc_btn24);
 			}
 			{
-				lblNewLabel_4 = new JLabel("s5");
+				lblNewLabel_4 = new JLabel(MessagesUI_Calendario.getString("UI_Calendario.lblNewLabel_4.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_lblNewLabel_4 = new GridBagConstraints();
 				gbc_lblNewLabel_4.insets = new Insets(0, 0, 5, 5);
 				gbc_lblNewLabel_4.gridx = 1;
@@ -433,7 +433,7 @@ public class UI_Calendario extends JFrame {
 				panelCalendario.add(lblNewLabel_4, gbc_lblNewLabel_4);
 			}
 			{
-				btn25 = new JButton("25");
+				btn25 = new JButton(MessagesUI_Calendario.getString("UI_Calendario.btn25.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_btn25 = new GridBagConstraints();
 				gbc_btn25.fill = GridBagConstraints.BOTH;
 				gbc_btn25.insets = new Insets(0, 0, 5, 5);
@@ -442,7 +442,7 @@ public class UI_Calendario extends JFrame {
 				panelCalendario.add(btn25, gbc_btn25);
 			}
 			{
-				btn26 = new JButton("26");
+				btn26 = new JButton(MessagesUI_Calendario.getString("UI_Calendario.btn26.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_btn26 = new GridBagConstraints();
 				gbc_btn26.fill = GridBagConstraints.BOTH;
 				gbc_btn26.insets = new Insets(0, 0, 5, 5);
@@ -451,7 +451,7 @@ public class UI_Calendario extends JFrame {
 				panelCalendario.add(btn26, gbc_btn26);
 			}
 			{
-				btn27 = new JButton("27");
+				btn27 = new JButton(MessagesUI_Calendario.getString("UI_Calendario.btn27.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_btn27 = new GridBagConstraints();
 				gbc_btn27.fill = GridBagConstraints.BOTH;
 				gbc_btn27.insets = new Insets(0, 0, 5, 5);
@@ -460,7 +460,7 @@ public class UI_Calendario extends JFrame {
 				panelCalendario.add(btn27, gbc_btn27);
 			}
 			{
-				btn28 = new JButton("28");
+				btn28 = new JButton(MessagesUI_Calendario.getString("UI_Calendario.btn28.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_btn28 = new GridBagConstraints();
 				gbc_btn28.fill = GridBagConstraints.BOTH;
 				gbc_btn28.insets = new Insets(0, 0, 5, 5);
@@ -469,7 +469,7 @@ public class UI_Calendario extends JFrame {
 				panelCalendario.add(btn28, gbc_btn28);
 			}
 			{
-				btn29 = new JButton("29");
+				btn29 = new JButton(MessagesUI_Calendario.getString("UI_Calendario.btn29.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_btn29 = new GridBagConstraints();
 				gbc_btn29.fill = GridBagConstraints.BOTH;
 				gbc_btn29.insets = new Insets(0, 0, 5, 5);
@@ -478,7 +478,7 @@ public class UI_Calendario extends JFrame {
 				panelCalendario.add(btn29, gbc_btn29);
 			}
 			{
-				btn30 = new JButton("30");
+				btn30 = new JButton(MessagesUI_Calendario.getString("UI_Calendario.btn30.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_btn30 = new GridBagConstraints();
 				gbc_btn30.fill = GridBagConstraints.BOTH;
 				gbc_btn30.insets = new Insets(0, 0, 5, 5);
@@ -487,7 +487,7 @@ public class UI_Calendario extends JFrame {
 				panelCalendario.add(btn30, gbc_btn30);
 			}
 			{
-				btn31 = new JButton("31");
+				btn31 = new JButton(MessagesUI_Calendario.getString("UI_Calendario.btn31.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_btn31 = new GridBagConstraints();
 				gbc_btn31.fill = GridBagConstraints.BOTH;
 				gbc_btn31.insets = new Insets(0, 0, 5, 5);

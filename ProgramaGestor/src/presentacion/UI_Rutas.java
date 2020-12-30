@@ -117,7 +117,7 @@ public class UI_Rutas extends JFrame {
 		setResizable(false);
 		addWindowListener(new ThisWindowListener());
 		setIconImage(Toolkit.getDefaultToolkit().getImage(UI_Rutas.class.getResource("/recursos/logo.png")));
-		setTitle("Gestor Los Olivos - Rutas");
+		setTitle(MessagesUI_Rutas.getString("UI_Rutas.this.title")); //$NON-NLS-1$
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 771, 577);
 		contentPane = new JPanel();
@@ -139,7 +139,7 @@ public class UI_Rutas extends JFrame {
 						gbl_Faciles.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 						Faciles.setLayout(gbl_Faciles);
 						{
-							lblNombre = new JLabel("Nombre:");
+							lblNombre = new JLabel(MessagesUI_Rutas.getString("UI_Rutas.lblNombre.text")); //$NON-NLS-1$
 							GridBagConstraints gbc_lblNombre = new GridBagConstraints();
 							gbc_lblNombre.insets = new Insets(0, 0, 5, 5);
 							gbc_lblNombre.anchor = GridBagConstraints.EAST;
@@ -159,7 +159,7 @@ public class UI_Rutas extends JFrame {
 							Faciles.add(cbNombre, gbc_cbNombre);
 						}
 						{
-							lblDificultad = new JLabel("FACIL");
+							lblDificultad = new JLabel(MessagesUI_Rutas.getString("UI_Rutas.lblDificultad.text")); //$NON-NLS-1$
 							lblDificultad.setForeground(Color.GREEN);
 							GridBagConstraints gbc_lblDificultad = new GridBagConstraints();
 							gbc_lblDificultad.fill = GridBagConstraints.VERTICAL;
@@ -170,7 +170,7 @@ public class UI_Rutas extends JFrame {
 							Faciles.add(lblDificultad, gbc_lblDificultad);
 						}
 						{
-							lblFechal = new JLabel("Fecha:");
+							lblFechal = new JLabel(MessagesUI_Rutas.getString("UI_Rutas.lblFechal.text")); //$NON-NLS-1$
 							GridBagConstraints gbc_lblFechal = new GridBagConstraints();
 							gbc_lblFechal.anchor = GridBagConstraints.WEST;
 							gbc_lblFechal.insets = new Insets(0, 0, 5, 5);
@@ -179,7 +179,7 @@ public class UI_Rutas extends JFrame {
 							Faciles.add(lblFechal, gbc_lblFechal);
 						}
 						{
-							lblHoraInicio = new JLabel("Hora Inicio:");
+							lblHoraInicio = new JLabel(MessagesUI_Rutas.getString("UI_Rutas.lblHoraInicio.text")); //$NON-NLS-1$
 							GridBagConstraints gbc_lblHoraInicio = new GridBagConstraints();
 							gbc_lblHoraInicio.anchor = GridBagConstraints.WEST;
 							gbc_lblHoraInicio.insets = new Insets(0, 0, 5, 5);
@@ -188,7 +188,7 @@ public class UI_Rutas extends JFrame {
 							Faciles.add(lblHoraInicio, gbc_lblHoraInicio);
 						}
 						{
-							lblHoraFin = new JLabel("Hora Fin:");
+							lblHoraFin = new JLabel(MessagesUI_Rutas.getString("UI_Rutas.lblHoraFin.text")); //$NON-NLS-1$
 							GridBagConstraints gbc_lblHoraFin = new GridBagConstraints();
 							gbc_lblHoraFin.anchor = GridBagConstraints.WEST;
 							gbc_lblHoraFin.insets = new Insets(0, 0, 5, 5);
@@ -197,7 +197,7 @@ public class UI_Rutas extends JFrame {
 							Faciles.add(lblHoraFin, gbc_lblHoraFin);
 						}
 						{
-							lblFotoRuta = new JLabel("Foto Ruta:");
+							lblFotoRuta = new JLabel(MessagesUI_Rutas.getString("UI_Rutas.lblFotoRuta.text")); //$NON-NLS-1$
 							GridBagConstraints gbc_lblFotoRuta = new GridBagConstraints();
 							gbc_lblFotoRuta.anchor = GridBagConstraints.WEST;
 							gbc_lblFotoRuta.insets = new Insets(0, 0, 5, 5);
@@ -248,7 +248,7 @@ public class UI_Rutas extends JFrame {
 							Faciles.add(lblFoto, gbc_lblFoto);
 						}
 						{
-							lblPuntoEncuentro = new JLabel("Encuentro:");
+							lblPuntoEncuentro = new JLabel(MessagesUI_Rutas.getString("UI_Rutas.lblPuntoEncuentro.text")); //$NON-NLS-1$
 							GridBagConstraints gbc_lblPuntoEncuentro = new GridBagConstraints();
 							gbc_lblPuntoEncuentro.anchor = GridBagConstraints.WEST;
 							gbc_lblPuntoEncuentro.insets = new Insets(0, 0, 5, 5);
@@ -257,7 +257,7 @@ public class UI_Rutas extends JFrame {
 							Faciles.add(lblPuntoEncuentro, gbc_lblPuntoEncuentro);
 						}
 						{
-							lblGenteMin = new JLabel("Gente Min:");
+							lblGenteMin = new JLabel(MessagesUI_Rutas.getString("UI_Rutas.lblGenteMin.text")); //$NON-NLS-1$
 							GridBagConstraints gbc_lblGenteMin = new GridBagConstraints();
 							gbc_lblGenteMin.anchor = GridBagConstraints.WEST;
 							gbc_lblGenteMin.insets = new Insets(0, 0, 5, 5);
@@ -266,7 +266,7 @@ public class UI_Rutas extends JFrame {
 							Faciles.add(lblGenteMin, gbc_lblGenteMin);
 						}
 						{
-							lblGenteMax = new JLabel("Gente Max:");
+							lblGenteMax = new JLabel(MessagesUI_Rutas.getString("UI_Rutas.lblGenteMax.text")); //$NON-NLS-1$
 							GridBagConstraints gbc_lblGenteMax = new GridBagConstraints();
 							gbc_lblGenteMax.anchor = GridBagConstraints.WEST;
 							gbc_lblGenteMax.insets = new Insets(0, 0, 5, 5);
@@ -305,7 +305,7 @@ public class UI_Rutas extends JFrame {
 							Faciles.add(spinnerGenteMax, gbc_spinnerGenteMax);
 						}
 						{
-							lblListaMonitores = new JLabel("Lista Monitores:");
+							lblListaMonitores = new JLabel(MessagesUI_Rutas.getString("UI_Rutas.lblListaMonitores.text")); //$NON-NLS-1$
 							GridBagConstraints gbc_lblListaMonitores = new GridBagConstraints();
 							gbc_lblListaMonitores.anchor = GridBagConstraints.WEST;
 							gbc_lblListaMonitores.insets = new Insets(0, 0, 5, 5);
@@ -325,7 +325,7 @@ public class UI_Rutas extends JFrame {
 							txtMonitores.setColumns(10);
 						}
 						{
-							lblDescripcion = new JLabel("Descripcion:");
+							lblDescripcion = new JLabel(MessagesUI_Rutas.getString("UI_Rutas.lblDescripcion.text")); //$NON-NLS-1$
 							GridBagConstraints gbc_lblDescripcion = new GridBagConstraints();
 							gbc_lblDescripcion.anchor = GridBagConstraints.WEST;
 							gbc_lblDescripcion.insets = new Insets(0, 0, 5, 5);
@@ -357,7 +357,7 @@ public class UI_Rutas extends JFrame {
 						gbl_Intermedias.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 						Intermedias.setLayout(gbl_Intermedias);
 						{
-							lblNombre_1 = new JLabel("Nombre:");
+							lblNombre_1 = new JLabel(MessagesUI_Rutas.getString("UI_Rutas.lblNombre_1.text")); //$NON-NLS-1$
 							GridBagConstraints gbc_lblNombre_1 = new GridBagConstraints();
 							gbc_lblNombre_1.anchor = GridBagConstraints.EAST;
 							gbc_lblNombre_1.insets = new Insets(0, 0, 5, 5);
@@ -377,7 +377,7 @@ public class UI_Rutas extends JFrame {
 							Intermedias.add(cbNombre_1, gbc_cbNombre_1);
 						}
 						{
-							lblIntermedia = new JLabel("INTERMEDIA");
+							lblIntermedia = new JLabel(MessagesUI_Rutas.getString("UI_Rutas.lblIntermedia.text")); //$NON-NLS-1$
 							lblIntermedia.setForeground(Color.ORANGE);
 							GridBagConstraints gbc_lblIntermedia = new GridBagConstraints();
 							gbc_lblIntermedia.fill = GridBagConstraints.VERTICAL;
@@ -388,7 +388,7 @@ public class UI_Rutas extends JFrame {
 							Intermedias.add(lblIntermedia, gbc_lblIntermedia);
 						}
 						{
-							lblFechal_1 = new JLabel("Fecha:");
+							lblFechal_1 = new JLabel(MessagesUI_Rutas.getString("UI_Rutas.lblFechal_1.text")); //$NON-NLS-1$
 							GridBagConstraints gbc_lblFechal_1 = new GridBagConstraints();
 							gbc_lblFechal_1.anchor = GridBagConstraints.WEST;
 							gbc_lblFechal_1.insets = new Insets(0, 0, 5, 5);
@@ -397,7 +397,7 @@ public class UI_Rutas extends JFrame {
 							Intermedias.add(lblFechal_1, gbc_lblFechal_1);
 						}
 						{
-							lblHoraInicio_1 = new JLabel("Hora Inicio:");
+							lblHoraInicio_1 = new JLabel(MessagesUI_Rutas.getString("UI_Rutas.lblHoraInicio_1.text")); //$NON-NLS-1$
 							GridBagConstraints gbc_lblHoraInicio_1 = new GridBagConstraints();
 							gbc_lblHoraInicio_1.anchor = GridBagConstraints.WEST;
 							gbc_lblHoraInicio_1.insets = new Insets(0, 0, 5, 5);
@@ -406,7 +406,7 @@ public class UI_Rutas extends JFrame {
 							Intermedias.add(lblHoraInicio_1, gbc_lblHoraInicio_1);
 						}
 						{
-							lblHoraFin_1 = new JLabel("Hora Fin:");
+							lblHoraFin_1 = new JLabel(MessagesUI_Rutas.getString("UI_Rutas.lblHoraFin_1.text")); //$NON-NLS-1$
 							GridBagConstraints gbc_lblHoraFin_1 = new GridBagConstraints();
 							gbc_lblHoraFin_1.anchor = GridBagConstraints.WEST;
 							gbc_lblHoraFin_1.insets = new Insets(0, 0, 5, 5);
@@ -415,7 +415,7 @@ public class UI_Rutas extends JFrame {
 							Intermedias.add(lblHoraFin_1, gbc_lblHoraFin_1);
 						}
 						{
-							lblFotoRuta_1 = new JLabel("Foto Ruta:");
+							lblFotoRuta_1 = new JLabel(MessagesUI_Rutas.getString("UI_Rutas.lblFotoRuta_1.text")); //$NON-NLS-1$
 							GridBagConstraints gbc_lblFotoRuta_1 = new GridBagConstraints();
 							gbc_lblFotoRuta_1.anchor = GridBagConstraints.WEST;
 							gbc_lblFotoRuta_1.insets = new Insets(0, 0, 5, 5);
@@ -465,7 +465,7 @@ public class UI_Rutas extends JFrame {
 							Intermedias.add(lblFoto_1, gbc_lblFoto_1);
 						}
 						{
-							lblPuntoEncuentro_1 = new JLabel("Encuentro:");
+							lblPuntoEncuentro_1 = new JLabel(MessagesUI_Rutas.getString("UI_Rutas.lblPuntoEncuentro_1.text")); //$NON-NLS-1$
 							GridBagConstraints gbc_lblPuntoEncuentro_1 = new GridBagConstraints();
 							gbc_lblPuntoEncuentro_1.anchor = GridBagConstraints.WEST;
 							gbc_lblPuntoEncuentro_1.insets = new Insets(0, 0, 5, 5);
@@ -474,7 +474,7 @@ public class UI_Rutas extends JFrame {
 							Intermedias.add(lblPuntoEncuentro_1, gbc_lblPuntoEncuentro_1);
 						}
 						{
-							lblGenteMin_1 = new JLabel("Gente Min:");
+							lblGenteMin_1 = new JLabel(MessagesUI_Rutas.getString("UI_Rutas.lblGenteMin_1.text")); //$NON-NLS-1$
 							GridBagConstraints gbc_lblGenteMin_1 = new GridBagConstraints();
 							gbc_lblGenteMin_1.anchor = GridBagConstraints.WEST;
 							gbc_lblGenteMin_1.insets = new Insets(0, 0, 5, 5);
@@ -483,7 +483,7 @@ public class UI_Rutas extends JFrame {
 							Intermedias.add(lblGenteMin_1, gbc_lblGenteMin_1);
 						}
 						{
-							lblGenteMax_1 = new JLabel("Gente Max:");
+							lblGenteMax_1 = new JLabel(MessagesUI_Rutas.getString("UI_Rutas.lblGenteMax_1.text")); //$NON-NLS-1$
 							GridBagConstraints gbc_lblGenteMax_1 = new GridBagConstraints();
 							gbc_lblGenteMax_1.anchor = GridBagConstraints.WEST;
 							gbc_lblGenteMax_1.insets = new Insets(0, 0, 5, 5);
@@ -522,7 +522,7 @@ public class UI_Rutas extends JFrame {
 							Intermedias.add(spinnerGenteMax_1, gbc_spinnerGenteMax_1);
 						}
 						{
-							lblListaMonitores_1 = new JLabel("Lista Monitores:");
+							lblListaMonitores_1 = new JLabel(MessagesUI_Rutas.getString("UI_Rutas.lblListaMonitores_1.text")); //$NON-NLS-1$
 							GridBagConstraints gbc_lblListaMonitores_1 = new GridBagConstraints();
 							gbc_lblListaMonitores_1.anchor = GridBagConstraints.WEST;
 							gbc_lblListaMonitores_1.insets = new Insets(0, 0, 5, 5);
@@ -542,7 +542,7 @@ public class UI_Rutas extends JFrame {
 							Intermedias.add(textMonitores_1, gbc_textMonitores_1);
 						}
 						{
-							lblDescripcion_1 = new JLabel("Descripcion:");
+							lblDescripcion_1 = new JLabel(MessagesUI_Rutas.getString("UI_Rutas.lblDescripcion_1.text")); //$NON-NLS-1$
 							GridBagConstraints gbc_lblDescripcion_1 = new GridBagConstraints();
 							gbc_lblDescripcion_1.anchor = GridBagConstraints.WEST;
 							gbc_lblDescripcion_1.insets = new Insets(0, 0, 5, 5);
@@ -574,7 +574,7 @@ public class UI_Rutas extends JFrame {
 						gbl_Dificiles.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 						Dificiles.setLayout(gbl_Dificiles);
 						{
-							lblNombre_2 = new JLabel("Nombre:");
+							lblNombre_2 = new JLabel(MessagesUI_Rutas.getString("UI_Rutas.lblNombre_2.text")); //$NON-NLS-1$
 							GridBagConstraints gbc_lblNombre_2 = new GridBagConstraints();
 							gbc_lblNombre_2.anchor = GridBagConstraints.EAST;
 							gbc_lblNombre_2.insets = new Insets(0, 0, 5, 5);
@@ -594,7 +594,7 @@ public class UI_Rutas extends JFrame {
 							Dificiles.add(cbNombre_2, gbc_cbNombre_2);
 						}
 						{
-							lblDificil = new JLabel("DIFICIL");
+							lblDificil = new JLabel(MessagesUI_Rutas.getString("UI_Rutas.lblDificil.text")); //$NON-NLS-1$
 							lblDificil.setForeground(Color.RED);
 							GridBagConstraints gbc_lblDificil = new GridBagConstraints();
 							gbc_lblDificil.fill = GridBagConstraints.VERTICAL;
@@ -605,7 +605,7 @@ public class UI_Rutas extends JFrame {
 							Dificiles.add(lblDificil, gbc_lblDificil);
 						}
 						{
-							lblFechal_2 = new JLabel("Fecha:");
+							lblFechal_2 = new JLabel(MessagesUI_Rutas.getString("UI_Rutas.lblFechal_2.text")); //$NON-NLS-1$
 							GridBagConstraints gbc_lblFechal_2 = new GridBagConstraints();
 							gbc_lblFechal_2.anchor = GridBagConstraints.WEST;
 							gbc_lblFechal_2.insets = new Insets(0, 0, 5, 5);
@@ -614,7 +614,7 @@ public class UI_Rutas extends JFrame {
 							Dificiles.add(lblFechal_2, gbc_lblFechal_2);
 						}
 						{
-							lblHoraInicio_2 = new JLabel("Hora Inicio:");
+							lblHoraInicio_2 = new JLabel(MessagesUI_Rutas.getString("UI_Rutas.lblHoraInicio_2.text")); //$NON-NLS-1$
 							GridBagConstraints gbc_lblHoraInicio_2 = new GridBagConstraints();
 							gbc_lblHoraInicio_2.anchor = GridBagConstraints.WEST;
 							gbc_lblHoraInicio_2.insets = new Insets(0, 0, 5, 5);
@@ -623,7 +623,7 @@ public class UI_Rutas extends JFrame {
 							Dificiles.add(lblHoraInicio_2, gbc_lblHoraInicio_2);
 						}
 						{
-							lblHoraFin_2 = new JLabel("Hora Fin:");
+							lblHoraFin_2 = new JLabel(MessagesUI_Rutas.getString("UI_Rutas.lblHoraFin_2.text")); //$NON-NLS-1$
 							GridBagConstraints gbc_lblHoraFin_2 = new GridBagConstraints();
 							gbc_lblHoraFin_2.anchor = GridBagConstraints.WEST;
 							gbc_lblHoraFin_2.insets = new Insets(0, 0, 5, 5);
@@ -632,7 +632,7 @@ public class UI_Rutas extends JFrame {
 							Dificiles.add(lblHoraFin_2, gbc_lblHoraFin_2);
 						}
 						{
-							lblFotoRuta_2 = new JLabel("Foto Ruta:");
+							lblFotoRuta_2 = new JLabel(MessagesUI_Rutas.getString("UI_Rutas.lblFotoRuta_2.text")); //$NON-NLS-1$
 							GridBagConstraints gbc_lblFotoRuta_2 = new GridBagConstraints();
 							gbc_lblFotoRuta_2.anchor = GridBagConstraints.WEST;
 							gbc_lblFotoRuta_2.insets = new Insets(0, 0, 5, 5);
@@ -682,7 +682,7 @@ public class UI_Rutas extends JFrame {
 							Dificiles.add(lblFoto_2, gbc_lblFoto_2);
 						}
 						{
-							lblPuntoEncuentro_2 = new JLabel("Encuentro:");
+							lblPuntoEncuentro_2 = new JLabel(MessagesUI_Rutas.getString("UI_Rutas.lblPuntoEncuentro_2.text")); //$NON-NLS-1$
 							GridBagConstraints gbc_lblPuntoEncuentro_2 = new GridBagConstraints();
 							gbc_lblPuntoEncuentro_2.anchor = GridBagConstraints.WEST;
 							gbc_lblPuntoEncuentro_2.insets = new Insets(0, 0, 5, 5);
@@ -691,7 +691,7 @@ public class UI_Rutas extends JFrame {
 							Dificiles.add(lblPuntoEncuentro_2, gbc_lblPuntoEncuentro_2);
 						}
 						{
-							lblGenteMin_2 = new JLabel("Gente Min:");
+							lblGenteMin_2 = new JLabel(MessagesUI_Rutas.getString("UI_Rutas.lblGenteMin_2.text")); //$NON-NLS-1$
 							GridBagConstraints gbc_lblGenteMin_2 = new GridBagConstraints();
 							gbc_lblGenteMin_2.anchor = GridBagConstraints.WEST;
 							gbc_lblGenteMin_2.insets = new Insets(0, 0, 5, 5);
@@ -700,7 +700,7 @@ public class UI_Rutas extends JFrame {
 							Dificiles.add(lblGenteMin_2, gbc_lblGenteMin_2);
 						}
 						{
-							lblGenteMax_2 = new JLabel("Gente Max:");
+							lblGenteMax_2 = new JLabel(MessagesUI_Rutas.getString("UI_Rutas.lblGenteMax_2.text")); //$NON-NLS-1$
 							GridBagConstraints gbc_lblGenteMax_2 = new GridBagConstraints();
 							gbc_lblGenteMax_2.anchor = GridBagConstraints.WEST;
 							gbc_lblGenteMax_2.insets = new Insets(0, 0, 5, 5);
@@ -739,7 +739,7 @@ public class UI_Rutas extends JFrame {
 							Dificiles.add(spinnerGenteMax_2, gbc_spinnerGenteMax_2);
 						}
 						{
-							lblListaMonitores_2 = new JLabel("Lista Monitores:");
+							lblListaMonitores_2 = new JLabel(MessagesUI_Rutas.getString("UI_Rutas.lblListaMonitores_2.text")); //$NON-NLS-1$
 							GridBagConstraints gbc_lblListaMonitores_2 = new GridBagConstraints();
 							gbc_lblListaMonitores_2.anchor = GridBagConstraints.WEST;
 							gbc_lblListaMonitores_2.insets = new Insets(0, 0, 5, 5);
@@ -759,7 +759,7 @@ public class UI_Rutas extends JFrame {
 							Dificiles.add(textMonitores_2, gbc_textMonitores_2);
 						}
 						{
-							lblDescripcion_2 = new JLabel("Descripcion:");
+							lblDescripcion_2 = new JLabel(MessagesUI_Rutas.getString("UI_Rutas.lblDescripcion_2.text")); //$NON-NLS-1$
 							GridBagConstraints gbc_lblDescripcion_2 = new GridBagConstraints();
 							gbc_lblDescripcion_2.anchor = GridBagConstraints.WEST;
 							gbc_lblDescripcion_2.insets = new Insets(0, 0, 5, 5);

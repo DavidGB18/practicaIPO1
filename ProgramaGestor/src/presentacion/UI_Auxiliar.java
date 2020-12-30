@@ -128,7 +128,7 @@ public class UI_Auxiliar extends JFrame {
 		actividad = new Actividad();
 
 		setIconImage(Toolkit.getDefaultToolkit().getImage(UI_Auxiliar.class.getResource("/recursos/logo.png")));
-		setTitle("Gestor Los Olivos - Formularios");
+		setTitle(MessagesUI_Auxiliar.getString("UI_Auxiliar.this.title")); //$NON-NLS-1$
 		setResizable(false);
 		addWindowListener(new ThisWindowListener());
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -153,7 +153,7 @@ public class UI_Auxiliar extends JFrame {
 						1.0, Double.MIN_VALUE };
 				panelMonitores.setLayout(gbl_panelMonitores);
 				{
-					lblConfiguracionMonitor = new JLabel("Configuraci\u00F3n Monitor:");
+					lblConfiguracionMonitor = new JLabel(MessagesUI_Auxiliar.getString("UI_Auxiliar.lblConfiguracionMonitor.text")); //$NON-NLS-1$
 					lblConfiguracionMonitor.setFont(new Font("Tahoma", Font.PLAIN, 16));
 					GridBagConstraints gbc_lblConfiguracionMonitor = new GridBagConstraints();
 					gbc_lblConfiguracionMonitor.anchor = GridBagConstraints.WEST;
@@ -164,7 +164,7 @@ public class UI_Auxiliar extends JFrame {
 					panelMonitores.add(lblConfiguracionMonitor, gbc_lblConfiguracionMonitor);
 				}
 				{
-					lblNombreMonitor = new JLabel("Nombre:");
+					lblNombreMonitor = new JLabel(MessagesUI_Auxiliar.getString("UI_Auxiliar.lblNombreMonitor.text")); //$NON-NLS-1$
 					GridBagConstraints gbc_lblNombreMonitor = new GridBagConstraints();
 					gbc_lblNombreMonitor.anchor = GridBagConstraints.EAST;
 					gbc_lblNombreMonitor.insets = new Insets(0, 0, 5, 5);
@@ -183,7 +183,7 @@ public class UI_Auxiliar extends JFrame {
 					txtNombreMonitor.setColumns(10);
 				}
 				{
-					lblFotoMonitor2 = new JLabel("Foto:");
+					lblFotoMonitor2 = new JLabel(MessagesUI_Auxiliar.getString("UI_Auxiliar.lblFotoMonitor2.text")); //$NON-NLS-1$
 					GridBagConstraints gbc_lblFotoMonitor2 = new GridBagConstraints();
 					gbc_lblFotoMonitor2.insets = new Insets(0, 0, 5, 5);
 					gbc_lblFotoMonitor2.gridx = 4;
@@ -202,7 +202,7 @@ public class UI_Auxiliar extends JFrame {
 					panelMonitores.add(lblFotoMonitor, gbc_lblFotoMonitor);
 				}
 				{
-					lblApellido1Monitor = new JLabel("Apellido 1:");
+					lblApellido1Monitor = new JLabel(MessagesUI_Auxiliar.getString("UI_Auxiliar.lblApellido1Monitor.text")); //$NON-NLS-1$
 					GridBagConstraints gbc_lblApellido1Monitor = new GridBagConstraints();
 					gbc_lblApellido1Monitor.anchor = GridBagConstraints.EAST;
 					gbc_lblApellido1Monitor.insets = new Insets(0, 0, 5, 5);
@@ -221,7 +221,7 @@ public class UI_Auxiliar extends JFrame {
 					txtApellido1Monitor.setColumns(10);
 				}
 				{
-					lblApellido2Monitor = new JLabel("Apellido 2:");
+					lblApellido2Monitor = new JLabel(MessagesUI_Auxiliar.getString("UI_Auxiliar.lblApellido2Monitor.text")); //$NON-NLS-1$
 					GridBagConstraints gbc_lblApellido2Monitor = new GridBagConstraints();
 					gbc_lblApellido2Monitor.anchor = GridBagConstraints.EAST;
 					gbc_lblApellido2Monitor.insets = new Insets(0, 0, 5, 5);
@@ -240,7 +240,7 @@ public class UI_Auxiliar extends JFrame {
 					txtApellido2Monitor.setColumns(10);
 				}
 				{
-					lblDniMonitor = new JLabel("DNI:");
+					lblDniMonitor = new JLabel(MessagesUI_Auxiliar.getString("UI_Auxiliar.lblDniMonitor.text")); //$NON-NLS-1$
 					GridBagConstraints gbc_lblDniMonitor = new GridBagConstraints();
 					gbc_lblDniMonitor.anchor = GridBagConstraints.EAST;
 					gbc_lblDniMonitor.insets = new Insets(0, 0, 5, 5);
@@ -266,7 +266,7 @@ public class UI_Auxiliar extends JFrame {
 					panelMonitores.add(formattedTextFieldDniMonitor, gbc_formattedTextFieldDniMonitor);
 				}
 				{
-					btnAdjuntarImagen = new JButton("Adjuntar Imagen");
+					btnAdjuntarImagen = new JButton(MessagesUI_Auxiliar.getString("UI_Auxiliar.btnAdjuntarImagen.text")); //$NON-NLS-1$
 					btnAdjuntarImagen.addActionListener(new BtnAdjuntarImagenActionListener());
 					GridBagConstraints gbc_btnAdjuntarImagen = new GridBagConstraints();
 					gbc_btnAdjuntarImagen.gridwidth = 4;
@@ -276,7 +276,7 @@ public class UI_Auxiliar extends JFrame {
 					panelMonitores.add(btnAdjuntarImagen, gbc_btnAdjuntarImagen);
 				}
 				{
-					lblTlfMonitor = new JLabel("Tlf:");
+					lblTlfMonitor = new JLabel(MessagesUI_Auxiliar.getString("UI_Auxiliar.lblTlfMonitor.text")); //$NON-NLS-1$
 					GridBagConstraints gbc_lblTlfMonitor = new GridBagConstraints();
 					gbc_lblTlfMonitor.anchor = GridBagConstraints.EAST;
 					gbc_lblTlfMonitor.insets = new Insets(0, 0, 5, 5);
@@ -302,7 +302,7 @@ public class UI_Auxiliar extends JFrame {
 					panelMonitores.add(formattedTextFieldTlfMonitor, gbc_formattedTextFieldTlfMonitor);
 				}
 				{
-					lblFormacionMonitor = new JLabel("Formacion:");
+					lblFormacionMonitor = new JLabel(MessagesUI_Auxiliar.getString("UI_Auxiliar.lblFormacionMonitor.text")); //$NON-NLS-1$
 					GridBagConstraints gbc_lblFormacionMonitor = new GridBagConstraints();
 					gbc_lblFormacionMonitor.gridwidth = 2;
 					gbc_lblFormacionMonitor.insets = new Insets(0, 0, 5, 5);
@@ -311,7 +311,7 @@ public class UI_Auxiliar extends JFrame {
 					panelMonitores.add(lblFormacionMonitor, gbc_lblFormacionMonitor);
 				}
 				{
-					lblCorreoMonitor = new JLabel("Correo:");
+					lblCorreoMonitor = new JLabel(MessagesUI_Auxiliar.getString("UI_Auxiliar.lblCorreoMonitor.text")); //$NON-NLS-1$
 					GridBagConstraints gbc_lblCorreoMonitor = new GridBagConstraints();
 					gbc_lblCorreoMonitor.insets = new Insets(0, 0, 5, 5);
 					gbc_lblCorreoMonitor.anchor = GridBagConstraints.EAST;
@@ -341,7 +341,7 @@ public class UI_Auxiliar extends JFrame {
 					txtFormacion.setColumns(10);
 				}
 				{
-					lblIdiomasMonitor = new JLabel("Idiomas:");
+					lblIdiomasMonitor = new JLabel(MessagesUI_Auxiliar.getString("UI_Auxiliar.lblIdiomasMonitor.text")); //$NON-NLS-1$
 					GridBagConstraints gbc_lblIdiomasMonitor = new GridBagConstraints();
 					gbc_lblIdiomasMonitor.anchor = GridBagConstraints.EAST;
 					gbc_lblIdiomasMonitor.insets = new Insets(0, 0, 5, 5);
@@ -371,7 +371,7 @@ public class UI_Auxiliar extends JFrame {
 						Double.MIN_VALUE };
 				panelActividad.setLayout(gbl_panelActividad);
 				{
-					lblConfiguracionActividad = new JLabel("Configuraci\u00F3n Actividad:");
+					lblConfiguracionActividad = new JLabel(MessagesUI_Auxiliar.getString("UI_Auxiliar.lblConfiguracionActividad.text")); //$NON-NLS-1$
 					lblConfiguracionActividad.setFont(new Font("Tahoma", Font.PLAIN, 16));
 					GridBagConstraints gbc_lblConfiguracionActividad = new GridBagConstraints();
 					gbc_lblConfiguracionActividad.anchor = GridBagConstraints.WEST;
@@ -382,7 +382,7 @@ public class UI_Auxiliar extends JFrame {
 					panelActividad.add(lblConfiguracionActividad, gbc_lblConfiguracionActividad);
 				}
 				{
-					lblMonitoresActividades = new JLabel("Monitor:");
+					lblMonitoresActividades = new JLabel(MessagesUI_Auxiliar.getString("UI_Auxiliar.lblMonitoresActividades.text")); //$NON-NLS-1$
 					GridBagConstraints gbc_lblMonitoresActividades = new GridBagConstraints();
 					gbc_lblMonitoresActividades.anchor = GridBagConstraints.EAST;
 					gbc_lblMonitoresActividades.insets = new Insets(0, 0, 5, 5);
@@ -401,7 +401,7 @@ public class UI_Auxiliar extends JFrame {
 					textFieldMonitor.setColumns(10);
 				}
 				{
-					lblPrecio = new JLabel("Precio:");
+					lblPrecio = new JLabel(MessagesUI_Auxiliar.getString("UI_Auxiliar.lblPrecio.text")); //$NON-NLS-1$
 					GridBagConstraints gbc_lblPrecio = new GridBagConstraints();
 					gbc_lblPrecio.anchor = GridBagConstraints.EAST;
 					gbc_lblPrecio.insets = new Insets(0, 0, 5, 5);
@@ -420,7 +420,7 @@ public class UI_Auxiliar extends JFrame {
 					textFieldPrecioActividad.setColumns(10);
 				}
 				{
-					lblDestinatariosActividad = new JLabel("Destinatarios:");
+					lblDestinatariosActividad = new JLabel(MessagesUI_Auxiliar.getString("UI_Auxiliar.lblDestinatariosActividad.text")); //$NON-NLS-1$
 					GridBagConstraints gbc_lblDestinatariosActividad = new GridBagConstraints();
 					gbc_lblDestinatariosActividad.insets = new Insets(0, 0, 5, 5);
 					gbc_lblDestinatariosActividad.gridx = 1;
@@ -436,23 +436,23 @@ public class UI_Auxiliar extends JFrame {
 					gbc_panelDestinatariosActividad.gridy = 5;
 					panelActividad.add(panelDestinatariosActividad, gbc_panelDestinatariosActividad);
 					{
-						rdbtnNinos = new JRadioButton("Ni\u00F1os");
+						rdbtnNinos = new JRadioButton(MessagesUI_Auxiliar.getString("UI_Auxiliar.rdbtnNinos.text")); //$NON-NLS-1$
 						buttonGroup.add(rdbtnNinos);
 						panelDestinatariosActividad.add(rdbtnNinos);
 					}
 					{
-						rdbtnAdultos = new JRadioButton("Adultos");
+						rdbtnAdultos = new JRadioButton(MessagesUI_Auxiliar.getString("UI_Auxiliar.rdbtnAdultos.text")); //$NON-NLS-1$
 						buttonGroup.add(rdbtnAdultos);
 						panelDestinatariosActividad.add(rdbtnAdultos);
 					}
 					{
-						rdbtnAncianos = new JRadioButton("Ancianos");
+						rdbtnAncianos = new JRadioButton(MessagesUI_Auxiliar.getString("UI_Auxiliar.rdbtnAncianos.text")); //$NON-NLS-1$
 						buttonGroup.add(rdbtnAncianos);
 						panelDestinatariosActividad.add(rdbtnAncianos);
 					}
 				}
 				{
-					lblHoraInicioActividad = new JLabel("Hora Inicio:");
+					lblHoraInicioActividad = new JLabel(MessagesUI_Auxiliar.getString("UI_Auxiliar.lblHoraInicioActividad.text")); //$NON-NLS-1$
 					GridBagConstraints gbc_lblHoraInicioActividad = new GridBagConstraints();
 					gbc_lblHoraInicioActividad.insets = new Insets(0, 0, 5, 5);
 					gbc_lblHoraInicioActividad.gridx = 4;
@@ -469,7 +469,7 @@ public class UI_Auxiliar extends JFrame {
 					panelActividad.add(spinnerInicioActividad, gbc_spinnerInicioActividad);
 				}
 				{
-					lblCupoMaxActividad = new JLabel("Cupo m\u00E1ximo:");
+					lblCupoMaxActividad = new JLabel(MessagesUI_Auxiliar.getString("UI_Auxiliar.lblCupoMaxActividad.text")); //$NON-NLS-1$
 					GridBagConstraints gbc_lblCupoMaxActividad = new GridBagConstraints();
 					gbc_lblCupoMaxActividad.anchor = GridBagConstraints.EAST;
 					gbc_lblCupoMaxActividad.insets = new Insets(0, 0, 5, 5);
@@ -488,7 +488,7 @@ public class UI_Auxiliar extends JFrame {
 					textFieldCupoMaximoActividad.setColumns(10);
 				}
 				{
-					lblHoraFinalActividad = new JLabel("Hora Finalizaci\u00F3n:");
+					lblHoraFinalActividad = new JLabel(MessagesUI_Auxiliar.getString("UI_Auxiliar.lblHoraFinalActividad.text")); //$NON-NLS-1$
 					GridBagConstraints gbc_lblHoraFinalActividad = new GridBagConstraints();
 					gbc_lblHoraFinalActividad.insets = new Insets(0, 0, 5, 5);
 					gbc_lblHoraFinalActividad.gridx = 4;
@@ -505,7 +505,7 @@ public class UI_Auxiliar extends JFrame {
 					panelActividad.add(spinnerFinalActividad, gbc_spinnerFinalActividad);
 				}
 				{
-					lblDescripcionActividad = new JLabel("Descripci\u00F3n:");
+					lblDescripcionActividad = new JLabel(MessagesUI_Auxiliar.getString("UI_Auxiliar.lblDescripcionActividad.text")); //$NON-NLS-1$
 					GridBagConstraints gbc_lblDescripcionActividad = new GridBagConstraints();
 					gbc_lblDescripcionActividad.anchor = GridBagConstraints.NORTH;
 					gbc_lblDescripcionActividad.insets = new Insets(0, 0, 5, 5);
@@ -537,7 +537,7 @@ public class UI_Auxiliar extends JFrame {
 				panelVer = new JPanel();
 				panelBotones.add(panelVer, "Ver");
 				{
-					btnCerrar = new JButton("Cerrar");
+					btnCerrar = new JButton(MessagesUI_Auxiliar.getString("UI_Auxiliar.btnCerrar.text")); //$NON-NLS-1$
 					btnCerrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 					btnCerrar.addActionListener(new BtnCerrarActionListener());
 					panelVer.add(btnCerrar);
@@ -547,13 +547,13 @@ public class UI_Auxiliar extends JFrame {
 				panelAnadir = new JPanel();
 				panelBotones.add(panelAnadir, "Anadir");
 				{
-					btnCancelar = new JButton("Cancelar");
+					btnCancelar = new JButton(MessagesUI_Auxiliar.getString("UI_Auxiliar.btnCancelar.text")); //$NON-NLS-1$
 					btnCancelar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 					btnCancelar.addActionListener(new BtnCancelarActionListener());
 					panelAnadir.add(btnCancelar);
 				}
 				{
-					btnAnadir = new JButton("A\u00F1adir");
+					btnAnadir = new JButton(MessagesUI_Auxiliar.getString("UI_Auxiliar.btnAnadir.text")); //$NON-NLS-1$
 					btnAnadir.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 					btnAnadir.addActionListener(new BtnConfirmacionAccionActionListener("agregar"));
 					panelAnadir.add(btnAnadir);
@@ -563,13 +563,13 @@ public class UI_Auxiliar extends JFrame {
 				panelBorrar = new JPanel();
 				panelBotones.add(panelBorrar, "Borrar");
 				{
-					btnCancelar1 = new JButton("Cancelar");
+					btnCancelar1 = new JButton(MessagesUI_Auxiliar.getString("UI_Auxiliar.btnCancelar1.text")); //$NON-NLS-1$
 					btnCancelar1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 					btnCancelar1.addActionListener(new BtnCancelarActionListener());
 					panelBorrar.add(btnCancelar1);
 				}
 				{
-					btnBorrar = new JButton("Borrar");
+					btnBorrar = new JButton(MessagesUI_Auxiliar.getString("UI_Auxiliar.btnBorrar.text")); //$NON-NLS-1$
 					btnBorrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 					btnBorrar.addActionListener(new BtnConfirmacionAccionActionListener("borrar"));
 					panelBorrar.add(btnBorrar);
@@ -579,13 +579,13 @@ public class UI_Auxiliar extends JFrame {
 				panelModificar = new JPanel();
 				panelBotones.add(panelModificar, "Modificar");
 				{
-					btnCancelar2 = new JButton("Cancelar");
+					btnCancelar2 = new JButton(MessagesUI_Auxiliar.getString("UI_Auxiliar.btnCancelar2.text")); //$NON-NLS-1$
 					btnCancelar2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 					btnCancelar2.addActionListener(new BtnCancelarActionListener());
 					panelModificar.add(btnCancelar2);
 				}
 				{
-					btnModificar = new JButton("Modificar");
+					btnModificar = new JButton(MessagesUI_Auxiliar.getString("UI_Auxiliar.btnModificar.text")); //$NON-NLS-1$
 					btnModificar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 					btnModificar.addActionListener(new BtnConfirmacionAccionActionListener("modificar"));
 					panelModificar.add(btnModificar);

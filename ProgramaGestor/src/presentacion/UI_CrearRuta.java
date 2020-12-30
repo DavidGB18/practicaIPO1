@@ -85,7 +85,7 @@ public class UI_CrearRuta extends JFrame {
 	 */
 	public UI_CrearRuta() {
 		addWindowListener(new ThisWindowListener());
-		setTitle("Gestor Los Olivos - Crear Ruta");
+		setTitle(MessagesUI_CrearRuta.getString("UI_CrearRuta.this.title")); //$NON-NLS-1$
 		setIconImage(Toolkit.getDefaultToolkit().getImage(UI_CrearRuta.class.getResource("/recursos/logo.png")));
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 604, 366);
@@ -104,7 +104,7 @@ public class UI_CrearRuta extends JFrame {
 					Double.MIN_VALUE };
 			panel.setLayout(gbl_panel);
 			{
-				lblInfo = new JLabel("Introduzca los datos de su RUTA:");
+				lblInfo = new JLabel(MessagesUI_CrearRuta.getString("UI_CrearRuta.lblInfo.text")); //$NON-NLS-1$
 				lblInfo.setFont(new Font("Tahoma", Font.BOLD, 17));
 				GridBagConstraints gbc_lblInfo = new GridBagConstraints();
 				gbc_lblInfo.anchor = GridBagConstraints.WEST;
@@ -115,7 +115,7 @@ public class UI_CrearRuta extends JFrame {
 				panel.add(lblInfo, gbc_lblInfo);
 			}
 			{
-				lblNombre = new JLabel("Nombre:");
+				lblNombre = new JLabel(MessagesUI_CrearRuta.getString("UI_CrearRuta.lblNombre.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_lblNombre = new GridBagConstraints();
 				gbc_lblNombre.anchor = GridBagConstraints.EAST;
 				gbc_lblNombre.insets = new Insets(0, 0, 5, 5);
@@ -134,7 +134,7 @@ public class UI_CrearRuta extends JFrame {
 				txtNombre.setColumns(10);
 			}
 			{
-				lblDificultad = new JLabel("Dificultad:");
+				lblDificultad = new JLabel(MessagesUI_CrearRuta.getString("UI_CrearRuta.lblDificultad.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_lblDificultad = new GridBagConstraints();
 				gbc_lblDificultad.anchor = GridBagConstraints.EAST;
 				gbc_lblDificultad.insets = new Insets(0, 0, 5, 5);
@@ -153,7 +153,7 @@ public class UI_CrearRuta extends JFrame {
 				panel.add(cbDificultad, gbc_cbDificultad);
 			}
 			{
-				lblFecha = new JLabel("Fecha:");
+				lblFecha = new JLabel(MessagesUI_CrearRuta.getString("UI_CrearRuta.lblFecha.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_lblFecha = new GridBagConstraints();
 				gbc_lblFecha.anchor = GridBagConstraints.EAST;
 				gbc_lblFecha.insets = new Insets(0, 0, 5, 5);
@@ -180,7 +180,7 @@ public class UI_CrearRuta extends JFrame {
 				panel.add(formattedTextFieldFecha, gbc_formattedTextFieldFecha);
 			}
 			{
-				lblHoraInicio = new JLabel("Hora Inicio:");
+				lblHoraInicio = new JLabel(MessagesUI_CrearRuta.getString("UI_CrearRuta.lblHoraInicio.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_lblHoraInicio = new GridBagConstraints();
 				gbc_lblHoraInicio.insets = new Insets(0, 0, 5, 5);
 				gbc_lblHoraInicio.gridx = 4;
@@ -197,7 +197,7 @@ public class UI_CrearRuta extends JFrame {
 				panel.add(spHoraInicio, gbc_spHoraInicio);
 			}
 			{
-				lblHoraFin = new JLabel("Hora Fin:");
+				lblHoraFin = new JLabel(MessagesUI_CrearRuta.getString("UI_CrearRuta.lblHoraFin.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_lblHoraFin = new GridBagConstraints();
 				gbc_lblHoraFin.insets = new Insets(0, 0, 5, 5);
 				gbc_lblHoraFin.gridx = 4;
@@ -214,7 +214,7 @@ public class UI_CrearRuta extends JFrame {
 				panel.add(spHoraFin, gbc_spHoraFin);
 			}
 			{
-				lblEncuentro = new JLabel("Punto Encuentro:");
+				lblEncuentro = new JLabel(MessagesUI_CrearRuta.getString("UI_CrearRuta.lblEncuentro.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_lblEncuentro = new GridBagConstraints();
 				gbc_lblEncuentro.anchor = GridBagConstraints.EAST;
 				gbc_lblEncuentro.insets = new Insets(0, 0, 5, 5);
@@ -233,7 +233,7 @@ public class UI_CrearRuta extends JFrame {
 				txtEncuentro.setColumns(10);
 			}
 			{
-				lblMonitores = new JLabel("Monitores:");
+				lblMonitores = new JLabel(MessagesUI_CrearRuta.getString("UI_CrearRuta.lblMonitores.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_lblMonitores = new GridBagConstraints();
 				gbc_lblMonitores.anchor = GridBagConstraints.EAST;
 				gbc_lblMonitores.insets = new Insets(0, 0, 5, 5);
@@ -252,7 +252,7 @@ public class UI_CrearRuta extends JFrame {
 				txtMonitores.setColumns(10);
 			}
 			{
-				lblGenteMin = new JLabel("Aforo minimo:");
+				lblGenteMin = new JLabel(MessagesUI_CrearRuta.getString("UI_CrearRuta.lblGenteMin.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_lblGenteMin = new GridBagConstraints();
 				gbc_lblGenteMin.insets = new Insets(0, 0, 5, 5);
 				gbc_lblGenteMin.gridx = 4;
@@ -269,7 +269,7 @@ public class UI_CrearRuta extends JFrame {
 				panel.add(spGenteMin, gbc_spGenteMin);
 			}
 			{
-				lblDescripcion = new JLabel("Descripcion:");
+				lblDescripcion = new JLabel(MessagesUI_CrearRuta.getString("UI_CrearRuta.lblDescripcion.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_lblDescripcion = new GridBagConstraints();
 				gbc_lblDescripcion.anchor = GridBagConstraints.EAST;
 				gbc_lblDescripcion.insets = new Insets(0, 0, 5, 5);
@@ -288,7 +288,7 @@ public class UI_CrearRuta extends JFrame {
 				txtDescripcion.setColumns(10);
 			}
 			{
-				lblGenteMax = new JLabel("Aforo maximo:");
+				lblGenteMax = new JLabel(MessagesUI_CrearRuta.getString("UI_CrearRuta.lblGenteMax.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_lblGenteMax = new GridBagConstraints();
 				gbc_lblGenteMax.insets = new Insets(0, 0, 5, 5);
 				gbc_lblGenteMax.gridx = 4;
@@ -305,7 +305,7 @@ public class UI_CrearRuta extends JFrame {
 				panel.add(spGenteMax, gbc_spGenteMax);
 			}
 			{
-				btnCancelar = new JButton("Cancelar");
+				btnCancelar = new JButton(MessagesUI_CrearRuta.getString("UI_CrearRuta.btnCancelar.text")); //$NON-NLS-1$
 				btnCancelar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 				GridBagConstraints gbc_btnCancelar = new GridBagConstraints();
 				gbc_btnCancelar.fill = GridBagConstraints.BOTH;
@@ -315,7 +315,7 @@ public class UI_CrearRuta extends JFrame {
 				panel.add(btnCancelar, gbc_btnCancelar);
 			}
 			{
-				btnCrear = new JButton("Crear Ruta");
+				btnCrear = new JButton(MessagesUI_CrearRuta.getString("UI_CrearRuta.btnCrear.text")); //$NON-NLS-1$
 				btnCrear.addActionListener(new BtnCrearActionListener());
 				btnCrear.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 				GridBagConstraints gbc_btnCrear = new GridBagConstraints();

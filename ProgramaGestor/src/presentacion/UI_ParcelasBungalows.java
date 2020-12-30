@@ -73,7 +73,7 @@ public class UI_ParcelasBungalows extends JFrame {
 		setResizable(false);
 		addWindowListener(new ThisWindowListener());
 		setIconImage(Toolkit.getDefaultToolkit().getImage(UI_ParcelasBungalows.class.getResource("/recursos/logo.png")));
-		setTitle("Gestor Los Olivos - Tablas Parcelas y Bungalows");
+		setTitle(MessagesUI_ParcelasBungalows.getString("UI_ParcelasBungalows.this.title")); //$NON-NLS-1$
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 686, 437);
 		contentPane = new JPanel();
@@ -110,12 +110,12 @@ public class UI_ParcelasBungalows extends JFrame {
 							popupMenu = new JPopupMenu();
 							addPopup(tParcelas, popupMenu);
 							{
-								mntmAñadir = new JMenuItem("Agregar");
+								mntmAñadir = new JMenuItem(MessagesUI_ParcelasBungalows.getString("UI_ParcelasBungalows.mntmA\u00F1adir.text")); //$NON-NLS-1$
 								mntmAñadir.addActionListener(new BtnAñadirFilaActionListener(0));
 								popupMenu.add(mntmAñadir);
 							}
 							{
-								mntmEliminar = new JMenuItem("Eliminar");
+								mntmEliminar = new JMenuItem(MessagesUI_ParcelasBungalows.getString("UI_ParcelasBungalows.mntmEliminar.text")); //$NON-NLS-1$
 								mntmEliminar.addActionListener(new BtnEliminarFilaActionListener(0));
 								popupMenu.add(mntmEliminar);
 							}
@@ -135,7 +135,7 @@ public class UI_ParcelasBungalows extends JFrame {
 					}
 				}
 				{
-					lblTituloParcelas = new JLabel("Parcelas");
+					lblTituloParcelas = new JLabel(MessagesUI_ParcelasBungalows.getString("UI_ParcelasBungalows.lblTituloParcelas.text")); //$NON-NLS-1$
 					lblTituloParcelas.setHorizontalAlignment(SwingConstants.CENTER);
 					lblTituloParcelas.setFont(new Font("Tahoma", Font.BOLD, 20));
 					panelParcelas.add(lblTituloParcelas, BorderLayout.NORTH);
@@ -168,12 +168,12 @@ public class UI_ParcelasBungalows extends JFrame {
 							popupMenu = new JPopupMenu();
 							addPopup(tBungalows, popupMenu);
 							{
-								mntmAñadir = new JMenuItem("Agregar");
+								mntmAñadir = new JMenuItem(MessagesUI_ParcelasBungalows.getString("UI_ParcelasBungalows.mntmA\u00F1adir.text")); //$NON-NLS-1$
 								mntmAñadir.addActionListener(new BtnAñadirFilaActionListener(1));
 								popupMenu.add(mntmAñadir);
 							}
 							{
-								mntmEliminar = new JMenuItem("Eliminar");
+								mntmEliminar = new JMenuItem(MessagesUI_ParcelasBungalows.getString("UI_ParcelasBungalows.mntmEliminar.text")); //$NON-NLS-1$
 								mntmEliminar.addActionListener(new BtnEliminarFilaActionListener(1));
 								popupMenu.add(mntmEliminar);
 							}
@@ -181,7 +181,7 @@ public class UI_ParcelasBungalows extends JFrame {
 						spBungalows.setViewportView(tBungalows);
 
 						{
-							lblTituloBungalows = new JLabel("Bungalows");
+							lblTituloBungalows = new JLabel(MessagesUI_ParcelasBungalows.getString("UI_ParcelasBungalows.lblTituloBungalows.text")); //$NON-NLS-1$
 							lblTituloBungalows.setFont(new Font("Tahoma", Font.BOLD, 20));
 							lblTituloBungalows.setHorizontalAlignment(SwingConstants.CENTER);
 							panelBungalows.add(lblTituloBungalows, BorderLayout.NORTH);
@@ -190,13 +190,13 @@ public class UI_ParcelasBungalows extends JFrame {
 							panelBotones = new JPanel();
 							contentPane.add(panelBotones, BorderLayout.SOUTH);
 							{
-								btnCancelar = new JButton("Cancelar");
+								btnCancelar = new JButton(MessagesUI_ParcelasBungalows.getString("UI_ParcelasBungalows.btnCancelar.text")); //$NON-NLS-1$
 								btnCancelar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 								btnCancelar.addActionListener(new BtnCancelarActionListener());
 								panelBotones.add(btnCancelar);
 							}
 							{
-								btnGuardarCambios = new JButton("Guardar Cambios");
+								btnGuardarCambios = new JButton(MessagesUI_ParcelasBungalows.getString("UI_ParcelasBungalows.btnGuardarCambios.text")); //$NON-NLS-1$
 								btnGuardarCambios.addActionListener(new BtnGuardarCambiosActionListener());
 								btnGuardarCambios.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 								panelBotones.add(btnGuardarCambios);
