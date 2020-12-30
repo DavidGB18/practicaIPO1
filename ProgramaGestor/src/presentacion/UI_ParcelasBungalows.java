@@ -104,6 +104,8 @@ public class UI_ParcelasBungalows extends JFrame {
 							Object[] fila = {p.getTam(), p.getPrecioNoche(), p.isDisponibilidad(), p.getUbicacion(), p.getArrayServicios(), p.getCategoria()};
 							modeloTabla.aniadeFila(fila);
 						}
+						Object[] nuevaFilaP = {0,0,false,"", null, ""};
+						modeloTabla.aniadeFila(nuevaFilaP);
 						{
 							popupMenu = new JPopupMenu();
 							addPopup(tParcelas, popupMenu);
@@ -160,6 +162,8 @@ public class UI_ParcelasBungalows extends JFrame {
 									b.getPathFotos(), b.getEquipamiento(), b.getCapacidadMaxima(), b.getEstanciaMinima()};
 							modeloTabla.aniadeFila(fila);
 						}
+						Object[] nuevaFilaP = {0,0,false,"", null, ""};
+						modeloTabla.aniadeFila(nuevaFilaP);
 						{
 							popupMenu = new JPopupMenu();
 							addPopup(tBungalows, popupMenu);
