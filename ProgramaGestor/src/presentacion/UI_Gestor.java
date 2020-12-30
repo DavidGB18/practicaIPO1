@@ -587,6 +587,7 @@ public class UI_Gestor {
 					panelRutas.setLayout(gbl_panelRutas);
 					{
 						btnInfoRutas = new JButton("");
+						btnInfoRutas.setToolTipText("Informacion de Rutas");
 						btnInfoRutas.addActionListener(new BtnInfoRutasActionListener());
 						btnInfoRutas.setOpaque(false);
 						btnInfoRutas.setBorder(null);
@@ -602,6 +603,7 @@ public class UI_Gestor {
 					}
 					{
 						btnDisenoRuta = new JButton("");
+						btnDisenoRuta.setToolTipText("Crear Ruta nueva");
 						btnDisenoRuta.addActionListener(new BtnDisenoRutaActionListener());
 						btnDisenoRuta.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 						btnDisenoRuta.setOpaque(false);
