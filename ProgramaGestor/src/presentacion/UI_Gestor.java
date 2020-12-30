@@ -146,6 +146,13 @@ public class UI_Gestor {
 	private JMenuItem mntmAboutProgram;
 	private JMenuItem mntmSalir;
 	private JButton btnIdioma;
+	private JMenuItem mntmParcelas;
+	private JMenuItem mntmBungalows;
+	private JMenuItem mntmReservas;
+	private JMenuItem mntmActividades;
+	private JMenuItem mntmMonitores;
+	private JMenuItem mntmRutas;
+	private JMenuItem mntmCerrarSesion;
 	
 	/**
 	 * Create the application.
@@ -953,6 +960,10 @@ public class UI_Gestor {
 				{
 					mntmSalir = new JMenuItem("Salir");
 					mntmSalir.addActionListener(new MntmSalirActionListener());
+					{
+						mntmCerrarSesion = new JMenuItem("Cerrar Sesion");
+						mnInicio.add(mntmCerrarSesion);
+					}
 					mnInicio.add(mntmSalir);
 				}
 			}
@@ -960,6 +971,30 @@ public class UI_Gestor {
 				mnOpciones = new JMenu("Ver");
 				mnOpciones.setMnemonic('V');
 				menuBar.add(mnOpciones);
+				{
+					mntmParcelas = new JMenuItem("Parcelas");
+					mnOpciones.add(mntmParcelas);
+				}
+				{
+					mntmBungalows = new JMenuItem("Bungalows");
+					mnOpciones.add(mntmBungalows);
+				}
+				{
+					mntmReservas = new JMenuItem("Reservas");
+					mnOpciones.add(mntmReservas);
+				}
+				{
+					mntmActividades = new JMenuItem("Actividades");
+					mnOpciones.add(mntmActividades);
+				}
+				{
+					mntmMonitores = new JMenuItem("Monitores");
+					mnOpciones.add(mntmMonitores);
+				}
+				{
+					mntmRutas = new JMenuItem("Rutas");
+					mnOpciones.add(mntmRutas);
+				}
 			}
 			{
 				mnAyuda = new JMenu("Ayuda");
