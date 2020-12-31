@@ -878,6 +878,7 @@ public class UI_Reservas extends JFrame {
 			case 2:
 				pane = "Paso2"; //$NON-NLS-1$
 				panebotones = "botonesintermedios"; //$NON-NLS-1$
+				break;
 			case 3:
 				pane = "Paso3"; //$NON-NLS-1$
 				panebotones = "botonesintermedios"; //$NON-NLS-1$
