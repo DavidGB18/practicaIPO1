@@ -162,7 +162,7 @@ public class UI_ParcelasBungalows extends JFrame {
 									b.getPathFotos(), b.getEquipamiento(), b.getCapacidadMaxima(), b.getEstanciaMinima()};
 							modeloTabla.aniadeFila(fila);
 						}
-						Object[] nuevaFilaP = {0,0,false,"", null, ""}; //$NON-NLS-1$ //$NON-NLS-2$
+						Object[] nuevaFilaP = {0,0,false,"","","", 0, 0}; //$NON-NLS-1$ //$NON-NLS-2$
 						modeloTabla.aniadeFila(nuevaFilaP);
 						{
 							popupMenu = new JPopupMenu();
@@ -213,7 +213,9 @@ public class UI_ParcelasBungalows extends JFrame {
 		@Override
 		public void windowOpened(WindowEvent e) {
 			CardLayout panel = (CardLayout) (panelParcelasBungalows.getLayout());
+			System.out.println(elegirPanel);
 			switch(elegirPanel) {
+			
 			case 0:
 				panel.show(panelParcelasBungalows, "Parcelas"); //$NON-NLS-1$
 				break;
