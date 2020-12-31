@@ -1412,6 +1412,7 @@ public class UI_Gestor {
 				cerrar();
 				UI_Gestor ventana = new UI_Gestor();
 				ventana.frmGestorLosOlivos.setVisible(true);
+				ventana.frmGestorLosOlivos.setLocationRelativeTo(null);
 			}
 			else {
 				MessagesUI_Auxiliar.setIdioma("español"); //$NON-NLS-1$
@@ -1425,6 +1426,7 @@ public class UI_Gestor {
 				cerrar();
 				UI_Gestor ventana = new UI_Gestor();
 				ventana.frmGestorLosOlivos.setVisible(true);
+				ventana.frmGestorLosOlivos.setLocationRelativeTo(null);
 			}
 		}
 	}
