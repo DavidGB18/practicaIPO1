@@ -213,7 +213,6 @@ public class UI_ParcelasBungalows extends JFrame {
 		@Override
 		public void windowOpened(WindowEvent e) {
 			CardLayout panel = (CardLayout) (panelParcelasBungalows.getLayout());
-			System.out.println(elegirPanel);
 			switch(elegirPanel) {
 			
 			case 0:
