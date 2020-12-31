@@ -127,7 +127,7 @@ public class UI_Auxiliar extends JFrame {
 		monitor = new Monitor();
 		actividad = new Actividad();
 
-		setIconImage(Toolkit.getDefaultToolkit().getImage(UI_Auxiliar.class.getResource("/recursos/logo.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(UI_Auxiliar.class.getResource("/recursos/logo.png"))); //$NON-NLS-1$
 		setTitle(MessagesUI_Auxiliar.getString("UI_Auxiliar.this.title")); //$NON-NLS-1$
 		setResizable(false);
 		addWindowListener(new ThisWindowListener());
@@ -143,7 +143,7 @@ public class UI_Auxiliar extends JFrame {
 			panelFormularios.setLayout(new CardLayout(0, 0));
 			{
 				panelMonitores = new JPanel();
-				panelFormularios.add(panelMonitores, "Monitor");
+				panelFormularios.add(panelMonitores, "Monitor"); //$NON-NLS-1$
 				GridBagLayout gbl_panelMonitores = new GridBagLayout();
 				gbl_panelMonitores.columnWidths = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 				gbl_panelMonitores.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
@@ -154,7 +154,7 @@ public class UI_Auxiliar extends JFrame {
 				panelMonitores.setLayout(gbl_panelMonitores);
 				{
 					lblConfiguracionMonitor = new JLabel(MessagesUI_Auxiliar.getString("UI_Auxiliar.lblConfiguracionMonitor.text")); //$NON-NLS-1$
-					lblConfiguracionMonitor.setFont(new Font("Tahoma", Font.PLAIN, 16));
+					lblConfiguracionMonitor.setFont(new Font("Tahoma", Font.PLAIN, 16)); //$NON-NLS-1$
 					GridBagConstraints gbc_lblConfiguracionMonitor = new GridBagConstraints();
 					gbc_lblConfiguracionMonitor.anchor = GridBagConstraints.WEST;
 					gbc_lblConfiguracionMonitor.gridwidth = 2;
@@ -191,8 +191,8 @@ public class UI_Auxiliar extends JFrame {
 					panelMonitores.add(lblFotoMonitor2, gbc_lblFotoMonitor2);
 				}
 				{
-					lblFotoMonitor = new JLabel("");
-					lblFotoMonitor.setIcon(new ImageIcon(UI_Auxiliar.class.getResource("/recursos/user.png")));
+					lblFotoMonitor = new JLabel(""); //$NON-NLS-1$
+					lblFotoMonitor.setIcon(new ImageIcon(UI_Auxiliar.class.getResource("/recursos/user.png"))); //$NON-NLS-1$
 					GridBagConstraints gbc_lblFotoMonitor = new GridBagConstraints();
 					gbc_lblFotoMonitor.gridheight = 4;
 					gbc_lblFotoMonitor.gridwidth = 5;
@@ -251,7 +251,7 @@ public class UI_Auxiliar extends JFrame {
 				{
 					MaskFormatter formatoDNI;
 					try {
-						formatoDNI = new MaskFormatter("#######'-U");
+						formatoDNI = new MaskFormatter("#######'-U"); //$NON-NLS-1$
 						formatoDNI.setPlaceholderCharacter('X');
 						formattedTextFieldDniMonitor = new JFormattedTextField(formatoDNI);
 					} catch (ParseException e) {
@@ -287,7 +287,7 @@ public class UI_Auxiliar extends JFrame {
 				{
 					MaskFormatter formato;
 					try {
-						formato = new MaskFormatter("#########");
+						formato = new MaskFormatter("#########"); //$NON-NLS-1$
 						formato.setPlaceholderCharacter('*');
 						formattedTextFieldTlfMonitor = new JFormattedTextField(formato);
 					} catch (ParseException e) {
@@ -362,7 +362,7 @@ public class UI_Auxiliar extends JFrame {
 			}
 			{
 				panelActividad = new JPanel();
-				panelFormularios.add(panelActividad, "Actividad");
+				panelFormularios.add(panelActividad, "Actividad"); //$NON-NLS-1$
 				GridBagLayout gbl_panelActividad = new GridBagLayout();
 				gbl_panelActividad.columnWidths = new int[] { 0, 0, 213, 0, 0, 0, 0, 0 };
 				gbl_panelActividad.rowHeights = new int[] { 0, 0, 0, 45, 0, 0, 0, 0, 0, 0, 0 };
@@ -372,7 +372,7 @@ public class UI_Auxiliar extends JFrame {
 				panelActividad.setLayout(gbl_panelActividad);
 				{
 					lblConfiguracionActividad = new JLabel(MessagesUI_Auxiliar.getString("UI_Auxiliar.lblConfiguracionActividad.text")); //$NON-NLS-1$
-					lblConfiguracionActividad.setFont(new Font("Tahoma", Font.PLAIN, 16));
+					lblConfiguracionActividad.setFont(new Font("Tahoma", Font.PLAIN, 16)); //$NON-NLS-1$
 					GridBagConstraints gbc_lblConfiguracionActividad = new GridBagConstraints();
 					gbc_lblConfiguracionActividad.anchor = GridBagConstraints.WEST;
 					gbc_lblConfiguracionActividad.gridwidth = 2;
@@ -535,7 +535,7 @@ public class UI_Auxiliar extends JFrame {
 			panelBotones.setLayout(new CardLayout(0, 0));
 			{
 				panelVer = new JPanel();
-				panelBotones.add(panelVer, "Ver");
+				panelBotones.add(panelVer, "Ver"); //$NON-NLS-1$
 				{
 					btnCerrar = new JButton(MessagesUI_Auxiliar.getString("UI_Auxiliar.btnCerrar.text")); //$NON-NLS-1$
 					btnCerrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -545,7 +545,7 @@ public class UI_Auxiliar extends JFrame {
 			}
 			{
 				panelAnadir = new JPanel();
-				panelBotones.add(panelAnadir, "Anadir");
+				panelBotones.add(panelAnadir, "Anadir"); //$NON-NLS-1$
 				{
 					btnCancelar = new JButton(MessagesUI_Auxiliar.getString("UI_Auxiliar.btnCancelar.text")); //$NON-NLS-1$
 					btnCancelar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -555,13 +555,13 @@ public class UI_Auxiliar extends JFrame {
 				{
 					btnAnadir = new JButton(MessagesUI_Auxiliar.getString("UI_Auxiliar.btnAnadir.text")); //$NON-NLS-1$
 					btnAnadir.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-					btnAnadir.addActionListener(new BtnConfirmacionAccionActionListener("agregar"));
+					btnAnadir.addActionListener(new BtnConfirmacionAccionActionListener("agregar")); //$NON-NLS-1$
 					panelAnadir.add(btnAnadir);
 				}
 			}
 			{
 				panelBorrar = new JPanel();
-				panelBotones.add(panelBorrar, "Borrar");
+				panelBotones.add(panelBorrar, "Borrar"); //$NON-NLS-1$
 				{
 					btnCancelar1 = new JButton(MessagesUI_Auxiliar.getString("UI_Auxiliar.btnCancelar1.text")); //$NON-NLS-1$
 					btnCancelar1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -571,13 +571,13 @@ public class UI_Auxiliar extends JFrame {
 				{
 					btnBorrar = new JButton(MessagesUI_Auxiliar.getString("UI_Auxiliar.btnBorrar.text")); //$NON-NLS-1$
 					btnBorrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-					btnBorrar.addActionListener(new BtnConfirmacionAccionActionListener("borrar"));
+					btnBorrar.addActionListener(new BtnConfirmacionAccionActionListener("borrar")); //$NON-NLS-1$
 					panelBorrar.add(btnBorrar);
 				}
 			}
 			{
 				panelModificar = new JPanel();
-				panelBotones.add(panelModificar, "Modificar");
+				panelBotones.add(panelModificar, "Modificar"); //$NON-NLS-1$
 				{
 					btnCancelar2 = new JButton(MessagesUI_Auxiliar.getString("UI_Auxiliar.btnCancelar2.text")); //$NON-NLS-1$
 					btnCancelar2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -587,7 +587,7 @@ public class UI_Auxiliar extends JFrame {
 				{
 					btnModificar = new JButton(MessagesUI_Auxiliar.getString("UI_Auxiliar.btnModificar.text")); //$NON-NLS-1$
 					btnModificar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-					btnModificar.addActionListener(new BtnConfirmacionAccionActionListener("modificar"));
+					btnModificar.addActionListener(new BtnConfirmacionAccionActionListener("modificar")); //$NON-NLS-1$
 					panelModificar.add(btnModificar);
 				}
 			}
@@ -596,7 +596,7 @@ public class UI_Auxiliar extends JFrame {
 
 	private class ThisWindowListener extends WindowAdapter {
 		public void windowClosing(WindowEvent e) {
-			int sel = JOptionPane.showOptionDialog(null, "¿Seguro que quieres cancelar la operación?", "Cerrar ventana",
+			int sel = JOptionPane.showOptionDialog(null, MessagesUI_Auxiliar.getString("UI_Auxiliar.16"), MessagesUI_Auxiliar.getString("UI_Auxiliar.17"), //$NON-NLS-1$ //$NON-NLS-2$
 					JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
 			if (sel == JOptionPane.YES_OPTION) {
 				dispose(); // Yes
@@ -637,8 +637,8 @@ public class UI_Auxiliar extends JFrame {
 			txtFormacion.setText(m.getFormacion());
 			txtIdiomas.setText(m.getIdiomas());
 			
-			String[] absolutePath = m.getRutaFotoMonitor().split("recursos");
-			lblFotoMonitor.setIcon(new ImageIcon("src/recursos"+absolutePath[1]));
+			String[] absolutePath = m.getRutaFotoMonitor().split("recursos"); //$NON-NLS-1$
+			lblFotoMonitor.setIcon(new ImageIcon("src/recursos"+absolutePath[1])); //$NON-NLS-1$
 			
 		}
 
@@ -649,13 +649,13 @@ public class UI_Auxiliar extends JFrame {
 			txtDescripcionActividad.setText(a.getDescripcion());
 
 			switch (a.getDestinatario()) {
-			case "ninos":
+			case "ninos": //$NON-NLS-1$
 				rdbtnNinos.setSelected(true);
 				break;
-			case "adultos":
+			case "adultos": //$NON-NLS-1$
 				rdbtnAdultos.setSelected(true);
 				break;
-			case "ancianos":
+			case "ancianos": //$NON-NLS-1$
 				rdbtnAncianos.setSelected(true);
 				break;
 			}
@@ -669,7 +669,7 @@ public class UI_Auxiliar extends JFrame {
 			CardLayout panel = (CardLayout) (panelBotones.getLayout());
 			switch (elegirPanel) {
 			case 0:
-				panel.show(panelBotones, "Ver");
+				panel.show(panelBotones, "Ver"); //$NON-NLS-1$
 				setEditableFalse();
 				if(elegirFormulario==0) {
 					cargarMonitor(monitor);
@@ -679,10 +679,10 @@ public class UI_Auxiliar extends JFrame {
 
 				break;
 			case 1:
-				panel.show(panelBotones, "Anadir");
+				panel.show(panelBotones, "Anadir"); //$NON-NLS-1$
 				break;
 			case 2:
-				panel.show(panelBotones, "Modificar");
+				panel.show(panelBotones, "Modificar"); //$NON-NLS-1$
 				if(elegirFormulario==0) {
 					cargarMonitor(monitor);
 				} else {
@@ -690,7 +690,7 @@ public class UI_Auxiliar extends JFrame {
 				}
 				break;
 			case 3:
-				panel.show(panelBotones, "Borrar");
+				panel.show(panelBotones, "Borrar"); //$NON-NLS-1$
 				if(elegirFormulario==0) {
 					cargarMonitor(monitor);
 				} else {
@@ -704,12 +704,12 @@ public class UI_Auxiliar extends JFrame {
 			CardLayout panel2 = (CardLayout) (panelFormularios.getLayout());
 			switch (elegirFormulario) {
 			case 0:
-				panel2.show(panelFormularios, "Monitor");
-				setTitle("Vista de Monitor");
+				panel2.show(panelFormularios, "Monitor"); //$NON-NLS-1$
+				setTitle("Vista de Monitor"); //$NON-NLS-1$
 				break;
 			case 1:
-				panel2.show(panelFormularios, "Actividad");
-				setTitle("Vista de Actividad");
+				panel2.show(panelFormularios, "Actividad"); //$NON-NLS-1$
+				setTitle("Vista de Actividad"); //$NON-NLS-1$
 				break;
 			}
 		}
@@ -723,7 +723,7 @@ public class UI_Auxiliar extends JFrame {
 
 	private class BtnCancelarActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			int sel = JOptionPane.showOptionDialog(null, "¿Seguro que quieres cancelar la operación?", "Cerrar ventana",
+			int sel = JOptionPane.showOptionDialog(null, MessagesUI_Auxiliar.getString("UI_Auxiliar.31"), MessagesUI_Auxiliar.getString("UI_Auxiliar.32"), //$NON-NLS-1$ //$NON-NLS-2$
 					JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
 			if (sel == JOptionPane.YES_OPTION) {
 				dispose(); // Yes
@@ -741,13 +741,13 @@ public class UI_Auxiliar extends JFrame {
 		}
 
 		public void actionPerformed(ActionEvent e) {
-			int sel = JOptionPane.showOptionDialog(null, "¿Seguro que quieres " + palabra + " este elemento?",
-					"Confirmar operación", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
+			int sel = JOptionPane.showOptionDialog(null, MessagesUI_Auxiliar.getString("UI_Auxiliar.33") + palabra + MessagesUI_Auxiliar.getString("UI_Auxiliar.34"), //$NON-NLS-1$ //$NON-NLS-2$
+					MessagesUI_Auxiliar.getString("UI_Auxiliar.35"), JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null); //$NON-NLS-1$
 			if (sel == JOptionPane.YES_OPTION) {
 
 				// 0-Monitor, 1-Actividad -> Paneles
 				switch (palabra) {
-				case "agregar":
+				case "agregar": //$NON-NLS-1$
 					switch (elegirFormulario) {
 					case 0:
 						try {
@@ -767,9 +767,9 @@ public class UI_Auxiliar extends JFrame {
 							Graphics2D g2 = bi.createGraphics();
 							g2.drawImage(img, 0, 0, null);
 							g2.dispose();
-							String rutaFotoMonitor = "src/recursos/fotos/"+dni+".png";
+							String rutaFotoMonitor = "src/recursos/fotos/"+dni+".png"; //$NON-NLS-1$ //$NON-NLS-2$
 							try {
-								ImageIO.write(bi, "png", new File(rutaFotoMonitor));
+								ImageIO.write(bi, "png", new File(rutaFotoMonitor)); //$NON-NLS-1$
 							} catch (IOException e1) {
 								// TODO Auto-generated catch block
 								e1.printStackTrace();
@@ -784,7 +784,7 @@ public class UI_Auxiliar extends JFrame {
 						} catch (Exception e1) {
 							e1.printStackTrace();
 							JOptionPane.showMessageDialog(new JFrame(),
-									"Algo fue mal en el proceso, vuelva a intentarlo", "Error",
+									MessagesUI_Auxiliar.getString("UI_Auxiliar.40"), MessagesUI_Auxiliar.getString("UI_Auxiliar.41"), //$NON-NLS-1$ //$NON-NLS-2$
 									JOptionPane.ERROR_MESSAGE);
 							dispose();
 						}
@@ -800,11 +800,11 @@ public class UI_Auxiliar extends JFrame {
 							String destinatario = null;
 
 							if (rdbtnNinos.isSelected()) {
-								destinatario = "ninos";
+								destinatario = "ninos"; //$NON-NLS-1$
 							} else if (rdbtnAdultos.isSelected()) {
-								destinatario = "adultos";
+								destinatario = "adultos"; //$NON-NLS-1$
 							} else if (rdbtnAncianos.isSelected()) {
-								destinatario = "ancianos";
+								destinatario = "ancianos"; //$NON-NLS-1$
 							}
 
 							int precio = Integer.parseInt(textFieldPrecioActividad.getText());
@@ -818,14 +818,14 @@ public class UI_Auxiliar extends JFrame {
 
 						} catch (Exception e2) {
 							JOptionPane.showMessageDialog(new JFrame(),
-									"Algo fue mal en el proceso, vuelva a intentarlo", "Error",
+									MessagesUI_Auxiliar.getString("UI_Auxiliar.45"), MessagesUI_Auxiliar.getString("UI_Auxiliar.46"), //$NON-NLS-1$ //$NON-NLS-2$
 									JOptionPane.ERROR_MESSAGE);
 							dispose();
 						}
 						break;
 					}
 					break;
-				case "modificar":
+				case "modificar": //$NON-NLS-1$
 					switch (elegirFormulario) {
 					case 0:
 						for (int i = 0; i < Reader.getListMonitores().size(); i++) {
@@ -848,9 +848,9 @@ public class UI_Auxiliar extends JFrame {
 									Graphics2D g2 = bi.createGraphics();
 									g2.drawImage(img, 0, 0, null);
 									g2.dispose();
-									String rutaFotoMonitor = "src/recursos/fotos/"+dni+".png";
+									String rutaFotoMonitor = "src/recursos/fotos/"+dni+".png"; //$NON-NLS-1$ //$NON-NLS-2$
 									try {
-										ImageIO.write(bi, "png", new File(rutaFotoMonitor));
+										ImageIO.write(bi, "png", new File(rutaFotoMonitor)); //$NON-NLS-1$
 									} catch (IOException e1) {
 										// TODO Auto-generated catch block
 										e1.printStackTrace();
@@ -866,7 +866,7 @@ public class UI_Auxiliar extends JFrame {
 									break;
 								} catch (Exception e2) {
 									JOptionPane.showMessageDialog(new JFrame(),
-											"Algo fue mal en el proceso, vuelva a intentarlo", "Error",
+											MessagesUI_Auxiliar.getString("UI_Auxiliar.51"), MessagesUI_Auxiliar.getString("UI_Auxiliar.52"), //$NON-NLS-1$ //$NON-NLS-2$
 											JOptionPane.ERROR_MESSAGE);
 									dispose();
 								}
@@ -887,11 +887,11 @@ public class UI_Auxiliar extends JFrame {
 									String destinatario = null;
 
 									if (rdbtnNinos.isSelected()) {
-										destinatario = "ninos";
+										destinatario = "ninos"; //$NON-NLS-1$
 									} else if (rdbtnAdultos.isSelected()) {
-										destinatario = "adultos";
+										destinatario = "adultos"; //$NON-NLS-1$
 									} else if (rdbtnAncianos.isSelected()) {
-										destinatario = "ancianos";
+										destinatario = "ancianos"; //$NON-NLS-1$
 									}
 
 									int precio = Integer.parseInt(textFieldPrecioActividad.getText());
@@ -907,7 +907,7 @@ public class UI_Auxiliar extends JFrame {
 									break;
 								} catch (Exception e2) {
 									JOptionPane.showMessageDialog(new JFrame(),
-											"Algo fue mal en el proceso, vuelva a intentarlo", "Error",
+											MessagesUI_Auxiliar.getString("UI_Auxiliar.56"), MessagesUI_Auxiliar.getString("UI_Auxiliar.57"), //$NON-NLS-1$ //$NON-NLS-2$
 											JOptionPane.ERROR_MESSAGE);
 									dispose();
 								}
@@ -918,7 +918,7 @@ public class UI_Auxiliar extends JFrame {
 					}
 
 					break;
-				case "borrar":
+				case "borrar": //$NON-NLS-1$
 
 					switch (elegirFormulario) {
 					case 0:
@@ -943,7 +943,7 @@ public class UI_Auxiliar extends JFrame {
 					break;
 				}
 
-				JOptionPane.showMessageDialog(null, "Se han guardado los cambios", "Confirmación de cambios",
+				JOptionPane.showMessageDialog(null, MessagesUI_Auxiliar.getString("UI_Auxiliar.59"), MessagesUI_Auxiliar.getString("UI_Auxiliar.60"), //$NON-NLS-1$ //$NON-NLS-2$
 						JOptionPane.PLAIN_MESSAGE);
 				dispose(); // Yes
 			} else {

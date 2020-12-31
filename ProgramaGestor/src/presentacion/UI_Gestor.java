@@ -170,7 +170,7 @@ public class UI_Gestor {
 		Reader.leerFicheros();
 		frmGestorLosOlivos = new JFrame();
 		frmGestorLosOlivos
-				.setIconImage(Toolkit.getDefaultToolkit().getImage(UI_Gestor.class.getResource("/recursos/logo.png")));
+				.setIconImage(Toolkit.getDefaultToolkit().getImage(UI_Gestor.class.getResource("/recursos/logo.png"))); //$NON-NLS-1$
 		frmGestorLosOlivos.addWindowListener(new FrmGestorLosOlivosWindowListener());
 		frmGestorLosOlivos.setResizable(false);
 		frmGestorLosOlivos.setTitle(MessagesUI_Gestor.getString("UI_Gestor.frmGestorLosOlivos.title")); //$NON-NLS-1$
@@ -178,11 +178,11 @@ public class UI_Gestor {
 		frmGestorLosOlivos.getContentPane().setLayout(new CardLayout(0, 0));
 		{
 			panelAutenticacion = new JPanel();
-			frmGestorLosOlivos.getContentPane().add(panelAutenticacion, "PanelSesion");
+			frmGestorLosOlivos.getContentPane().add(panelAutenticacion, "PanelSesion"); //$NON-NLS-1$
 			panelAutenticacion.setLayout(new BorderLayout(0, 0));
 			{
 				lblBarraEstado = new JLabel(MessagesUI_Gestor.getString("UI_Gestor.lblBarraEstado.text")); //$NON-NLS-1$
-				lblBarraEstado.setFont(new Font("Tahoma", Font.PLAIN, 12));
+				lblBarraEstado.setFont(new Font("Tahoma", Font.PLAIN, 12)); //$NON-NLS-1$
 				lblBarraEstado.setVerticalAlignment(SwingConstants.TOP);
 				panelAutenticacion.add(lblBarraEstado, BorderLayout.SOUTH);
 			}
@@ -208,8 +208,8 @@ public class UI_Gestor {
 					panelUsuarioPass.add(panelImagen, gbc_panelImagen);
 					panelImagen.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 					{
-						lblImagen = new JLabel("");
-						lblImagen.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/iniciosesion.jpg")));
+						lblImagen = new JLabel(""); //$NON-NLS-1$
+						lblImagen.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/iniciosesion.jpg"))); //$NON-NLS-1$
 						panelImagen.add(lblImagen);
 					}
 				}
@@ -233,10 +233,10 @@ public class UI_Gestor {
 						panelFoto.setLayout(null);
 						{
 
-							lblFoto = new JLabel("");
+							lblFoto = new JLabel(""); //$NON-NLS-1$
 							lblFoto.setBounds(22, 15, 115, 135);
 							panelFoto.add(lblFoto);
-							lblFoto.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/user.png")));
+							lblFoto.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/user.png"))); //$NON-NLS-1$
 						}
 					}
 					{
@@ -244,7 +244,7 @@ public class UI_Gestor {
 						lblUsuario.setBounds(46, 260, 106, 27);
 						panelInicioSesion.add(lblUsuario);
 						lblUsuario.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-						lblUsuario.setFont(new Font("Tahoma", Font.PLAIN, 16));
+						lblUsuario.setFont(new Font("Tahoma", Font.PLAIN, 16)); //$NON-NLS-1$
 						lblUsuario.setHorizontalAlignment(SwingConstants.RIGHT);
 					}
 					{
@@ -261,7 +261,7 @@ public class UI_Gestor {
 						panelInicioSesion.add(lblPass);
 						lblPass.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 						lblPass.setHorizontalAlignment(SwingConstants.RIGHT);
-						lblPass.setFont(new Font("Tahoma", Font.PLAIN, 16));
+						lblPass.setFont(new Font("Tahoma", Font.PLAIN, 16)); //$NON-NLS-1$
 					}
 					{
 						passwordField = new JPasswordField();
@@ -277,14 +277,14 @@ public class UI_Gestor {
 						btnIniciar.addChangeListener(new BtnIniciarChangeListener());
 						btnIniciar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 						btnIniciar.addActionListener(new BtnInicioSesionActionListener());
-						btnIniciar.setFont(new Font("Tahoma", Font.PLAIN, 16));
+						btnIniciar.setFont(new Font("Tahoma", Font.PLAIN, 16)); //$NON-NLS-1$
 					}
 				}
 			}
 		}
 		{
 			panelMenuPrincipal = new JPanel();
-			frmGestorLosOlivos.getContentPane().add(panelMenuPrincipal, "Iniciar Sesión");
+			frmGestorLosOlivos.getContentPane().add(panelMenuPrincipal, "Iniciar Sesión"); //$NON-NLS-1$
 			panelMenuPrincipal.setLayout(new BorderLayout(0, 0));
 			{
 				panelArbol = new JPanel();
@@ -311,38 +311,38 @@ public class UI_Gestor {
 						treePrograma.setAutoscrolls(true);
 						treePrograma.setBackground(Color.WHITE);
 						treePrograma.setForeground(Color.WHITE);
-						treePrograma.setModel(new DefaultTreeModel(new DefaultMutableTreeNode("Gestor") {
+						treePrograma.setModel(new DefaultTreeModel(new DefaultMutableTreeNode("Gestor") { //$NON-NLS-1$
 
 							private static final long serialVersionUID = 8896833283667913486L;
 
 							{
 								DefaultMutableTreeNode node_1;
-								node_1 = new DefaultMutableTreeNode("Parcelas-Bungalows");
-								node_1.add(new DefaultMutableTreeNode("Parcelas"));
-								node_1.add(new DefaultMutableTreeNode("Bungalows"));
+								node_1 = new DefaultMutableTreeNode("Parcelas-Bungalows"); //$NON-NLS-1$
+								node_1.add(new DefaultMutableTreeNode("Parcelas")); //$NON-NLS-1$
+								node_1.add(new DefaultMutableTreeNode("Bungalows")); //$NON-NLS-1$
 								add(node_1);
-								node_1 = new DefaultMutableTreeNode("Reservas");
-								node_1.add(new DefaultMutableTreeNode("A\u00F1adir"));
-								node_1.add(new DefaultMutableTreeNode("Borrar"));
-								node_1.add(new DefaultMutableTreeNode("Consultar"));
+								node_1 = new DefaultMutableTreeNode("Reservas"); //$NON-NLS-1$
+								node_1.add(new DefaultMutableTreeNode(MessagesUI_Gestor.getString("UI_Gestor.16"))); //$NON-NLS-1$
+								node_1.add(new DefaultMutableTreeNode("Borrar")); //$NON-NLS-1$
+								node_1.add(new DefaultMutableTreeNode("Consultar")); //$NON-NLS-1$
 								add(node_1);
-								node_1 = new DefaultMutableTreeNode("Actividades");
-								node_1.add(new DefaultMutableTreeNode("A\u00F1adir"));
-								node_1.add(new DefaultMutableTreeNode("Modificar"));
-								node_1.add(new DefaultMutableTreeNode("Borrar"));
-								node_1.add(new DefaultMutableTreeNode("Consultar"));
+								node_1 = new DefaultMutableTreeNode("Actividades"); //$NON-NLS-1$
+								node_1.add(new DefaultMutableTreeNode("A\u00F1adir")); //$NON-NLS-1$
+								node_1.add(new DefaultMutableTreeNode("Modificar")); //$NON-NLS-1$
+								node_1.add(new DefaultMutableTreeNode("Borrar")); //$NON-NLS-1$
+								node_1.add(new DefaultMutableTreeNode("Consultar")); //$NON-NLS-1$
 								add(node_1);
-								node_1 = new DefaultMutableTreeNode("Rutas");
-								node_1.add(new DefaultMutableTreeNode("Informacion"));
-								node_1.add(new DefaultMutableTreeNode("Dise\u00F1ar"));
+								node_1 = new DefaultMutableTreeNode("Rutas"); //$NON-NLS-1$
+								node_1.add(new DefaultMutableTreeNode("Informacion")); //$NON-NLS-1$
+								node_1.add(new DefaultMutableTreeNode("Dise\u00F1ar")); //$NON-NLS-1$
 								add(node_1);
-								node_1 = new DefaultMutableTreeNode("Monitores");
-								node_1.add(new DefaultMutableTreeNode("A\u00F1adir"));
-								node_1.add(new DefaultMutableTreeNode("Modificar"));
-								node_1.add(new DefaultMutableTreeNode("Borrar"));
-								node_1.add(new DefaultMutableTreeNode("Consultar"));
+								node_1 = new DefaultMutableTreeNode("Monitores"); //$NON-NLS-1$
+								node_1.add(new DefaultMutableTreeNode("A\u00F1adir")); //$NON-NLS-1$
+								node_1.add(new DefaultMutableTreeNode("Modificar")); //$NON-NLS-1$
+								node_1.add(new DefaultMutableTreeNode("Borrar")); //$NON-NLS-1$
+								node_1.add(new DefaultMutableTreeNode("Consultar")); //$NON-NLS-1$
 								add(node_1);
-								add(new DefaultMutableTreeNode("Configuracion"));
+								add(new DefaultMutableTreeNode("Configuracion")); //$NON-NLS-1$
 							}
 						}));
 						
@@ -360,9 +360,9 @@ public class UI_Gestor {
 				gbl_panelBanner.rowWeights = new double[] { 0.0, Double.MIN_VALUE };
 				panelBanner.setLayout(gbl_panelBanner);
 				{
-					lblBanner = new JLabel("");
+					lblBanner = new JLabel(""); //$NON-NLS-1$
 					lblBanner.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-					lblBanner.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/banner2.jpg")));
+					lblBanner.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/banner2.jpg"))); //$NON-NLS-1$
 					GridBagConstraints gbc_lblBanner = new GridBagConstraints();
 					gbc_lblBanner.fill = GridBagConstraints.VERTICAL;
 					gbc_lblBanner.gridx = 0;
@@ -377,7 +377,7 @@ public class UI_Gestor {
 				{
 					panelBotones = new JPanel();
 					panelBotones.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-					panelPrincipal.add(panelBotones, "panelPrincipal");
+					panelPrincipal.add(panelBotones, "panelPrincipal"); //$NON-NLS-1$
 					GridBagLayout gbl_panelBotones = new GridBagLayout();
 					gbl_panelBotones.columnWidths = new int[] { -3, 204, 209, 195, 8, 0 };
 					gbl_panelBotones.rowHeights = new int[] { 0, 11, 0, 160, 160, 0, 0 };
@@ -386,7 +386,7 @@ public class UI_Gestor {
 					panelBotones.setLayout(gbl_panelBotones);
 					{
 						lblInfo = new JLabel(MessagesUI_Gestor.getString("UI_Gestor.lblInfo.text")); //$NON-NLS-1$
-						lblInfo.setFont(new Font("Tahoma", Font.BOLD, 17));
+						lblInfo.setFont(new Font("Tahoma", Font.BOLD, 17)); //$NON-NLS-1$
 						GridBagConstraints gbc_lblInfo = new GridBagConstraints();
 						gbc_lblInfo.fill = GridBagConstraints.HORIZONTAL;
 						gbc_lblInfo.gridwidth = 2;
@@ -396,15 +396,15 @@ public class UI_Gestor {
 						panelBotones.add(lblInfo, gbc_lblInfo);
 					}
 					{
-						btnParcelasBungalows = new JButton("");
+						btnParcelasBungalows = new JButton(""); //$NON-NLS-1$
 						btnParcelasBungalows
 								.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
 						btnParcelasBungalows.addChangeListener(new BtnIniciarChangeListener());
 						btnParcelasBungalows.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 						btnParcelasBungalows
-								.addActionListener(new BtnCambioPanelActionListener("panelParcelas-Bungalows"));
+								.addActionListener(new BtnCambioPanelActionListener("panelParcelas-Bungalows")); //$NON-NLS-1$
 						btnParcelasBungalows
-								.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/home@2x.png")));
+								.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/home@2x.png"))); //$NON-NLS-1$
 						btnParcelasBungalows.setToolTipText(MessagesUI_Gestor.getString("UI_Gestor.btnParcelasBungalows.toolTipText")); //$NON-NLS-1$
 						GridBagConstraints gbc_btnParcelasBungalows = new GridBagConstraints();
 						gbc_btnParcelasBungalows.fill = GridBagConstraints.BOTH;
@@ -414,11 +414,11 @@ public class UI_Gestor {
 						panelBotones.add(btnParcelasBungalows, gbc_btnParcelasBungalows);
 					}
 					{
-						btnReservas = new JButton("");
+						btnReservas = new JButton(""); //$NON-NLS-1$
 						btnReservas.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
 						btnReservas.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-						btnReservas.addActionListener(new BtnCambioPanelActionListener("panelReservas"));
-						btnReservas.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/calendar@2x.png")));
+						btnReservas.addActionListener(new BtnCambioPanelActionListener("panelReservas")); //$NON-NLS-1$
+						btnReservas.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/calendar@2x.png"))); //$NON-NLS-1$
 						btnReservas.setToolTipText(MessagesUI_Gestor.getString("UI_Gestor.btnReservas.toolTipText")); //$NON-NLS-1$
 						btnReservas.setBackground(new Color(152, 251, 152));
 						GridBagConstraints gbc_btnReservas = new GridBagConstraints();
@@ -429,25 +429,25 @@ public class UI_Gestor {
 						panelBotones.add(btnReservas, gbc_btnReservas);
 					}
 					{
-						btnConfiguracion = new JButton("");
+						btnConfiguracion = new JButton(""); //$NON-NLS-1$
 						btnConfiguracion.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
 						btnConfiguracion.addChangeListener(new BtnIniciarChangeListener());
 						btnConfiguracion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-						btnConfiguracion.addActionListener(new BtnCambioPanelActionListener("panelConfiguracion"));
+						btnConfiguracion.addActionListener(new BtnCambioPanelActionListener("panelConfiguracion")); //$NON-NLS-1$
 						{
-							btnActividades = new JButton("");
+							btnActividades = new JButton(""); //$NON-NLS-1$
 							btnActividades.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
 							btnActividades.addChangeListener(new BtnIniciarChangeListener());
 							btnActividades.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-							btnActividades.addActionListener(new BtnCambioPanelActionListener("panelActividades"));
+							btnActividades.addActionListener(new BtnCambioPanelActionListener("panelActividades")); //$NON-NLS-1$
 							{
-								btnRutas = new JButton("");
+								btnRutas = new JButton(""); //$NON-NLS-1$
 								btnRutas.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
 								btnRutas.addChangeListener(new BtnIniciarChangeListener());
 								btnRutas.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-								btnRutas.addActionListener(new BtnCambioPanelActionListener("panelRutas"));
+								btnRutas.addActionListener(new BtnCambioPanelActionListener("panelRutas")); //$NON-NLS-1$
 								btnRutas.setIcon(
-										new ImageIcon(UI_Gestor.class.getResource("/recursos/compass@2x.png")));
+										new ImageIcon(UI_Gestor.class.getResource("/recursos/compass@2x.png"))); //$NON-NLS-1$
 								btnRutas.setToolTipText(MessagesUI_Gestor.getString("UI_Gestor.btnRutas.toolTipText")); //$NON-NLS-1$
 								GridBagConstraints gbc_btnRutas = new GridBagConstraints();
 								gbc_btnRutas.fill = GridBagConstraints.BOTH;
@@ -457,14 +457,14 @@ public class UI_Gestor {
 								panelBotones.add(btnRutas, gbc_btnRutas);
 							}
 							{
-								btnMonitores = new JButton("");
+								btnMonitores = new JButton(""); //$NON-NLS-1$
 								btnMonitores
 										.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
 								btnMonitores.addChangeListener(new BtnIniciarChangeListener());
 								btnMonitores.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-								btnMonitores.addActionListener(new BtnCambioPanelActionListener("panelMonitores"));
+								btnMonitores.addActionListener(new BtnCambioPanelActionListener("panelMonitores")); //$NON-NLS-1$
 								btnMonitores
-										.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/user@2x.png")));
+										.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/user@2x.png"))); //$NON-NLS-1$
 								btnMonitores.setToolTipText(MessagesUI_Gestor.getString("UI_Gestor.btnMonitores.toolTipText")); //$NON-NLS-1$
 								GridBagConstraints gbc_btnMonitores = new GridBagConstraints();
 								gbc_btnMonitores.fill = GridBagConstraints.BOTH;
@@ -474,7 +474,7 @@ public class UI_Gestor {
 								panelBotones.add(btnMonitores, gbc_btnMonitores);
 							}
 							btnActividades.setIcon(
-									new ImageIcon(UI_Gestor.class.getResource("/recursos/puzzle-piece@2x.png")));
+									new ImageIcon(UI_Gestor.class.getResource("/recursos/puzzle-piece@2x.png"))); //$NON-NLS-1$
 							btnActividades.setToolTipText(MessagesUI_Gestor.getString("UI_Gestor.btnActividades.toolTipText")); //$NON-NLS-1$
 							GridBagConstraints gbc_btnActividades = new GridBagConstraints();
 							gbc_btnActividades.fill = GridBagConstraints.BOTH;
@@ -483,7 +483,7 @@ public class UI_Gestor {
 							gbc_btnActividades.gridy = 4;
 							panelBotones.add(btnActividades, gbc_btnActividades);
 						}
-						btnConfiguracion.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/gear@2x.png")));
+						btnConfiguracion.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/gear@2x.png"))); //$NON-NLS-1$
 						btnConfiguracion.setToolTipText(MessagesUI_Gestor.getString("UI_Gestor.btnConfiguracion.toolTipText")); //$NON-NLS-1$
 						GridBagConstraints gbc_btnConfiguracion = new GridBagConstraints();
 						gbc_btnConfiguracion.fill = GridBagConstraints.BOTH;
@@ -496,7 +496,7 @@ public class UI_Gestor {
 				{
 					panelReservas = new JPanel();
 					panelReservas.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-					panelPrincipal.add(panelReservas, "panelReservas");
+					panelPrincipal.add(panelReservas, "panelReservas"); //$NON-NLS-1$
 					GridBagLayout gbl_panelReservas = new GridBagLayout();
 					gbl_panelReservas.columnWidths = new int[] { 0, 0, 0, 0, 0, 0 };
 					gbl_panelReservas.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
@@ -508,7 +508,7 @@ public class UI_Gestor {
 						btnNuevaReserva = new JButton(MessagesUI_Gestor.getString("UI_Gestor.btnNuevaReserva.text")); //$NON-NLS-1$
 						btnNuevaReserva.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 						btnNuevaReserva.addActionListener(new BtnReservasActionListener(0));
-						btnNuevaReserva.setFont(new Font("Tahoma", Font.BOLD, 20));
+						btnNuevaReserva.setFont(new Font("Tahoma", Font.BOLD, 20)); //$NON-NLS-1$
 						GridBagConstraints gbc_btnNuevaReserva = new GridBagConstraints();
 						gbc_btnNuevaReserva.fill = GridBagConstraints.BOTH;
 						gbc_btnNuevaReserva.insets = new Insets(0, 0, 5, 5);
@@ -520,7 +520,7 @@ public class UI_Gestor {
 						btnBorrarReserva = new JButton(MessagesUI_Gestor.getString("UI_Gestor.btnBorrarReserva.text")); //$NON-NLS-1$
 						btnBorrarReserva.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 						btnBorrarReserva.addActionListener(new BtnReservasActionListener(1));
-						btnBorrarReserva.setFont(new Font("Tahoma", Font.BOLD, 20));
+						btnBorrarReserva.setFont(new Font("Tahoma", Font.BOLD, 20)); //$NON-NLS-1$
 						GridBagConstraints gbc_btnBorrarReserva = new GridBagConstraints();
 						gbc_btnBorrarReserva.fill = GridBagConstraints.BOTH;
 						gbc_btnBorrarReserva.insets = new Insets(0, 0, 5, 5);
@@ -532,7 +532,7 @@ public class UI_Gestor {
 						btnConsultarReservas = new JButton(MessagesUI_Gestor.getString("UI_Gestor.btnConsultarReservas.text")); //$NON-NLS-1$
 						btnConsultarReservas.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 						btnConsultarReservas.addActionListener(new BtnReservasActionListener(2));
-						btnConsultarReservas.setFont(new Font("Tahoma", Font.BOLD, 20));
+						btnConsultarReservas.setFont(new Font("Tahoma", Font.BOLD, 20)); //$NON-NLS-1$
 						GridBagConstraints gbc_btnConsultarReservas = new GridBagConstraints();
 						gbc_btnConsultarReservas.fill = GridBagConstraints.BOTH;
 						gbc_btnConsultarReservas.insets = new Insets(0, 0, 5, 5);
@@ -544,7 +544,7 @@ public class UI_Gestor {
 				{
 					panelParcelasBungalos = new JPanel();
 					panelParcelasBungalos.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-					panelPrincipal.add(panelParcelasBungalos, "panelParcelas-Bungalows");
+					panelPrincipal.add(panelParcelasBungalos, "panelParcelas-Bungalows"); //$NON-NLS-1$
 					GridBagLayout gbl_panelParcelasBungalos = new GridBagLayout();
 					gbl_panelParcelasBungalos.columnWidths = new int[] { 33, 71, 81, 0, 0 };
 					gbl_panelParcelasBungalos.rowHeights = new int[] { 21, 0, 0, 0 };
@@ -552,14 +552,14 @@ public class UI_Gestor {
 					gbl_panelParcelasBungalos.rowWeights = new double[] { 0.0, 1.0, 0.0, Double.MIN_VALUE };
 					panelParcelasBungalos.setLayout(gbl_panelParcelasBungalos);
 					{
-						btnParcelas = new JButton("");
+						btnParcelas = new JButton(""); //$NON-NLS-1$
 						btnParcelas.setToolTipText(MessagesUI_Gestor.getString("UI_Gestor.btnParcelas.toolTipText")); //$NON-NLS-1$
 						btnParcelas.addActionListener(new BtnParcelasBungalowsActionListener(0));
 						btnParcelas.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 						btnParcelas.setBackground(new Color(240, 240, 240));
 						btnParcelas.setBorderPainted(false);
 						btnParcelas
-								.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/location-pin@3x.png")));
+								.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/location-pin@3x.png"))); //$NON-NLS-1$
 						GridBagConstraints gbc_btnParcelas = new GridBagConstraints();
 						gbc_btnParcelas.fill = GridBagConstraints.BOTH;
 						gbc_btnParcelas.insets = new Insets(0, 0, 5, 5);
@@ -568,14 +568,14 @@ public class UI_Gestor {
 						panelParcelasBungalos.add(btnParcelas, gbc_btnParcelas);
 					}
 					{
-						btnBungalows = new JButton("");
+						btnBungalows = new JButton(""); //$NON-NLS-1$
 						btnBungalows.setToolTipText(MessagesUI_Gestor.getString("UI_Gestor.btnBungalows.toolTipText")); //$NON-NLS-1$
 						btnBungalows.addActionListener(new BtnParcelasBungalowsActionListener(1));
 						btnBungalows.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 						btnBungalows.setOpaque(false);
 						btnBungalows.setBorder(null);
 						btnBungalows.setBackground(new Color(240, 240, 240));
-						btnBungalows.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/home@3x.png")));
+						btnBungalows.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/home@3x.png"))); //$NON-NLS-1$
 						GridBagConstraints gbc_btnBungalows = new GridBagConstraints();
 						gbc_btnBungalows.fill = GridBagConstraints.BOTH;
 						gbc_btnBungalows.insets = new Insets(0, 0, 5, 5);
@@ -587,7 +587,7 @@ public class UI_Gestor {
 				{
 					panelRutas = new JPanel();
 					panelRutas.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-					panelPrincipal.add(panelRutas, "panelRutas");
+					panelPrincipal.add(panelRutas, "panelRutas"); //$NON-NLS-1$
 					GridBagLayout gbl_panelRutas = new GridBagLayout();
 					gbl_panelRutas.columnWidths = new int[] { 16, 79, 91, 0, 0 };
 					gbl_panelRutas.rowHeights = new int[] { 21, 0, 0, 0 };
@@ -595,14 +595,14 @@ public class UI_Gestor {
 					gbl_panelRutas.rowWeights = new double[] { 0.0, 1.0, 0.0, Double.MIN_VALUE };
 					panelRutas.setLayout(gbl_panelRutas);
 					{
-						btnInfoRutas = new JButton("");
+						btnInfoRutas = new JButton(""); //$NON-NLS-1$
 						btnInfoRutas.setToolTipText(MessagesUI_Gestor.getString("UI_Gestor.btnInfoRutas.toolTipText")); //$NON-NLS-1$
 						btnInfoRutas.addActionListener(new BtnInfoRutasActionListener());
 						btnInfoRutas.setOpaque(false);
 						btnInfoRutas.setBorder(null);
 						btnInfoRutas.setBackground(new Color(240, 240, 240));
 						btnInfoRutas.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-						btnInfoRutas.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/document@3x.png")));
+						btnInfoRutas.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/document@3x.png"))); //$NON-NLS-1$
 						GridBagConstraints gbc_btnInfoRutas = new GridBagConstraints();
 						gbc_btnInfoRutas.fill = GridBagConstraints.BOTH;
 						gbc_btnInfoRutas.insets = new Insets(0, 0, 5, 5);
@@ -611,14 +611,14 @@ public class UI_Gestor {
 						panelRutas.add(btnInfoRutas, gbc_btnInfoRutas);
 					}
 					{
-						btnDisenoRuta = new JButton("");
+						btnDisenoRuta = new JButton(""); //$NON-NLS-1$
 						btnDisenoRuta.setToolTipText(MessagesUI_Gestor.getString("UI_Gestor.btnDisenoRuta.toolTipText")); //$NON-NLS-1$
 						btnDisenoRuta.addActionListener(new BtnDisenoRutaActionListener());
 						btnDisenoRuta.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 						btnDisenoRuta.setOpaque(false);
 						btnDisenoRuta.setBorder(null);
 						btnDisenoRuta.setBackground(new Color(240, 240, 240));
-						btnDisenoRuta.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/pencil@3x.png")));
+						btnDisenoRuta.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/pencil@3x.png"))); //$NON-NLS-1$
 						GridBagConstraints gbc_btnDisenoRuta = new GridBagConstraints();
 						gbc_btnDisenoRuta.fill = GridBagConstraints.BOTH;
 						gbc_btnDisenoRuta.insets = new Insets(0, 0, 5, 5);
@@ -630,77 +630,77 @@ public class UI_Gestor {
 				{
 					panelConfiguracion = new JPanel();
 					panelConfiguracion.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-					panelPrincipal.add(panelConfiguracion, "panelConfiguracion");
+					panelPrincipal.add(panelConfiguracion, "panelConfiguracion"); //$NON-NLS-1$
 					panelConfiguracion.setLayout(null);
 					{
 						lblApariencia = new JLabel(MessagesUI_Gestor.getString("UI_Gestor.lblApariencia.text")); //$NON-NLS-1$
 						lblApariencia.setHorizontalAlignment(SwingConstants.RIGHT);
-						lblApariencia.setFont(new Font("Tahoma", Font.PLAIN, 18));
+						lblApariencia.setFont(new Font("Tahoma", Font.PLAIN, 18)); //$NON-NLS-1$
 						lblApariencia.setBounds(208, 163, 94, 31);
 						panelConfiguracion.add(lblApariencia);
 					}
 					{
 						lblTipoLetra = new JLabel(MessagesUI_Gestor.getString("UI_Gestor.lblTipoLetra.text")); //$NON-NLS-1$
 						lblTipoLetra.setHorizontalAlignment(SwingConstants.RIGHT);
-						lblTipoLetra.setFont(new Font("Tahoma", Font.PLAIN, 18));
+						lblTipoLetra.setFont(new Font("Tahoma", Font.PLAIN, 18)); //$NON-NLS-1$
 						lblTipoLetra.setBounds(170, 204, 132, 32);
 						panelConfiguracion.add(lblTipoLetra);
 					}
 					{
 						lblTamLetra = new JLabel(MessagesUI_Gestor.getString("UI_Gestor.lblTamLetra.text")); //$NON-NLS-1$
 						lblTamLetra.setHorizontalAlignment(SwingConstants.RIGHT);
-						lblTamLetra.setFont(new Font("Tahoma", Font.PLAIN, 18));
+						lblTamLetra.setFont(new Font("Tahoma", Font.PLAIN, 18)); //$NON-NLS-1$
 						lblTamLetra.setBounds(147, 246, 155, 29);
 						panelConfiguracion.add(lblTamLetra);
 					}
 					{
 						comboBox_1 = new JComboBox<String>();
-						comboBox_1.setModel(new DefaultComboBoxModel<String>(new String[] {"Claro", "Oscuro"}));
+						comboBox_1.setModel(new DefaultComboBoxModel<String>(new String[] {MessagesUI_Gestor.getString("UI_Gestor.0"), MessagesUI_Gestor.getString("UI_Gestor.1")})); //$NON-NLS-1$ //$NON-NLS-2$
 						comboBox_1.setBounds(328, 171, 132, 21);
 						panelConfiguracion.add(comboBox_1);
 					}
 					{
 						comboBox_2 = new JComboBox<String>();
-						comboBox_2.setModel(new DefaultComboBoxModel<String>(new String[] {"Tahoma"}));
+						comboBox_2.setModel(new DefaultComboBoxModel<String>(new String[] {"Tahoma"})); //$NON-NLS-1$
 						comboBox_2.setBounds(328, 213, 132, 21);
 						panelConfiguracion.add(comboBox_2);
 					}
 					{
 						comboBox_3 = new JComboBox<String>();
-						comboBox_3.setModel(new DefaultComboBoxModel<String>(new String[] {"Pequena", "Mediana", "Grande"}));
+						comboBox_3.setModel(new DefaultComboBoxModel<String>(new String[] {MessagesUI_Gestor.getString("UI_Gestor.76"), MessagesUI_Gestor.getString("UI_Gestor.77"), MessagesUI_Gestor.getString("UI_Gestor.78")})); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 						comboBox_3.setBounds(328, 253, 132, 21);
 						panelConfiguracion.add(comboBox_3);
 					}
 					{
 						btnGuardarCambios = new JButton(MessagesUI_Gestor.getString("UI_Gestor.btnGuardarCambios.text")); //$NON-NLS-1$
 						btnGuardarCambios.addActionListener(new BtnGuardarCambiosActionListener());
-						btnGuardarCambios.setFont(new Font("Tahoma", Font.PLAIN, 18));
+						btnGuardarCambios.setFont(new Font("Tahoma", Font.PLAIN, 18)); //$NON-NLS-1$
 						btnGuardarCambios.setBounds(358, 340, 206, 32);
 						panelConfiguracion.add(btnGuardarCambios);
 					}
 					{
 						btnCancelarCambios = new JButton(MessagesUI_Gestor.getString("UI_Gestor.btnCancelarCambios.text")); //$NON-NLS-1$
-						btnCancelarCambios.setFont(new Font("Tahoma", Font.PLAIN, 18));
+						btnCancelarCambios.setFont(new Font("Tahoma", Font.PLAIN, 18)); //$NON-NLS-1$
 						btnCancelarCambios.setBounds(109, 340, 206, 32);
 						panelConfiguracion.add(btnCancelarCambios);
 					}
 					{
 						lblIdioma = new JLabel(MessagesUI_Gestor.getString("UI_Gestor.lblNewLabel.text")); //$NON-NLS-1$
 						lblIdioma.setHorizontalAlignment(SwingConstants.RIGHT);
-						lblIdioma.setFont(new Font("Tahoma", Font.PLAIN, 18));
+						lblIdioma.setFont(new Font("Tahoma", Font.PLAIN, 18)); //$NON-NLS-1$
 						lblIdioma.setBounds(208, 132, 94, 21);
 						panelConfiguracion.add(lblIdioma);
 					}
 					{
 						cbIdioma = new JComboBox();
-						cbIdioma.setModel(new DefaultComboBoxModel(new String[] {"espa\u00F1ol", "ingl\u00E9s"}));
+						cbIdioma.setModel(new DefaultComboBoxModel(new String[] {MessagesUI_Gestor.getString("UI_Gestor.82"), MessagesUI_Gestor.getString("UI_Gestor.83")})); //$NON-NLS-1$ //$NON-NLS-2$
 						cbIdioma.setBounds(328, 135, 132, 21);
 						panelConfiguracion.add(cbIdioma);
 					}
 				}
 				{
 					panelMonitores = new JPanel();
-					panelPrincipal.add(panelMonitores, "panelMonitores");
+					panelPrincipal.add(panelMonitores, "panelMonitores"); //$NON-NLS-1$
 					GridBagLayout gbl_panelMonitores = new GridBagLayout();
 					gbl_panelMonitores.columnWidths = new int[] { 0, 0, 0, 0, 0, 0, 0, 0 };
 					gbl_panelMonitores.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
@@ -711,7 +711,7 @@ public class UI_Gestor {
 					panelMonitores.setLayout(gbl_panelMonitores);
 					{
 						lblMonitores = new JLabel(MessagesUI_Gestor.getString("UI_Gestor.lblMonitores.text")); //$NON-NLS-1$
-						lblMonitores.setFont(new Font("Tahoma", Font.PLAIN, 25));
+						lblMonitores.setFont(new Font("Tahoma", Font.PLAIN, 25)); //$NON-NLS-1$
 						lblMonitores.setAlignmentY(Component.TOP_ALIGNMENT);
 						GridBagConstraints gbc_lblMonitores = new GridBagConstraints();
 						gbc_lblMonitores.anchor = GridBagConstraints.WEST;
@@ -782,7 +782,7 @@ public class UI_Gestor {
 				}
 				{
 					panelActividades = new JPanel();
-					panelPrincipal.add(panelActividades, "panelActividades");
+					panelPrincipal.add(panelActividades, "panelActividades"); //$NON-NLS-1$
 					GridBagLayout gbl_panelActividades = new GridBagLayout();
 					gbl_panelActividades.columnWidths = new int[] { 0, 0, 0, 0, 0, 0, 0, 0 };
 					gbl_panelActividades.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
@@ -793,7 +793,7 @@ public class UI_Gestor {
 					panelActividades.setLayout(gbl_panelActividades);
 					{
 						lblActividades = new JLabel(MessagesUI_Gestor.getString("UI_Gestor.lblActividades.text")); //$NON-NLS-1$
-						lblActividades.setFont(new Font("Tahoma", Font.PLAIN, 25));
+						lblActividades.setFont(new Font("Tahoma", Font.PLAIN, 25)); //$NON-NLS-1$
 						GridBagConstraints gbc_lblActividades = new GridBagConstraints();
 						gbc_lblActividades.anchor = GridBagConstraints.WEST;
 						gbc_lblActividades.insets = new Insets(0, 0, 5, 5);
@@ -864,7 +864,7 @@ public class UI_Gestor {
 			}
 			{
 				lblBarraDeEstado = new JLabel(MessagesUI_Gestor.getString("UI_Gestor.lblBarraDeEstado.text")); //$NON-NLS-1$
-				lblBarraDeEstado.setFont(new Font("Tahoma", Font.PLAIN, 12));
+				lblBarraDeEstado.setFont(new Font("Tahoma", Font.PLAIN, 12)); //$NON-NLS-1$
 				panelMenuPrincipal.add(lblBarraDeEstado, BorderLayout.SOUTH);
 			}
 			{
@@ -879,14 +879,14 @@ public class UI_Gestor {
 				panelOpcionesPrincipales.setLayout(gbl_panelOpcionesPrincipales);
 				{
 					{
-						btnHome = new JButton("");
+						btnHome = new JButton(""); //$NON-NLS-1$
 						btnHome.setBackground(new Color(240, 240, 240));
 						btnHome.setOpaque(false);
 						btnHome.setToolTipText(MessagesUI_Gestor.getString("UI_Gestor.btnHome.toolTipText")); //$NON-NLS-1$
 						btnHome.addActionListener(new BtnHomeActionListener());
 						btnHome.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 						btnHome.setBorder(null);
-						btnHome.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/barraLateral/pestana1.png")));
+						btnHome.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/barraLateral/pestana1.png"))); //$NON-NLS-1$
 						GridBagConstraints gbc_btnHome = new GridBagConstraints();
 						gbc_btnHome.insets = new Insets(0, 0, 5, 0);
 						gbc_btnHome.gridx = 0;
@@ -895,13 +895,13 @@ public class UI_Gestor {
 					}
 				}
 				{
-					btnHelp = new JButton("");
+					btnHelp = new JButton(""); //$NON-NLS-1$
 					btnHelp.addActionListener(new BtnHelpActionListener());
 					{
-						btnIdioma = new JButton("");
+						btnIdioma = new JButton(""); //$NON-NLS-1$
 						btnIdioma.setBorder(null);
 						btnIdioma.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-						btnIdioma.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/barraLateral/banderaEsp.gif")));
+						btnIdioma.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/barraLateral/banderaEsp.gif"))); //$NON-NLS-1$
 						GridBagConstraints gbc_btnIdioma = new GridBagConstraints();
 						gbc_btnIdioma.insets = new Insets(0, 0, 5, 0);
 						gbc_btnIdioma.gridx = 0;
@@ -913,7 +913,7 @@ public class UI_Gestor {
 					btnHelp.setToolTipText(MessagesUI_Gestor.getString("UI_Gestor.btnHelp.toolTipText")); //$NON-NLS-1$
 					btnHelp.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 					btnHelp.setBorder(null);
-					btnHelp.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/barraLateral/help.png")));
+					btnHelp.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/barraLateral/help.png"))); //$NON-NLS-1$
 					GridBagConstraints gbc_btnHelp = new GridBagConstraints();
 					gbc_btnHelp.insets = new Insets(0, 0, 5, 0);
 					gbc_btnHelp.gridx = 0;
@@ -921,14 +921,14 @@ public class UI_Gestor {
 					panelOpcionesPrincipales.add(btnHelp, gbc_btnHelp);
 				}
 				{
-					btnUser = new JButton("");
+					btnUser = new JButton(""); //$NON-NLS-1$
 					btnUser.setBackground(new Color(240, 240, 240));
 					btnUser.setOpaque(false);
 					btnUser.setToolTipText(MessagesUI_Gestor.getString("UI_Gestor.btnUser.toolTipText")); //$NON-NLS-1$
 					btnUser.addActionListener(new BtnUserActionListener());
 					btnUser.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 					btnUser.setBorder(null);
-					btnUser.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/barraLateral/user-male.png")));
+					btnUser.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/barraLateral/user-male.png"))); //$NON-NLS-1$
 					GridBagConstraints gbc_btnUser = new GridBagConstraints();
 					gbc_btnUser.insets = new Insets(0, 0, 5, 0);
 					gbc_btnUser.gridx = 0;
@@ -936,21 +936,21 @@ public class UI_Gestor {
 					panelOpcionesPrincipales.add(btnUser, gbc_btnUser);
 				}
 				{
-					btnLogout = new JButton("");
+					btnLogout = new JButton(""); //$NON-NLS-1$
 					btnLogout.setBackground(new Color(240, 240, 240));
 					btnLogout.setOpaque(false);
 					btnLogout.setToolTipText(MessagesUI_Gestor.getString("UI_Gestor.btnLogout.toolTipText")); //$NON-NLS-1$
 					btnLogout.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 					btnLogout.addActionListener(new BtnLogoutActionListener());
 					{
-						btnCalendario = new JButton("");
+						btnCalendario = new JButton(""); //$NON-NLS-1$
 						btnCalendario.addActionListener(new BtnCalendarioActionListener());
 						btnCalendario.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 						btnCalendario.setBackground(new Color(240, 240, 240));
 						btnCalendario.setOpaque(false);
 						btnCalendario.setToolTipText(MessagesUI_Gestor.getString("UI_Gestor.btnCalendario.toolTipText")); //$NON-NLS-1$
 						btnCalendario.setBorder(null);
-						btnCalendario.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/barraLateral/calendarbtn.png")));
+						btnCalendario.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/barraLateral/calendarbtn.png"))); //$NON-NLS-1$
 						GridBagConstraints gbc_btnCalendario = new GridBagConstraints();
 						gbc_btnCalendario.insets = new Insets(0, 0, 5, 0);
 						gbc_btnCalendario.gridx = 0;
@@ -958,7 +958,7 @@ public class UI_Gestor {
 						panelOpcionesPrincipales.add(btnCalendario, gbc_btnCalendario);
 					}
 					btnLogout.setBorder(null);
-					btnLogout.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/barraLateral/exit.png")));
+					btnLogout.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/barraLateral/exit.png"))); //$NON-NLS-1$
 					GridBagConstraints gbc_btnLogout = new GridBagConstraints();
 					gbc_btnLogout.gridx = 0;
 					gbc_btnLogout.gridy = 5;
@@ -1049,8 +1049,8 @@ public class UI_Gestor {
 
 	private class FrmGestorLosOlivosWindowListener extends WindowAdapter {
 		public void windowClosing(WindowEvent e) {
-			int sel = JOptionPane.showOptionDialog(frmGestorLosOlivos, "¿Seguro que quieres salir?",
-					"Salir del programa", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
+			int sel = JOptionPane.showOptionDialog(frmGestorLosOlivos, MessagesUI_Gestor.getString("UI_Gestor.101"), //$NON-NLS-1$
+					MessagesUI_Gestor.getString("UI_Gestor.102"), JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null); //$NON-NLS-1$
 			if (sel == JOptionPane.YES_OPTION) {
 				frmGestorLosOlivos.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Yes
 			} else {
@@ -1062,27 +1062,27 @@ public class UI_Gestor {
 	private class BtnInicioSesionActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			CardLayout panel = (CardLayout) (frmGestorLosOlivos.getContentPane().getLayout());
-			panel.show(frmGestorLosOlivos.getContentPane(), "Iniciar Sesión");
+			panel.show(frmGestorLosOlivos.getContentPane(), "Iniciar Sesión"); //$NON-NLS-1$
 			Date date = java.util.Calendar.getInstance().getTime();
-			lblBarraDeEstado.setText("Sesión iniciada a las: " + date);
+			lblBarraDeEstado.setText(MessagesUI_Gestor.getString("UI_Gestor.104") + date); //$NON-NLS-1$
 		}
 	}
 
 	private class BtnLogoutActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 
-			int sel = JOptionPane.showOptionDialog(frmGestorLosOlivos, "¿Seguro que quieres cerrar sesión?",
-					"Cerrar Sesión", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
+			int sel = JOptionPane.showOptionDialog(frmGestorLosOlivos, MessagesUI_Gestor.getString("UI_Gestor.105"), //$NON-NLS-1$
+					MessagesUI_Gestor.getString("UI_Gestor.106"), JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null); //$NON-NLS-1$
 			if (sel == JOptionPane.YES_OPTION) {
 				CardLayout panel = (CardLayout) (frmGestorLosOlivos.getContentPane().getLayout());
-				panel.show(frmGestorLosOlivos.getContentPane(), "PanelSesion"); // Yes
+				panel.show(frmGestorLosOlivos.getContentPane(), "PanelSesion"); // Yes //$NON-NLS-1$
 				Date date = java.util.Calendar.getInstance().getTime();
-				lblBarraEstado.setText("Sesión cerrada a las: " + date);
+				lblBarraEstado.setText(MessagesUI_Gestor.getString("UI_Gestor.108") + date); //$NON-NLS-1$
 
-				textUsuario.setText("");
+				textUsuario.setText(""); //$NON-NLS-1$
 				textUsuario.setBorder(new LineBorder(Color.RED, 2));
-				lblFoto.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/user.png")));
-				passwordField.setText("");
+				lblFoto.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/user.png"))); //$NON-NLS-1$
+				passwordField.setText(""); //$NON-NLS-1$
 				btnIniciar.setVisible(false);
 				
 			}
@@ -1092,7 +1092,7 @@ public class UI_Gestor {
 	private class BtnHomeActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			CardLayout panel = (CardLayout) (panelPrincipal.getLayout());
-			panel.show(panelPrincipal, "panelPrincipal");
+			panel.show(panelPrincipal, "panelPrincipal"); //$NON-NLS-1$
 		}
 	}
 
@@ -1121,7 +1121,7 @@ public class UI_Gestor {
 			CardLayout panel = (CardLayout) (panelPrincipal.getLayout());
 			panel.show(panelPrincipal, pane);
 			switch(pane) {
-				case "panelMonitores":
+				case "panelMonitores": //$NON-NLS-1$
 					listModel = new DefaultListModel<String>();
 					for(int i=0; i<Reader.getListMonitores().size(); i++) {
 						listModel.addElement(Reader.getListMonitores().get(i).getNombre());
@@ -1129,7 +1129,7 @@ public class UI_Gestor {
 					listMonitores.setModel(listModel);
 					listMonitores.setSelectedIndex(0);
 					break;
-				case "panelActividades":
+				case "panelActividades": //$NON-NLS-1$
 					listModel = new DefaultListModel<String>();
 					for(int i=0; i<Reader.getListActividades().size(); i++) {
 						listModel.addElement(Reader.getListActividades().get(i).getDescripcion());
@@ -1166,38 +1166,38 @@ public class UI_Gestor {
 				switch (tam) {
 				case 1:
 					panel = (CardLayout) (panelPrincipal.getLayout());
-					panel.show(panelPrincipal, "panelPrincipal");
+					panel.show(panelPrincipal, "panelPrincipal"); //$NON-NLS-1$
 					break;
 				case 2:
 					panel = (CardLayout) (panelPrincipal.getLayout());
-					panel.show(panelPrincipal, "panel" + e.getNewLeadSelectionPath().getPath()[1]);
+					panel.show(panelPrincipal, "panel" + e.getNewLeadSelectionPath().getPath()[1]); //$NON-NLS-1$
 					break;
 				case 3:
 					String s = e.getNewLeadSelectionPath().getPath()[2].toString();
 					String s1 = e.getNewLeadSelectionPath().getPath()[1].toString();
 					switch (s) {
-					case "Parcelas":
+					case "Parcelas": //$NON-NLS-1$
 						new BtnParcelasBungalowsActionListener(0).actionPerformed(null);
 						break;
-					case "Bungalows":
+					case "Bungalows": //$NON-NLS-1$
 						new BtnParcelasBungalowsActionListener(1).actionPerformed(null);
 						break;
-					case "Informacion":
+					case "Informacion": //$NON-NLS-1$
 						new BtnInfoRutasActionListener().actionPerformed(null);
 						break;
-					case "Diseñar":
+					case "Diseñar": //$NON-NLS-1$
 						new BtnDisenoRutaActionListener().actionPerformed(null);
 						break;
-					case "Añadir":
+					case "Añadir": //$NON-NLS-1$
 						abrirVentanaArbol(s1, 1);
 						break;
-					case "Borrar":
+					case "Borrar": //$NON-NLS-1$
 						abrirVentanaArbol(s1, 2);
 						break;
-					case "Modificar":
+					case "Modificar": //$NON-NLS-1$
 						abrirVentanaArbol(s1, 3);
 						break;
-					case "Consultar":
+					case "Consultar": //$NON-NLS-1$
 						abrirVentanaArbol(s1, 4);
 						break;
 					}
@@ -1302,7 +1302,7 @@ public class UI_Gestor {
 	private class BtnHelpActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 
-			String url = "https://github.com/DavidGB18/practicaIPO1/blob/Lucas/ProgramaGestor/manual.pdf";
+			String url = "https://github.com/DavidGB18/practicaIPO1/blob/Lucas/ProgramaGestor/manual.pdf"; //$NON-NLS-1$
 			
 			try {
 				URI uri = new URI(url);
@@ -1326,8 +1326,8 @@ public class UI_Gestor {
 
 	private class MntmSalirActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			int sel = JOptionPane.showOptionDialog(frmGestorLosOlivos, "¿Seguro que quieres salir?",
-					"Salir del programa", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
+			int sel = JOptionPane.showOptionDialog(frmGestorLosOlivos, MessagesUI_Gestor.getString("UI_Gestor.126"), //$NON-NLS-1$
+					MessagesUI_Gestor.getString("UI_Gestor.127"), JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null); //$NON-NLS-1$
 			if (sel == JOptionPane.YES_OPTION) {
 				System.exit(1);
 			}
@@ -1388,29 +1388,29 @@ public class UI_Gestor {
 	}
 	private class BtnGuardarCambiosActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			if (cbIdioma.getSelectedItem().equals("inglés")) {
+			if (cbIdioma.getSelectedItem().equals("inglés")) { //$NON-NLS-1$
 				
-				MessagesUI_Auxiliar.setIdioma("inglés");
-				MessagesUI_Calendario.setIdioma("inglés");
-				MessagesUI_DibujoRutas.setIdioma("inglés");
-				MessagesUI_Gestor.setIdioma("inglés");
-				MessagesUI_ParcelasBungalows.setIdioma("inglés");
-				MessagesUI_Reservas.setIdioma("inglés");
-				MessagesUI_Rutas.setIdioma("inglés");
-				MessagesUI_Usuario.setIdioma("inglés");
+				MessagesUI_Auxiliar.setIdioma("inglés"); //$NON-NLS-1$
+				MessagesUI_Calendario.setIdioma("inglés"); //$NON-NLS-1$
+				MessagesUI_DibujoRutas.setIdioma("inglés"); //$NON-NLS-1$
+				MessagesUI_Gestor.setIdioma("inglés"); //$NON-NLS-1$
+				MessagesUI_ParcelasBungalows.setIdioma("inglés"); //$NON-NLS-1$
+				MessagesUI_Reservas.setIdioma("inglés"); //$NON-NLS-1$
+				MessagesUI_Rutas.setIdioma("inglés"); //$NON-NLS-1$
+				MessagesUI_Usuario.setIdioma("inglés"); //$NON-NLS-1$
 				cerrar();
 				UI_Gestor ventana = new UI_Gestor();
 				ventana.frmGestorLosOlivos.setVisible(true);
 			}
 			else {
-				MessagesUI_Auxiliar.setIdioma("español");
-				MessagesUI_Calendario.setIdioma("español");
-				MessagesUI_DibujoRutas.setIdioma("español");
-				MessagesUI_Gestor.setIdioma("español");
-				MessagesUI_ParcelasBungalows.setIdioma("español");
-				MessagesUI_Reservas.setIdioma("español");
-				MessagesUI_Rutas.setIdioma("español");
-				MessagesUI_Usuario.setIdioma("español");
+				MessagesUI_Auxiliar.setIdioma("español"); //$NON-NLS-1$
+				MessagesUI_Calendario.setIdioma("español"); //$NON-NLS-1$
+				MessagesUI_DibujoRutas.setIdioma("español"); //$NON-NLS-1$
+				MessagesUI_Gestor.setIdioma("español"); //$NON-NLS-1$
+				MessagesUI_ParcelasBungalows.setIdioma("español"); //$NON-NLS-1$
+				MessagesUI_Reservas.setIdioma("español"); //$NON-NLS-1$
+				MessagesUI_Rutas.setIdioma("español"); //$NON-NLS-1$
+				MessagesUI_Usuario.setIdioma("español"); //$NON-NLS-1$
 				cerrar();
 				UI_Gestor ventana = new UI_Gestor();
 				ventana.frmGestorLosOlivos.setVisible(true);
@@ -1422,7 +1422,7 @@ public class UI_Gestor {
 
 	private void abrirVentanaArbol(String seleccion, int modo) {
 		switch (seleccion) {
-		case "Reservas":
+		case "Reservas": //$NON-NLS-1$
 			if (modo == 1) {
 				new BtnReservasActionListener(0).actionPerformed(null);
 			} else if (modo == 2) {
@@ -1431,7 +1431,7 @@ public class UI_Gestor {
 				new BtnReservasActionListener(2).actionPerformed(null);
 			}
 			break;
-		case "Actividades":
+		case "Actividades": //$NON-NLS-1$
 			if (modo == 1) {
 				new BtnActividadActionListener(1).actionPerformed(null);
 			} else if (modo == 2) {
@@ -1442,7 +1442,7 @@ public class UI_Gestor {
 				new BtnActividadActionListener(0).actionPerformed(null);
 			}
 			break;
-		case "Monitores":
+		case "Monitores": //$NON-NLS-1$
 			if (modo == 1) {
 				new BtnMonitorActionListener(1).actionPerformed(null);
 			} else if (modo == 2) {

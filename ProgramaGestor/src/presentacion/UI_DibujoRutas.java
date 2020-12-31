@@ -73,7 +73,7 @@ public class UI_DibujoRutas extends JFrame {
 	private JButton btnZoomMenor;
 
 	public UI_DibujoRutas() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(UI_DibujoRutas.class.getResource("/recursos/logo.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(UI_DibujoRutas.class.getResource("/recursos/logo.png"))); //$NON-NLS-1$
 		setTitle(MessagesUI_DibujoRutas.getString("UI_DibujoRutas.this.title")); //$NON-NLS-1$
 		setResizable(false);
 		addWindowListener(new ThisWindowListener());
@@ -87,50 +87,50 @@ public class UI_DibujoRutas extends JFrame {
 			tbBarraDibujo = new JToolBar();
 			contentPane.add(tbBarraDibujo, BorderLayout.NORTH);
 			{
-				btnGuardar = new JButton("");
+				btnGuardar = new JButton(""); //$NON-NLS-1$
 				btnGuardar.setToolTipText(MessagesUI_DibujoRutas.getString("UI_DibujoRutas.btnGuardar.toolTipText")); //$NON-NLS-1$
 				btnGuardar.setIcon(
-						new ImageIcon(UI_DibujoRutas.class.getResource("/recursos/ruta/floppy-disk-2@1x.png")));
+						new ImageIcon(UI_DibujoRutas.class.getResource("/recursos/ruta/floppy-disk-2@1x.png"))); //$NON-NLS-1$
 				btnGuardar.addActionListener(new BtnGuardarActionListener());
 
 				tbBarraDibujo.add(btnGuardar);
 			}
 			{
-				btnCargar = new JButton("");
+				btnCargar = new JButton(""); //$NON-NLS-1$
 				btnCargar.setToolTipText(MessagesUI_DibujoRutas.getString("UI_DibujoRutas.btnCargar.toolTipText")); //$NON-NLS-1$
-				btnCargar.setIcon(new ImageIcon(UI_DibujoRutas.class.getResource("/recursos/ruta/folder@1x.png")));
+				btnCargar.setIcon(new ImageIcon(UI_DibujoRutas.class.getResource("/recursos/ruta/folder@1x.png"))); //$NON-NLS-1$
 				btnCargar.addActionListener(new BtnCargarActionListener());
 				tbBarraDibujo.add(btnCargar);
 			}
 			{
-				btnDibujar = new JButton("");
+				btnDibujar = new JButton(""); //$NON-NLS-1$
 				btnDibujar.setToolTipText(MessagesUI_DibujoRutas.getString("UI_DibujoRutas.btnDibujar.toolTipText")); //$NON-NLS-1$
-				btnDibujar.setIcon(new ImageIcon(UI_DibujoRutas.class.getResource("/recursos/ruta/pencil@1x.png")));
+				btnDibujar.setIcon(new ImageIcon(UI_DibujoRutas.class.getResource("/recursos/ruta/pencil@1x.png"))); //$NON-NLS-1$
 				btnDibujar.addActionListener(new BtnDibujarActionListener());
 				tbBarraDibujo.add(btnDibujar);
 			}
 			{
-				btnTexto = new JButton("");
+				btnTexto = new JButton(""); //$NON-NLS-1$
 				btnTexto.setToolTipText(MessagesUI_DibujoRutas.getString("UI_DibujoRutas.btnTexto.toolTipText")); //$NON-NLS-1$
-				btnTexto.setIcon(new ImageIcon(UI_DibujoRutas.class.getResource("/recursos/ruta/texto.png")));
+				btnTexto.setIcon(new ImageIcon(UI_DibujoRutas.class.getResource("/recursos/ruta/texto.png"))); //$NON-NLS-1$
 				btnTexto.addActionListener(new BtnTextoActionListener());
 
 				tbBarraDibujo.add(btnTexto);
 			}
 			{
-				btnZoomMayor = new JButton("");
+				btnZoomMayor = new JButton(""); //$NON-NLS-1$
 				btnZoomMayor.setToolTipText(MessagesUI_DibujoRutas.getString("UI_DibujoRutas.btnZoomMayor.toolTipText")); //$NON-NLS-1$
 				btnZoomMayor.addActionListener(new BtnZoomMayorActionListener());
 				btnZoomMayor.setIcon(
-						new ImageIcon(UI_DibujoRutas.class.getResource("/recursos/ruta/plus-in-circle@1x.png")));
+						new ImageIcon(UI_DibujoRutas.class.getResource("/recursos/ruta/plus-in-circle@1x.png"))); //$NON-NLS-1$
 				tbBarraDibujo.add(btnZoomMayor);
 			}
 			{
-				btnZoomMenor = new JButton("");
+				btnZoomMenor = new JButton(""); //$NON-NLS-1$
 				btnZoomMenor.setToolTipText(MessagesUI_DibujoRutas.getString("UI_DibujoRutas.btnZoomMenor.toolTipText")); //$NON-NLS-1$
 				btnZoomMenor.addActionListener(new BtnZoomMenorActionListener());
 				btnZoomMenor.setIcon(
-						new ImageIcon(UI_DibujoRutas.class.getResource("/recursos/ruta/minus-in-circle@1x.png")));
+						new ImageIcon(UI_DibujoRutas.class.getResource("/recursos/ruta/minus-in-circle@1x.png"))); //$NON-NLS-1$
 				tbBarraDibujo.add(btnZoomMenor);
 			}
 		}
@@ -165,10 +165,10 @@ public class UI_DibujoRutas extends JFrame {
 					txtTexto.requestFocus();
 					txtTexto.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent arg) {
-							if (!txtTexto.getText().equals(""))
+							if (!txtTexto.getText().equals("")) //$NON-NLS-1$
 								miAreaDibujo
 										.addObjetoGrafico(new TextoGrafico(x, y + 15, txtTexto.getText(), Color.BLUE));
-							txtTexto.setText("");
+							txtTexto.setText(""); //$NON-NLS-1$
 							txtTexto.setVisible(false);
 							miAreaDibujo.repaint();
 						}
@@ -237,7 +237,7 @@ public class UI_DibujoRutas extends JFrame {
 	private class ThisWindowListener extends WindowAdapter {
 		public void windowClosing(WindowEvent e) {
 			
-			int sel = JOptionPane.showOptionDialog(null, "¿Seguro que quieres cancelar la operación?", "Cerrar ventana",
+			int sel = JOptionPane.showOptionDialog(null, MessagesUI_DibujoRutas.getString("UI_DibujoRutas.0"), MessagesUI_DibujoRutas.getString("UI_DibujoRutas.16"), //$NON-NLS-1$ //$NON-NLS-2$
 					JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
 			if (sel == JOptionPane.YES_OPTION) {
 				UI_Gestor.setComprobadorDibujoRuta(0);

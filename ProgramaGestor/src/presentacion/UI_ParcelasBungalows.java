@@ -72,7 +72,7 @@ public class UI_ParcelasBungalows extends JFrame {
 	public UI_ParcelasBungalows() {
 		setResizable(false);
 		addWindowListener(new ThisWindowListener());
-		setIconImage(Toolkit.getDefaultToolkit().getImage(UI_ParcelasBungalows.class.getResource("/recursos/logo.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(UI_ParcelasBungalows.class.getResource("/recursos/logo.png"))); //$NON-NLS-1$
 		setTitle(MessagesUI_ParcelasBungalows.getString("UI_ParcelasBungalows.this.title")); //$NON-NLS-1$
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 686, 437);
@@ -86,7 +86,7 @@ public class UI_ParcelasBungalows extends JFrame {
 			panelParcelasBungalows.setLayout(new CardLayout(0, 0));
 			{
 				panelParcelas = new JPanel();
-				panelParcelasBungalows.add(panelParcelas, "Parcelas");
+				panelParcelasBungalows.add(panelParcelas, "Parcelas"); //$NON-NLS-1$
 				panelParcelas.setLayout(new BorderLayout(0, 0));
 				{
 					spParcelas = new JScrollPane();
@@ -104,7 +104,7 @@ public class UI_ParcelasBungalows extends JFrame {
 							Object[] fila = {p.getTam(), p.getPrecioNoche(), p.isDisponibilidad(), p.getUbicacion(), p.getArrayServicios(), p.getCategoria()};
 							modeloTabla.aniadeFila(fila);
 						}
-						Object[] nuevaFilaP = {0,0,false,"", null, ""};
+						Object[] nuevaFilaP = {0,0,false,"", null, ""}; //$NON-NLS-1$ //$NON-NLS-2$
 						modeloTabla.aniadeFila(nuevaFilaP);
 						{
 							popupMenu = new JPopupMenu();
@@ -137,13 +137,13 @@ public class UI_ParcelasBungalows extends JFrame {
 				{
 					lblTituloParcelas = new JLabel(MessagesUI_ParcelasBungalows.getString("UI_ParcelasBungalows.lblTituloParcelas.text")); //$NON-NLS-1$
 					lblTituloParcelas.setHorizontalAlignment(SwingConstants.CENTER);
-					lblTituloParcelas.setFont(new Font("Tahoma", Font.BOLD, 20));
+					lblTituloParcelas.setFont(new Font("Tahoma", Font.BOLD, 20)); //$NON-NLS-1$
 					panelParcelas.add(lblTituloParcelas, BorderLayout.NORTH);
 				}
 			}
 			{
 				panelBungalows = new JPanel();
-				panelParcelasBungalows.add(panelBungalows, "Bungalows");
+				panelParcelasBungalows.add(panelBungalows, "Bungalows"); //$NON-NLS-1$
 				panelBungalows.setLayout(new BorderLayout(0, 0));
 				{
 					spBungalows = new JScrollPane();
@@ -162,7 +162,7 @@ public class UI_ParcelasBungalows extends JFrame {
 									b.getPathFotos(), b.getEquipamiento(), b.getCapacidadMaxima(), b.getEstanciaMinima()};
 							modeloTabla.aniadeFila(fila);
 						}
-						Object[] nuevaFilaP = {0,0,false,"", null, ""};
+						Object[] nuevaFilaP = {0,0,false,"", null, ""}; //$NON-NLS-1$ //$NON-NLS-2$
 						modeloTabla.aniadeFila(nuevaFilaP);
 						{
 							popupMenu = new JPopupMenu();
@@ -182,7 +182,7 @@ public class UI_ParcelasBungalows extends JFrame {
 
 						{
 							lblTituloBungalows = new JLabel(MessagesUI_ParcelasBungalows.getString("UI_ParcelasBungalows.lblTituloBungalows.text")); //$NON-NLS-1$
-							lblTituloBungalows.setFont(new Font("Tahoma", Font.BOLD, 20));
+							lblTituloBungalows.setFont(new Font("Tahoma", Font.BOLD, 20)); //$NON-NLS-1$
 							lblTituloBungalows.setHorizontalAlignment(SwingConstants.CENTER);
 							panelBungalows.add(lblTituloBungalows, BorderLayout.NORTH);
 						}
@@ -215,17 +215,17 @@ public class UI_ParcelasBungalows extends JFrame {
 			CardLayout panel = (CardLayout) (panelParcelasBungalows.getLayout());
 			switch(elegirPanel) {
 			case 0:
-				panel.show(panelParcelasBungalows, "Parcelas");
+				panel.show(panelParcelasBungalows, "Parcelas"); //$NON-NLS-1$
 				break;
 			case 1:
-				panel.show(panelParcelasBungalows, "Bungalows");
+				panel.show(panelParcelasBungalows, "Bungalows"); //$NON-NLS-1$
 				break;
 			}
 		}
 		@Override
 		public void windowClosing(WindowEvent e) {
 			
-			int sel = JOptionPane.showOptionDialog(null, "¿Seguro que quieres cancelar la operación?", "Cerrar ventana",
+			int sel = JOptionPane.showOptionDialog(null, MessagesUI_ParcelasBungalows.getString("UI_ParcelasBungalows.11"), MessagesUI_ParcelasBungalows.getString("UI_ParcelasBungalows.12"), //$NON-NLS-1$ //$NON-NLS-2$
 					JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
 			if (sel == JOptionPane.YES_OPTION) {
 				UI_Gestor.setComprobadorParcelasBungalows(0);
@@ -237,8 +237,8 @@ public class UI_ParcelasBungalows extends JFrame {
 	}
 	private class BtnCancelarActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			int sel = JOptionPane.showOptionDialog(null, "¿Seguro que quieres cancelar?",
-					"Cancelar operacion", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
+			int sel = JOptionPane.showOptionDialog(null, MessagesUI_ParcelasBungalows.getString("UI_ParcelasBungalows.13"), //$NON-NLS-1$
+					MessagesUI_ParcelasBungalows.getString("UI_ParcelasBungalows.14"), JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null); //$NON-NLS-1$
 			if (sel == JOptionPane.YES_OPTION) {
 				UI_Gestor.setComprobadorParcelasBungalows(0);
 				dispose();
@@ -263,13 +263,13 @@ public class UI_ParcelasBungalows extends JFrame {
 			switch(selector) {
 			case 0:
 				MiModeloTablaParcelas modeloTablaP = (MiModeloTablaParcelas) tParcelas.getModel();
-				Object[] nuevaFilaP = {0,0,false,"", null, ""};
+				Object[] nuevaFilaP = {0,0,false,"", null, ""}; //$NON-NLS-1$ //$NON-NLS-2$
 				modeloTablaP.aniadeFila(nuevaFilaP);
 				modeloTablaP.fireTableDataChanged();
 				break;
 			case 1:
 				MiModeloTablaBungalows modeloTablaB = (MiModeloTablaBungalows) tBungalows.getModel();
-				Object[] nuevaFilaB = {0,0,false,"","","",0,0};
+				Object[] nuevaFilaB = {0,0,false,"","","",0,0}; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				modeloTablaB.aniadeFila(nuevaFilaB);
 				modeloTablaB.fireTableDataChanged();
 				break;
@@ -311,8 +311,8 @@ public class UI_ParcelasBungalows extends JFrame {
 		public void actionPerformed(ActionEvent e) {
 			//parcelas-0 , bungalows-1
 			
-			int sel = JOptionPane.showOptionDialog(null, "¿Seguro que quieres cancelar?",
-					"Cancelar operacion", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
+			int sel = JOptionPane.showOptionDialog(null, MessagesUI_ParcelasBungalows.getString("UI_ParcelasBungalows.20"), //$NON-NLS-1$
+					MessagesUI_ParcelasBungalows.getString("UI_ParcelasBungalows.21"), JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null); //$NON-NLS-1$
 			if (sel == JOptionPane.YES_OPTION) {
 				switch(elegirPanel) {
 				case 0:

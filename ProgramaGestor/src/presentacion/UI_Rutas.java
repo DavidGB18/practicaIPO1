@@ -116,7 +116,7 @@ public class UI_Rutas extends JFrame {
 	public UI_Rutas() {
 		setResizable(false);
 		addWindowListener(new ThisWindowListener());
-		setIconImage(Toolkit.getDefaultToolkit().getImage(UI_Rutas.class.getResource("/recursos/logo.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(UI_Rutas.class.getResource("/recursos/logo.png"))); //$NON-NLS-1$
 		setTitle(MessagesUI_Rutas.getString("UI_Rutas.this.title")); //$NON-NLS-1$
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 771, 577);
@@ -131,7 +131,7 @@ public class UI_Rutas extends JFrame {
 					{
 						Faciles = new JPanel();
 						Faciles.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-						tabbedPaneRutas.addTab("F\u00E1ciles", null, Faciles, null);
+						tabbedPaneRutas.addTab(MessagesUI_Rutas.getString("UI_Rutas.1"), null, Faciles, null); //$NON-NLS-1$
 						GridBagLayout gbl_Faciles = new GridBagLayout();
 						gbl_Faciles.columnWidths = new int[]{0, 0, 0, 90, 78, 0, 0, 0, 0, 0};
 						gbl_Faciles.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 59, 47, 38, 0, 0, 0, 0, 0};
@@ -237,8 +237,8 @@ public class UI_Rutas extends JFrame {
 							Faciles.add(spinnerHoraFin, gbc_spinnerHoraFin);
 						}
 						{
-							lblFoto = new JLabel("");
-							lblFoto.setIcon(new ImageIcon(UI_Rutas.class.getResource("/recursos/location-pin@3x.png")));
+							lblFoto = new JLabel(""); //$NON-NLS-1$
+							lblFoto.setIcon(new ImageIcon(UI_Rutas.class.getResource("/recursos/location-pin@3x.png"))); //$NON-NLS-1$
 							GridBagConstraints gbc_lblFoto = new GridBagConstraints();
 							gbc_lblFoto.gridheight = 7;
 							gbc_lblFoto.gridwidth = 2;
@@ -349,7 +349,7 @@ public class UI_Rutas extends JFrame {
 					{
 						Intermedias = new JPanel();
 						Intermedias.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-						tabbedPaneRutas.addTab("Intermedias", null, Intermedias, null);
+						tabbedPaneRutas.addTab(MessagesUI_Rutas.getString("UI_Rutas.4"), null, Intermedias, null); //$NON-NLS-1$
 						GridBagLayout gbl_Intermedias = new GridBagLayout();
 						gbl_Intermedias.columnWidths = new int[]{0, 0, 0, 90, 78, 0, 0, 0, 0, 0};
 						gbl_Intermedias.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 59, 47, 38, 0, 0, 0, 0, 0};
@@ -454,8 +454,8 @@ public class UI_Rutas extends JFrame {
 							Intermedias.add(spinnerHoraFin_1, gbc_spinnerHoraFin_1);
 						}
 						{
-							lblFoto_1 = new JLabel("");
-							lblFoto_1.setIcon(new ImageIcon(UI_Rutas.class.getResource("/recursos/location-pin@3x.png")));
+							lblFoto_1 = new JLabel(""); //$NON-NLS-1$
+							lblFoto_1.setIcon(new ImageIcon(UI_Rutas.class.getResource("/recursos/location-pin@3x.png"))); //$NON-NLS-1$
 							GridBagConstraints gbc_lblFoto_1 = new GridBagConstraints();
 							gbc_lblFoto_1.gridheight = 7;
 							gbc_lblFoto_1.gridwidth = 2;
@@ -566,7 +566,7 @@ public class UI_Rutas extends JFrame {
 					{
 						Dificiles = new JPanel();
 						Dificiles.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-						tabbedPaneRutas.addTab("Dificiles", null, Dificiles, null);
+						tabbedPaneRutas.addTab(MessagesUI_Rutas.getString("UI_Rutas.7"), null, Dificiles, null); //$NON-NLS-1$
 						GridBagLayout gbl_Dificiles = new GridBagLayout();
 						gbl_Dificiles.columnWidths = new int[]{0, 0, 0, 90, 78, 0, 0, 0, 0, 0};
 						gbl_Dificiles.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 59, 47, 38, 0, 0, 0, 0, 0};
@@ -671,8 +671,8 @@ public class UI_Rutas extends JFrame {
 							Dificiles.add(spinnerHoraFin_2, gbc_spinnerHoraFin_2);
 						}
 						{
-							lblFoto_2 = new JLabel("");
-							lblFoto_2.setIcon(new ImageIcon(UI_Rutas.class.getResource("/recursos/location-pin@3x.png")));
+							lblFoto_2 = new JLabel(""); //$NON-NLS-1$
+							lblFoto_2.setIcon(new ImageIcon(UI_Rutas.class.getResource("/recursos/location-pin@3x.png"))); //$NON-NLS-1$
 							GridBagConstraints gbc_lblFoto_2 = new GridBagConstraints();
 							gbc_lblFoto_2.gridheight = 7;
 							gbc_lblFoto_2.gridwidth = 2;

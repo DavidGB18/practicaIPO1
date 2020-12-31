@@ -78,7 +78,7 @@ public class UI_Calendario extends JFrame {
 	 */
 
 	public UI_Calendario() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(UI_Calendario.class.getResource("/recursos/logo.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(UI_Calendario.class.getResource("/recursos/logo.png"))); //$NON-NLS-1$
 		addWindowListener(new ThisWindowListener());
 		setResizable(false);
 		setTitle(MessagesUI_Calendario.getString("UI_Calendario.this.title")); //$NON-NLS-1$
@@ -99,7 +99,7 @@ public class UI_Calendario extends JFrame {
 			{
 				comboBox = new JComboBox<String>();
 				comboBox.setEnabled(false);
-				comboBox.setModel(new DefaultComboBoxModel<String>(new String[] {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"}));
+				comboBox.setModel(new DefaultComboBoxModel<String>(new String[] {MessagesUI_Calendario.getString("UI_Calendario.1"), MessagesUI_Calendario.getString("UI_Calendario.2"), MessagesUI_Calendario.getString("UI_Calendario.3"), MessagesUI_Calendario.getString("UI_Calendario.4"), MessagesUI_Calendario.getString("UI_Calendario.5"), MessagesUI_Calendario.getString("UI_Calendario.6"), MessagesUI_Calendario.getString("UI_Calendario.7"), MessagesUI_Calendario.getString("UI_Calendario.8"), MessagesUI_Calendario.getString("UI_Calendario.9"), MessagesUI_Calendario.getString("UI_Calendario.10"), MessagesUI_Calendario.getString("UI_Calendario.11"), MessagesUI_Calendario.getString("UI_Calendario.12")})); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$ //$NON-NLS-8$ //$NON-NLS-9$ //$NON-NLS-10$ //$NON-NLS-11$ //$NON-NLS-12$
 				GridBagConstraints gbc_comboBox = new GridBagConstraints();
 				gbc_comboBox.gridwidth = 2;
 				gbc_comboBox.insets = new Insets(0, 0, 5, 5);

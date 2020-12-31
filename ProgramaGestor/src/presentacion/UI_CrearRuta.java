@@ -86,7 +86,7 @@ public class UI_CrearRuta extends JFrame {
 	public UI_CrearRuta() {
 		addWindowListener(new ThisWindowListener());
 		setTitle(MessagesUI_CrearRuta.getString("UI_CrearRuta.this.title")); //$NON-NLS-1$
-		setIconImage(Toolkit.getDefaultToolkit().getImage(UI_CrearRuta.class.getResource("/recursos/logo.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(UI_CrearRuta.class.getResource("/recursos/logo.png"))); //$NON-NLS-1$
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 604, 366);
 		contentPane = new JPanel();
@@ -105,7 +105,7 @@ public class UI_CrearRuta extends JFrame {
 			panel.setLayout(gbl_panel);
 			{
 				lblInfo = new JLabel(MessagesUI_CrearRuta.getString("UI_CrearRuta.lblInfo.text")); //$NON-NLS-1$
-				lblInfo.setFont(new Font("Tahoma", Font.BOLD, 17));
+				lblInfo.setFont(new Font("Tahoma", Font.BOLD, 17)); //$NON-NLS-1$
 				GridBagConstraints gbc_lblInfo = new GridBagConstraints();
 				gbc_lblInfo.anchor = GridBagConstraints.WEST;
 				gbc_lblInfo.gridwidth = 6;
@@ -165,7 +165,7 @@ public class UI_CrearRuta extends JFrame {
 
 				MaskFormatter formatoFecha;
 				try {
-					formatoFecha = new MaskFormatter("##'/##'/####");
+					formatoFecha = new MaskFormatter("##'/##'/####"); //$NON-NLS-1$
 					formatoFecha.setPlaceholderCharacter('*');
 					formattedTextFieldFecha = new JFormattedTextField(formatoFecha);
 				} catch (ParseException e) {
@@ -332,8 +332,8 @@ public class UI_CrearRuta extends JFrame {
 	private class BtnCrearActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 
-			int sel = JOptionPane.showOptionDialog(null, "¿Seguro que quieres agregar este elemento?",
-					"Confirmar operación", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
+			int sel = JOptionPane.showOptionDialog(null, MessagesUI_CrearRuta.getString("UI_CrearRuta.3"), //$NON-NLS-1$
+					MessagesUI_CrearRuta.getString("UI_CrearRuta.4"), JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null); //$NON-NLS-1$
 			if (sel == JOptionPane.YES_OPTION) {
 
 				try {
@@ -356,13 +356,13 @@ public class UI_CrearRuta extends JFrame {
 					Reader.getListRutas().add(r);
 					Writer.escribirListaRutas(Reader.getListRutas());
 					
-					JOptionPane.showMessageDialog(null, "Se han guardado los cambios", "Confirmación de cambios",
+					JOptionPane.showMessageDialog(null, MessagesUI_CrearRuta.getString("UI_CrearRuta.5"), MessagesUI_CrearRuta.getString("UI_CrearRuta.6"), //$NON-NLS-1$ //$NON-NLS-2$
 							JOptionPane.PLAIN_MESSAGE);
 					dispose();
 					
 				} catch (Exception e1) {
 					JOptionPane.showMessageDialog(new JFrame(),
-							"Algo fue mal en el proceso, vuelva a intentarlo", "Error",
+							MessagesUI_CrearRuta.getString("UI_CrearRuta.7"), MessagesUI_CrearRuta.getString("UI_CrearRuta.8"), //$NON-NLS-1$ //$NON-NLS-2$
 							JOptionPane.ERROR_MESSAGE);
 					dispose();
 				}
@@ -373,7 +373,7 @@ public class UI_CrearRuta extends JFrame {
 	private class ThisWindowListener extends WindowAdapter {
 		@Override
 		public void windowClosing(WindowEvent e) {
-			int sel = JOptionPane.showOptionDialog(null, "¿Seguro que quieres cancelar la operación?", "Cerrar ventana",
+			int sel = JOptionPane.showOptionDialog(null, MessagesUI_CrearRuta.getString("UI_CrearRuta.9"), MessagesUI_CrearRuta.getString("UI_CrearRuta.10"), //$NON-NLS-1$ //$NON-NLS-2$
 					JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
 			if (sel == JOptionPane.YES_OPTION) {
 				dispose();
@@ -405,7 +405,7 @@ public class UI_CrearRuta extends JFrame {
 	}
 	
 	public String guardarImagen(Icon icono) {
-		rutaIcono = "src/recursos/fotos/" + txtNombre.getText() + ".png";
+		rutaIcono = "src/recursos/fotos/" + txtNombre.getText() + ".png"; //$NON-NLS-1$ //$NON-NLS-2$
 		Image img = iconToImage(icono);
 
 		BufferedImage bi = new BufferedImage(img.getWidth(null), img.getHeight(null), BufferedImage.TYPE_INT_RGB);
@@ -414,10 +414,10 @@ public class UI_CrearRuta extends JFrame {
 		g2.drawImage(img, 0, 0, null);
 		g2.dispose();
 		try {
-			ImageIO.write(bi, "png", new File(rutaIcono));
+			ImageIO.write(bi, "png", new File(rutaIcono)); //$NON-NLS-1$
 		} catch (IOException e1) {
 			JOptionPane.showMessageDialog(new JFrame(),
-					"Algo fue mal en el proceso, vuelva a intentarlo", "Error",
+					MessagesUI_CrearRuta.getString("UI_CrearRuta.0"), MessagesUI_CrearRuta.getString("UI_CrearRuta.15"), //$NON-NLS-1$ //$NON-NLS-2$
 					JOptionPane.ERROR_MESSAGE);
 			dispose();
 		}

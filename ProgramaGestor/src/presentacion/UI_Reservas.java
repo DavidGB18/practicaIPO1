@@ -125,7 +125,7 @@ public class UI_Reservas extends JFrame {
 	 * Create the frame.
 	 */
 	public UI_Reservas() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(UI_Reservas.class.getResource("/recursos/logo.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(UI_Reservas.class.getResource("/recursos/logo.png"))); //$NON-NLS-1$
 		setResizable(false);
 		addWindowListener(new ThisWindowListener());
 		setTitle(MessagesUI_Reservas.getString("UI_Reservas.this.title")); //$NON-NLS-1$
@@ -141,7 +141,7 @@ public class UI_Reservas extends JFrame {
 			panelReservas.setLayout(new CardLayout(0, 0));
 			{
 				panelAnadirReserva = new JPanel();
-				panelReservas.add(panelAnadirReserva, "Añadir");
+				panelReservas.add(panelAnadirReserva, "Añadir"); //$NON-NLS-1$
 				panelAnadirReserva.setLayout(new BorderLayout(0, 0));
 				{
 					panelPasos = new JPanel();
@@ -149,7 +149,7 @@ public class UI_Reservas extends JFrame {
 					panelPasos.setLayout(new CardLayout(0, 0));
 					{
 						panelPaso1 = new JPanel();
-						panelPasos.add(panelPaso1, "Paso1");
+						panelPasos.add(panelPaso1, "Paso1"); //$NON-NLS-1$
 						GridBagLayout gbl_panelPaso1 = new GridBagLayout();
 						gbl_panelPaso1.columnWidths = new int[] { 145, 85, 26, 96, 85, 0 };
 						gbl_panelPaso1.rowHeights = new int[] { 71, 19, 43, 47, 0, 76, 21, 0 };
@@ -191,7 +191,7 @@ public class UI_Reservas extends JFrame {
 					}
 					{
 						panelPaso2 = new JPanel();
-						panelPasos.add(panelPaso2, "Paso2");
+						panelPasos.add(panelPaso2, "Paso2"); //$NON-NLS-1$
 						GridBagLayout gbl_panelPaso2 = new GridBagLayout();
 						gbl_panelPaso2.columnWidths = new int[] { 36, 91, 41, 14, 30, 10, 54, 5, 78, 91, 0 };
 						gbl_panelPaso2.rowHeights = new int[] { 81, 31, 31, 19, 34, 20, 0 };
@@ -201,7 +201,7 @@ public class UI_Reservas extends JFrame {
 						panelPaso2.setLayout(gbl_panelPaso2);
 						{
 							lblFechaNuevaReserva = new JLabel(MessagesUI_Reservas.getString("UI_Reservas.lblFechaNuevaReserva.text")); //$NON-NLS-1$
-							lblFechaNuevaReserva.setFont(new Font("Tahoma", Font.PLAIN, 16));
+							lblFechaNuevaReserva.setFont(new Font("Tahoma", Font.PLAIN, 16)); //$NON-NLS-1$
 							GridBagConstraints gbc_lblFechaNuevaReserva = new GridBagConstraints();
 							gbc_lblFechaNuevaReserva.insets = new Insets(0, 0, 5, 5);
 							gbc_lblFechaNuevaReserva.gridx = 1;
@@ -220,7 +220,7 @@ public class UI_Reservas extends JFrame {
 						{
 							MaskFormatter formatoDNI;
 							try {
-								formatoDNI = new MaskFormatter("##'/##'/####");
+								formatoDNI = new MaskFormatter("##'/##'/####"); //$NON-NLS-1$
 								formatoDNI.setPlaceholderCharacter('*');
 								formattedTextFieldFechaEntradaNuevaReserva = new JFormattedTextField(formatoDNI);
 							} catch (ParseException e) {
@@ -250,7 +250,7 @@ public class UI_Reservas extends JFrame {
 						{
 							MaskFormatter formatoDNI;
 							try {
-								formatoDNI = new MaskFormatter("##'/##'/####");
+								formatoDNI = new MaskFormatter("##'/##'/####"); //$NON-NLS-1$
 								formatoDNI.setPlaceholderCharacter('*');
 								formattedTextFieldFechaSalidaNuevaReserva = new JFormattedTextField(formatoDNI);
 							} catch (ParseException e) {
@@ -308,7 +308,7 @@ public class UI_Reservas extends JFrame {
 					}
 					{
 						panelPaso3 = new JPanel();
-						panelPasos.add(panelPaso3, "Paso3");
+						panelPasos.add(panelPaso3, "Paso3"); //$NON-NLS-1$
 						GridBagLayout gbl_panelPaso3 = new GridBagLayout();
 						gbl_panelPaso3.columnWidths = new int[] { 0, 0, 0, 0, 0, 0, 0, 0 };
 						gbl_panelPaso3.rowHeights = new int[] { 0, 0, 47, 0, 0, 0, 0 };
@@ -318,7 +318,7 @@ public class UI_Reservas extends JFrame {
 						panelPaso3.setLayout(gbl_panelPaso3);
 						{
 							lblContacto = new JLabel(MessagesUI_Reservas.getString("UI_Reservas.lblContacto.text")); //$NON-NLS-1$
-							lblContacto.setFont(new Font("Tahoma", Font.PLAIN, 16));
+							lblContacto.setFont(new Font("Tahoma", Font.PLAIN, 16)); //$NON-NLS-1$
 							GridBagConstraints gbc_lblContacto = new GridBagConstraints();
 							gbc_lblContacto.insets = new Insets(0, 0, 5, 5);
 							gbc_lblContacto.gridx = 1;
@@ -356,7 +356,7 @@ public class UI_Reservas extends JFrame {
 							
 							MaskFormatter formatoDNI;
 							try {
-								formatoDNI = new MaskFormatter("#######'-U");
+								formatoDNI = new MaskFormatter("#######'-U"); //$NON-NLS-1$
 								formatoDNI.setPlaceholderCharacter('X');
 								formattedTextFieldDNI = new JFormattedTextField(formatoDNI);
 							} catch (ParseException e) {
@@ -373,7 +373,7 @@ public class UI_Reservas extends JFrame {
 						{
 							MaskFormatter formato;
 							try {
-								formato = new MaskFormatter("#########");
+								formato = new MaskFormatter("#########"); //$NON-NLS-1$
 								formato.setPlaceholderCharacter('*');
 								formattedTextFieldTelefonoNuevaReserva = new JFormattedTextField(formato);
 							} catch (ParseException e) {
@@ -401,7 +401,7 @@ public class UI_Reservas extends JFrame {
 					}
 					{
 						panelPaso4 = new JPanel();
-						panelPasos.add(panelPaso4, "Paso4");
+						panelPasos.add(panelPaso4, "Paso4"); //$NON-NLS-1$
 						GridBagLayout gbl_panelPaso4 = new GridBagLayout();
 						gbl_panelPaso4.columnWidths = new int[] { 0, 0, 0, 0, 0, 39, 0, 0 };
 						gbl_panelPaso4.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0 };
@@ -412,7 +412,7 @@ public class UI_Reservas extends JFrame {
 						panelPaso4.setLayout(gbl_panelPaso4);
 						{
 							lblDatosReserva = new JLabel(MessagesUI_Reservas.getString("UI_Reservas.lblDatosReserva.text")); //$NON-NLS-1$
-							lblDatosReserva.setFont(new Font("Tahoma", Font.PLAIN, 16));
+							lblDatosReserva.setFont(new Font("Tahoma", Font.PLAIN, 16)); //$NON-NLS-1$
 							GridBagConstraints gbc_lblDatosReserva = new GridBagConstraints();
 							gbc_lblDatosReserva.gridwidth = 2;
 							gbc_lblDatosReserva.insets = new Insets(0, 0, 5, 5);
@@ -459,7 +459,7 @@ public class UI_Reservas extends JFrame {
 					}
 					{
 						panelPaso5 = new JPanel();
-						panelPasos.add(panelPaso5, "Paso5");
+						panelPasos.add(panelPaso5, "Paso5"); //$NON-NLS-1$
 						GridBagLayout gbl_panelPaso5 = new GridBagLayout();
 						gbl_panelPaso5.columnWidths = new int[] { 0, 0, 0, 0 };
 						gbl_panelPaso5.rowHeights = new int[] { 0, 0, 0, 0 };
@@ -468,7 +468,7 @@ public class UI_Reservas extends JFrame {
 						panelPaso5.setLayout(gbl_panelPaso5);
 						{
 							lblMensajeExito = new JLabel(MessagesUI_Reservas.getString("UI_Reservas.lblMensajeExito.text")); //$NON-NLS-1$
-							lblMensajeExito.setFont(new Font("Tahoma", Font.PLAIN, 17));
+							lblMensajeExito.setFont(new Font("Tahoma", Font.PLAIN, 17)); //$NON-NLS-1$
 							GridBagConstraints gbc_lblMensajeExito = new GridBagConstraints();
 							gbc_lblMensajeExito.fill = GridBagConstraints.VERTICAL;
 							gbc_lblMensajeExito.insets = new Insets(0, 0, 5, 5);
@@ -495,7 +495,7 @@ public class UI_Reservas extends JFrame {
 					panelBotones.setLayout(new CardLayout(0, 0));
 					{
 						panelPasoInicial = new JPanel();
-						panelBotones.add(panelPasoInicial, "botonesinicial");
+						panelBotones.add(panelPasoInicial, "botonesinicial"); //$NON-NLS-1$
 						{
 							btnCancelarNuevaReserva = new JButton(MessagesUI_Reservas.getString("UI_Reservas.btnCancelarNuevaReserva.text")); //$NON-NLS-1$
 							btnCancelarNuevaReserva.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -511,7 +511,7 @@ public class UI_Reservas extends JFrame {
 					}
 					{
 						panelPasosIntermedios = new JPanel();
-						panelBotones.add(panelPasosIntermedios, "botonesintermedios");
+						panelBotones.add(panelPasosIntermedios, "botonesintermedios"); //$NON-NLS-1$
 						{
 							btnAtrasP2 = new JButton(MessagesUI_Reservas.getString("UI_Reservas.btnAtrasP2.text")); //$NON-NLS-1$
 							btnAtrasP2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -527,7 +527,7 @@ public class UI_Reservas extends JFrame {
 					}
 					{
 						panelFinal = new JPanel();
-						panelBotones.add(panelFinal, "botonesfinal");
+						panelBotones.add(panelFinal, "botonesfinal"); //$NON-NLS-1$
 						{
 							btnAnterior = new JButton(MessagesUI_Reservas.getString("UI_Reservas.btnAnterior.text")); //$NON-NLS-1$
 							btnAnterior.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -543,7 +543,7 @@ public class UI_Reservas extends JFrame {
 					}
 					{
 						panelPasoExito = new JPanel();
-						panelBotones.add(panelPasoExito, "botonesexito");
+						panelBotones.add(panelPasoExito, "botonesexito"); //$NON-NLS-1$
 						{
 							btnAceptar = new JButton(MessagesUI_Reservas.getString("UI_Reservas.btnAceptar.text")); //$NON-NLS-1$
 							btnAceptar.addActionListener(new BtnSiguienteActionListener());
@@ -554,7 +554,7 @@ public class UI_Reservas extends JFrame {
 			}
 			{
 				panelBorrarReserva = new JPanel();
-				panelReservas.add(panelBorrarReserva, "Borrar");
+				panelReservas.add(panelBorrarReserva, "Borrar"); //$NON-NLS-1$
 				GridBagLayout gbl_panelBorrarReserva = new GridBagLayout();
 				gbl_panelBorrarReserva.columnWidths = new int[] { 115, 172, 225, 0, 0, 0 };
 				gbl_panelBorrarReserva.rowHeights = new int[] { 0, 0, 0, 44, 0, 54, 0, 0 };
@@ -564,7 +564,7 @@ public class UI_Reservas extends JFrame {
 				panelBorrarReserva.setLayout(gbl_panelBorrarReserva);
 				{
 					lblBorrarReserva = new JLabel(MessagesUI_Reservas.getString("UI_Reservas.lblBorrarReserva.text")); //$NON-NLS-1$
-					lblBorrarReserva.setFont(new Font("Tahoma", Font.PLAIN, 16));
+					lblBorrarReserva.setFont(new Font("Tahoma", Font.PLAIN, 16)); //$NON-NLS-1$
 					GridBagConstraints gbc_lblBorrarReserva = new GridBagConstraints();
 					gbc_lblBorrarReserva.gridwidth = 2;
 					gbc_lblBorrarReserva.insets = new Insets(0, 0, 5, 5);
@@ -615,7 +615,7 @@ public class UI_Reservas extends JFrame {
 			}
 			{
 				panelConsultarReservas = new JPanel();
-				panelReservas.add(panelConsultarReservas, "Consultar");
+				panelReservas.add(panelConsultarReservas, "Consultar"); //$NON-NLS-1$
 				GridBagLayout gbl_panelConsultarReservas = new GridBagLayout();
 				gbl_panelConsultarReservas.columnWidths = new int[] { 0, 0, 134, 0, 0, 0, 0, 0 };
 				gbl_panelConsultarReservas.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
@@ -806,7 +806,7 @@ public class UI_Reservas extends JFrame {
 					btnCerrar = new JButton(MessagesUI_Reservas.getString("UI_Reservas.btnCerrar.text")); //$NON-NLS-1$
 					btnCerrar.addActionListener(new BtnCerrarActionListener());
 					btnCerrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-					btnCerrar.setFont(new Font("Tahoma", Font.PLAIN, 16));
+					btnCerrar.setFont(new Font("Tahoma", Font.PLAIN, 16)); //$NON-NLS-1$
 					GridBagConstraints gbc_btnCerrar = new GridBagConstraints();
 					gbc_btnCerrar.gridwidth = 3;
 					gbc_btnCerrar.fill = GridBagConstraints.BOTH;
@@ -826,7 +826,7 @@ public class UI_Reservas extends JFrame {
 	private class ThisWindowListener extends WindowAdapter {
 
 		public void windowClosing(WindowEvent e) {
-			int sel = JOptionPane.showOptionDialog(null, "¿Seguro que quieres cancelar la operación?", "Cerrar ventana",
+			int sel = JOptionPane.showOptionDialog(null, MessagesUI_Reservas.getString("UI_Reservas.23"), MessagesUI_Reservas.getString("UI_Reservas.24"), //$NON-NLS-1$ //$NON-NLS-2$
 					JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
 			if (sel == JOptionPane.YES_OPTION) {
 				dispose(); // Yes
@@ -850,13 +850,13 @@ public class UI_Reservas extends JFrame {
 			CardLayout panel = (CardLayout) (panelReservas.getLayout());
 			switch (elegirPanel) {
 			case 0:
-				panel.show(panelReservas, "Añadir");
+				panel.show(panelReservas, "Añadir"); //$NON-NLS-1$
 				break;
 			case 1:
-				panel.show(panelReservas, "Borrar");
+				panel.show(panelReservas, "Borrar"); //$NON-NLS-1$
 				break;
 			case 2:
-				panel.show(panelReservas, "Consultar");
+				panel.show(panelReservas, "Consultar"); //$NON-NLS-1$
 			}
 		}
 	}
@@ -872,19 +872,19 @@ public class UI_Reservas extends JFrame {
 				dispose();
 				break;
 			case 1:
-				pane = "Paso1";
-				panebotones = "botonesinicial";
+				pane = "Paso1"; //$NON-NLS-1$
+				panebotones = "botonesinicial"; //$NON-NLS-1$
 				break;
 			case 2:
-				pane = "Paso2";
-				panebotones = "botonesintermedios";
+				pane = "Paso2"; //$NON-NLS-1$
+				panebotones = "botonesintermedios"; //$NON-NLS-1$
 			case 3:
-				pane = "Paso3";
-				panebotones = "botonesintermedios";
+				pane = "Paso3"; //$NON-NLS-1$
+				panebotones = "botonesintermedios"; //$NON-NLS-1$
 				break;
 			case 4:
-				pane = "Paso4";
-				panebotones = "botonesfinal";
+				pane = "Paso4"; //$NON-NLS-1$
+				panebotones = "botonesfinal"; //$NON-NLS-1$
 				break;
 			}
 			progressBar.setValue(numPanel);
@@ -904,16 +904,16 @@ public class UI_Reservas extends JFrame {
 
 			switch (numPanel) {
 			case 0:
-				pane = "Paso2";
-				panebotones = "botonesintermedios";
+				pane = "Paso2"; //$NON-NLS-1$
+				panebotones = "botonesintermedios"; //$NON-NLS-1$
 				break;
 			case 1:
-				pane = "Paso3";
-				panebotones = "botonesintermedios";
+				pane = "Paso3"; //$NON-NLS-1$
+				panebotones = "botonesintermedios"; //$NON-NLS-1$
 				break;
 			case 2:
-				pane = "Paso4";
-				panebotones = "botonesfinal";
+				pane = "Paso4"; //$NON-NLS-1$
+				panebotones = "botonesfinal"; //$NON-NLS-1$
 				break;
 			case 3:
 
@@ -938,13 +938,13 @@ public class UI_Reservas extends JFrame {
 				
 				} catch(Exception e1) {
 					e1.printStackTrace();
-					JOptionPane.showMessageDialog(new JFrame(), "Algo fue mal en el proceso, vuelva a intentarlo", "Error", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(new JFrame(), MessagesUI_Reservas.getString("UI_Reservas.42"), MessagesUI_Reservas.getString("UI_Reservas.43"), JOptionPane.ERROR_MESSAGE); //$NON-NLS-1$ //$NON-NLS-2$
 					dispose();
 				}
 				
 				
-				pane = "Paso5";
-				panebotones = "botonesexito";
+				pane = "Paso5"; //$NON-NLS-1$
+				panebotones = "botonesexito"; //$NON-NLS-1$
 				break;
 			case 4:
 				dispose();
@@ -990,7 +990,7 @@ public class UI_Reservas extends JFrame {
 			
 			if(cbReserva.getSelectedItem() != null) {
 				
-				int sel = JOptionPane.showOptionDialog(null, "¿Seguro que quieres borrar esta reserva?", "Borrar reserva",
+				int sel = JOptionPane.showOptionDialog(null, MessagesUI_Reservas.getString("UI_Reservas.46"), MessagesUI_Reservas.getString("UI_Reservas.47"), //$NON-NLS-1$ //$NON-NLS-2$
 						JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
 				if (sel == JOptionPane.YES_OPTION) {
 					int idReserva = (int) cbReserva.getSelectedItem();
@@ -1007,7 +1007,7 @@ public class UI_Reservas extends JFrame {
 	}
 	private class BtnCancelarActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			int sel = JOptionPane.showOptionDialog(null, "¿Seguro que quieres cancelar la operación?", "Cerrar ventana",
+			int sel = JOptionPane.showOptionDialog(null, MessagesUI_Reservas.getString("UI_Reservas.48"), MessagesUI_Reservas.getString("UI_Reservas.49"), //$NON-NLS-1$ //$NON-NLS-2$
 					JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
 			if (sel == JOptionPane.YES_OPTION) {
 				dispose(); // Yes
