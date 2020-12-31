@@ -65,7 +65,7 @@ public class UI_Gestor {
 	private static int comprobadorDibujoRuta = 0;
 	private static int comprobadorParcelasBungalows = 0;
 
-	JFrame frmGestorLosOlivos;
+	static JFrame frmGestorLosOlivos;
 	private JPanel panelAutenticacion;
 	private JPanel panelMenuPrincipal;
 	private JLabel lblBarraEstado;
@@ -153,6 +153,8 @@ public class UI_Gestor {
 	private JMenuItem mntmMonitores;
 	private JMenuItem mntmRutas;
 	private JMenuItem mntmCerrarSesion;
+	private JLabel lblIdioma;
+	private JComboBox cbIdioma;
 	
 	/**
 	 * Create the application.
@@ -671,6 +673,7 @@ public class UI_Gestor {
 					}
 					{
 						btnGuardarCambios = new JButton(MessagesUI_Gestor.getString("UI_Gestor.btnGuardarCambios.text")); //$NON-NLS-1$
+						btnGuardarCambios.addActionListener(new BtnGuardarCambiosActionListener());
 						btnGuardarCambios.setFont(new Font("Tahoma", Font.PLAIN, 18));
 						btnGuardarCambios.setBounds(358, 340, 206, 32);
 						panelConfiguracion.add(btnGuardarCambios);
@@ -680,6 +683,19 @@ public class UI_Gestor {
 						btnCancelarCambios.setFont(new Font("Tahoma", Font.PLAIN, 18));
 						btnCancelarCambios.setBounds(109, 340, 206, 32);
 						panelConfiguracion.add(btnCancelarCambios);
+					}
+					{
+						lblIdioma = new JLabel(MessagesUI_Gestor.getString("UI_Gestor.lblNewLabel.text")); //$NON-NLS-1$
+						lblIdioma.setHorizontalAlignment(SwingConstants.RIGHT);
+						lblIdioma.setFont(new Font("Tahoma", Font.PLAIN, 18));
+						lblIdioma.setBounds(208, 132, 94, 21);
+						panelConfiguracion.add(lblIdioma);
+					}
+					{
+						cbIdioma = new JComboBox();
+						cbIdioma.setModel(new DefaultComboBoxModel(new String[] {"espa\u00F1ol", "ingl\u00E9s"}));
+						cbIdioma.setBounds(328, 135, 132, 21);
+						panelConfiguracion.add(cbIdioma);
 					}
 				}
 				{
@@ -1022,6 +1038,11 @@ public class UI_Gestor {
 				}
 			}
 		}
+		
+	}
+	
+	public static void cerrar () {
+		frmGestorLosOlivos.dispose();
 	}
 
 	// ***EVENTOS***//
@@ -1041,7 +1062,7 @@ public class UI_Gestor {
 	private class BtnInicioSesionActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			CardLayout panel = (CardLayout) (frmGestorLosOlivos.getContentPane().getLayout());
-			panel.show(frmGestorLosOlivos.getContentPane(), e.getActionCommand());
+			panel.show(frmGestorLosOlivos.getContentPane(), "Iniciar Sesión");
 			Date date = java.util.Calendar.getInstance().getTime();
 			lblBarraDeEstado.setText("Sesión iniciada a las: " + date);
 		}
@@ -1362,6 +1383,37 @@ public class UI_Gestor {
 				} else {
 					btnIniciar.setVisible(false);
 				}
+			}
+		}
+	}
+	private class BtnGuardarCambiosActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			if (cbIdioma.getSelectedItem().equals("inglés")) {
+				
+				MessagesUI_Auxiliar.setIdioma("inglés");
+				MessagesUI_Calendario.setIdioma("inglés");
+				MessagesUI_DibujoRutas.setIdioma("inglés");
+				MessagesUI_Gestor.setIdioma("inglés");
+				MessagesUI_ParcelasBungalows.setIdioma("inglés");
+				MessagesUI_Reservas.setIdioma("inglés");
+				MessagesUI_Rutas.setIdioma("inglés");
+				MessagesUI_Usuario.setIdioma("inglés");
+				cerrar();
+				UI_Gestor ventana = new UI_Gestor();
+				ventana.frmGestorLosOlivos.setVisible(true);
+			}
+			else {
+				MessagesUI_Auxiliar.setIdioma("español");
+				MessagesUI_Calendario.setIdioma("español");
+				MessagesUI_DibujoRutas.setIdioma("español");
+				MessagesUI_Gestor.setIdioma("español");
+				MessagesUI_ParcelasBungalows.setIdioma("español");
+				MessagesUI_Reservas.setIdioma("español");
+				MessagesUI_Rutas.setIdioma("español");
+				MessagesUI_Usuario.setIdioma("español");
+				cerrar();
+				UI_Gestor ventana = new UI_Gestor();
+				ventana.frmGestorLosOlivos.setVisible(true);
 			}
 		}
 	}
