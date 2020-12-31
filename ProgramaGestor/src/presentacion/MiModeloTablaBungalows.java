@@ -6,7 +6,7 @@ import javax.swing.table.*;
 class MiModeloTablaBungalows extends AbstractTableModel {
 
 	private static final long serialVersionUID = 2052112288971919013L;
-	private String[] nombreColumnas = { "Tamano", "Precio Noche", "Disponibilidad", "Descripcion", "Foto", "Equipamiento", "Capacidad M.", "Estancia m." };
+	private String[] nombreColumnas = { "Tamano", "Precio Noche", "Disponibilidad", "Descripcion", "Equipamiento", "Capacidad M.", "Estancia m." };
 	private Vector datos = new Vector();
 
 	public int getColumnCount() {

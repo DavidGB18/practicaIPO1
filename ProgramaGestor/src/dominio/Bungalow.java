@@ -6,18 +6,16 @@ public class Bungalow{
 	private double precioNoche;
 	private boolean disponibilidad;
 	private String descripcion;
-	private String pathFotos;
 	private String equipamiento;
 	private int capacidadMaxima;
 	private int estanciaMinima;
 	
-	public Bungalow (int tam, double precioNoche, boolean disponibilidad, String descripcion, String pathFotos, 
+	public Bungalow (int tam, double precioNoche, boolean disponibilidad, String descripcion, 
 			String equipamiento, int capacidadMaxima, int estanciaMinima) {
 		this.tam = tam;
 		this.precioNoche = precioNoche;
 		this.disponibilidad = disponibilidad;
 		this.descripcion = descripcion;
-		this.pathFotos = pathFotos;
 		this.equipamiento = equipamiento;
 		this.capacidadMaxima = capacidadMaxima;
 		this.estanciaMinima = estanciaMinima;
@@ -55,14 +53,6 @@ public class Bungalow{
 		this.descripcion = descripcion;
 	}
 
-	public String getPathFotos() {
-		return pathFotos;
-	}
-
-	public void setPathFotos(String pathFotos) {
-		this.pathFotos = pathFotos;
-	}
-
 	public String getEquipamiento() {
 		return equipamiento;
 	}
@@ -89,7 +79,7 @@ public class Bungalow{
 
 	@Override
 	public String toString() {
-		return tam + " " + precioNoche + " " + disponibilidad + " " + pathFotos + " " + equipamiento
+		return tam + " " + precioNoche + " " + disponibilidad + " " + equipamiento
 				+ " " + capacidadMaxima + " " + estanciaMinima + " " + descripcion;
 	}
 	

@@ -159,10 +159,10 @@ public class UI_ParcelasBungalows extends JFrame {
 						for(int i=0; i<Reader.getListBungalows().size(); i++) {
 							Bungalow b = Reader.getListBungalows().get(i);
 							Object[] fila = {b.getTam(), b.getPrecioNoche(), b.isDisponibilidad(), b.getDescripcion(), 
-									b.getPathFotos(), b.getEquipamiento(), b.getCapacidadMaxima(), b.getEstanciaMinima()};
+									 b.getEquipamiento(), b.getCapacidadMaxima(), b.getEstanciaMinima()};
 							modeloTabla.aniadeFila(fila);
 						}
-						Object[] nuevaFilaP = {0,0,false,"","","", 0, 0}; //$NON-NLS-1$ //$NON-NLS-2$
+						Object[] nuevaFilaP = {0,0.0,false,"","", 0, 0}; //$NON-NLS-1$ //$NON-NLS-2$
 						modeloTabla.aniadeFila(nuevaFilaP);
 						{
 							popupMenu = new JPopupMenu();
@@ -270,7 +270,7 @@ public class UI_ParcelasBungalows extends JFrame {
 				break;
 			case 1:
 				MiModeloTablaBungalows modeloTablaB = (MiModeloTablaBungalows) tBungalows.getModel();
-				Object[] nuevaFilaB = {0,0,false,"","","",0,0}; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				Object[] nuevaFilaB = {0,0.0,false,"","",0,0}; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				modeloTablaB.aniadeFila(nuevaFilaB);
 				modeloTablaB.fireTableDataChanged();
 				break;
@@ -347,12 +347,11 @@ public class UI_ParcelasBungalows extends JFrame {
 						 double precioNoche = (double) tBungalows.getValueAt(i,1);
 						 boolean disponibilidad = (boolean) tBungalows.getValueAt(i,2);
 						 String descripcion = (String) tBungalows.getValueAt(i,3);
-						 String pathFotos = (String) tBungalows.getValueAt(i,4);
-						 String equipamiento = (String) tBungalows.getValueAt(i,5);
-						 int capacidadMaxima = (int) tBungalows.getValueAt(i,6);
-						 int estanciaMinima = (int) tBungalows.getValueAt(i,7);
+						 String equipamiento = (String) tBungalows.getValueAt(i,4);
+						 int capacidadMaxima = (int) tBungalows.getValueAt(i,5);
+						 int estanciaMinima = (int) tBungalows.getValueAt(i,6);
 						
-						Bungalow b = new Bungalow(tam, precioNoche, disponibilidad, descripcion, pathFotos, 
+						Bungalow b = new Bungalow(tam, precioNoche, disponibilidad, descripcion, 
 								 equipamiento, capacidadMaxima, estanciaMinima);
 						listBungalowsNueva.add(b);
 					}

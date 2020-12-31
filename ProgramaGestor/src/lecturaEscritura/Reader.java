@@ -93,13 +93,12 @@ public class Reader {
 				int tam = Integer.parseInt(myReader.next());
 				double precioNoche = Double.parseDouble(myReader.next());
 				boolean disponibilidad = Boolean.parseBoolean(myReader.next());
-				String pathFotos = myReader.next();
 				String equipamiento = myReader.next();
 				int capacidadMaxima = Integer.parseInt(myReader.next());
 				int estanciaMinima = Integer.parseInt(myReader.next());
 				String descripcion = myReader.nextLine();
 
-				Bungalow b = new Bungalow(tam, precioNoche, disponibilidad, descripcion, pathFotos, equipamiento,
+				Bungalow b = new Bungalow(tam, precioNoche, disponibilidad, descripcion, equipamiento,
 						capacidadMaxima, estanciaMinima);
 				listBungalows.add(b);
 			}
