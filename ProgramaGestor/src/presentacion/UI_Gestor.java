@@ -142,7 +142,6 @@ public class UI_Gestor {
 	private JButton btnVerActividad;
 	private JButton btnVerMonitor;
 	private JMenuItem mntmAbrirManual;
-	private JMenuItem mntmAboutUs;
 	private JMenuItem mntmAboutProgram;
 	private JMenuItem mntmSalir;
 	private JMenuItem mntmParcelas;
@@ -270,7 +269,8 @@ public class UI_Gestor {
 						passwordField.setEnabled(false);
 					}
 					{
-						btnIniciar = new JButton(MessagesUI_Gestor.getString("UI_Gestor.btnIniciar.text")); //$NON-NLS-1$
+						btnIniciar = new JButton(MessagesUI_Gestor.getString("UI_Gestor.btnIniciar.text"));
+						btnIniciar.setVisible(false);
 						btnIniciar.setBounds(122, 376, 158, 29);
 						panelInicioSesion.add(btnIniciar);
 						btnIniciar.addChangeListener(new BtnIniciarChangeListener());
@@ -1018,11 +1018,8 @@ public class UI_Gestor {
 				}
 				{
 					mntmAboutProgram = new JMenuItem(MessagesUI_Gestor.getString("UI_Gestor.mntmAboutProgram.text")); //$NON-NLS-1$
+					mntmAboutProgram.addActionListener(new MntmAboutProgramActionListener());
 					mnAyuda.add(mntmAboutProgram);
-				}
-				{
-					mntmAboutUs = new JMenuItem(MessagesUI_Gestor.getString("UI_Gestor.mntmAboutUs.text")); //$NON-NLS-1$
-					mnAyuda.add(mntmAboutUs);
 				}
 			}
 		}
@@ -1436,6 +1433,13 @@ public class UI_Gestor {
 				ventana.frmGestorLosOlivos.setVisible(true);
 				ventana.frmGestorLosOlivos.setLocationRelativeTo(null);
 			}
+		}
+	}
+	private class MntmAboutProgramActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			UI_AcercaDe ventana = new UI_AcercaDe();
+			ventana.setVisible(true);
+			ventana.setLocationRelativeTo(null);
 		}
 	}
 
