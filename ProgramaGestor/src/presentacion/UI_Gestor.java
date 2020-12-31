@@ -1369,6 +1369,17 @@ public class UI_Gestor {
 					textUsuario.setBorder(new LineBorder(Color.GREEN, 2));
 					passwordField.setEnabled(true);
 					lblFoto.setIcon(new ImageIcon(UI_Gestor.class.getResource(Reader.getListUsuarios().get(i).getFoto())));
+				}
+			}
+		}
+		@Override
+		public void keyTyped(KeyEvent e) {
+			String user = textUsuario.getText();
+			for(int i = 0; i<Reader.getListUsuarios().size(); i++) {
+				if (!user.equals(Reader.getListUsuarios().get(i).getNombre())) {
+					textUsuario.setBorder(new LineBorder(Color.RED, 2));
+					passwordField.setEnabled(false);
+					lblFoto.setIcon(new ImageIcon(UI_Gestor.class.getResource("/recursos/user.png")));
 				} 
 			}
 		}
