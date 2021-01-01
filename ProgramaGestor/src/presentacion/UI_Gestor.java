@@ -1406,6 +1406,7 @@ public class UI_Gestor {
 		public void actionPerformed(ActionEvent e) {
 			if (cbIdioma.getSelectedItem().equals("inglés")) { //$NON-NLS-1$
 				
+				MessagesUI_AcercaDe.setIdioma("inglés");
 				MessagesUI_Auxiliar.setIdioma("inglés"); //$NON-NLS-1$
 				MessagesUI_Calendario.setIdioma("inglés"); //$NON-NLS-1$
 				MessagesUI_DibujoRutas.setIdioma("inglés"); //$NON-NLS-1$
