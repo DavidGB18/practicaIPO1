@@ -56,8 +56,8 @@ public class UI_AcercaDe extends JFrame {
 	 */
 	public UI_AcercaDe() {
 		setResizable(false);
-		setIconImage(Toolkit.getDefaultToolkit().getImage(UI_AcercaDe.class.getResource("/recursos/logo.png")));
-		setTitle("Gestor Los Olivos - Acerca de...");
+		setIconImage(Toolkit.getDefaultToolkit().getImage(UI_AcercaDe.class.getResource("/recursos/logo.png"))); //$NON-NLS-1$
+		setTitle(MessagesUI_AcercaDe.getString("UI_AcercaDe.this.title")); //$NON-NLS-1$
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 523, 418);
 		contentPane = new JPanel();
@@ -70,11 +70,11 @@ public class UI_AcercaDe extends JFrame {
 			panelInformacion.setLayout(new BorderLayout(0, 0));
 			{
 				panelLogo = new JPanel();
-				panelLogo.setBorder(new TitledBorder(null, "Logo Gestor Los Olivos", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+				panelLogo.setBorder(new TitledBorder(null, MessagesUI_AcercaDe.getString("UI_AcercaDe.panelLogo.borderTitle"), TitledBorder.LEADING, TitledBorder.TOP, null, null)); //$NON-NLS-1$
 				panelInformacion.add(panelLogo, BorderLayout.NORTH);
 				{
-					lblFoto = new JLabel("");
-					lblFoto.setIcon(new ImageIcon(UI_AcercaDe.class.getResource("/recursos/logoPequeno.png")));
+					lblFoto = new JLabel(""); //$NON-NLS-1$
+					lblFoto.setIcon(new ImageIcon(UI_AcercaDe.class.getResource("/recursos/logoPequeno.png"))); //$NON-NLS-1$
 					panelLogo.add(lblFoto);
 				}
 			}
@@ -84,17 +84,17 @@ public class UI_AcercaDe extends JFrame {
 				{
 					txtrAcercaDelGestor = new JTextArea();
 					txtrAcercaDelGestor.setEditable(false);
-					txtrAcercaDelGestor.setText("Acerca del Gestor Los Olivos\r\nVersion Beta 1.0.0\r\n\r\n"
-							+ "Este programa esta pensado para poder ayudar a gestionar un \r\ncomplejo para "
-							+ "campings. Permite realizar algunas funciones \r\nrelacionadas con Monitores, "
-							+ "Actividades, Rutas, ...\r\n\r\nEste programa ha sido realizado por:\r\n - David Gonzalez "
-							+ "Bermudez\r\n - Lucas Gutierrez Duran");
+					txtrAcercaDelGestor.setText(MessagesUI_AcercaDe.getString("UI_AcercaDe.3") //$NON-NLS-1$
+							+ MessagesUI_AcercaDe.getString("UI_AcercaDe.4") //$NON-NLS-1$
+							+ MessagesUI_AcercaDe.getString("UI_AcercaDe.5") //$NON-NLS-1$
+							+ MessagesUI_AcercaDe.getString("UI_AcercaDe.6") //$NON-NLS-1$
+							+ MessagesUI_AcercaDe.getString("UI_AcercaDe.7")); //$NON-NLS-1$
 					scrollPane.setViewportView(txtrAcercaDelGestor);
 				}
 			}
 		}
 		{
-			btnCerrar = new JButton("Cerrar");
+			btnCerrar = new JButton(MessagesUI_AcercaDe.getString("UI_AcercaDe.btnCerrar.text")); //$NON-NLS-1$
 			btnCerrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 			btnCerrar.addActionListener(new BtnCerrarActionListener());
 			contentPane.add(btnCerrar, BorderLayout.SOUTH);
