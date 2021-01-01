@@ -1,1 +1,2 @@
-CaminoDeSantiago 12/12/2020 2 6 Sergio valdepenas 3 9 DIFICIL src/recursos/fotos/CaminoDeSantiago.png Preparate para hacer todo el camino en un solo día
+CaminoDeSantiago 12/12/2020 2 6 Sergio valdepenas 3 9 DIFICIL src/recursos/fotos/CaminoDeSantiago.png  Preparate para hacer todo el camino en un solo día
+Paseito 1/1/2021 0 1 Sergio plaza 1 4 FACIL src/recursos/fotos/Paseito.png un buen paseito
