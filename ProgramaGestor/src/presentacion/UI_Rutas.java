@@ -687,6 +687,7 @@ public class UI_Rutas extends JFrame {
 						}
 						{
 							panel_9 = new JPanel();
+							panel_9.setBorder(new TitledBorder(null, "Fecha y Hora", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 							GridBagConstraints gbc_panel_9 = new GridBagConstraints();
 							gbc_panel_9.gridheight = 2;
 							gbc_panel_9.gridwidth = 4;
@@ -759,6 +760,7 @@ public class UI_Rutas extends JFrame {
 						}
 						{
 							panel_10 = new JPanel();
+							panel_10.setBorder(new TitledBorder(null, "Datos de Ruta", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 							GridBagConstraints gbc_panel_10 = new GridBagConstraints();
 							gbc_panel_10.gridheight = 4;
 							gbc_panel_10.gridwidth = 4;
