@@ -153,7 +153,7 @@ public class UI_Rutas extends JFrame {
 						Faciles.setLayout(gbl_Faciles);
 						{
 							panel = new JPanel();
-							panel.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Rutas", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+							panel.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), MessagesUI_Rutas.getString("UI_Rutas.panel.borderTitle"), TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0))); //$NON-NLS-1$
 							GridBagConstraints gbc_panel = new GridBagConstraints();
 							gbc_panel.gridwidth = 4;
 							gbc_panel.insets = new Insets(0, 0, 5, 5);
@@ -186,7 +186,7 @@ public class UI_Rutas extends JFrame {
 						}
 						{
 							panel_1 = new JPanel();
-							panel_1.setBorder(new TitledBorder(null, "Fecha y Hora", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+							panel_1.setBorder(new TitledBorder(null, MessagesUI_Rutas.getString("UI_Rutas.panel_1.borderTitle"), TitledBorder.LEADING, TitledBorder.TOP, null, null)); //$NON-NLS-1$
 							GridBagConstraints gbc_panel_1 = new GridBagConstraints();
 							gbc_panel_1.gridheight = 2;
 							gbc_panel_1.gridwidth = 4;
@@ -260,7 +260,7 @@ public class UI_Rutas extends JFrame {
 						}
 						{
 							lblFoto = new JLabel("");
-							lblFoto.setBorder(new TitledBorder(null, "Foto Ruta", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+							lblFoto.setBorder(new TitledBorder(null, MessagesUI_Rutas.getString("UI_Rutas.lblFoto.borderTitle"), TitledBorder.LEADING, TitledBorder.TOP, null, null)); //$NON-NLS-1$
 							GridBagConstraints gbc_lblFoto = new GridBagConstraints();
 							gbc_lblFoto.gridheight = 8;
 							gbc_lblFoto.gridwidth = 2;
@@ -272,7 +272,7 @@ public class UI_Rutas extends JFrame {
 						}
 						{
 							panel_3 = new JPanel();
-							panel_3.setBorder(new TitledBorder(null, "Datos de Ruta", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+							panel_3.setBorder(new TitledBorder(null, MessagesUI_Rutas.getString("UI_Rutas.panel_3.borderTitle"), TitledBorder.LEADING, TitledBorder.TOP, null, null)); //$NON-NLS-1$
 							GridBagConstraints gbc_panel_3 = new GridBagConstraints();
 							gbc_panel_3.gridheight = 4;
 							gbc_panel_3.gridwidth = 4;
@@ -396,7 +396,7 @@ public class UI_Rutas extends JFrame {
 						Intermedias.setLayout(gbl_Intermedias);
 						{
 							panel_2 = new JPanel();
-							panel_2.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Rutas", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+							panel_2.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), MessagesUI_Rutas.getString("UI_Rutas.panel_2.borderTitle"), TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0))); //$NON-NLS-1$
 							GridBagConstraints gbc_panel_2 = new GridBagConstraints();
 							gbc_panel_2.gridwidth = 4;
 							gbc_panel_2.insets = new Insets(0, 0, 5, 5);
@@ -428,7 +428,7 @@ public class UI_Rutas extends JFrame {
 						}
 						{
 							panel_4 = new JPanel();
-							panel_4.setBorder(new TitledBorder(null, "Fecha y Hora", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+							panel_4.setBorder(new TitledBorder(null, MessagesUI_Rutas.getString("UI_Rutas.panel_4.borderTitle"), TitledBorder.LEADING, TitledBorder.TOP, null, null)); //$NON-NLS-1$
 							GridBagConstraints gbc_panel_4 = new GridBagConstraints();
 							gbc_panel_4.gridheight = 2;
 							gbc_panel_4.gridwidth = 4;
@@ -499,7 +499,7 @@ public class UI_Rutas extends JFrame {
 						}
 						{
 							panel_5 = new JPanel();
-							panel_5.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Foto Ruta", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+							panel_5.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), MessagesUI_Rutas.getString("UI_Rutas.panel_5.borderTitle"), TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0))); //$NON-NLS-1$
 							GridBagConstraints gbc_panel_5 = new GridBagConstraints();
 							gbc_panel_5.gridheight = 8;
 							gbc_panel_5.gridwidth = 2;
@@ -515,7 +515,7 @@ public class UI_Rutas extends JFrame {
 						}
 						{
 							panel_6 = new JPanel();
-							panel_6.setBorder(new TitledBorder(null, "Datos de Ruta", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+							panel_6.setBorder(new TitledBorder(null, MessagesUI_Rutas.getString("UI_Rutas.panel_6.borderTitle"), TitledBorder.LEADING, TitledBorder.TOP, null, null)); //$NON-NLS-1$
 							GridBagConstraints gbc_panel_6 = new GridBagConstraints();
 							gbc_panel_6.gridheight = 4;
 							gbc_panel_6.gridwidth = 4;
@@ -639,7 +639,7 @@ public class UI_Rutas extends JFrame {
 						Dificiles.setLayout(gbl_Dificiles);
 						{
 							panel_7 = new JPanel();
-							panel_7.setBorder(new TitledBorder(null, "Rutas", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+							panel_7.setBorder(new TitledBorder(null, MessagesUI_Rutas.getString("UI_Rutas.panel_7.borderTitle"), TitledBorder.LEADING, TitledBorder.TOP, null, null)); //$NON-NLS-1$
 							GridBagConstraints gbc_panel_7 = new GridBagConstraints();
 							gbc_panel_7.gridwidth = 4;
 							gbc_panel_7.insets = new Insets(0, 0, 5, 5);
@@ -671,7 +671,7 @@ public class UI_Rutas extends JFrame {
 						}
 						{
 							panel_8 = new JPanel();
-							panel_8.setBorder(new TitledBorder(null, "Foto Ruta", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+							panel_8.setBorder(new TitledBorder(null, MessagesUI_Rutas.getString("UI_Rutas.panel_8.borderTitle"), TitledBorder.LEADING, TitledBorder.TOP, null, null)); //$NON-NLS-1$
 							GridBagConstraints gbc_panel_8 = new GridBagConstraints();
 							gbc_panel_8.gridheight = 8;
 							gbc_panel_8.gridwidth = 2;
@@ -687,7 +687,7 @@ public class UI_Rutas extends JFrame {
 						}
 						{
 							panel_9 = new JPanel();
-							panel_9.setBorder(new TitledBorder(null, "Fecha y Hora", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+							panel_9.setBorder(new TitledBorder(null, MessagesUI_Rutas.getString("UI_Rutas.panel_9.borderTitle"), TitledBorder.LEADING, TitledBorder.TOP, null, null)); //$NON-NLS-1$
 							GridBagConstraints gbc_panel_9 = new GridBagConstraints();
 							gbc_panel_9.gridheight = 2;
 							gbc_panel_9.gridwidth = 4;
@@ -760,7 +760,7 @@ public class UI_Rutas extends JFrame {
 						}
 						{
 							panel_10 = new JPanel();
-							panel_10.setBorder(new TitledBorder(null, "Datos de Ruta", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+							panel_10.setBorder(new TitledBorder(null, MessagesUI_Rutas.getString("UI_Rutas.panel_10.borderTitle"), TitledBorder.LEADING, TitledBorder.TOP, null, null)); //$NON-NLS-1$
 							GridBagConstraints gbc_panel_10 = new GridBagConstraints();
 							gbc_panel_10.gridheight = 4;
 							gbc_panel_10.gridwidth = 4;
