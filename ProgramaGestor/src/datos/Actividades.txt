@@ -1,0 +1,3 @@
+Sergio 10 13 15 ninos 15  Cuentacuentos
+Sergio 2 4 12 adultos 32  La bomba
+Pablo 16 21 20 ancianos 20  Taller sobre la vida

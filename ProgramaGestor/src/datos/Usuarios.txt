@@ -1,0 +1,3 @@
+Lucas 12345 /recursos/fotos/lucas.jpg
+David 12345 /recursos/fotos/david.jpg
+Gestor 12345 /recursos/fotos/gestor.png

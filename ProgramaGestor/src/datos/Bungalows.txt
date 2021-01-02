@@ -1,0 +1,4 @@
+45 30.0 true piscina 2 5    agradable
+65 25.0 false cancha 3 5    comoda y confortable
+100 50.0 true piscina 5 7    grande y espaciosa
+333 333.0 true nada 3 0   hola
