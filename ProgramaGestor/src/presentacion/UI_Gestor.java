@@ -1307,7 +1307,7 @@ public class UI_Gestor {
 	private class BtnHelpActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 
-			String url = "https://github.com/DavidGB18/practicaIPO1/blob/Lucas/ProgramaGestor/manual.pdf"; //$NON-NLS-1$
+			String url = "https://www.youtube.com/watch?v=R_p8MWqnOcE"; //$NON-NLS-1$
 			
 			try {
 				URI uri = new URI(url);
